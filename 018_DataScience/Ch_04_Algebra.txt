@@ -1,0 +1,2698 @@
+============================================================
+                     DATA SCIENCE
+                CHAPTER 4 — ALGEBRA
+       Beginner → Foundation → Data Science Applications
+============================================================
+
+CHAPTER OBJECTIVES
+------------------
+After completing this chapter, you will understand:
+
+1. What algebra is and why it matters in Data Science.
+2. Variables, constants, coefficients, and terms.
+3. Algebraic expressions and their evaluation.
+4. Like terms and unlike terms.
+5. Simplification of algebraic expressions.
+6. Addition, subtraction, multiplication, and division
+   of algebraic expressions.
+7. Algebraic identities.
+8. Linear equations and their solutions.
+9. Simultaneous linear equations.
+10. Quadratic equations.
+11. Polynomials and their properties.
+12. Inequalities and their applications.
+13. Functions and mathematical relationships.
+14. Linear equations in machine learning.
+15. How to solve algebraic problems using Python.
+16. Practical applications of algebra in Data Science.
+
+============================================================
+4.1 INTRODUCTION TO ALGEBRA
+============================================================
+
+Algebra is a branch of mathematics that uses symbols,
+letters, and numbers to represent quantities and
+relationships.
+
+In arithmetic, we usually calculate with known numbers.
+
+Example:
+
+    10 + 20 = 30
+
+In algebra, we can represent an unknown number using a
+variable.
+
+Example:
+
+    x + 20 = 30
+
+Here, x represents an unknown value.
+
+To find x:
+
+    x + 20 = 30
+
+    x = 30 - 20
+
+    x = 10
+
+Therefore, the unknown value is 10.
+
+------------------------------------------------------------
+4.1.1 ARITHMETIC VS ALGEBRA
+------------------------------------------------------------
+
+ARITHMETIC:
+
+    5 + 3 = 8
+
+All numbers are known.
+
+ALGEBRA:
+
+    x + 3 = 8
+
+One value is unknown.
+
+Solving the equation gives:
+
+    x = 8 - 3
+
+    x = 5
+
+The main difference is that algebra allows us to
+represent unknown quantities and general relationships.
+
+------------------------------------------------------------
+4.1.2 WHY ALGEBRA IS IMPORTANT IN DATA SCIENCE
+------------------------------------------------------------
+
+Algebra is important because Data Science involves
+mathematical relationships between variables.
+
+Examples:
+
+1. Calculating total revenue:
+
+       Revenue = Price * Quantity
+
+2. Calculating average marks:
+
+       Average = Total Marks / Number of Subjects
+
+3. Predicting a numerical value:
+
+       y = mx + b
+
+4. Calculating prediction error:
+
+       Error = Actual Value - Predicted Value
+
+5. Representing a simple model:
+
+       Predicted Salary = a + b * Experience
+
+6. Representing a linear machine learning model:
+
+       Prediction = w1*x1 + w2*x2 + b
+
+In these expressions, variables represent quantities
+whose values may change.
+
+Algebra helps us understand how changing one variable
+affects another variable.
+
+============================================================
+4.2 FUNDAMENTAL COMPONENTS OF ALGEBRA
+============================================================
+
+An algebraic expression may contain:
+
+1. Variables
+2. Constants
+3. Coefficients
+4. Terms
+5. Operators
+6. Exponents
+
+Consider this expression:
+
+    5x + 3y - 7
+
+Let's understand every component.
+
+------------------------------------------------------------
+4.2.1 VARIABLE
+------------------------------------------------------------
+
+A variable is a symbol representing a quantity that
+may take different values.
+
+Examples:
+
+    x
+    y
+    z
+    a
+    b
+
+Consider:
+
+    x + 5
+
+If x = 2:
+
+    2 + 5 = 7
+
+If x = 10:
+
+    10 + 5 = 15
+
+The result changes when x changes.
+
+DATA SCIENCE EXAMPLE:
+
+    sales = 5000
+    advertising_cost = 1000
+
+Here, sales and advertising_cost represent numerical
+quantities in a program.
+
+Python:
+
+    sales = 5000
+    advertising_cost = 1000
+
+    print(sales)
+    print(advertising_cost)
+
+------------------------------------------------------------
+4.2.2 CONSTANT
+------------------------------------------------------------
+
+A constant is a fixed numerical value within a
+particular algebraic expression.
+
+Example:
+
+    x + 10
+
+Here, 10 is the constant term.
+
+Another example:
+
+    3x + 5y + 20
+
+The constant term is 20.
+
+The values of x and y may change, but the constant
+term 20 remains fixed in this expression.
+
+------------------------------------------------------------
+4.2.3 COEFFICIENT
+------------------------------------------------------------
+
+A coefficient is the numerical factor multiplying
+a variable.
+
+Example:
+
+    5x
+
+The coefficient of x is 5.
+
+Example:
+
+    7y
+
+The coefficient of y is 7.
+
+Example:
+
+    3x + 4y
+
+Coefficients:
+- Coefficient of x = 3
+- Coefficient of y = 4
+
+Example:
+
+    -8x
+
+The coefficient of x is -8.
+
+IMPORTANT:
+
+    x = 1x
+
+If a variable has no explicitly written numerical
+coefficient, its coefficient is understood to be 1.
+
+Similarly:
+
+    -x = -1x
+
+------------------------------------------------------------
+4.2.4 TERM
+------------------------------------------------------------
+
+A term is a component of an algebraic expression
+separated by addition or subtraction.
+
+Consider:
+
+    3x + 5y - 7
+
+The terms are:
+
+    3x
+    5y
+    -7
+
+The expression contains three terms.
+
+Another example:
+
+    4x^2 + 3x - 9
+
+Terms:
+- 4x^2
+- 3x
+- -9
+
+------------------------------------------------------------
+4.2.5 OPERATOR
+------------------------------------------------------------
+
+An operator specifies a mathematical operation.
+
+Common algebraic operators include:
+
+    +   Addition
+    -   Subtraction
+    *   Multiplication
+    /   Division
+    ^   Exponentiation in mathematical notation
+
+Example:
+
+    3x + 5
+
+The plus sign indicates addition.
+
+Python notation differs slightly:
+
+    x ** 2
+
+represents x squared.
+
+In Python, ^ is not the exponentiation operator.
+
+------------------------------------------------------------
+4.2.6 EXPONENT
+------------------------------------------------------------
+
+An exponent indicates a power.
+
+Example:
+
+    x^2
+
+This means:
+
+    x * x
+
+Example:
+
+    x^3
+
+This means:
+
+    x * x * x
+
+If x = 2:
+
+    x^2 = 2 * 2 = 4
+
+    x^3 = 2 * 2 * 2 = 8
+
+In Python:
+
+    x = 2
+
+    print(x ** 2)
+    print(x ** 3)
+
+Output:
+
+    4
+    8
+
+============================================================
+4.3 ALGEBRAIC EXPRESSIONS
+============================================================
+
+An algebraic expression combines variables, constants,
+and mathematical operations.
+
+Examples:
+
+    x + 5
+
+    2x + 3
+
+    4x - 7
+
+    3x + 2y + 10
+
+    x^2 + 5x + 6
+
+Expressions can represent numerical relationships
+without requiring an equality sign.
+
+------------------------------------------------------------
+4.3.1 EVALUATING AN ALGEBRAIC EXPRESSION
+------------------------------------------------------------
+
+Evaluating an expression means substituting known values
+for variables and calculating the result.
+
+Example:
+
+    Expression = 3x + 5
+
+Given:
+
+    x = 4
+
+Substitute x = 4:
+
+    3(4) + 5
+
+    = 12 + 5
+
+    = 17
+
+Therefore:
+
+    Result = 17
+
+Python:
+
+    x = 4
+
+    result = 3 * x + 5
+
+    print(result)
+
+Output:
+
+    17
+
+------------------------------------------------------------
+4.3.2 EXPRESSION WITH TWO VARIABLES
+------------------------------------------------------------
+
+Consider:
+
+    Expression = 2x + 3y
+
+Given:
+
+    x = 4
+    y = 5
+
+Substitute the values:
+
+    2(4) + 3(5)
+
+    = 8 + 15
+
+    = 23
+
+Python:
+
+    x = 4
+    y = 5
+
+    result = 2 * x + 3 * y
+
+    print(result)
+
+Output:
+
+    23
+
+------------------------------------------------------------
+4.3.3 REAL-WORLD EXAMPLE: TOTAL COST
+------------------------------------------------------------
+
+Suppose a customer buys products.
+
+Let:
+
+    p = Price per product
+    q = Quantity purchased
+
+The total cost is:
+
+    C = p * q
+
+Suppose:
+
+    p = 200
+    q = 5
+
+Then:
+
+    C = 200 * 5
+
+    C = 1000
+
+Python:
+
+    price = 200
+    quantity = 5
+
+    total_cost = price * quantity
+
+    print(total_cost)
+
+Output:
+
+    1000
+
+The algebraic formula works for many different prices
+and quantities.
+
+If the price or quantity changes, the formula can
+still be used without being rewritten.
+
+============================================================
+4.4 LIKE TERMS AND UNLIKE TERMS
+============================================================
+
+Understanding like terms is essential for simplifying
+algebraic expressions.
+
+------------------------------------------------------------
+4.4.1 LIKE TERMS
+------------------------------------------------------------
+
+Like terms have the same variables raised to the same
+powers.
+
+Examples:
+
+    3x and 5x
+
+    2y and 7y
+
+    4x^2 and 9x^2
+
+These are like terms.
+
+The numerical coefficients may differ.
+
+Example:
+
+    3x + 5x
+
+Since both terms contain x:
+
+    3x + 5x = 8x
+
+Another example:
+
+    7y - 2y
+
+    = 5y
+
+Another example:
+
+    4x^2 + 6x^2
+
+    = 10x^2
+
+------------------------------------------------------------
+4.4.2 UNLIKE TERMS
+------------------------------------------------------------
+
+Unlike terms have different variables or different
+powers of variables.
+
+Examples:
+
+    3x and 5y
+
+    2x and 2x^2
+
+    4a and 4b
+
+Unlike terms cannot generally be combined into a
+single like term.
+
+Example:
+
+    3x + 5y
+
+This cannot be simplified to 8xy or 8x.
+
+The variables represent different quantities.
+
+------------------------------------------------------------
+4.4.3 EXAMPLE
+------------------------------------------------------------
+
+Simplify:
+
+    3x + 5x + 2y + 7y
+
+Group like terms:
+
+    (3x + 5x) + (2y + 7y)
+
+Combine:
+
+    8x + 9y
+
+Final answer:
+
+    8x + 9y
+
+Another example:
+
+    5x^2 + 3x + 2x^2 + 4x
+
+Group like terms:
+
+    (5x^2 + 2x^2) + (3x + 4x)
+
+Combine:
+
+    7x^2 + 7x
+
+Final answer:
+
+    7x^2 + 7x
+
+============================================================
+4.5 SIMPLIFICATION OF ALGEBRAIC EXPRESSIONS
+============================================================
+
+Simplification means rewriting an expression in an
+equivalent but simpler form.
+
+Common techniques:
+- Combining like terms.
+- Removing unnecessary parentheses.
+- Applying arithmetic rules.
+- Using algebraic identities.
+- Simplifying fractions.
+
+------------------------------------------------------------
+4.5.1 COMBINING LIKE TERMS
+------------------------------------------------------------
+
+Simplify:
+
+    4x + 3x - 2x
+
+Combine coefficients:
+
+    (4 + 3 - 2)x
+
+    = 5x
+
+------------------------------------------------------------
+4.5.2 SIMPLIFYING MULTIPLE TERMS
+------------------------------------------------------------
+
+Simplify:
+
+    3x + 4y + 5x - 2y + 7
+
+Group like terms:
+
+    (3x + 5x) + (4y - 2y) + 7
+
+Combine:
+
+    8x + 2y + 7
+
+Final answer:
+
+    8x + 2y + 7
+
+------------------------------------------------------------
+4.5.3 REMOVING PARENTHESES
+------------------------------------------------------------
+
+Example 1:
+
+    3(x + 2)
+
+Multiply 3 by each term:
+
+    = 3x + 6
+
+Example 2:
+
+    2(3x + 4)
+
+    = 6x + 8
+
+Example 3:
+
+    5(x - 3)
+
+    = 5x - 15
+
+------------------------------------------------------------
+4.5.4 NEGATIVE SIGN BEFORE PARENTHESES
+------------------------------------------------------------
+
+Consider:
+
+    -(x + 5)
+
+The negative sign changes the sign of every term
+inside the parentheses.
+
+Therefore:
+
+    -(x + 5) = -x - 5
+
+Another example:
+
+    3x - (2x + 4)
+
+Remove the parentheses:
+
+    = 3x - 2x - 4
+
+Combine like terms:
+
+    = x - 4
+
+IMPORTANT:
+
+    -(a + b) = -a - b
+
+    -(a - b) = -a + b
+
+============================================================
+4.6 ALGEBRAIC ADDITION AND SUBTRACTION
+============================================================
+
+------------------------------------------------------------
+4.6.1 ADDING EXPRESSIONS
+------------------------------------------------------------
+
+Example:
+
+    (3x + 5) + (2x + 7)
+
+Remove parentheses:
+
+    3x + 5 + 2x + 7
+
+Group like terms:
+
+    3x + 2x + 5 + 7
+
+Combine:
+
+    5x + 12
+
+------------------------------------------------------------
+4.6.2 SUBTRACTING EXPRESSIONS
+------------------------------------------------------------
+
+Example:
+
+    (5x + 8) - (2x + 3)
+
+Remove parentheses carefully:
+
+    5x + 8 - 2x - 3
+
+Group like terms:
+
+    5x - 2x + 8 - 3
+
+Combine:
+
+    3x + 5
+
+------------------------------------------------------------
+4.6.3 PRACTICAL EXAMPLE
+------------------------------------------------------------
+
+A company has two sources of revenue.
+
+First source:
+
+    R1 = 3x + 500
+
+Second source:
+
+    R2 = 2x + 300
+
+Total revenue:
+
+    R = R1 + R2
+
+Substitute:
+
+    R = (3x + 500) + (2x + 300)
+
+Simplify:
+
+    R = 5x + 800
+
+If x = 100:
+
+    R = 5(100) + 800
+
+    R = 500 + 800
+
+    R = 1300
+
+Python:
+
+    x = 100
+
+    revenue_1 = 3 * x + 500
+    revenue_2 = 2 * x + 300
+
+    total_revenue = revenue_1 + revenue_2
+
+    print(total_revenue)
+
+Output:
+
+    1300
+
+============================================================
+4.7 ALGEBRAIC MULTIPLICATION
+============================================================
+
+Multiplication of algebraic expressions uses the
+distributive property.
+
+------------------------------------------------------------
+4.7.1 MULTIPLYING A NUMBER BY AN EXPRESSION
+------------------------------------------------------------
+
+Rule:
+
+    a(b + c) = ab + ac
+
+Example:
+
+    3(x + 4)
+
+Multiply 3 by each term:
+
+    = 3x + 12
+
+Another example:
+
+    5(2x - 3)
+
+    = 10x - 15
+
+------------------------------------------------------------
+4.7.2 MULTIPLYING TWO BINOMIALS
+------------------------------------------------------------
+
+A binomial is an algebraic expression containing
+two terms.
+
+Example:
+
+    (x + 2)(x + 3)
+
+Multiply each term in the first expression by each
+term in the second expression.
+
+    = x(x + 3) + 2(x + 3)
+
+    = x^2 + 3x + 2x + 6
+
+Combine like terms:
+
+    = x^2 + 5x + 6
+
+Final answer:
+
+    x^2 + 5x + 6
+
+------------------------------------------------------------
+4.7.3 ANOTHER EXAMPLE
+------------------------------------------------------------
+
+Simplify:
+
+    (x + 4)(x - 2)
+
+Expand:
+
+    = x(x - 2) + 4(x - 2)
+
+    = x^2 - 2x + 4x - 8
+
+Combine like terms:
+
+    = x^2 + 2x - 8
+
+------------------------------------------------------------
+4.7.4 ALGEBRAIC MULTIPLICATION IN DATA SCIENCE
+------------------------------------------------------------
+
+Suppose:
+
+    Revenue = Price * Quantity
+
+Let:
+
+    Price = x + 10
+    Quantity = x + 2
+
+Then:
+
+    Revenue = (x + 10)(x + 2)
+
+Expand:
+
+    Revenue = x^2 + 2x + 10x + 20
+
+    Revenue = x^2 + 12x + 20
+
+If x = 5:
+
+    Revenue = 25 + 60 + 20
+
+    Revenue = 105
+
+This example illustrates how multiplying two
+variable-based quantities can produce a quadratic
+expression.
+
+============================================================
+4.8 ALGEBRAIC DIVISION
+============================================================
+
+Algebraic division can simplify expressions when
+factors are shared.
+
+------------------------------------------------------------
+4.8.1 DIVIDING A MONOMIAL
+------------------------------------------------------------
+
+A monomial is an expression containing one term.
+
+Example:
+
+    12x / 3
+
+Divide the coefficients:
+
+    = 4x
+
+Another example:
+
+    15x^2 / 5
+
+    = 3x^2
+
+------------------------------------------------------------
+4.8.2 DIVIDING POWERS WITH THE SAME BASE
+------------------------------------------------------------
+
+For a nonzero variable x:
+
+    x^m / x^n = x^(m-n)
+
+Example:
+
+    x^5 / x^2
+
+    = x^(5-2)
+
+    = x^3
+
+------------------------------------------------------------
+4.8.3 SIMPLIFYING ALGEBRAIC FRACTIONS
+------------------------------------------------------------
+
+Example:
+
+              6x
+    Expression = ---
+                 3
+
+Simplify:
+
+    = 2x
+
+Another example:
+
+              6x^2
+    Expression = ----
+                 3x
+
+For x not equal to zero:
+
+    = 2x
+
+IMPORTANT:
+
+When cancelling a variable from the numerator and
+denominator, check whether the original denominator
+can be zero.
+
+============================================================
+4.9 ALGEBRAIC IDENTITIES
+============================================================
+
+An algebraic identity is an equality that is true for
+every value of its variables for which both sides
+are defined.
+
+Identities are useful for:
+- Simplifying expressions.
+- Expanding expressions.
+- Factoring expressions.
+- Solving equations.
+- Understanding polynomial models.
+
+------------------------------------------------------------
+4.9.1 SQUARE OF A SUM
+------------------------------------------------------------
+
+Identity:
+
+    (a + b)^2 = a^2 + 2ab + b^2
+
+Example:
+
+    (x + 3)^2
+
+Apply the identity:
+
+    = x^2 + 2(x)(3) + 3^2
+
+    = x^2 + 6x + 9
+
+IMPORTANT:
+
+Incorrect:
+
+    (a + b)^2 = a^2 + b^2
+
+Correct:
+
+    (a + b)^2 = a^2 + 2ab + b^2
+
+------------------------------------------------------------
+4.9.2 SQUARE OF A DIFFERENCE
+------------------------------------------------------------
+
+Identity:
+
+    (a - b)^2 = a^2 - 2ab + b^2
+
+Example:
+
+    (x - 4)^2
+
+    = x^2 - 2(x)(4) + 4^2
+
+    = x^2 - 8x + 16
+
+------------------------------------------------------------
+4.9.3 DIFFERENCE OF TWO SQUARES
+------------------------------------------------------------
+
+Identity:
+
+    a^2 - b^2 = (a - b)(a + b)
+
+Example:
+
+    x^2 - 25
+
+Rewrite 25 as 5^2:
+
+    = x^2 - 5^2
+
+Apply the identity:
+
+    = (x - 5)(x + 5)
+
+------------------------------------------------------------
+4.9.4 PRODUCT OF A SUM AND DIFFERENCE
+------------------------------------------------------------
+
+Identity:
+
+    (a + b)(a - b) = a^2 - b^2
+
+Example:
+
+    (x + 7)(x - 7)
+
+    = x^2 - 49
+
+------------------------------------------------------------
+4.9.5 CUBE OF A SUM
+------------------------------------------------------------
+
+Identity:
+
+    (a + b)^3 =
+        a^3 + 3a^2b + 3ab^2 + b^3
+
+Example:
+
+    (x + 2)^3
+
+    = x^3 + 3x^2(2) + 3x(2^2) + 2^3
+
+    = x^3 + 6x^2 + 12x + 8
+
+------------------------------------------------------------
+4.9.6 CUBE OF A DIFFERENCE
+------------------------------------------------------------
+
+Identity:
+
+    (a - b)^3 =
+        a^3 - 3a^2b + 3ab^2 - b^3
+
+Example:
+
+    (x - 1)^3
+
+    = x^3 - 3x^2 + 3x - 1
+
+============================================================
+4.10 FACTORISATION
+============================================================
+
+Factorisation is the process of expressing an algebraic
+expression as a product of simpler expressions.
+
+It reverses expansion.
+
+Example:
+
+    3x + 6
+
+Both terms have a common factor of 3.
+
+Factor out 3:
+
+    3x + 6 = 3(x + 2)
+
+------------------------------------------------------------
+4.10.1 COMMON FACTOR
+------------------------------------------------------------
+
+Example:
+
+    6x + 12
+
+The common factor is 6.
+
+Therefore:
+
+    6x + 12 = 6(x + 2)
+
+Another example:
+
+    8x^2 + 12x
+
+The greatest common numerical factor is 4, and both
+terms contain x.
+
+Therefore:
+
+    8x^2 + 12x = 4x(2x + 3)
+
+------------------------------------------------------------
+4.10.2 FACTORING A DIFFERENCE OF SQUARES
+------------------------------------------------------------
+
+Expression:
+
+    x^2 - 16
+
+Since:
+
+    16 = 4^2
+
+We can write:
+
+    x^2 - 4^2
+
+Apply the identity:
+
+    x^2 - 16 = (x - 4)(x + 4)
+
+------------------------------------------------------------
+4.10.3 FACTORING A QUADRATIC EXPRESSION
+------------------------------------------------------------
+
+Expression:
+
+    x^2 + 5x + 6
+
+Find two numbers that:
+- Multiply to 6.
+- Add to 5.
+
+Those numbers are 2 and 3.
+
+Therefore:
+
+    x^2 + 5x + 6 = (x + 2)(x + 3)
+
+Verification:
+
+    (x + 2)(x + 3)
+
+    = x^2 + 3x + 2x + 6
+
+    = x^2 + 5x + 6
+
+============================================================
+4.11 LINEAR EQUATIONS
+============================================================
+
+A linear equation is an equation in which the variables
+have degree 1.
+
+A simple linear equation has the form:
+
+    ax + b = c
+
+where a, b, and c are constants.
+
+For the equation to have a unique solution for x,
+a must not be zero.
+
+------------------------------------------------------------
+4.11.1 SOLVING A SIMPLE EQUATION
+------------------------------------------------------------
+
+Consider:
+
+    x + 7 = 15
+
+Subtract 7 from both sides:
+
+    x = 15 - 7
+
+    x = 8
+
+Verification:
+
+    8 + 7 = 15
+
+The solution is correct.
+
+------------------------------------------------------------
+4.11.2 EQUATION WITH MULTIPLICATION
+------------------------------------------------------------
+
+Consider:
+
+    3x = 21
+
+Divide both sides by 3:
+
+    x = 21 / 3
+
+    x = 7
+
+------------------------------------------------------------
+4.11.3 EQUATION WITH MULTIPLE OPERATIONS
+------------------------------------------------------------
+
+Consider:
+
+    2x + 5 = 17
+
+Step 1: Subtract 5.
+
+    2x = 12
+
+Step 2: Divide by 2.
+
+    x = 6
+
+Verification:
+
+    2(6) + 5 = 17
+
+    12 + 5 = 17
+
+    17 = 17
+
+------------------------------------------------------------
+4.11.4 VARIABLE ON BOTH SIDES
+------------------------------------------------------------
+
+Consider:
+
+    5x + 2 = 3x + 10
+
+Subtract 3x from both sides:
+
+    2x + 2 = 10
+
+Subtract 2:
+
+    2x = 8
+
+Divide by 2:
+
+    x = 4
+
+------------------------------------------------------------
+4.11.5 REAL-WORLD EXAMPLE
+------------------------------------------------------------
+
+A taxi service charges:
+- A fixed fee of Rs. 50.
+- Rs. 15 per kilometre.
+
+Let x represent the distance in kilometres.
+
+Total fare:
+
+    Fare = 50 + 15x
+
+Suppose the total fare is Rs. 200.
+
+Equation:
+
+    50 + 15x = 200
+
+Subtract 50:
+
+    15x = 150
+
+Divide by 15:
+
+    x = 10
+
+Therefore, the distance is 10 kilometres.
+
+Python:
+
+    fixed_fee = 50
+    cost_per_km = 15
+    total_fare = 200
+
+    distance = (
+        total_fare - fixed_fee
+    ) / cost_per_km
+
+    print(distance)
+
+Output:
+
+    10.0
+
+============================================================
+4.12 SIMULTANEOUS LINEAR EQUATIONS
+============================================================
+
+Simultaneous equations are two or more equations that
+must be satisfied by the same values of the variables.
+
+Example:
+
+    x + y = 10
+
+    x - y = 2
+
+We need to find x and y.
+
+------------------------------------------------------------
+4.12.1 ELIMINATION METHOD
+------------------------------------------------------------
+
+Given:
+
+    x + y = 10       Equation 1
+
+    x - y = 2        Equation 2
+
+Add the two equations:
+
+    (x + y) + (x - y) = 10 + 2
+
+The y terms cancel:
+
+    2x = 12
+
+Divide by 2:
+
+    x = 6
+
+Substitute into Equation 1:
+
+    6 + y = 10
+
+    y = 4
+
+Solution:
+
+    x = 6
+    y = 4
+
+Verification:
+
+    6 + 4 = 10
+
+    6 - 4 = 2
+
+Both equations are satisfied.
+
+------------------------------------------------------------
+4.12.2 SUBSTITUTION METHOD
+------------------------------------------------------------
+
+Consider:
+
+    x + y = 10
+
+    x - y = 2
+
+From the first equation:
+
+    x = 10 - y
+
+Substitute into the second equation:
+
+    (10 - y) - y = 2
+
+Simplify:
+
+    10 - 2y = 2
+
+Subtract 10:
+
+    -2y = -8
+
+Divide by -2:
+
+    y = 4
+
+Then:
+
+    x = 10 - 4
+
+    x = 6
+
+The solution is:
+
+    x = 6
+    y = 4
+
+------------------------------------------------------------
+4.12.3 APPLICATION IN DATA SCIENCE
+------------------------------------------------------------
+
+Suppose two products have unknown prices:
+
+    x = Price of Product A
+    y = Price of Product B
+
+A customer purchases one of each product for Rs. 100:
+
+    x + y = 100
+
+Another customer purchases two units of A and one unit
+of B for Rs. 160:
+
+    2x + y = 160
+
+Subtract the first equation from the second:
+
+    (2x + y) - (x + y) = 160 - 100
+
+    x = 60
+
+Substitute into the first equation:
+
+    60 + y = 100
+
+    y = 40
+
+Therefore:
+
+    Price of Product A = Rs. 60
+    Price of Product B = Rs. 40
+
+This example assumes the prices remain constant and
+there are no additional fees or discounts.
+
+============================================================
+4.13 QUADRATIC EQUATIONS
+============================================================
+
+A quadratic equation is an equation whose highest
+power of the variable is 2.
+
+General form:
+
+    ax^2 + bx + c = 0
+
+where:
+- a, b, and c are constants.
+- a must not equal zero.
+
+Example:
+
+    x^2 + 5x + 6 = 0
+
+------------------------------------------------------------
+4.13.1 SOLVING BY FACTORISATION
+------------------------------------------------------------
+
+Consider:
+
+    x^2 + 5x + 6 = 0
+
+Factorise:
+
+    (x + 2)(x + 3) = 0
+
+If the product of two factors is zero, at least one
+factor must be zero.
+
+Therefore:
+
+    x + 2 = 0
+
+or:
+
+    x + 3 = 0
+
+Solutions:
+
+    x = -2
+
+or:
+
+    x = -3
+
+------------------------------------------------------------
+4.13.2 QUADRATIC FORMULA
+------------------------------------------------------------
+
+For:
+
+    ax^2 + bx + c = 0
+
+The solutions are:
+
+                 -b ± sqrt(b^2 - 4ac)
+    x =          ---------------------
+                           2a
+
+This is the quadratic formula.
+
+The expression:
+
+    D = b^2 - 4ac
+
+is called the discriminant.
+
+------------------------------------------------------------
+4.13.3 UNDERSTANDING THE DISCRIMINANT
+------------------------------------------------------------
+
+For a quadratic equation with real coefficients:
+
+If:
+
+    D > 0
+
+There are two distinct real roots.
+
+If:
+
+    D = 0
+
+There is one repeated real root.
+
+If:
+
+    D < 0
+
+There are no real roots, but there are two complex
+roots when counted with multiplicity.
+
+Example:
+
+    x^2 - 5x + 6 = 0
+
+Here:
+
+    a = 1
+    b = -5
+    c = 6
+
+Calculate the discriminant:
+
+    D = (-5)^2 - 4(1)(6)
+
+    D = 25 - 24
+
+    D = 1
+
+Since D > 0, there are two distinct real roots.
+
+Using the formula:
+
+    x = (5 ± sqrt(1)) / 2
+
+First root:
+
+    x = (5 + 1) / 2
+
+    x = 3
+
+Second root:
+
+    x = (5 - 1) / 2
+
+    x = 2
+
+Solutions:
+
+    x = 2 or x = 3
+
+------------------------------------------------------------
+4.13.4 QUADRATIC EQUATIONS IN DATA SCIENCE
+------------------------------------------------------------
+
+Quadratic expressions appear in:
+- Polynomial regression.
+- Squared-error calculations.
+- Optimization.
+- Curved relationships between variables.
+- Some physical and financial models.
+
+Example:
+
+    y = x^2
+
+Values:
+
+    x       y
+    -----------
+    -2      4
+    -1      1
+     0      0
+     1      1
+     2      4
+
+Unlike a straight-line relationship, this expression
+describes a curve.
+
+============================================================
+4.14 POLYNOMIALS
+============================================================
+
+A polynomial is an expression formed from variables
+and coefficients using nonnegative integer powers
+of the variables.
+
+Examples:
+
+    3x + 5
+
+    x^2 + 4x + 3
+
+    2x^3 - 5x^2 + x - 7
+
+------------------------------------------------------------
+4.14.1 TYPES OF POLYNOMIALS
+------------------------------------------------------------
+
+By number of terms:
+
+Monomial:
+    5x
+
+Binomial:
+    x + 3
+
+Trinomial:
+    x^2 + 3x + 2
+
+A polynomial may contain more than three terms.
+
+------------------------------------------------------------
+4.14.2 DEGREE OF A POLYNOMIAL
+------------------------------------------------------------
+
+For a nonzero polynomial in one variable, its degree
+is the highest exponent with a nonzero coefficient.
+
+Example:
+
+    3x + 5
+
+Degree = 1
+
+Example:
+
+    x^2 + 4x + 3
+
+Degree = 2
+
+Example:
+
+    2x^3 - 5x^2 + x - 7
+
+Degree = 3
+
+------------------------------------------------------------
+4.14.3 POLYNOMIAL EVALUATION
+------------------------------------------------------------
+
+Consider:
+
+    f(x) = 2x^2 + 3x + 1
+
+If x = 2:
+
+    f(2) = 2(2^2) + 3(2) + 1
+
+    = 2(4) + 6 + 1
+
+    = 8 + 6 + 1
+
+    = 15
+
+Python:
+
+    x = 2
+
+    result = 2 * x ** 2 + 3 * x + 1
+
+    print(result)
+
+Output:
+
+    15
+
+------------------------------------------------------------
+4.14.4 POLYNOMIALS IN MACHINE LEARNING
+------------------------------------------------------------
+
+A polynomial model can represent nonlinear relationships.
+
+A linear model:
+
+    y = b + w1*x
+
+A quadratic model:
+
+    y = b + w1*x + w2*x^2
+
+A cubic model:
+
+    y = b + w1*x + w2*x^2 + w3*x^3
+
+These models can represent increasingly complex
+relationships.
+
+However, adding higher-degree terms can cause
+overfitting if the model becomes too complex for the
+available data.
+
+============================================================
+4.15 ALGEBRAIC INEQUALITIES
+============================================================
+
+An inequality compares two expressions.
+
+Common symbols:
+
+    <   Less than
+    >   Greater than
+    <=  Less than or equal to
+    >=  Greater than or equal to
+
+------------------------------------------------------------
+4.15.1 SOLVING AN INEQUALITY
+------------------------------------------------------------
+
+Consider:
+
+    x + 3 > 10
+
+Subtract 3 from both sides:
+
+    x > 7
+
+This means any value greater than 7 satisfies the
+inequality.
+
+Examples of solutions:
+
+    x = 8
+    x = 10
+    x = 100
+
+------------------------------------------------------------
+4.15.2 MULTIPLYING BY A NEGATIVE NUMBER
+------------------------------------------------------------
+
+An important rule:
+
+When multiplying or dividing both sides of an
+inequality by a negative number, reverse the
+inequality sign.
+
+Example:
+
+    -2x > 6
+
+Divide both sides by -2 and reverse the sign:
+
+    x < -3
+
+Verification with x = -4:
+
+    -2(-4) > 6
+
+    8 > 6
+
+This is true.
+
+------------------------------------------------------------
+4.15.3 APPLICATION IN DATA SCIENCE
+------------------------------------------------------------
+
+Suppose a system flags an order when its value is
+greater than Rs. 5000.
+
+Condition:
+
+    order_value > 5000
+
+Python:
+
+    order_value = 6500
+
+    if order_value > 5000:
+        print("Order exceeds threshold")
+
+Output:
+
+    Order exceeds threshold
+
+Threshold-based rules can be useful, but a threshold
+does not by itself establish fraud or unusual behavior.
+
+============================================================
+4.16 FUNCTIONS AND ALGEBRAIC RELATIONSHIPS
+============================================================
+
+A function maps each input in its domain to exactly
+one output.
+
+Notation:
+
+    y = f(x)
+
+Example:
+
+    f(x) = 2x + 3
+
+If x = 4:
+
+    f(4) = 2(4) + 3
+
+    f(4) = 11
+
+------------------------------------------------------------
+4.16.1 LINEAR FUNCTION
+------------------------------------------------------------
+
+General form:
+
+    f(x) = mx + b
+
+Where:
+- m is the slope.
+- b is the y-intercept.
+
+Example:
+
+    f(x) = 3x + 2
+
+If x = 0:
+
+    f(0) = 2
+
+If x = 1:
+
+    f(1) = 5
+
+If x = 2:
+
+    f(2) = 8
+
+------------------------------------------------------------
+4.16.2 QUADRATIC FUNCTION
+------------------------------------------------------------
+
+General form:
+
+    f(x) = ax^2 + bx + c
+
+where a is not zero.
+
+Example:
+
+    f(x) = x^2 + 2
+
+If x = 1:
+
+    f(1) = 1 + 2 = 3
+
+If x = 2:
+
+    f(2) = 4 + 2 = 6
+
+If x = 3:
+
+    f(3) = 9 + 2 = 11
+
+------------------------------------------------------------
+4.16.3 COMPARING LINEAR AND QUADRATIC FUNCTIONS
+------------------------------------------------------------
+
+Linear function:
+
+    y = 2x
+
+Values:
+
+    x       y
+    -----------
+    1       2
+    2       4
+    3       6
+    4       8
+
+The output increases by 2 for every one-unit increase
+in x.
+
+Quadratic function:
+
+    y = x^2
+
+Values:
+
+    x       y
+    -----------
+    1       1
+    2       4
+    3       9
+    4       16
+
+The output does not increase by a constant amount.
+
+This difference matters when choosing mathematical
+models for real datasets.
+
+============================================================
+4.17 ALGEBRA IN MACHINE LEARNING
+============================================================
+
+Algebra provides the language used to represent many
+machine learning models.
+
+------------------------------------------------------------
+4.17.1 SIMPLE LINEAR MODEL
+------------------------------------------------------------
+
+A simple linear model is:
+
+    y_hat = wx + b
+
+Where:
+- x = input feature.
+- w = weight.
+- b = bias.
+- y_hat = predicted output.
+
+Suppose:
+
+    x = 5
+    w = 3
+    b = 2
+
+Then:
+
+    y_hat = 3(5) + 2
+
+    y_hat = 17
+
+Python:
+
+    x = 5
+    weight = 3
+    bias = 2
+
+    prediction = weight * x + bias
+
+    print(prediction)
+
+Output:
+
+    17
+
+This demonstrates how a mathematical expression
+produces a prediction.
+
+The values of the weight and bias would normally be
+learned or chosen for a particular problem.
+
+------------------------------------------------------------
+4.17.2 MULTIPLE INPUT FEATURES
+------------------------------------------------------------
+
+A model may use several input features.
+
+For example:
+
+    x1 = Study Hours
+    x2 = Attendance Percentage
+    x3 = Assignment Score
+
+A linear prediction model can be represented as:
+
+    y_hat = w1*x1 + w2*x2 + w3*x3 + b
+
+Suppose:
+
+    x1 = 5
+    x2 = 90
+    x3 = 80
+
+    w1 = 2
+    w2 = 0.1
+    w3 = 0.5
+
+    b = 10
+
+Then:
+
+    y_hat =
+        2(5) + 0.1(90) + 0.5(80) + 10
+
+    y_hat = 10 + 9 + 40 + 10
+
+    y_hat = 69
+
+Python:
+
+    study_hours = 5
+    attendance = 90
+    assignment_score = 80
+
+    w1 = 2
+    w2 = 0.1
+    w3 = 0.5
+
+    bias = 10
+
+    prediction = (
+        w1 * study_hours
+        + w2 * attendance
+        + w3 * assignment_score
+        + bias
+    )
+
+    print(prediction)
+
+Output:
+
+    69.0
+
+IMPORTANT:
+These weights are illustrative, not trained values.
+A real model needs appropriate training data, validation,
+and evaluation.
+
+============================================================
+4.18 SOLVING ALGEBRA USING PYTHON
+============================================================
+
+Python can evaluate expressions and solve certain
+algebraic equations.
+
+For symbolic mathematics, a popular library is SymPy.
+
+Installation:
+
+    pip install sympy
+
+------------------------------------------------------------
+4.18.1 SYMBOLIC VARIABLES
+------------------------------------------------------------
+
+Example:
+
+    import sympy as sp
+
+    x = sp.Symbol("x")
+
+    expression = 3 * x + 5
+
+    print(expression)
+
+Output:
+
+    3*x + 5
+
+Unlike ordinary numerical variables, symbolic variables
+represent mathematical quantities.
+
+------------------------------------------------------------
+4.18.2 SIMPLIFYING AN EXPRESSION
+------------------------------------------------------------
+
+Program:
+
+    import sympy as sp
+
+    x = sp.Symbol("x")
+
+    expression = 3*x + 5*x - 2*x
+
+    result = sp.simplify(expression)
+
+    print(result)
+
+Output:
+
+    6*x
+
+------------------------------------------------------------
+4.18.3 EXPANDING AN EXPRESSION
+------------------------------------------------------------
+
+Program:
+
+    import sympy as sp
+
+    x = sp.Symbol("x")
+
+    expression = (x + 2) * (x + 3)
+
+    expanded = sp.expand(expression)
+
+    print(expanded)
+
+Output:
+
+    x**2 + 5*x + 6
+
+------------------------------------------------------------
+4.18.4 FACTORING AN EXPRESSION
+------------------------------------------------------------
+
+Program:
+
+    import sympy as sp
+
+    x = sp.Symbol("x")
+
+    expression = x**2 + 5*x + 6
+
+    factored = sp.factor(expression)
+
+    print(factored)
+
+Output:
+
+    (x + 2)*(x + 3)
+
+------------------------------------------------------------
+4.18.5 SOLVING A LINEAR EQUATION
+------------------------------------------------------------
+
+Solve:
+
+    2x + 5 = 17
+
+Program:
+
+    import sympy as sp
+
+    x = sp.Symbol("x")
+
+    equation = sp.Eq(2*x + 5, 17)
+
+    solution = sp.solve(equation, x)
+
+    print(solution)
+
+Output:
+
+    [6]
+
+------------------------------------------------------------
+4.18.6 SOLVING A QUADRATIC EQUATION
+------------------------------------------------------------
+
+Solve:
+
+    x^2 - 5x + 6 = 0
+
+Program:
+
+    import sympy as sp
+
+    x = sp.Symbol("x")
+
+    equation = sp.Eq(
+        x**2 - 5*x + 6,
+        0
+    )
+
+    solutions = sp.solve(equation, x)
+
+    print(solutions)
+
+Output:
+
+    [2, 3]
+
+SymPy returns the solutions of the equation.
+
+============================================================
+4.19 PRACTICAL PROJECT
+      ALGEBRA-BASED REVENUE PREDICTOR
+============================================================
+
+PROJECT OBJECTIVE
+-----------------
+
+Create a simple program that estimates revenue using
+an algebraic equation.
+
+Assume:
+
+    Revenue = Fixed Revenue + Revenue Per Unit * Quantity
+
+Let:
+
+    Fixed Revenue = 1000
+    Revenue Per Unit = 50
+    Quantity = 20
+
+Formula:
+
+    R = 1000 + 50x
+
+Substitute x = 20:
+
+    R = 1000 + 50(20)
+
+    R = 1000 + 1000
+
+    R = 2000
+
+PYTHON PROGRAM
+--------------
+
+    fixed_revenue = 1000
+    revenue_per_unit = 50
+
+    quantity = 20
+
+    revenue = (
+        fixed_revenue
+        + revenue_per_unit * quantity
+    )
+
+    print("Quantity:", quantity)
+    print("Estimated Revenue:", revenue)
+
+OUTPUT
+------
+
+    Quantity: 20
+    Estimated Revenue: 2000
+
+------------------------------------------------------------
+4.19.1 EXTENDING THE PROJECT
+------------------------------------------------------------
+
+Calculate revenue for multiple quantities.
+
+    fixed_revenue = 1000
+    revenue_per_unit = 50
+
+    quantities = [0, 10, 20, 30, 40, 50]
+
+    for quantity in quantities:
+
+        revenue = (
+            fixed_revenue
+            + revenue_per_unit * quantity
+        )
+
+        print(
+            "Quantity:",
+            quantity,
+            "Revenue:",
+            revenue
+        )
+
+Expected output:
+
+    Quantity: 0 Revenue: 1000
+    Quantity: 10 Revenue: 1500
+    Quantity: 20 Revenue: 2000
+    Quantity: 30 Revenue: 2500
+    Quantity: 40 Revenue: 3000
+    Quantity: 50 Revenue: 3500
+
+------------------------------------------------------------
+4.19.2 INTERPRETING THE RESULTS
+------------------------------------------------------------
+
+The equation is:
+
+    R = 1000 + 50x
+
+The constant 1000 represents the assumed fixed component.
+
+The coefficient 50 represents the change in revenue
+per additional unit under this model.
+
+If quantity increases by 10:
+
+    Change in Revenue = 50 * 10
+
+    Change in Revenue = 500
+
+Therefore, revenue increases by 500.
+
+This interpretation depends on the assumptions built
+into the model.
+
+In a real business, costs, demand, discounts, and other
+factors may affect revenue.
+
+============================================================
+4.20 COMMON ALGEBRA MISTAKES
+============================================================
+
+MISTAKE 1: Combining unlike terms
+
+Incorrect:
+
+    3x + 4y = 7xy
+
+Correct:
+
+    3x + 4y
+
+MISTAKE 2: Incorrect square expansion
+
+Incorrect:
+
+    (a + b)^2 = a^2 + b^2
+
+Correct:
+
+    (a + b)^2 = a^2 + 2ab + b^2
+
+MISTAKE 3: Incorrect sign distribution
+
+Incorrect:
+
+    -(x + 3) = -x + 3
+
+Correct:
+
+    -(x + 3) = -x - 3
+
+MISTAKE 4: Forgetting the equality balance
+
+If:
+
+    x + 5 = 12
+
+Subtract 5 from both sides.
+
+    x = 7
+
+An equation must remain balanced.
+
+MISTAKE 5: Dividing by a variable without checking zero
+
+For example:
+
+    x^2 / x = x
+
+This simplification is valid only when x is not zero.
+
+MISTAKE 6: Confusing expressions and equations
+
+Expression:
+
+    2x + 5
+
+Equation:
+
+    2x + 5 = 17
+
+An expression does not necessarily state an equality.
+
+MISTAKE 7: Confusing Python notation
+
+Mathematics:
+
+    x^2
+
+Python:
+
+    x ** 2
+
+MISTAKE 8: Assuming every model is linear
+
+Real-world relationships may be nonlinear.
+
+A linear model is useful when its assumptions are
+appropriate, but it is not always the best model.
+
+MISTAKE 9: Assuming a model proves causation
+
+A mathematical relationship does not automatically
+prove that one variable causes another to change.
+
+MISTAKE 10: Ignoring the meaning of units
+
+If:
+
+    Price = Rs. 100 per item
+
+and:
+
+    Quantity = 5 items
+
+then:
+
+    Revenue = Rs. 500
+
+Units help ensure that formulas make practical sense.
+
+============================================================
+4.21 CHAPTER SUMMARY
+============================================================
+
+In this chapter, you learned:
+
+1. Algebra represents unknown quantities and relationships.
+
+2. Variables represent quantities that may change.
+
+3. Constants represent fixed values within an expression.
+
+4. Coefficients multiply variables.
+
+5. Terms are separated by addition or subtraction.
+
+6. Algebraic expressions can be evaluated by substituting
+   values for variables.
+
+7. Like terms can be combined.
+
+8. Unlike terms cannot generally be combined into a
+   single like term.
+
+9. The distributive property helps expand expressions.
+
+10. Algebraic identities simplify mathematical work.
+
+11. Factorisation expresses an expression as a product.
+
+12. Linear equations have variables of degree 1.
+
+13. Simultaneous equations can be solved using elimination
+    or substitution.
+
+14. Quadratic equations have degree 2.
+
+15. The quadratic formula solves quadratic equations.
+
+16. Polynomials contain variables raised to nonnegative
+    integer powers.
+
+17. Inequalities describe numerical constraints.
+
+18. Functions map inputs to outputs.
+
+19. Linear and quadratic functions represent different
+    types of relationships.
+
+20. Machine learning models often use algebraic formulas.
+
+21. Python evaluates numerical expressions.
+
+22. SymPy supports symbolic algebra.
+
+23. Algebra is essential for understanding more advanced
+    topics in Data Science and machine learning.
+
+============================================================
+4.22 SELF-ASSESSMENT QUESTIONS
+============================================================
+
+Choose the correct answer for each question.
+
+------------------------------------------------------------
+SECTION A: FUNDAMENTALS
+------------------------------------------------------------
+
+Q1. In the expression 7x + 5, what is the coefficient
+of x?
+
+A. 5
+B. 7
+C. x
+D. 12
+
+Q2. Simplify:
+
+    3x + 5x - 2x
+
+A. 6x
+B. 10x
+C. 8x
+D. 6x^2
+
+Q3. If x = 4, calculate:
+
+    2x + 3
+
+A. 8
+B. 9
+C. 11
+D. 12
+
+Q4. Expand:
+
+    3(x + 4)
+
+A. 3x + 4
+B. 3x + 12
+C. 7x
+D. 12x
+
+Q5. Which expression is a pair of like terms?
+
+A. 3x and 4y
+B. 2x and 2x^2
+C. 5x and 7x
+D. x and y
+
+------------------------------------------------------------
+SECTION B: EQUATIONS AND IDENTITIES
+------------------------------------------------------------
+
+Q6. Solve:
+
+    2x + 6 = 18
+
+A. 4
+B. 5
+C. 6
+D. 12
+
+Q7. Factorise:
+
+    x^2 - 25
+
+A. (x - 5)(x + 5)
+B. (x - 25)(x + 1)
+C. (x - 5)^2
+D. (x + 5)^2
+
+Q8. Expand:
+
+    (x + 2)^2
+
+A. x^2 + 4
+B. x^2 + 2x + 4
+C. x^2 + 4x + 4
+D. x^2 + 4x + 2
+
+Q9. Solve:
+
+    x^2 - 5x + 6 = 0
+
+A. x = 1, 6
+B. x = 2, 3
+C. x = -2, -3
+D. x = 0, 5
+
+Q10. What is the degree of this polynomial?
+
+    4x^3 + 2x^2 + 7x + 1
+
+A. 1
+B. 2
+C. 3
+D. 4
+
+------------------------------------------------------------
+SECTION C: DATA SCIENCE APPLICATIONS
+------------------------------------------------------------
+
+Q11. A model is represented by:
+
+    y = 3x + 2
+
+What is y when x = 4?
+
+A. 10
+B. 12
+C. 14
+D. 16
+
+Q12. Which Python expression calculates x squared?
+
+A. x ^ 2
+B. x ** 2
+C. x // 2
+D. x % 2
+
+Q13. Which Python library supports symbolic algebra?
+
+A. SymPy
+B. Random
+C. Turtle
+D. Time
+
+Q14. In the model:
+
+    y = wx + b
+
+what does w usually represent?
+
+A. Input data only
+B. Weight or coefficient
+C. Output dataset size
+D. File name
+
+Q15. A business model is:
+
+    Revenue = 1000 + 50x
+
+What is the revenue when x = 10?
+
+A. 500
+B. 1000
+C. 1500
+D. 2000
+
+------------------------------------------------------------
+ANSWER KEY
+------------------------------------------------------------
+
+Q1. B — 7
+
+Q2. A — 6x
+
+Q3. C — 11
+
+Q4. B — 3x + 12
+
+Q5. C — 5x and 7x
+
+Q6. C — 6
+
+Q7. A — (x - 5)(x + 5)
+
+Q8. C — x^2 + 4x + 4
+
+Q9. B — x = 2, 3
+
+Q10. C — 3
+
+Q11. C — 14
+
+Q12. B — x ** 2
+
+Q13. A — SymPy
+
+Q14. B — Weight or coefficient
+
+Q15. C — 1500
+
+============================================================
+CHAPTER 4 — ALGEBRA COMPLETE
+============================================================
+
+NEXT CHAPTER:
+CHAPTER 5 — BASIC STATISTICS
+
+Planned topics:
+1. Introduction to Statistics
+2. Population and Sample
+3. Descriptive and Inferential Statistics
+4. Types of Statistical Data
+5. Mean, Median, and Mode
+6. Range and Variability
+7. Variance
+8. Standard Deviation
+9. Quartiles and Percentiles
+10. Interquartile Range
+11. Outlier Detection
+12. Data Distribution
+13. Skewness
+14. Covariance
+15. Correlation
+16. Practical Statistics Using Python
+============================================================

@@ -1,0 +1,2794 @@
+================================================================
+           SYSTEM DESIGN — CHAPTER 1
+              CLIENT-SERVER ARCHITECTURE
+================================================================
+
+LEVEL: Absolute Beginner → Intermediate → Interview Ready
+
+CHAPTER CONTENTS
+----------------
+1.1  What is a Client?
+1.2  What is a Server?
+1.3  What is a Request?
+1.4  What is a Response?
+1.5  Client-Server Model
+1.6  Multi-Tier Architecture
+1.7  2-Tier Architecture
+1.8  3-Tier Architecture
+1.9  N-Tier Architecture
+1.10 Presentation Layer
+1.11 Application Layer
+1.12 Data Layer
+1.13 Browser → Server Communication
+1.14 Mobile → Backend Communication
+1.15 Service-to-Service Communication
+
+
+================================================================
+1.1 WHAT IS A CLIENT?
+================================================================
+
+DEFINITION
+----------
+
+A client is a program or device that requests a service or
+resource from another component, usually a server.
+
+The client initiates a communication operation and uses the
+response to perform some task.
+
+A client may be:
+
+1. A web browser
+2. A mobile application
+3. A desktop application
+4. A command-line application
+5. An IoT device
+6. Another backend service
+
+
+EXAMPLE 1: WEB BROWSER
+----------------------
+
+Suppose you open:
+
+https://www.example.com
+
+Your browser acts as a client.
+
+It sends an HTTP request to the server hosting the website.
+
+The server processes the request and sends back a response.
+
+The browser interprets the response and displays the page.
+
+
+    +-----------------------+
+    |     WEB BROWSER       |
+    |                       |
+    | Chrome / Firefox      |
+    |                       |
+    | Acts as CLIENT        |
+    +-----------+-----------+
+                |
+                | HTTP Request
+                v
+           WEB SERVER
+                |
+                | HTTP Response
+                v
+    +-----------------------+
+    |     WEB BROWSER       |
+    |                       |
+    | Displays the webpage  |
+    +-----------------------+
+
+
+EXAMPLE 2: MOBILE APPLICATION
+-----------------------------
+
+Suppose you open a food-delivery application.
+
+The application requests restaurant information from its backend.
+
+Example request:
+
+GET /api/restaurants
+
+The backend returns restaurant information.
+
+The mobile application displays the results.
+
+Here:
+
+Mobile application = Client
+Backend application = Server
+
+
+EXAMPLE 3: DATABASE CLIENT
+--------------------------
+
+A database administration tool may connect to PostgreSQL.
+
+The administration tool sends SQL commands.
+
+PostgreSQL processes those commands and returns results.
+
+Here:
+
+Database administration tool = Client
+PostgreSQL database server = Server
+
+
+IMPORTANT CONCEPT
+-----------------
+
+A client does not have to be a human-operated application.
+
+One backend service can act as a client when it requests
+information from another backend service.
+
+For example:
+
+Order Service → Payment Service
+
+The Order Service is the client for that particular interaction.
+
+The Payment Service is the server for that interaction.
+
+
+CLIENT RESPONSIBILITIES
+-----------------------
+
+A client commonly handles:
+
+1. User interaction
+2. Collecting input
+3. Sending requests
+4. Receiving responses
+5. Displaying results
+6. Managing local application state
+7. Handling user-visible errors
+8. Maintaining communication connections when necessary
+
+
+CLIENT-SIDE VALIDATION
+----------------------
+
+A client can validate input before sending it.
+
+Example:
+
+A user enters an invalid email address.
+
+The browser may display:
+
+"Please enter a valid email address."
+
+This improves user experience.
+
+However, client-side validation is not sufficient for security.
+
+A malicious user can bypass browser validation and send a
+custom request.
+
+Therefore, the server must independently validate input
+and enforce security rules.
+
+
+STATEFUL VS STATELESS CLIENTS
+-----------------------------
+
+A stateful client maintains information about previous
+interactions.
+
+Example:
+A shopping application remembers the items in a cart.
+
+A stateless request does not depend on server-side session
+state being retained between requests.
+
+The distinction requires care:
+
+A client may maintain local state while communicating with
+a stateless server.
+
+Also, a server can support stateful sessions even when the
+client itself is a simple browser.
+
+
+INTERVIEW QUESTIONS
+-------------------
+
+Q1. What is a client?
+
+Answer:
+A client is a program or device that requests services or
+resources from another component, commonly a server.
+
+Q2. Is a mobile application a client?
+
+Answer:
+Yes. A mobile application commonly requests data and
+operations from backend servers through APIs.
+
+Q3. Can a server also act as a client?
+
+Answer:
+Yes. A component's role depends on the interaction.
+A backend service can request data from another service and
+therefore act as its client.
+
+
+================================================================
+1.2 WHAT IS A SERVER?
+================================================================
+
+DEFINITION
+----------
+
+A server is a software component or computer system that
+provides services, data, or resources to clients.
+
+The word "server" can refer to:
+
+1. Server software
+2. The computer running that software
+3. A virtual machine
+4. A cloud instance
+5. A physical machine
+6. A logical service endpoint
+
+
+EXAMPLE
+-------
+
+When you open an online shopping application:
+
+The browser requests product information.
+
+A backend server receives the request.
+
+It validates the request, retrieves product information,
+and sends the response to the client.
+
+
+    CLIENT
+      |
+      | GET /products/101
+      v
+    +---------------------------+
+    |       WEB SERVER          |
+    |                           |
+    |  1. Receive request       |
+    |  2. Process request       |
+    |  3. Retrieve information  |
+    |  4. Build response        |
+    +-------------+-------------+
+                  |
+                  v
+              DATABASE
+
+
+COMMON TYPES OF SERVERS
+-----------------------
+
+1. Web Server
+   Receives HTTP requests and serves web content or forwards
+   requests to application components.
+
+   Examples: Nginx, Apache HTTP Server.
+
+2. Application Server
+   Executes application logic.
+
+   Examples: A Java application running with Spring Boot or
+   a Python application running with FastAPI.
+
+3. Database Server
+   Stores and retrieves data.
+
+   Examples: PostgreSQL, MySQL.
+
+4. File Server
+   Provides access to files.
+
+5. Cache Server
+   Stores data for faster retrieval.
+
+   Example: Redis.
+
+6. Message Broker
+   Accepts and distributes messages between producers
+   and consumers.
+
+   Examples: RabbitMQ, Apache Kafka.
+
+7. Authentication Server
+   Supports identity verification and token issuance.
+
+8. DNS Server
+   Helps resolve domain names into DNS records, commonly
+   including IP addresses.
+
+
+IMPORTANT DISTINCTION
+---------------------
+
+A server does not necessarily mean one physical computer.
+
+A logical service may run across many machines.
+
+For example:
+
+    Product Service
+          |
+     +----+----+
+     |    |    |
+     v    v    v
+    S1   S2   S3
+
+S1, S2, and S3 are separate running instances of the
+same logical service.
+
+
+SERVER RESPONSIBILITIES
+-----------------------
+
+A server commonly handles:
+
+1. Accepting connections
+2. Receiving requests
+3. Authenticating callers
+4. Validating input
+5. Applying business rules
+6. Reading or modifying data
+7. Communicating with dependencies
+8. Returning responses
+9. Recording logs and metrics
+10. Handling errors
+
+
+WHAT HAPPENS WHEN A SERVER RECEIVES A REQUEST?
+----------------------------------------------
+
+Consider:
+
+GET /products/101
+
+A simplified execution flow:
+
+Step 1:
+The server receives the HTTP request.
+
+Step 2:
+The request is routed to the appropriate handler.
+
+Step 3:
+The application validates the request.
+
+Step 4:
+The application checks whether the caller is authorized.
+
+Step 5:
+The application retrieves product information.
+
+Step 6:
+The application constructs the HTTP response.
+
+Step 7:
+The response is sent to the client.
+
+
+IMPORTANT
+---------
+
+A server should not blindly trust the client.
+
+It must enforce appropriate validation, authentication,
+authorization, and business rules.
+
+
+INTERVIEW QUESTIONS
+-------------------
+
+Q1. What is a server?
+
+Q2. What is the difference between a web server and a database
+    server?
+
+Q3. Can one server handle multiple clients?
+
+Q4. Does a server always mean a physical computer?
+
+Q5. Why do production applications commonly run multiple
+    application-server instances?
+
+
+================================================================
+1.3 WHAT IS A REQUEST?
+================================================================
+
+DEFINITION
+----------
+
+A request is a message sent by a client to ask a server
+to perform an operation or provide a resource.
+
+In web applications, requests commonly use HTTP or HTTPS.
+
+
+EXAMPLE
+-------
+
+Suppose you visit:
+
+https://shop.example.com/products/101
+
+Your browser may send an HTTP request similar to:
+
+GET /products/101 HTTP/1.1
+Host: shop.example.com
+Accept: application/json
+
+
+Let's understand each part.
+
+
+1. METHOD
+---------
+
+GET
+
+Specifies the intended operation.
+
+GET commonly retrieves a representation of a resource.
+
+
+2. PATH
+-------
+
+/products/101
+
+Identifies the requested resource.
+
+Here, 101 is the product identifier.
+
+
+3. HTTP VERSION
+---------------
+
+HTTP/1.1
+
+Indicates the HTTP protocol version used by the request.
+
+
+4. HOST HEADER
+--------------
+
+Host: shop.example.com
+
+Identifies the target host for HTTP/1.1 requests.
+
+Modern HTTP versions represent authority information
+differently at the protocol level, but the underlying
+concept of identifying the destination remains important.
+
+
+5. ACCEPT HEADER
+----------------
+
+Accept: application/json
+
+Indicates that the client can accept a JSON representation.
+
+
+COMMON PARTS OF AN HTTP REQUEST
+-------------------------------
+
+An HTTP request may contain:
+
+1. Method
+2. Target path or URI
+3. Protocol information
+4. Headers
+5. Body
+
+
+REQUEST EXAMPLE WITH A BODY
+---------------------------
+
+POST /api/orders HTTP/1.1
+Host: shop.example.com
+Content-Type: application/json
+Authorization: Bearer <access-token>
+
+{
+    "product_id": 101,
+    "quantity": 2
+}
+
+
+Here:
+
+POST:
+    Requests creation or processing of an order resource,
+    depending on the API contract.
+
+Content-Type:
+    Indicates the format of the request body.
+
+Authorization:
+    Carries authentication credentials in this example.
+
+Request body:
+    Contains the requested order information.
+
+
+IMPORTANT SECURITY NOTE
+-----------------------
+
+The access token must be a valid credential issued through
+the application's authentication process.
+
+Never place real passwords, API secrets, or access tokens
+in public logs or source-code repositories.
+
+
+WHAT HAPPENS AFTER SENDING A REQUEST?
+-------------------------------------
+
+A simplified process:
+
+Client
+  |
+  v
+DNS resolution, when needed
+  |
+  v
+Network connection
+  |
+  v
+Server or intermediary receives request
+  |
+  v
+Request routing
+  |
+  v
+Application processing
+  |
+  v
+Optional database or service calls
+  |
+  v
+Response generation
+
+
+This is a conceptual flow. Actual processing depends on
+the protocol, connection state, network configuration,
+and architecture.
+
+
+INTERVIEW QUESTIONS
+-------------------
+
+Q1. What is an HTTP request?
+
+Q2. What is the purpose of an HTTP method?
+
+Q3. What are HTTP headers?
+
+Q4. What is the difference between request headers and
+    the request body?
+
+Q5. Does every HTTP request contain a body?
+
+Answer:
+No. For example, GET requests commonly have no body.
+
+
+================================================================
+1.4 WHAT IS A RESPONSE?
+================================================================
+
+DEFINITION
+----------
+
+A response is the message returned by a server after processing
+a request.
+
+In HTTP, a response typically contains:
+
+1. Status code
+2. Headers
+3. Optional body
+
+
+EXAMPLE
+-------
+
+Request:
+
+GET /products/101
+
+Response:
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": 101,
+    "name": "Laptop",
+    "price": 55000
+}
+
+
+UNDERSTANDING THE RESPONSE
+--------------------------
+
+1. STATUS CODE
+
+200 OK
+
+Indicates that the request succeeded.
+
+2. CONTENT-TYPE HEADER
+
+Content-Type: application/json
+
+Indicates that the response body contains JSON.
+
+3. RESPONSE BODY
+
+{
+    "id": 101,
+    "name": "Laptop",
+    "price": 55000
+}
+
+Contains the requested product information.
+
+
+COMMON HTTP STATUS CODES
+------------------------
+
+200 OK
+    The request succeeded.
+
+201 Created
+    A resource was created successfully.
+
+204 No Content
+    The request succeeded and there is no response content.
+
+301 Moved Permanently
+    The resource has a permanent redirect.
+
+302 Found
+    The resource is temporarily redirected.
+
+400 Bad Request
+    The request is invalid or cannot be processed because
+    of a client-side request problem.
+
+401 Unauthorized
+    Valid authentication credentials are missing or invalid.
+
+403 Forbidden
+    The server refuses the requested operation.
+
+404 Not Found
+    The requested resource was not found.
+
+409 Conflict
+    The request conflicts with the current resource state.
+
+429 Too Many Requests
+    The client has exceeded a rate limit.
+
+500 Internal Server Error
+    An unexpected server-side error occurred.
+
+502 Bad Gateway
+    A gateway received an invalid response from an upstream
+    server.
+
+503 Service Unavailable
+    The service is temporarily unable to handle the request.
+
+504 Gateway Timeout
+    A gateway did not receive a timely upstream response.
+
+
+EXAMPLE: INVALID REQUEST
+------------------------
+
+Request:
+
+GET /products/invalid-id
+
+Possible response:
+
+HTTP/1.1 400 Bad Request
+Content-Type: application/json
+
+{
+    "error": "Invalid product identifier"
+}
+
+
+EXAMPLE: RESOURCE NOT FOUND
+---------------------------
+
+Request:
+
+GET /products/99999999
+
+Possible response:
+
+HTTP/1.1 404 Not Found
+Content-Type: application/json
+
+{
+    "error": "Product not found"
+}
+
+
+IMPORTANT
+---------
+
+HTTP status codes communicate the outcome of the HTTP request.
+
+The response body may provide additional application-specific
+information.
+
+A successful HTTP response does not necessarily mean that every
+business operation the user intended has been completed.
+
+For example, a request may successfully create a pending order
+while payment is still awaiting confirmation.
+
+
+INTERVIEW QUESTIONS
+-------------------
+
+Q1. What is an HTTP response?
+
+Q2. What is the difference between status codes 401 and 403?
+
+Q3. When should an API return 201?
+
+Q4. What does 429 indicate?
+
+Q5. Is a 500 error a client error or a server error?
+
+Answer:
+It is a server error.
+
+
+================================================================
+1.5 CLIENT-SERVER MODEL
+================================================================
+
+DEFINITION
+----------
+
+The client-server model is a communication architecture in
+which clients request services and servers provide them.
+
+The client and server communicate through an agreed protocol.
+
+
+BASIC ARCHITECTURE
+------------------
+
+       +----------------+
+       |    CLIENT      |
+       +-------+--------+
+               |
+               | Request
+               v
+       +----------------+
+       |    SERVER      |
+       +-------+--------+
+               |
+               | Response
+               v
+       +----------------+
+       |    CLIENT      |
+       +----------------+
+
+
+REAL-WORLD EXAMPLE: GOOGLE SEARCH
+---------------------------------
+
+A simplified search flow:
+
+1. A user enters a query.
+2. The browser sends a request.
+3. The service processes the query.
+4. The search system retrieves relevant results.
+5. The service returns a response.
+6. The browser displays the results.
+
+A production search engine involves many more components,
+including indexing, ranking, caching, and distributed storage.
+
+The example illustrates the client-server interaction,
+not the complete internal architecture of Google Search.
+
+
+ADVANTAGES
+----------
+
+1. Centralized management of application logic.
+2. Shared access to data and services.
+3. Easier centralized authentication and authorization.
+4. Multiple clients can use the same backend.
+5. Server capacity can be increased independently of clients.
+6. Business logic can be updated without reinstalling every
+   client, provided the API remains compatible.
+
+
+DISADVANTAGES
+-------------
+
+1. Clients depend on network connectivity for remote operations.
+2. Server failures may interrupt service.
+3. Servers can become bottlenecks.
+4. Network latency affects response time.
+5. Centralized services require appropriate security controls.
+6. Server infrastructure introduces operating costs.
+
+
+CLIENT-SERVER VS PEER-TO-PEER
+-----------------------------
+
+CLIENT-SERVER:
+
+Clients primarily request services from designated servers.
+
+Example:
+A browser accessing a conventional web application.
+
+PEER-TO-PEER:
+
+Peers communicate and may act as both providers and consumers
+of resources.
+
+Example:
+Some file-sharing systems.
+
+Real-world systems can combine both models.
+
+
+IMPORTANT
+---------
+
+The client-server model does not require exactly one client
+and one server.
+
+One server can serve many clients.
+
+One client can communicate with many servers.
+
+One logical service can be implemented using multiple servers.
+
+
+================================================================
+1.6 MULTI-TIER ARCHITECTURE
+================================================================
+
+DEFINITION
+----------
+
+Multi-tier architecture organizes an application into distinct
+logical or physical tiers, each responsible for particular work.
+
+A tier is a grouping of components with a defined role.
+
+Common tiers include:
+
+1. Presentation tier
+2. Application or business-logic tier
+3. Data tier
+
+
+WHY SEPARATE AN APPLICATION INTO TIERS?
+---------------------------------------
+
+Imagine one application responsible for:
+
+- Rendering the user interface
+- Authenticating users
+- Processing payments
+- Managing orders
+- Executing SQL queries
+- Sending notifications
+
+If every responsibility is mixed together, the application
+can become difficult to test, secure, scale, and maintain.
+
+Separating responsibilities provides clearer boundaries.
+
+
+GENERAL ARCHITECTURE
+--------------------
+
+    +------------------------+
+    |   PRESENTATION TIER    |
+    | Browser / Mobile App   |
+    +-----------+------------+
+                |
+                v
+    +------------------------+
+    |   APPLICATION TIER     |
+    | APIs / Business Logic  |
+    +-----------+------------+
+                |
+                v
+    +------------------------+
+    |       DATA TIER        |
+    | Database / Storage     |
+    +------------------------+
+
+
+PRESENTATION TIER
+-----------------
+
+Responsible for presenting information and accepting user input.
+
+Examples:
+
+- Web browser
+- Mobile user interface
+- Desktop interface
+
+
+APPLICATION TIER
+----------------
+
+Responsible for business logic and request processing.
+
+Examples:
+
+- Authentication
+- Order validation
+- Pricing
+- Inventory checks
+- Payment orchestration
+
+
+DATA TIER
+---------
+
+Responsible for data persistence and retrieval.
+
+Examples:
+
+- PostgreSQL
+- MySQL
+- MongoDB
+- Object storage
+
+
+BENEFITS
+--------
+
+1. Separation of concerns
+2. Better maintainability
+3. Independent scaling in suitable architectures
+4. Clearer security boundaries
+5. Easier testing
+6. Greater flexibility when changing implementations
+
+
+COSTS
+-----
+
+1. More components may need to be deployed.
+2. Network communication can add latency.
+3. Configuration becomes more complicated.
+4. Monitoring requirements increase.
+5. Failure handling becomes more important.
+
+
+IMPORTANT: LOGICAL TIERS VS PHYSICAL TIERS
+------------------------------------------
+
+A logical tier describes a responsibility or architectural layer.
+
+A physical tier describes where components run.
+
+For example:
+
+A three-tier application can run on one physical machine
+during development.
+
+A three-tier application can also run across separate servers
+in production.
+
+Therefore:
+
+Three tiers do not necessarily mean three physical servers.
+
+
+================================================================
+1.7 2-TIER ARCHITECTURE
+================================================================
+
+DEFINITION
+----------
+
+A 2-tier architecture separates a client from a backend data
+service or server.
+
+In a classic database-oriented design, the client communicates
+directly with the database server.
+
+
+ARCHITECTURE
+------------
+
+    +-------------------------+
+    |         CLIENT          |
+    |                         |
+    | UI + Some Application   |
+    | Logic                   |
+    +------------+------------+
+                 |
+                 | Database Protocol
+                 v
+    +-------------------------+
+    |      DATABASE SERVER    |
+    |                         |
+    | Tables / Queries / Data |
+    +-------------------------+
+
+
+EXAMPLE
+-------
+
+A desktop inventory application connects directly to a
+centralized PostgreSQL database.
+
+The desktop application:
+
+1. Displays inventory records.
+2. Accepts user input.
+3. Sends database queries.
+4. Displays returned results.
+
+
+ADVANTAGES
+----------
+
+1. Simple architecture.
+2. Easy to understand.
+3. Suitable for small, controlled environments.
+4. Direct database interaction can be efficient.
+
+
+DISADVANTAGES
+-------------
+
+1. Database credentials may need to exist in client software.
+2. Exposing the database directly to clients increases risk.
+3. Business logic may be duplicated across clients.
+4. Database connections can become difficult to manage.
+5. Scaling many clients can stress the database.
+6. Database changes can affect every client.
+7. Authorization rules may be harder to enforce consistently.
+
+
+SECURITY PROBLEM
+----------------
+
+Suppose a desktop application contains database credentials.
+
+A user extracts those credentials from the application.
+
+If the database permits excessive privileges, the user may
+gain access to information beyond their intended permissions.
+
+This is one reason public-facing applications generally avoid
+giving end-user clients unrestricted direct database access.
+
+
+WHEN IS 2-TIER ARCHITECTURE USEFUL?
+----------------------------------
+
+It can be appropriate for:
+
+- Small internal applications
+- Controlled network environments
+- Some desktop tools
+- Development utilities
+
+However, the suitability depends on the security model,
+number of users, business rules, and operational requirements.
+
+
+INTERVIEW QUESTION
+------------------
+
+Q: What is the main disadvantage of a classic two-tier
+   database application?
+
+Answer:
+
+The client communicates directly with the database, which
+can increase security and connection-management challenges
+and may cause business logic to become distributed across
+multiple clients.
+
+
+================================================================
+1.8 3-TIER ARCHITECTURE
+================================================================
+
+DEFINITION
+----------
+
+Three-tier architecture separates an application into:
+
+1. Presentation tier
+2. Application tier
+3. Data tier
+
+
+ARCHITECTURE
+------------
+
+    +--------------------------+
+    |    PRESENTATION TIER     |
+    |                          |
+    | Browser / Mobile App     |
+    +------------+-------------+
+                 |
+                 | HTTP / HTTPS
+                 v
+    +--------------------------+
+    |     APPLICATION TIER     |
+    |                          |
+    | API + Business Logic     |
+    +------------+-------------+
+                 |
+                 | Database Protocol
+                 v
+    +--------------------------+
+    |        DATA TIER         |
+    |                          |
+    | PostgreSQL / MySQL        |
+    +--------------------------+
+
+
+EXAMPLE: ONLINE SHOPPING
+------------------------
+
+Presentation tier:
+
+Displays products, shopping carts, and order information.
+
+Application tier:
+
+Validates orders, calculates totals, checks authorization,
+and coordinates business operations.
+
+Data tier:
+
+Stores users, products, orders, and related records.
+
+
+REQUEST FLOW
+------------
+
+Step 1:
+The user clicks "Place Order".
+
+Step 2:
+The browser sends a request to the backend API.
+
+Step 3:
+The backend validates the request.
+
+Step 4:
+The backend verifies that the user can place the order.
+
+Step 5:
+The backend executes the required business operations.
+
+Step 6:
+The backend interacts with the database.
+
+Step 7:
+The backend returns the result.
+
+Step 8:
+The browser displays the result.
+
+
+WHY IS THIS BETTER THAN A CLASSIC 2-TIER DESIGN?
+------------------------------------------------
+
+The application tier creates a controlled place for:
+
+- Business logic
+- Authentication
+- Authorization
+- Validation
+- Database access
+- Transaction management
+- Rate limiting
+
+
+ADVANTAGES
+----------
+
+1. Clear separation of responsibilities.
+2. Business logic can be reused by web and mobile clients.
+3. Database access can be restricted to trusted components.
+4. Application servers can often scale independently.
+5. Testing becomes more manageable.
+6. Changes to one tier may require fewer changes elsewhere.
+
+
+DISADVANTAGES
+-------------
+
+1. More deployment and configuration work.
+2. Additional network communication.
+3. The application tier can become a bottleneck.
+4. A single application instance can remain a failure point.
+5. Poorly defined boundaries can still create tightly coupled code.
+
+
+IMPORTANT
+---------
+
+A three-tier architecture does not automatically provide:
+
+- High availability
+- Horizontal scalability
+- Database replication
+- Microservices
+- Fault tolerance
+
+Those properties require additional design decisions.
+
+
+================================================================
+1.9 N-TIER ARCHITECTURE
+================================================================
+
+DEFINITION
+----------
+
+N-tier architecture divides a system into N distinct tiers.
+
+Here, N is the number of tiers in the chosen architecture.
+
+A system may use more than three tiers when the requirements
+justify the additional separation.
+
+
+EXAMPLE: LARGE E-COMMERCE APPLICATION
+-------------------------------------
+
+    +--------------------------+
+    |     CLIENT TIER          |
+    | Browser / Mobile App     |
+    +------------+-------------+
+                 |
+                 v
+    +--------------------------+
+    |     EDGE TIER            |
+    | CDN / Reverse Proxy      |
+    +------------+-------------+
+                 |
+                 v
+    +--------------------------+
+    |     API TIER             |
+    | API Gateway              |
+    +------------+-------------+
+                 |
+                 v
+    +--------------------------+
+    |     APPLICATION TIER     |
+    | Order / Product Logic    |
+    +------------+-------------+
+                 |
+                 v
+    +--------------------------+
+    |     DATA ACCESS TIER     |
+    | Repositories / Queries   |
+    +------------+-------------+
+                 |
+                 v
+    +--------------------------+
+    |     DATA TIER            |
+    | Database / Cache         |
+    +--------------------------+
+
+
+This is an illustrative architecture.
+
+In real applications, a CDN, API gateway, cache, and database
+do not necessarily form one simple linear sequence.
+
+For example, the application may access a cache before
+querying the database.
+
+
+POSSIBLE TIERS
+--------------
+
+1. Client or presentation tier
+2. Edge tier
+3. API gateway tier
+4. Application tier
+5. Business service tier
+6. Data access tier
+7. Data tier
+8. Integration tier
+
+
+BENEFITS
+--------
+
+1. More explicit responsibilities.
+2. Independent deployment where boundaries permit.
+3. Better opportunities for security isolation.
+4. Different scaling strategies for different workloads.
+5. Easier integration of selected technologies.
+
+
+DISADVANTAGES
+-------------
+
+1. More operational complexity.
+2. More network calls.
+3. Greater monitoring requirements.
+4. More difficult debugging across boundaries.
+5. Additional latency.
+6. Potentially higher infrastructure costs.
+7. More complicated deployment coordination.
+
+
+DOES MORE TIERS ALWAYS MEAN BETTER ARCHITECTURE?
+------------------------------------------------
+
+No.
+
+Adding tiers without a real requirement creates unnecessary
+complexity.
+
+A small application may work perfectly well with a simple
+three-tier structure.
+
+A large organization may benefit from additional boundaries
+because different teams own different responsibilities.
+
+
+INTERVIEW TIP
+-------------
+
+Explain why each tier exists.
+
+Do not introduce a separate tier merely to make an architecture
+diagram look more sophisticated.
+
+
+================================================================
+1.10 PRESENTATION LAYER
+================================================================
+
+DEFINITION
+----------
+
+The presentation layer is responsible for presenting information
+to users and collecting their input.
+
+It is commonly associated with the user interface.
+
+
+EXAMPLES
+--------
+
+Web:
+    HTML, CSS, JavaScript, React
+
+Mobile:
+    Android UI, iOS UI, Flutter
+
+Desktop:
+    Desktop application interface
+
+
+RESPONSIBILITIES
+----------------
+
+1. Display data.
+2. Collect user input.
+3. Navigate between screens.
+4. Provide basic input validation.
+5. Show loading states.
+6. Display errors.
+7. Send requests to backend APIs.
+8. Render returned information.
+
+
+EXAMPLE
+-------
+
+A product page displays:
+
+Product name:
+    Laptop
+
+Price:
+    ₹55,000
+
+Availability:
+    In stock
+
+
+The presentation layer renders the information.
+
+The backend remains responsible for enforcing authoritative
+pricing and inventory rules.
+
+
+PRESENTATION LAYER VS BUSINESS LOGIC
+------------------------------------
+
+Presentation responsibility:
+
+    Display the final price returned by the backend.
+
+Business responsibility:
+
+    Calculate the authoritative price, apply eligible discounts,
+    validate promotions, and determine the order total.
+
+
+WHY KEEP THEM SEPARATE?
+-----------------------
+
+Because multiple clients may use the same business functionality.
+
+For example:
+
+    Web App --------+
+                    |
+    Mobile App -----+----> Backend API
+                    |
+    Desktop App ----+
+
+
+The clients can have different interfaces while sharing the
+same backend business rules.
+
+
+IMPORTANT
+---------
+
+The presentation layer should not be trusted to enforce
+security-sensitive business rules.
+
+For example, hiding an administrator button does not prevent
+an unauthorized user from attempting the corresponding API call.
+
+
+================================================================
+1.11 APPLICATION LAYER
+================================================================
+
+DEFINITION
+----------
+
+The application layer coordinates request processing and
+implements or invokes the business operations required by
+the system.
+
+Its exact responsibilities depend on the architecture and
+programming framework.
+
+
+EXAMPLE: ORDER PROCESSING
+-------------------------
+
+A user submits:
+
+{
+    "product_id": 101,
+    "quantity": 2
+}
+
+
+The application may:
+
+1. Authenticate the user.
+2. Validate the request.
+3. Verify product availability.
+4. Calculate the order total.
+5. Create the order.
+6. Coordinate payment processing.
+7. Record the result.
+8. Return an appropriate response.
+
+
+SIMPLIFIED APPLICATION FLOW
+---------------------------
+
+Request
+   |
+   v
+Controller / API Handler
+   |
+   v
+Application Service
+   |
+   +----> Domain or Business Logic
+   |
+   +----> Repository / Data Access
+   |
+   +----> External Service
+   |
+   v
+Response
+
+
+POSSIBLE COMPONENTS
+-------------------
+
+1. API controllers
+2. Application services
+3. Domain services
+4. Authentication middleware
+5. Authorization policies
+6. Request validators
+7. Business-rule components
+8. Transaction coordinators
+
+
+EXAMPLE: PRICE CALCULATION
+--------------------------
+
+Suppose:
+
+Product price = ₹1,000
+Quantity = 2
+Eligible discount = ₹100
+
+
+Subtotal:
+
+    ₹1,000 × 2 = ₹2,000
+
+
+Total after discount:
+
+    ₹2,000 - ₹100 = ₹1,900
+
+
+The backend must validate that the discount is legitimate.
+
+It should not blindly accept a client-supplied total of ₹1.
+
+
+IMPORTANT DISTINCTION
+---------------------
+
+The application layer is not necessarily one server.
+
+It can consist of a single application or multiple services.
+
+A small application may contain all business operations in
+one process.
+
+A larger application may separate order, payment, inventory,
+and notification responsibilities into different services.
+
+
+================================================================
+1.12 DATA LAYER
+================================================================
+
+DEFINITION
+----------
+
+The data layer is responsible for storing, retrieving, and
+managing the persistence of application information.
+
+It commonly includes databases and storage systems.
+
+
+EXAMPLES
+--------
+
+Relational databases:
+    PostgreSQL
+    MySQL
+
+Document databases:
+    MongoDB
+
+Key-value stores:
+    Redis
+
+Object storage:
+    Amazon S3 and compatible services
+
+
+WHAT DATA MAY BE STORED?
+------------------------
+
+Users:
+    User identity and account information.
+
+Products:
+    Product names, descriptions, and prices.
+
+Orders:
+    Order identifiers, statuses, and totals.
+
+Payments:
+    Payment references and transaction states.
+
+Images:
+    Product images and user-uploaded media.
+
+
+WHY IS THE DATA LAYER IMPORTANT?
+--------------------------------
+
+1. Data must persist beyond individual requests.
+2. Multiple application instances may need shared information.
+3. Transactions may be required.
+4. Access patterns affect database performance.
+5. Data must be protected against unauthorized access.
+6. Backups and recovery must be considered.
+
+
+DATABASE VS DATA ACCESS LAYER
+-----------------------------
+
+Database:
+
+The actual data-management system.
+
+Example:
+PostgreSQL.
+
+Data access layer:
+
+Application code responsible for interacting with the database.
+
+Example:
+A ProductRepository that queries PostgreSQL.
+
+
+SIMPLIFIED EXAMPLE
+------------------
+
+class ProductRepository:
+
+    def find_by_id(product_id):
+        # Execute a database query.
+        # Return the product if found.
+        pass
+
+
+class ProductService:
+
+    def get_product(product_id):
+        # Validate the request.
+        # Call ProductRepository.
+        # Apply any required business rules.
+        pass
+
+
+The repository handles data access.
+
+The service coordinates application behavior.
+
+
+IMPORTANT
+---------
+
+Not every type of data belongs in the same storage system.
+
+For example:
+
+- Transactional orders may belong in a relational database.
+- Frequently accessed temporary values may belong in a cache.
+- Large images may belong in object storage.
+
+The correct choice depends on the workload and requirements.
+
+
+================================================================
+1.13 BROWSER → SERVER COMMUNICATION
+================================================================
+
+This is one of the most important concepts for backend
+development and system design interviews.
+
+
+SCENARIO
+--------
+
+A user enters:
+
+https://shop.example.com/products/101
+
+What happens behind the scenes?
+
+
+STEP 1: URL PARSING
+-------------------
+
+The browser identifies information such as:
+
+Scheme:
+    https
+
+Hostname:
+    shop.example.com
+
+Path:
+    /products/101
+
+
+STEP 2: DNS RESOLUTION
+----------------------
+
+The browser or operating system may use a cached DNS result.
+
+Otherwise, DNS resolution determines the appropriate address
+information for the hostname.
+
+Conceptually:
+
+shop.example.com
+        |
+        v
+   DNS Resolution
+        |
+        v
+    IP Address
+
+
+DNS does not necessarily involve a fresh query to a DNS server
+for every request because caching is common.
+
+
+STEP 3: ESTABLISH CONNECTION
+----------------------------
+
+For conventional HTTPS over TCP:
+
+1. The client establishes a TCP connection.
+2. TLS negotiation establishes the secure session.
+3. The client sends the HTTP request over that connection.
+
+HTTP/3 uses QUIC over UDP rather than TCP, so its connection
+establishment differs.
+
+
+STEP 4: SEND HTTP REQUEST
+------------------------
+
+Example:
+
+GET /products/101 HTTP/1.1
+Host: shop.example.com
+Accept: application/json
+
+
+The browser sends the request through the established
+network connection.
+
+
+STEP 5: REQUEST REACHES THE SERVICE
+-----------------------------------
+
+The request may pass through:
+
+- A CDN
+- A firewall
+- A load balancer
+- A reverse proxy
+- An API gateway
+
+The exact path depends on the system's architecture.
+
+
+STEP 6: SERVER PROCESSES THE REQUEST
+------------------------------------
+
+The backend:
+
+1. Routes the request.
+2. Performs validation.
+3. Applies authentication and authorization where required.
+4. Executes business logic.
+5. Retrieves data if needed.
+6. Generates the response.
+
+
+STEP 7: SERVER RETURNS A RESPONSE
+---------------------------------
+
+Example:
+
+HTTP/1.1 200 OK
+Content-Type: application/json
+
+{
+    "id": 101,
+    "name": "Laptop",
+    "price": 55000
+}
+
+
+STEP 8: BROWSER PROCESSES THE RESPONSE
+--------------------------------------
+
+The browser processes the returned content.
+
+Depending on the response, it may:
+
+- Render HTML.
+- Parse JSON for application code.
+- Display an image.
+- Follow a redirect.
+- Show an error.
+- Execute JavaScript.
+
+
+COMPLETE FLOW
+-------------
+
+User
+ |
+ v
+Browser
+ |
+ v
+Parse URL
+ |
+ v
+DNS resolution, if needed
+ |
+ v
+Establish or reuse network connection
+ |
+ v
+Send HTTP request
+ |
+ v
+CDN / Proxy / Load Balancer, if configured
+ |
+ v
+Backend application
+ |
+ v
+Database or external services, if required
+ |
+ v
+Backend creates response
+ |
+ v
+Browser receives response
+ |
+ v
+Browser renders or processes content
+
+
+IMPORTANT CONCEPTS
+------------------
+
+1. DNS maps domain names to DNS records.
+2. TCP provides a reliable, ordered byte stream.
+3. TLS protects communication when correctly configured.
+4. HTTP defines request/response semantics.
+5. A load balancer may distribute traffic across instances.
+6. The backend executes application logic.
+7. The database persists and retrieves data.
+
+
+INTERVIEW QUESTION
+------------------
+
+Q: Explain what happens when you enter a URL into a browser.
+
+A strong answer should mention:
+
+- URL parsing
+- DNS resolution
+- Connection establishment
+- TLS for HTTPS
+- HTTP request
+- Server-side processing
+- Database or dependency calls
+- HTTP response
+- Browser rendering
+
+
+================================================================
+1.14 MOBILE → BACKEND COMMUNICATION
+================================================================
+
+DEFINITION
+----------
+
+Mobile-to-backend communication occurs when a mobile application
+sends requests to remote services to retrieve or modify data.
+
+Common protocols include:
+
+- HTTPS with REST APIs
+- GraphQL over HTTP
+- gRPC in suitable environments
+- WebSockets for persistent bidirectional communication
+
+
+EXAMPLE: FOOD-DELIVERY APPLICATION
+-----------------------------------
+
+A user opens a food-delivery application.
+
+The mobile app requests nearby restaurants.
+
+Example:
+
+GET /api/v1/restaurants?latitude=22.72&longitude=75.86
+
+
+The backend may:
+
+1. Authenticate the user if required.
+2. Validate coordinates.
+3. Find eligible restaurants.
+4. Retrieve menus or availability.
+5. Return restaurant information.
+
+
+SIMPLIFIED ARCHITECTURE
+-----------------------
+
+    +------------------------+
+    |     MOBILE APP        |
+    |                        |
+    | Android / iOS          |
+    +-----------+------------+
+                |
+                | HTTPS
+                v
+    +------------------------+
+    |     API GATEWAY        |
+    +-----------+------------+
+                |
+                v
+    +------------------------+
+    |     BACKEND API        |
+    +-----------+------------+
+                |
+         +------+------+
+         |             |
+         v             v
+    Restaurant DB   Cache
+
+
+WHY DOES A MOBILE APP NEED A BACKEND?
+-------------------------------------
+
+A backend can provide:
+
+1. Shared data across users and devices.
+2. Centralized business logic.
+3. Secure access to protected resources.
+4. Database access.
+5. Payment integration.
+6. Notifications.
+7. Cross-device synchronization.
+8. Centralized monitoring.
+
+
+MOBILE NETWORK CHALLENGES
+-------------------------
+
+Mobile applications must account for:
+
+1. Unstable network connections.
+2. High network latency.
+3. Connection interruptions.
+4. Battery limitations.
+5. Limited bandwidth.
+6. Application suspension.
+7. Requests that time out.
+8. Users retrying operations.
+
+
+EXAMPLE: ORDER SUBMISSION
+-------------------------
+
+A user taps "Place Order".
+
+The application sends a request.
+
+The network connection fails before the response arrives.
+
+The user does not know whether the order was created.
+
+If the app blindly submits a new independent order, the
+system may create duplicates.
+
+A safer design may use:
+
+- An idempotency key
+- Persistent operation status
+- A request-status endpoint
+- Appropriate retry behavior
+
+
+EXAMPLE REQUEST
+---------------
+
+POST /api/v1/orders
+Idempotency-Key: order-attempt-abc123
+Content-Type: application/json
+
+{
+    "items": [
+        {
+            "product_id": 101,
+            "quantity": 2
+        }
+    ]
+}
+
+
+The backend must implement the idempotency contract correctly.
+
+Merely sending the header does not prevent duplicates unless
+the server recognizes and processes the key appropriately.
+
+
+AUTHENTICATION
+--------------
+
+A mobile application may send an access token:
+
+Authorization: Bearer <access-token>
+
+
+The backend validates the token and then enforces authorization.
+
+Never assume that the mobile application itself is trusted
+just because it was distributed through an official app store.
+
+
+IMPORTANT
+---------
+
+A mobile application is a client, not a secure place to store
+long-term backend secrets.
+
+Sensitive credentials and business rules should be protected
+on the server side.
+
+
+================================================================
+1.15 SERVICE-TO-SERVICE COMMUNICATION
+================================================================
+
+DEFINITION
+----------
+
+Service-to-service communication occurs when one backend
+component communicates with another backend component.
+
+This becomes especially important in distributed systems
+and microservice architectures.
+
+
+EXAMPLE: E-COMMERCE SYSTEM
+--------------------------
+
+Suppose a customer places an order.
+
+The system may contain:
+
+1. Order Service
+2. Inventory Service
+3. Payment Service
+4. Notification Service
+
+
+SIMPLIFIED ARCHITECTURE
+-----------------------
+
+              +----------------+
+              |  Client App    |
+              +-------+--------+
+                      |
+                      v
+              +----------------+
+              |  Order Service |
+              +---+---------+--+
+                  |         |
+                  v         v
+          +-----------+ +-----------+
+          | Inventory | |  Payment  |
+          |  Service  | |  Service  |
+          +-----------+ +-----------+
+                              |
+                              v
+                      +----------------+
+                      |   Notification |
+                      |     Service    |
+                      +----------------+
+
+
+This diagram illustrates possible interactions, not a
+complete production-ready transaction design.
+
+
+SYNCHRONOUS COMMUNICATION
+------------------------
+
+In synchronous communication, the caller waits for a response
+or completion signal before continuing that operation.
+
+Example:
+
+Order Service → Inventory Service
+
+The Order Service asks whether stock is available.
+
+The Inventory Service responds.
+
+The caller then continues according to the result.
+
+
+PSEUDOCODE
+----------
+
+inventory_result = inventory_service.check_availability(
+    product_id=101,
+    quantity=2
+)
+
+if inventory_result.available:
+    continue_order_processing()
+else:
+    reject_order()
+
+
+ADVANTAGES
+----------
+
+1. Straightforward request/response behavior.
+2. The caller can use the returned result immediately.
+3. Easier to understand for simple interactions.
+
+
+DISADVANTAGES
+-------------
+
+1. The caller depends on the downstream service responding.
+2. Network latency adds to request latency.
+3. Downstream failures can affect the caller.
+4. Excessive synchronous chains can cause cascading failures.
+
+
+SYNCHRONOUS CHAIN EXAMPLE
+-------------------------
+
+Client
+  |
+  v
+Order Service
+  |
+  v
+Inventory Service
+  |
+  v
+Pricing Service
+  |
+  v
+Payment Service
+
+
+If each dependency is slow, total response time may increase.
+
+If a dependency becomes unavailable, the entire operation
+may fail unless the system has an appropriate failure strategy.
+
+
+ASYNCHRONOUS COMMUNICATION
+-------------------------
+
+In asynchronous communication, a component submits work or
+an event without necessarily waiting for the final processing
+result.
+
+A message broker or queue may be used.
+
+
+ARCHITECTURE
+------------
+
+    +----------------+
+    | Order Service  |
+    +-------+--------+
+            |
+            | Publish event
+            v
+    +----------------+
+    | Message Broker |
+    +-------+--------+
+            |
+            v
+    +--------------------+
+    | Notification Worker|
+    +--------------------+
+
+
+EXAMPLE
+-------
+
+An order is successfully placed.
+
+The Order Service publishes an event such as:
+
+OrderPlaced
+
+A notification worker consumes the event and sends an email
+or push notification.
+
+The order-creation request does not necessarily need to wait
+for the email to be delivered.
+
+
+ADVANTAGES
+----------
+
+1. Reduces direct runtime dependency between components.
+2. Allows background processing.
+3. Can absorb temporary traffic spikes.
+4. Consumers can process messages independently.
+5. Suitable for notifications and other deferred work.
+
+
+DISADVANTAGES
+-------------
+
+1. Processing may be delayed.
+2. Messages may be delivered more than once.
+3. Ordering may require additional design.
+4. Failures and retries must be handled.
+5. Monitoring becomes more complicated.
+6. The application may need to handle eventual consistency.
+
+
+IMPORTANT
+---------
+
+Asynchronous communication does not eliminate dependencies.
+
+It changes how and when the dependencies affect one another.
+
+The system must still handle message loss risks, retries,
+duplicate processing, and consumer failures appropriately.
+
+
+COMMUNICATION TECHNOLOGIES
+--------------------------
+
+HTTP / REST:
+    Common for synchronous request/response APIs.
+
+gRPC:
+    Supports efficient service communication and streaming
+    through Protocol Buffers and HTTP/2.
+
+Message queues:
+    Support asynchronous work distribution.
+
+Event streaming:
+    Supports publishing and consuming durable streams of events.
+
+WebSockets:
+    Support bidirectional communication over a persistent
+    connection.
+
+The appropriate technology depends on the communication
+pattern and system requirements.
+
+
+INTERVIEW QUESTION
+------------------
+
+Q: What is the difference between synchronous and asynchronous
+   service communication?
+
+Answer:
+
+In synchronous communication, the caller generally waits for
+a response before continuing the operation.
+
+In asynchronous communication, the caller can submit work or
+publish an event and continue without waiting for the final
+processing result.
+
+Synchronous communication is useful when an immediate result
+is required. Asynchronous communication is useful for suitable
+background work and loosely coupled processing, but it
+introduces additional delivery and consistency considerations.
+
+
+================================================================
+IMPORTANT COMPARISON TABLES
+================================================================
+
+TABLE 1: CLIENT VS SERVER
+-------------------------
+
+Client:
+    Requests a service.
+
+Server:
+    Provides a service.
+
+Client example:
+    Mobile application.
+
+Server example:
+    Backend API.
+
+
+TABLE 2: REQUEST VS RESPONSE
+---------------------------
+
+Request:
+    Sent by the caller to initiate an operation.
+
+Response:
+    Returned by the server to communicate the result.
+
+
+TABLE 3: 2-TIER VS 3-TIER
+-------------------------
+
+2-tier:
+    Client communicates directly with the data server
+    in a classic database-oriented design.
+
+3-tier:
+    Presentation, application, and data responsibilities
+    are separated.
+
+
+TABLE 4: 3-TIER VS N-TIER
+-------------------------
+
+3-tier:
+    Three major architectural tiers.
+
+N-tier:
+    An architecture containing N tiers.
+
+N-tier is not automatically better; additional separation
+must justify its cost.
+
+
+TABLE 5: SYNCHRONOUS VS ASYNCHRONOUS
+------------------------------------
+
+Synchronous:
+    Caller waits for the response or operation result.
+
+Asynchronous:
+    Caller can continue before the final work completes.
+
+Synchronous:
+    Often simpler for immediate queries.
+
+Asynchronous:
+    Often useful for background work and event processing.
+
+
+TABLE 6: PRESENTATION VS APPLICATION VS DATA
+--------------------------------------------
+
+Presentation:
+    User interaction and display.
+
+Application:
+    Request coordination and business operations.
+
+Data:
+    Persistent storage and retrieval.
+
+
+================================================================
+REAL-WORLD ARCHITECTURE EXAMPLE
+DESIGN A BASIC FOOD-DELIVERY APPLICATION
+================================================================
+
+REQUIREMENTS
+------------
+
+Functional requirements:
+
+1. Users can view restaurants.
+2. Users can view menus.
+3. Users can place orders.
+4. Users can make payments.
+5. Users can track order status.
+6. Users can receive notifications.
+
+
+NON-FUNCTIONAL REQUIREMENTS
+---------------------------
+
+1. Reasonable response latency.
+2. Secure authentication and authorization.
+3. Reliable order creation.
+4. Protection against duplicate payments.
+5. Ability to handle traffic growth.
+6. Monitoring and error reporting.
+
+
+HIGH-LEVEL ARCHITECTURE
+-----------------------
+
+        +-----------------------+
+        |     Mobile App        |
+        +-----------+-----------+
+                    |
+                    v
+        +-----------------------+
+        |   Load Balancer /     |
+        |   API Gateway         |
+        +-----------+-----------+
+                    |
+           +--------+---------+
+           |                  |
+           v                  v
+   +---------------+  +----------------+
+   | Restaurant    |  | Order Service  |
+   | Service       |  +-------+--------+
+   +-------+-------+          |
+           |                  +----------+
+           v                  |          |
+   +---------------+          v          v
+   | Restaurant DB |   +------------+ +------------+
+   +---------------+   | Inventory  | |  Payment   |
+                       | Service    | |  Service   |
+                       +------------+ +------------+
+                                           |
+                                           v
+                                     Payment Provider
+
+                       Order Service
+                            |
+                            v
+                     Message Broker
+                            |
+                            v
+                   Notification Worker
+                            |
+                            v
+                    Email / Push API
+
+
+REQUEST FLOW: VIEW RESTAURANTS
+------------------------------
+
+1. Mobile app sends a request.
+2. API gateway routes it to the Restaurant Service.
+3. Restaurant Service retrieves restaurant information.
+4. The service returns the result.
+5. Mobile app displays the restaurants.
+
+
+REQUEST FLOW: PLACE ORDER
+-------------------------
+
+1. User submits an order.
+2. Order Service validates the request.
+3. Inventory availability is checked or reserved.
+4. Payment processing is initiated.
+5. Order state is updated according to the payment outcome.
+6. Appropriate events are published when required.
+7. Notification workers send user notifications.
+
+
+IMPORTANT PRODUCTION CONSIDERATIONS
+-----------------------------------
+
+The order and payment workflow is not safely implemented
+by simply calling several services one after another.
+
+A production design must consider:
+
+- Database transactions
+- Payment idempotency
+- Inventory concurrency
+- Timeouts
+- Unknown payment outcomes
+- Retry policies
+- Order-state transitions
+- Message delivery guarantees
+- Reconciliation
+- Failure recovery
+
+The correct design depends on the business rules and
+guarantees required.
+
+
+================================================================
+COMMON BEGINNER MISTAKES
+================================================================
+
+MISTAKE 1:
+Thinking a server always means one physical machine.
+
+CORRECTION:
+A server can refer to software, a machine, an instance,
+or a logical service.
+
+MISTAKE 2:
+Thinking every request creates a new network connection.
+
+CORRECTION:
+Connections can be reused. The behavior depends on the
+protocol and connection-management strategy.
+
+MISTAKE 3:
+Thinking three-tier architecture guarantees high availability.
+
+CORRECTION:
+Tiers separate responsibilities. Availability requires
+additional redundancy and failure-handling mechanisms.
+
+MISTAKE 4:
+Thinking client-side validation is enough.
+
+CORRECTION:
+The backend must enforce authoritative validation and
+security rules.
+
+MISTAKE 5:
+Thinking asynchronous communication is always faster.
+
+CORRECTION:
+It can reduce the time a caller waits for background work,
+but the overall operation may still take longer to complete.
+
+MISTAKE 6:
+Thinking adding more servers automatically solves every problem.
+
+CORRECTION:
+A database, network, lock, or external dependency may be
+the actual bottleneck.
+
+MISTAKE 7:
+Thinking a successful HTTP response means the business
+operation is fully complete.
+
+CORRECTION:
+A response may indicate that work was accepted or that an
+operation entered a pending state.
+
+
+================================================================
+CHAPTER 1 — QUICK REVISION
+================================================================
+
+1. CLIENT
+   Requests a service or resource.
+
+2. SERVER
+   Provides a service or resource.
+
+3. REQUEST
+   Message sent to initiate an operation.
+
+4. RESPONSE
+   Message returned with the operation's result.
+
+5. CLIENT-SERVER MODEL
+   Organizes communication around service requests and responses.
+
+6. MULTI-TIER ARCHITECTURE
+   Separates responsibilities into architectural tiers.
+
+7. 2-TIER ARCHITECTURE
+   Commonly separates a client from a data server.
+
+8. 3-TIER ARCHITECTURE
+   Separates presentation, application, and data responsibilities.
+
+9. N-TIER ARCHITECTURE
+   Uses N architectural tiers.
+
+10. PRESENTATION LAYER
+    Handles user interaction and display.
+
+11. APPLICATION LAYER
+    Coordinates requests and business operations.
+
+12. DATA LAYER
+    Manages data persistence and retrieval.
+
+13. BROWSER-SERVER COMMUNICATION
+    Commonly involves DNS, networking, HTTP, server processing,
+    and response handling.
+
+14. MOBILE-BACKEND COMMUNICATION
+    Commonly uses HTTPS APIs and must account for unreliable
+    mobile networks.
+
+15. SERVICE-TO-SERVICE COMMUNICATION
+    Can be synchronous or asynchronous.
+
+
+================================================================
+CHAPTER 1 — INTERVIEW PRACTICE
+================================================================
+
+BEGINNER QUESTIONS
+------------------
+
+Q1. What is a client?
+
+Q2. What is a server?
+
+Q3. What is an HTTP request?
+
+Q4. What is an HTTP response?
+
+Q5. What is the client-server model?
+
+Q6. What is 2-tier architecture?
+
+Q7. What is 3-tier architecture?
+
+Q8. What is the presentation layer?
+
+Q9. What is the application layer?
+
+Q10. What is the data layer?
+
+
+INTERMEDIATE QUESTIONS
+----------------------
+
+Q11. Why do web applications generally avoid direct database
+     access from untrusted public clients?
+
+Q12. What happens when a browser accesses an HTTPS website?
+
+Q13. Why does a three-tier application not automatically
+     guarantee high availability?
+
+Q14. What are the benefits of separating presentation and
+     business logic?
+
+Q15. What is the difference between synchronous and asynchronous
+     service communication?
+
+Q16. Why should mobile applications use idempotency for
+     suitable retryable operations?
+
+Q17. Why can synchronous service chains increase latency?
+
+Q18. What are the disadvantages of N-tier architecture?
+
+Q19. Why must servers independently validate client input?
+
+Q20. Can one logical service run on multiple servers?
+
+
+ADVANCED QUESTIONS
+------------------
+
+Q21. A service has three application instances but a single
+     database instance. What availability risk remains?
+
+Q22. An HTTP request times out. Does that prove the server
+     did not process it? Explain.
+
+Q23. Why can a client-server architecture still require
+     message queues?
+
+Q24. What problems arise when every service communicates
+     synchronously with several other services?
+
+Q25. When would a modular monolith be preferable to a
+     distributed microservice architecture?
+
+
+================================================================
+PRACTICAL EXERCISE
+================================================================
+
+DESIGN A BASIC LIBRARY MANAGEMENT APPLICATION.
+
+Requirements:
+
+1. Users can search for books.
+2. Users can view book availability.
+3. Librarians can register books.
+4. Users can borrow available books.
+5. Users can return borrowed books.
+
+YOUR TASK
+---------
+
+A. Identify the client components.
+
+B. Identify the server components.
+
+C. Draw a 3-tier architecture.
+
+D. Explain the role of the presentation layer.
+
+E. Explain the role of the application layer.
+
+F. Explain the role of the data layer.
+
+G. Describe the request flow when a user searches for a book.
+
+H. Explain how the system should prevent two users from
+   borrowing the same available copy simultaneously.
+
+I. Identify one reason the system might eventually need
+   horizontal scaling.
+
+J. Identify five useful monitoring metrics.
+
+
+================================================================
+                    END OF CHAPTER 1
+================================================================
+
+NEXT:
+CHAPTER 2 — INTERNET & WEB FUNDAMENTALS FOR SYSTEM DESIGN
+
+Topics:
+2.1  Internet Architecture
+2.2  IP Address
+2.3  IPv4 vs IPv6
+2.4  MAC Address
+2.5  Port
+2.6  TCP
+2.7  UDP
+2.8  DNS
+2.9  HTTP
+2.10 HTTPS
+2.11 TLS
+2.12 HTTP Methods
+2.13 HTTP Status Codes
+2.14 HTTP Headers
+2.15 Cookies
+2.16 Sessions
+2.17 JWT
+2.18 WebSockets
+2.19 Long Polling
+2.20 Server-Sent Events
+2.21 CDN
+2.22 Reverse Proxy
+2.23 Forward Proxy
+
+================================================================
+
+Chapter 1 complete.
+
+Type Next to begin Chapter 2 — Internet & Web Fundamentals for System Design, with detailed explanations, diagrams, examples, and interview questions in one code block.

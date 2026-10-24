@@ -1,0 +1,3155 @@
+============================================================
+                     DATA SCIENCE
+              CHAPTER 5 — LINEAR ALGEBRA
+        Beginner → Foundation → Machine Learning
+============================================================
+
+CHAPTER OBJECTIVES
+------------------
+After completing this chapter, you will understand:
+
+1. What linear algebra is and why it matters in Data Science.
+2. Scalars, vectors, matrices, and tensors.
+3. Dimensions, shapes, rows, and columns.
+4. Vector representation and vector operations.
+5. Vector addition and subtraction.
+6. Scalar multiplication.
+7. Dot products and their applications.
+8. Vector magnitude and normalization.
+9. Distance between vectors.
+10. Matrix representation and matrix operations.
+11. Matrix addition, subtraction, and multiplication.
+12. Transpose and identity matrices.
+13. Determinants and inverse matrices.
+14. Systems of linear equations using matrices.
+15. Linear transformations.
+16. Eigenvalues and eigenvectors.
+17. Applications of linear algebra in Data Science.
+18. How NumPy implements linear algebra in Python.
+19. Practical projects using vectors and matrices.
+20. How linear algebra supports machine learning and deep learning.
+
+============================================================
+5.1 INTRODUCTION TO LINEAR ALGEBRA
+============================================================
+
+Linear algebra is a branch of mathematics that studies
+vectors, matrices, linear equations, and linear
+transformations.
+
+It is one of the most important mathematical foundations
+of Data Science, Machine Learning, and Deep Learning.
+
+Consider a dataset containing information about students.
+
+    Student    Study Hours    Attendance    Marks
+    ------------------------------------------------
+    A          5              90            80
+    B          3              75            65
+    C          7              95            92
+
+We can represent this numerical information using a matrix.
+
+    X = [
+        [5, 90],
+        [3, 75],
+        [7, 95]
+    ]
+
+Each row represents a student.
+
+Each column represents a feature.
+
+The marks can be represented separately as a vector:
+
+    y = [80, 65, 92]
+
+Linear algebra gives us tools to perform calculations
+on these data structures efficiently.
+
+------------------------------------------------------------
+5.1.1 WHY LINEAR ALGEBRA MATTERS
+------------------------------------------------------------
+
+Linear algebra is used in:
+
+1. Data representation
+   Representing datasets as vectors and matrices.
+
+2. Machine learning
+   Computing predictions and model parameters.
+
+3. Deep learning
+   Performing calculations between layers of neural
+   networks.
+
+4. Computer vision
+   Representing images as arrays of numerical values.
+
+5. Natural language processing
+   Representing words, tokens, and documents as vectors.
+
+6. Recommendation systems
+   Representing users and products using numerical
+   features or embeddings.
+
+7. Dimensionality reduction
+   Transforming data into fewer dimensions.
+
+8. Optimization
+   Representing and solving mathematical problems.
+
+9. Scientific computing
+   Solving large systems of equations.
+
+10. Signal processing
+    Representing and transforming numerical signals.
+
+------------------------------------------------------------
+5.1.2 AN EXAMPLE FROM MACHINE LEARNING
+------------------------------------------------------------
+
+Suppose a model predicts a student's marks using
+two features:
+
+    x1 = Study Hours
+    x2 = Attendance Percentage
+
+A simple model might be:
+
+    Prediction = 2*x1 + 0.1*x2 + 10
+
+For a student with:
+
+    Study Hours = 5
+    Attendance = 90
+
+The prediction is:
+
+    Prediction = 2(5) + 0.1(90) + 10
+
+    Prediction = 10 + 9 + 10
+
+    Prediction = 29
+
+The same calculation can be expressed using vectors
+and a dot product.
+
+    x = [5, 90]
+
+    w = [2, 0.1]
+
+    Prediction = x · w + 10
+
+    Prediction = 5(2) + 90(0.1) + 10
+
+    Prediction = 29
+
+The dot product will be explained in detail later.
+
+============================================================
+5.2 SCALARS, VECTORS, MATRICES, AND TENSORS
+============================================================
+
+These four concepts are fundamental to linear algebra.
+
+------------------------------------------------------------
+5.2.1 SCALAR
+------------------------------------------------------------
+
+A scalar is a single numerical value.
+
+Examples:
+
+    5
+    -3
+    2.5
+    100
+
+In Data Science, scalars can represent:
+
+    Age = 21
+
+    Temperature = 32.5
+
+    Learning Rate = 0.001
+
+    Model Bias = 2
+
+A scalar contains one value.
+
+Python:
+
+    temperature = 32.5
+
+    print(temperature)
+
+Output:
+
+    32.5
+
+------------------------------------------------------------
+5.2.2 VECTOR
+------------------------------------------------------------
+
+A vector is an ordered collection of numerical values.
+
+Example:
+
+    v = [2, 4, 6]
+
+This vector contains three components.
+
+We can interpret it as a three-dimensional vector:
+
+    v = [2, 4, 6]
+
+The components are:
+
+    v1 = 2
+    v2 = 4
+    v3 = 6
+
+A vector can represent:
+
+- A student's numerical features.
+- A product's characteristics.
+- A user's preferences.
+- A word embedding.
+- A point in a coordinate system.
+
+Example:
+
+    student = [5, 90, 80]
+
+Possible interpretation:
+
+    [Study Hours, Attendance, Marks]
+
+IMPORTANT:
+
+A vector is an ordered collection. Its positions matter.
+
+For example:
+
+    [5, 90, 80]
+
+and:
+
+    [90, 5, 80]
+
+contain the same numbers but represent different
+ordered data.
+
+------------------------------------------------------------
+5.2.3 MATRIX
+------------------------------------------------------------
+
+A matrix is a rectangular arrangement of numbers
+organized into rows and columns.
+
+Example:
+
+    A = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+
+This matrix has:
+
+    2 rows
+    3 columns
+
+Therefore, its shape is:
+
+    2 x 3
+
+A matrix with m rows and n columns is called an
+m-by-n matrix.
+
+Example:
+
+    A = [
+        [1, 2],
+        [3, 4],
+        [5, 6]
+    ]
+
+Shape:
+
+    3 x 2
+
+Matrices are useful for representing entire datasets.
+
+Example:
+
+    X = [
+        [5, 90],
+        [3, 75],
+        [7, 95]
+    ]
+
+Shape:
+
+    3 x 2
+
+This dataset contains three observations and two features.
+
+------------------------------------------------------------
+5.2.4 TENSOR
+------------------------------------------------------------
+
+A tensor is a generalized numerical structure that
+can have multiple dimensions.
+
+Common examples:
+
+Scalar:
+    Zero-dimensional array.
+
+Vector:
+    One-dimensional array.
+
+Matrix:
+    Two-dimensional array.
+
+Higher-dimensional tensor:
+    Three or more dimensions.
+
+For example, a color image may have dimensions:
+
+    Height x Width x Channels
+
+A batch of color images may have dimensions:
+
+    Batch x Height x Width x Channels
+
+For an image with:
+
+    Height = 32
+    Width = 32
+    Channels = 3
+
+Its shape may be:
+
+    32 x 32 x 3
+
+If a batch contains 10 such images:
+
+    10 x 32 x 32 x 3
+
+The exact dimension order depends on the software
+framework and its configuration.
+
+Tensors are heavily used in deep learning frameworks.
+
+------------------------------------------------------------
+5.2.5 COMPARISON
+------------------------------------------------------------
+
+Scalar:
+    One numerical value.
+
+Vector:
+    One-dimensional numerical collection.
+
+Matrix:
+    Two-dimensional numerical collection.
+
+Tensor:
+    Generalized multidimensional numerical structure.
+
+============================================================
+5.3 DIMENSIONS AND SHAPES
+============================================================
+
+The shape of a vector or matrix tells us its dimensions.
+
+------------------------------------------------------------
+5.3.1 VECTOR SHAPE
+------------------------------------------------------------
+
+Consider:
+
+    v = [10, 20, 30, 40]
+
+It contains four elements.
+
+As a one-dimensional array, its shape is:
+
+    (4,)
+
+In NumPy:
+
+    import numpy as np
+
+    v = np.array([10, 20, 30, 40])
+
+    print(v.shape)
+
+Output:
+
+    (4,)
+
+IMPORTANT:
+
+A one-dimensional NumPy array is not automatically
+the same thing as a two-dimensional row matrix.
+
+------------------------------------------------------------
+5.3.2 MATRIX SHAPE
+------------------------------------------------------------
+
+Consider:
+
+    A = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+
+The matrix has:
+
+    Rows = 2
+    Columns = 3
+
+Its shape is:
+
+    (2, 3)
+
+Python:
+
+    import numpy as np
+
+    A = np.array([
+        [1, 2, 3],
+        [4, 5, 6]
+    ])
+
+    print(A.shape)
+
+Output:
+
+    (2, 3)
+
+------------------------------------------------------------
+5.3.3 ROW VECTOR
+------------------------------------------------------------
+
+A row vector has one row and multiple columns.
+
+Example:
+
+    R = [
+        [1, 2, 3]
+    ]
+
+Shape:
+
+    1 x 3
+
+NumPy:
+
+    R = np.array([[1, 2, 3]])
+
+    print(R.shape)
+
+Output:
+
+    (1, 3)
+
+------------------------------------------------------------
+5.3.4 COLUMN VECTOR
+------------------------------------------------------------
+
+A column vector has multiple rows and one column.
+
+Example:
+
+    C = [
+        [1],
+        [2],
+        [3]
+    ]
+
+Shape:
+
+    3 x 1
+
+NumPy:
+
+    C = np.array([
+        [1],
+        [2],
+        [3]
+    ])
+
+    print(C.shape)
+
+Output:
+
+    (3, 1)
+
+------------------------------------------------------------
+5.3.5 WHY SHAPES MATTER
+------------------------------------------------------------
+
+Matrix operations require compatible dimensions.
+
+For example:
+
+    A has shape (2, 3)
+
+    B has shape (3, 4)
+
+The matrix product A @ B is valid.
+
+The resulting shape is:
+
+    (2, 4)
+
+However:
+
+    A has shape (2, 3)
+
+    C has shape (2, 4)
+
+The matrix product A @ C is invalid because:
+
+    3 != 2
+
+The number of columns in the first matrix must equal
+the number of rows in the second matrix.
+
+============================================================
+5.4 VECTOR REPRESENTATION
+============================================================
+
+A vector can be represented as a row or column.
+
+Column-vector notation is common in mathematics.
+
+Example:
+
+             [2]
+    v =      [4]
+             [6]
+
+This vector has three components.
+
+A row vector is:
+
+    v = [2, 4, 6]
+
+In many practical programming examples, vectors are
+stored as one-dimensional arrays.
+
+For a mathematical vector:
+
+    v = [v1, v2, v3]
+
+Its components are:
+
+    v1 = first component
+    v2 = second component
+    v3 = third component
+
+------------------------------------------------------------
+5.4.1 VECTOR AS A DATA RECORD
+------------------------------------------------------------
+
+Suppose a product is described by:
+
+    Price = 100
+    Weight = 2
+    Rating = 4.5
+
+We can represent its features as:
+
+    product = [100, 2, 4.5]
+
+This vector represents one product.
+
+However, features have different units and scales.
+
+For some algorithms, normalization or standardization
+may be necessary before comparing these values.
+
+------------------------------------------------------------
+5.4.2 VECTOR AS A POINT
+------------------------------------------------------------
+
+A two-dimensional vector:
+
+    v = [3, 4]
+
+can represent a point at coordinates:
+
+    (3, 4)
+
+A three-dimensional vector:
+
+    v = [2, 5, 7]
+
+can represent a point in three-dimensional space.
+
+This representation is useful for geometry, computer
+graphics, and machine learning.
+
+============================================================
+5.5 VECTOR ADDITION
+============================================================
+
+Vector addition combines corresponding components
+of two vectors.
+
+Two vectors must have compatible dimensions.
+
+Example:
+
+    A = [1, 2, 3]
+
+    B = [4, 5, 6]
+
+Add corresponding components:
+
+    A + B = [1+4, 2+5, 3+6]
+
+    A + B = [5, 7, 9]
+
+------------------------------------------------------------
+5.5.1 STEP-BY-STEP EXAMPLE
+------------------------------------------------------------
+
+Given:
+
+    A = [2, 4]
+
+    B = [3, 5]
+
+Then:
+
+    A + B = [2+3, 4+5]
+
+    A + B = [5, 9]
+
+------------------------------------------------------------
+5.5.2 VECTOR ADDITION IN NUMPY
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([2, 4])
+    B = np.array([3, 5])
+
+    result = A + B
+
+    print(result)
+
+Output:
+
+    [5 9]
+
+NumPy adds corresponding components.
+
+------------------------------------------------------------
+5.5.3 PRACTICAL EXAMPLE
+------------------------------------------------------------
+
+Suppose daily sales for two stores are:
+
+    Store A = [100, 150, 200]
+
+    Store B = [80, 120, 180]
+
+These values represent sales on Monday, Tuesday,
+and Wednesday.
+
+Combined sales:
+
+    [100+80, 150+120, 200+180]
+
+    = [180, 270, 380]
+
+Python:
+
+    store_a = np.array([100, 150, 200])
+    store_b = np.array([80, 120, 180])
+
+    combined_sales = store_a + store_b
+
+    print(combined_sales)
+
+Output:
+
+    [180 270 380]
+
+============================================================
+5.6 VECTOR SUBTRACTION
+============================================================
+
+Vector subtraction subtracts corresponding components.
+
+Example:
+
+    A = [10, 20, 30]
+
+    B = [3, 5, 7]
+
+Then:
+
+    A - B = [10-3, 20-5, 30-7]
+
+    A - B = [7, 15, 23]
+
+Python:
+
+    A = np.array([10, 20, 30])
+    B = np.array([3, 5, 7])
+
+    result = A - B
+
+    print(result)
+
+Output:
+
+    [ 7 15 23]
+
+------------------------------------------------------------
+5.6.1 APPLICATION: SALES DIFFERENCE
+------------------------------------------------------------
+
+Suppose:
+
+    This Week = [120, 150, 180]
+
+    Last Week = [100, 140, 160]
+
+Difference:
+
+    [120-100, 150-140, 180-160]
+
+    = [20, 10, 20]
+
+Python:
+
+    this_week = np.array([120, 150, 180])
+    last_week = np.array([100, 140, 160])
+
+    difference = this_week - last_week
+
+    print(difference)
+
+Output:
+
+    [20 10 20]
+
+A positive result means the corresponding value
+increased. A negative result would mean it decreased.
+
+============================================================
+5.7 SCALAR MULTIPLICATION
+============================================================
+
+Scalar multiplication multiplies every component of
+a vector by the same number.
+
+Example:
+
+    A = [1, 2, 3]
+
+    k = 3
+
+Then:
+
+    kA = [3*1, 3*2, 3*3]
+
+    kA = [3, 6, 9]
+
+Python:
+
+    A = np.array([1, 2, 3])
+
+    result = 3 * A
+
+    print(result)
+
+Output:
+
+    [3 6 9]
+
+------------------------------------------------------------
+5.7.1 APPLICATION: PRICE INCREASE
+------------------------------------------------------------
+
+Suppose product prices are:
+
+    prices = [100, 200, 300]
+
+Every price increases by 10%.
+
+The new price is:
+
+    New Price = Old Price * 1.10
+
+Therefore:
+
+    New Prices = [110, 220, 330]
+
+Python:
+
+    prices = np.array([100, 200, 300])
+
+    new_prices = prices * 1.10
+
+    print(new_prices)
+
+Output:
+
+    [110. 220. 330.]
+
+Scalar multiplication is useful for scaling numerical
+features and transforming data.
+
+============================================================
+5.8 DOT PRODUCT
+============================================================
+
+The dot product is one of the most important vector
+operations in machine learning.
+
+For two vectors with the same number of components,
+the dot product is the sum of the products of their
+corresponding components.
+
+Notation:
+
+    A · B
+
+Formula:
+
+    A · B = a1*b1 + a2*b2 + ... + an*bn
+
+------------------------------------------------------------
+5.8.1 SIMPLE EXAMPLE
+------------------------------------------------------------
+
+Given:
+
+    A = [1, 2, 3]
+
+    B = [4, 5, 6]
+
+Calculate:
+
+    A · B = 1*4 + 2*5 + 3*6
+
+          = 4 + 10 + 18
+
+          = 32
+
+Therefore:
+
+    A · B = 32
+
+------------------------------------------------------------
+5.8.2 NUMPY DOT PRODUCT
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([1, 2, 3])
+    B = np.array([4, 5, 6])
+
+    result = np.dot(A, B)
+
+    print(result)
+
+Output:
+
+    32
+
+Alternatively:
+
+    result = A @ B
+
+For one-dimensional NumPy arrays, @ also calculates
+their dot product.
+
+------------------------------------------------------------
+5.8.3 DOT PRODUCT IN MACHINE LEARNING
+------------------------------------------------------------
+
+Suppose a prediction model uses three features:
+
+    x = [Study Hours, Attendance, Assignment Score]
+
+Assume:
+
+    x = [5, 90, 80]
+
+Weights:
+
+    w = [2, 0.1, 0.5]
+
+Bias:
+
+    b = 10
+
+The prediction is:
+
+    y_hat = x · w + b
+
+Calculate the dot product:
+
+    x · w = 5*2 + 90*0.1 + 80*0.5
+
+          = 10 + 9 + 40
+
+          = 59
+
+Add the bias:
+
+    y_hat = 59 + 10
+
+    y_hat = 69
+
+Python:
+
+    x = np.array([5, 90, 80])
+
+    weights = np.array([2, 0.1, 0.5])
+
+    bias = 10
+
+    prediction = np.dot(x, weights) + bias
+
+    print(prediction)
+
+Output:
+
+    69.0
+
+The dot product combines multiple features and their
+weights into one numerical result.
+
+This is a basic building block of many machine learning
+models.
+
+============================================================
+5.9 VECTOR MAGNITUDE
+============================================================
+
+The magnitude of a vector measures its length.
+
+It is also called the norm.
+
+For a vector:
+
+    v = [v1, v2, ..., vn]
+
+Its Euclidean magnitude is:
+
+                 __________________________
+                /
+    ||v|| =    / v1^2 + v2^2 + ... + vn^2
+              /
+
+For a two-dimensional vector:
+
+    v = [x, y]
+
+The magnitude is:
+
+    ||v|| = sqrt(x^2 + y^2)
+
+------------------------------------------------------------
+5.9.1 EXAMPLE
+------------------------------------------------------------
+
+Given:
+
+    v = [3, 4]
+
+Then:
+
+    ||v|| = sqrt(3^2 + 4^2)
+
+          = sqrt(9 + 16)
+
+          = sqrt(25)
+
+          = 5
+
+------------------------------------------------------------
+5.9.2 NUMPY MAGNITUDE
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    v = np.array([3, 4])
+
+    magnitude = np.linalg.norm(v)
+
+    print(magnitude)
+
+Output:
+
+    5.0
+
+------------------------------------------------------------
+5.9.3 WHY MAGNITUDE MATTERS
+------------------------------------------------------------
+
+Vector magnitude is useful for:
+- Measuring distances.
+- Comparing numerical vectors.
+- Normalizing feature vectors.
+- Geometric calculations.
+- Certain machine learning algorithms.
+
+For example, a vector with a large magnitude may
+contain large numerical values.
+
+However, a large magnitude does not necessarily mean
+that a vector is more important.
+
+============================================================
+5.10 VECTOR NORMALIZATION
+============================================================
+
+Normalization can refer to several transformations.
+In vector normalization, a common goal is to create
+a vector with magnitude 1.
+
+For a nonzero vector v:
+
+    Unit Vector = v / ||v||
+
+------------------------------------------------------------
+5.10.1 EXAMPLE
+------------------------------------------------------------
+
+Given:
+
+    v = [3, 4]
+
+Magnitude:
+
+    ||v|| = 5
+
+Divide each component by 5:
+
+    Unit Vector = [3/5, 4/5]
+
+    Unit Vector = [0.6, 0.8]
+
+Check its magnitude:
+
+    sqrt(0.6^2 + 0.8^2)
+
+    = sqrt(0.36 + 0.64)
+
+    = sqrt(1)
+
+    = 1
+
+------------------------------------------------------------
+5.10.2 PYTHON EXAMPLE
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    v = np.array([3.0, 4.0])
+
+    magnitude = np.linalg.norm(v)
+
+    unit_vector = v / magnitude
+
+    print(unit_vector)
+
+    print(np.linalg.norm(unit_vector))
+
+Output:
+
+    [0.6 0.8]
+    1.0
+
+IMPORTANT:
+
+A zero vector has magnitude zero and cannot be
+normalized using this formula because division by
+zero is undefined.
+
+------------------------------------------------------------
+5.10.3 NORMALIZATION IN DATA SCIENCE
+------------------------------------------------------------
+
+Vector normalization can be useful when the direction
+of a vector matters more than its original magnitude.
+
+For example, some text-processing systems compare
+document vectors using cosine similarity.
+
+Normalizing vectors can also be useful in certain
+machine learning algorithms.
+
+However, vector normalization is different from
+standardizing a dataset using its mean and standard
+deviation.
+
+These are separate techniques.
+
+============================================================
+5.11 DISTANCE BETWEEN VECTORS
+============================================================
+
+Distance measures how far apart two vectors are.
+
+A common measure is Euclidean distance.
+
+For:
+
+    A = [a1, a2, ..., an]
+
+    B = [b1, b2, ..., bn]
+
+The Euclidean distance is:
+
+                 ______________________________
+                /
+    d(A,B) =   / (a1-b1)^2 + ... + (an-bn)^2
+              /
+
+------------------------------------------------------------
+5.11.1 EXAMPLE
+------------------------------------------------------------
+
+Given:
+
+    A = [1, 2]
+
+    B = [4, 6]
+
+Calculate the differences:
+
+    4 - 1 = 3
+
+    6 - 2 = 4
+
+Square them:
+
+    3^2 = 9
+
+    4^2 = 16
+
+Add:
+
+    9 + 16 = 25
+
+Square root:
+
+    Distance = sqrt(25)
+
+    Distance = 5
+
+------------------------------------------------------------
+5.11.2 PYTHON EXAMPLE
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([1, 2])
+
+    B = np.array([4, 6])
+
+    distance = np.linalg.norm(A - B)
+
+    print(distance)
+
+Output:
+
+    5.0
+
+------------------------------------------------------------
+5.11.3 APPLICATION: NEAREST NEIGHBORS
+------------------------------------------------------------
+
+Suppose a machine learning system must identify which
+existing customer is most similar to a new customer.
+
+Represent each customer using numerical features:
+
+    Customer A = [20, 30000]
+
+    Customer B = [25, 40000]
+
+    New Customer = [22, 32000]
+
+A distance-based algorithm compares the new customer
+with existing customers.
+
+The customer with the smallest distance may be
+considered the nearest neighbor.
+
+IMPORTANT:
+
+The example features have very different scales.
+
+Income may dominate the distance because its numerical
+values are much larger than age values.
+
+Feature scaling may therefore be necessary.
+
+============================================================
+5.12 MATRIX REPRESENTATION
+============================================================
+
+A matrix is a rectangular arrangement of values.
+
+Example:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+This is a 2-by-2 matrix.
+
+Mathematical notation:
+
+             [a11  a12]
+    A   =    [a21  a22]
+
+Here:
+- a11 is the element in row 1, column 1.
+- a12 is the element in row 1, column 2.
+- a21 is the element in row 2, column 1.
+- a22 is the element in row 2, column 2.
+
+For:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+The elements are:
+
+    a11 = 1
+    a12 = 2
+    a21 = 3
+    a22 = 4
+
+------------------------------------------------------------
+5.12.1 MATRIX DIMENSIONS
+------------------------------------------------------------
+
+Example:
+
+    A = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+
+Rows = 2
+
+Columns = 3
+
+Shape = 2 x 3
+
+------------------------------------------------------------
+5.12.2 SQUARE MATRIX
+------------------------------------------------------------
+
+A square matrix has the same number of rows and columns.
+
+Example:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+Shape:
+
+    2 x 2
+
+Another example:
+
+    B = [
+        [1, 2, 3],
+        [4, 5, 6],
+        [7, 8, 9]
+    ]
+
+Shape:
+
+    3 x 3
+
+Square matrices are important for determinants,
+inverses, and eigenvalues.
+
+------------------------------------------------------------
+5.12.3 MATRIX IN DATA SCIENCE
+------------------------------------------------------------
+
+Suppose a dataset contains:
+
+    X = [
+        [5, 90],
+        [3, 75],
+        [7, 95],
+        [4, 80]
+    ]
+
+Each row represents one student.
+
+Each column represents one feature.
+
+Shape:
+
+    4 x 2
+
+This matrix contains four observations and two features.
+
+Many Data Science libraries use matrix-like arrays
+to represent numerical datasets.
+
+============================================================
+5.13 MATRIX ADDITION
+============================================================
+
+Two matrices can be added directly when they have
+the same dimensions.
+
+Example:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+    B = [
+        [5, 6],
+        [7, 8]
+    ]
+
+Add corresponding elements:
+
+    A + B = [
+        [1+5, 2+6],
+        [3+7, 4+8]
+    ]
+
+Result:
+
+    [
+        [6, 8],
+        [10, 12]
+    ]
+
+------------------------------------------------------------
+5.13.1 NUMPY MATRIX ADDITION
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([
+        [1, 2],
+        [3, 4]
+    ])
+
+    B = np.array([
+        [5, 6],
+        [7, 8]
+    ])
+
+    result = A + B
+
+    print(result)
+
+Output:
+
+    [[ 6  8]
+     [10 12]]
+
+============================================================
+5.14 MATRIX SUBTRACTION
+============================================================
+
+Matrix subtraction subtracts corresponding elements.
+
+Example:
+
+    A = [
+        [10, 20],
+        [30, 40]
+    ]
+
+    B = [
+        [1, 2],
+        [3, 4]
+    ]
+
+Then:
+
+    A - B = [
+        [9, 18],
+        [27, 36]
+    ]
+
+Python:
+
+    A = np.array([
+        [10, 20],
+        [30, 40]
+    ])
+
+    B = np.array([
+        [1, 2],
+        [3, 4]
+    ])
+
+    result = A - B
+
+    print(result)
+
+Output:
+
+    [[ 9 18]
+     [27 36]]
+
+Matrix subtraction is useful for calculating
+element-by-element differences between datasets.
+
+============================================================
+5.15 SCALAR MULTIPLICATION OF MATRICES
+============================================================
+
+Scalar multiplication multiplies every matrix element
+by a single number.
+
+Example:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+Multiply by 3:
+
+    3A = [
+        [3, 6],
+        [9, 12]
+    ]
+
+Python:
+
+    A = np.array([
+        [1, 2],
+        [3, 4]
+    ])
+
+    result = 3 * A
+
+    print(result)
+
+Output:
+
+    [[ 3  6]
+     [ 9 12]]
+
+Applications include scaling numerical values and
+applying constant factors to entire matrices.
+
+============================================================
+5.16 MATRIX MULTIPLICATION
+============================================================
+
+Matrix multiplication is different from multiplying
+corresponding elements.
+
+Suppose:
+
+    A has shape (m, n)
+
+    B has shape (n, p)
+
+The matrix product A @ B is valid.
+
+The resulting matrix has shape:
+
+    (m, p)
+
+The inner dimensions must match.
+
+------------------------------------------------------------
+5.16.1 SIMPLE EXAMPLE
+------------------------------------------------------------
+
+Given:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+    B = [
+        [5, 6],
+        [7, 8]
+    ]
+
+Calculate:
+
+    C = A @ B
+
+The element in row 1, column 1:
+
+    C11 = 1*5 + 2*7
+
+        = 5 + 14
+
+        = 19
+
+The element in row 1, column 2:
+
+    C12 = 1*6 + 2*8
+
+        = 6 + 16
+
+        = 22
+
+The element in row 2, column 1:
+
+    C21 = 3*5 + 4*7
+
+        = 15 + 28
+
+        = 43
+
+The element in row 2, column 2:
+
+    C22 = 3*6 + 4*8
+
+        = 18 + 32
+
+        = 50
+
+Therefore:
+
+    C = [
+        [19, 22],
+        [43, 50]
+    ]
+
+------------------------------------------------------------
+5.16.2 NUMPY MATRIX MULTIPLICATION
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([
+        [1, 2],
+        [3, 4]
+    ])
+
+    B = np.array([
+        [5, 6],
+        [7, 8]
+    ])
+
+    C = A @ B
+
+    print(C)
+
+Output:
+
+    [[19 22]
+     [43 50]]
+
+------------------------------------------------------------
+5.16.3 MATRIX MULTIPLICATION VS ELEMENTWISE
+------------------------------------------------------------
+
+Consider:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+    B = [
+        [5, 6],
+        [7, 8]
+    ]
+
+Elementwise multiplication:
+
+    A * B = [
+        [1*5, 2*6],
+        [3*7, 4*8]
+    ]
+
+    A * B = [
+        [5, 12],
+        [21, 32]
+    ]
+
+Matrix multiplication:
+
+    A @ B = [
+        [19, 22],
+        [43, 50]
+    ]
+
+These operations are different.
+
+In NumPy:
+
+    A * B
+
+performs elementwise multiplication for these arrays.
+
+    A @ B
+
+performs matrix multiplication.
+
+------------------------------------------------------------
+5.16.4 MATRIX MULTIPLICATION IS NOT COMMUTATIVE
+------------------------------------------------------------
+
+In general:
+
+    A @ B != B @ A
+
+Even if both products are defined, their results
+may differ.
+
+Using the earlier matrices:
+
+    A @ B = [
+        [19, 22],
+        [43, 50]
+    ]
+
+But:
+
+    B @ A = [
+        [23, 34],
+        [31, 46]
+    ]
+
+The results are different.
+
+This is a major difference between ordinary
+multiplication of real numbers and matrix multiplication.
+
+============================================================
+5.17 TRANSPOSE OF A MATRIX
+============================================================
+
+The transpose of a matrix is formed by converting
+its rows into columns and its columns into rows.
+
+Notation:
+
+    A^T
+
+Example:
+
+    A = [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+
+The first row becomes the first column.
+
+The second row becomes the second column.
+
+Therefore:
+
+    A^T = [
+        [1, 4],
+        [2, 5],
+        [3, 6]
+    ]
+
+Original shape:
+
+    2 x 3
+
+Transpose shape:
+
+    3 x 2
+
+------------------------------------------------------------
+5.17.1 NUMPY TRANSPOSE
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([
+        [1, 2, 3],
+        [4, 5, 6]
+    ])
+
+    print(A.T)
+
+Output:
+
+    [[1 4]
+     [2 5]
+     [3 6]]
+
+------------------------------------------------------------
+5.17.2 APPLICATIONS
+------------------------------------------------------------
+
+Transpose is useful for:
+- Changing the orientation of data.
+- Preparing compatible matrix dimensions.
+- Matrix equations.
+- Linear regression.
+- Neural network computations.
+
+IMPORTANT:
+
+For a one-dimensional NumPy array, .T does not convert
+it into a column vector.
+
+Example:
+
+    v = np.array([1, 2, 3])
+
+    print(v.T.shape)
+
+Output:
+
+    (3,)
+
+To create a column-shaped two-dimensional array:
+
+    column = v.reshape(-1, 1)
+
+Its shape is:
+
+    (3, 1)
+
+============================================================
+5.18 IDENTITY MATRIX
+============================================================
+
+An identity matrix is a square matrix containing:
+
+- Ones on the main diagonal.
+- Zeros everywhere else.
+
+A 2-by-2 identity matrix is:
+
+    I = [
+        [1, 0],
+        [0, 1]
+    ]
+
+A 3-by-3 identity matrix is:
+
+    I = [
+        [1, 0, 0],
+        [0, 1, 0],
+        [0, 0, 1]
+    ]
+
+------------------------------------------------------------
+5.18.1 IDENTITY MATRIX PROPERTY
+------------------------------------------------------------
+
+For a compatible matrix A:
+
+    A @ I = A
+
+and:
+
+    I @ A = A
+
+This is similar to the property:
+
+    x * 1 = x
+
+in ordinary arithmetic.
+
+The identity matrix is the multiplicative identity
+for square matrix multiplication.
+
+------------------------------------------------------------
+5.18.2 NUMPY EXAMPLE
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    I = np.eye(3)
+
+    print(I)
+
+Output:
+
+    [[1. 0. 0.]
+     [0. 1. 0.]
+     [0. 0. 1.]]
+
+============================================================
+5.19 DETERMINANTS
+============================================================
+
+The determinant is a numerical value associated with
+a square matrix.
+
+Notation:
+
+    det(A)
+
+Determinants are useful for understanding:
+- Whether a square matrix is invertible.
+- Linear transformations.
+- Systems of linear equations.
+- Changes in area and volume under transformations.
+- Eigenvalue calculations.
+
+------------------------------------------------------------
+5.19.1 DETERMINANT OF A 2-BY-2 MATRIX
+------------------------------------------------------------
+
+For:
+
+    A = [
+        [a, b],
+        [c, d]
+    ]
+
+The determinant is:
+
+    det(A) = ad - bc
+
+------------------------------------------------------------
+5.19.2 EXAMPLE
+------------------------------------------------------------
+
+Given:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+Then:
+
+    det(A) = (1)(4) - (2)(3)
+
+           = 4 - 6
+
+           = -2
+
+Therefore:
+
+    det(A) = -2
+
+------------------------------------------------------------
+5.19.3 NUMPY DETERMINANT
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([
+        [1, 2],
+        [3, 4]
+    ])
+
+    determinant = np.linalg.det(A)
+
+    print(determinant)
+
+Output is approximately:
+
+    -2.0000000000000004
+
+Small floating-point differences are normal.
+
+------------------------------------------------------------
+5.19.4 ZERO DETERMINANT
+------------------------------------------------------------
+
+If:
+
+    det(A) = 0
+
+the square matrix is singular and does not have an
+ordinary matrix inverse.
+
+Example:
+
+    A = [
+        [1, 2],
+        [2, 4]
+    ]
+
+Calculate:
+
+    det(A) = (1)(4) - (2)(2)
+
+           = 4 - 4
+
+           = 0
+
+The second row is twice the first row.
+
+The rows are linearly dependent.
+
+Therefore, the matrix is singular.
+
+============================================================
+5.20 INVERSE OF A MATRIX
+============================================================
+
+The inverse of a square matrix A is written as:
+
+    A^(-1)
+
+When the inverse exists:
+
+    A @ A^(-1) = I
+
+and:
+
+    A^(-1) @ A = I
+
+where I is the identity matrix.
+
+A square matrix has an inverse if and only if it is
+nonsingular, meaning its determinant is nonzero.
+
+------------------------------------------------------------
+5.20.1 INVERSE OF A 2-BY-2 MATRIX
+------------------------------------------------------------
+
+For:
+
+    A = [
+        [a, b],
+        [c, d]
+    ]
+
+If:
+
+    ad - bc != 0
+
+then:
+
+                   1       [ d  -b ]
+    A^(-1) =  -----------   [      ]
+              ad - bc       [ -c  a ]
+
+------------------------------------------------------------
+5.20.2 EXAMPLE
+------------------------------------------------------------
+
+Given:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+We already calculated:
+
+    det(A) = -2
+
+Since the determinant is not zero, the inverse exists.
+
+Using the formula:
+
+                   1       [ 4  -2 ]
+    A^(-1) =  ----(-2)     [       ]
+                            [ -3  1 ]
+
+Therefore:
+
+    A^(-1) = [
+        [-2,    1],
+        [1.5, -0.5]
+    ]
+
+------------------------------------------------------------
+5.20.3 NUMPY INVERSE
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([
+        [1.0, 2.0],
+        [3.0, 4.0]
+    ])
+
+    inverse = np.linalg.inv(A)
+
+    print(inverse)
+
+Output:
+
+    [[-2.   1. ]
+     [ 1.5 -0.5]]
+
+IMPORTANT:
+
+Computing a matrix inverse is not always the best
+numerical approach for solving a linear system.
+
+In practical numerical computing, use a linear solver
+when solving Ax = b.
+
+For example:
+
+    np.linalg.solve(A, b)
+
+is generally preferable to explicitly calculating
+the inverse and multiplying it by b.
+
+============================================================
+5.21 SYSTEMS OF LINEAR EQUATIONS USING MATRICES
+============================================================
+
+Consider the system:
+
+    2x + y = 5
+
+    x + 3y = 6
+
+We can represent the equations as:
+
+    A x = b
+
+where:
+
+    A = [
+        [2, 1],
+        [1, 3]
+    ]
+
+    x = [
+        [x],
+        [y]
+    ]
+
+    b = [
+        [5],
+        [6]
+    ]
+
+Therefore:
+
+    A x = b
+
+------------------------------------------------------------
+5.21.1 SOLVING BY SUBSTITUTION
+------------------------------------------------------------
+
+Given:
+
+    2x + y = 5
+
+    x + 3y = 6
+
+From the first equation:
+
+    y = 5 - 2x
+
+Substitute into the second equation:
+
+    x + 3(5 - 2x) = 6
+
+Expand:
+
+    x + 15 - 6x = 6
+
+Combine:
+
+    -5x + 15 = 6
+
+Subtract 15:
+
+    -5x = -9
+
+Divide by -5:
+
+    x = 9/5
+
+    x = 1.8
+
+Substitute back:
+
+    y = 5 - 2(1.8)
+
+    y = 5 - 3.6
+
+    y = 1.4
+
+Solution:
+
+    x = 1.8
+
+    y = 1.4
+
+------------------------------------------------------------
+5.21.2 SOLVING WITH NUMPY
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([
+        [2.0, 1.0],
+        [1.0, 3.0]
+    ])
+
+    b = np.array([5.0, 6.0])
+
+    solution = np.linalg.solve(A, b)
+
+    print(solution)
+
+Output:
+
+    [1.8 1.4]
+
+The first value is x.
+
+The second value is y.
+
+------------------------------------------------------------
+5.21.3 APPLICATIONS
+------------------------------------------------------------
+
+Systems of linear equations appear in:
+- Scientific modeling.
+- Engineering.
+- Economic models.
+- Parameter estimation.
+- Certain optimization problems.
+- Numerical computing.
+
+Not every system has exactly one solution.
+
+Depending on the equations, a system may have:
+- One solution.
+- No solution.
+- Infinitely many solutions.
+
+============================================================
+5.22 LINEAR TRANSFORMATIONS
+============================================================
+
+A linear transformation is a function between vector
+spaces that preserves vector addition and scalar
+multiplication.
+
+If T is linear, then:
+
+    T(u + v) = T(u) + T(v)
+
+and:
+
+    T(cu) = cT(u)
+
+for compatible vectors u and v and scalar c.
+
+Matrix multiplication provides a common way to represent
+linear transformations.
+
+    y = A @ x
+
+Here:
+- x is the input vector.
+- A is the transformation matrix.
+- y is the transformed vector.
+
+------------------------------------------------------------
+5.22.1 SCALING TRANSFORMATION
+------------------------------------------------------------
+
+Suppose:
+
+    A = [
+        [2, 0],
+        [0, 2]
+    ]
+
+and:
+
+    x = [3, 4]
+
+Then:
+
+    y = A @ x
+
+    y = [
+        [2, 0],
+        [0, 2]
+    ] @ [
+        [3],
+        [4]
+    ]
+
+Result:
+
+    y = [6, 8]
+
+The vector is scaled by a factor of 2.
+
+------------------------------------------------------------
+5.22.2 NUMPY EXAMPLE
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([
+        [2, 0],
+        [0, 2]
+    ])
+
+    x = np.array([3, 4])
+
+    y = A @ x
+
+    print(y)
+
+Output:
+
+    [6 8]
+
+------------------------------------------------------------
+5.22.3 ROTATION TRANSFORMATION
+------------------------------------------------------------
+
+A two-dimensional rotation by angle theta can be
+represented by:
+
+    R = [
+        [cos(theta), -sin(theta)],
+        [sin(theta),  cos(theta)]
+    ]
+
+For a rotation of 90 degrees:
+
+    cos(90 degrees) = 0
+
+    sin(90 degrees) = 1
+
+Therefore:
+
+    R = [
+        [0, -1],
+        [1,  0]
+    ]
+
+Apply it to:
+
+    x = [1, 0]
+
+Then:
+
+    R @ x = [0, 1]
+
+The vector has rotated 90 degrees counterclockwise.
+
+Rotation matrices are useful in computer graphics,
+robotics, and geometric data transformations.
+
+============================================================
+5.23 EIGENVALUES AND EIGENVECTORS
+============================================================
+
+Eigenvalues and eigenvectors are advanced but important
+linear algebra concepts.
+
+They are useful in:
+- Principal Component Analysis.
+- Dimensionality reduction.
+- Spectral clustering.
+- Dynamical systems.
+- Certain graph algorithms.
+- Scientific computing.
+
+------------------------------------------------------------
+5.23.1 BASIC IDEA
+------------------------------------------------------------
+
+A nonzero vector v is an eigenvector of a square matrix A
+if:
+
+    A v = lambda v
+
+Here:
+- A is a square matrix.
+- v is a nonzero eigenvector.
+- lambda is the corresponding eigenvalue.
+
+The transformation by A changes the magnitude of the
+eigenvector by a factor of lambda without changing its
+direction, except that a negative eigenvalue reverses
+the direction.
+
+------------------------------------------------------------
+5.23.2 SIMPLE EXAMPLE
+------------------------------------------------------------
+
+Consider:
+
+    A = [
+        [2, 0],
+        [0, 3]
+    ]
+
+Choose:
+
+    v = [1, 0]
+
+Then:
+
+    A @ v = [2, 0]
+
+Therefore:
+
+    A @ v = 2v
+
+The vector:
+
+    v = [1, 0]
+
+is an eigenvector.
+
+Its eigenvalue is:
+
+    lambda = 2
+
+Now choose:
+
+    u = [0, 1]
+
+Then:
+
+    A @ u = [0, 3]
+
+Therefore:
+
+    A @ u = 3u
+
+Its eigenvalue is:
+
+    lambda = 3
+
+------------------------------------------------------------
+5.23.3 EIGENVALUES IN NUMPY
+------------------------------------------------------------
+
+Program:
+
+    import numpy as np
+
+    A = np.array([
+        [2.0, 0.0],
+        [0.0, 3.0]
+    ])
+
+    eigenvalues, eigenvectors = np.linalg.eig(A)
+
+    print("Eigenvalues:")
+    print(eigenvalues)
+
+    print("Eigenvectors:")
+    print(eigenvectors)
+
+The eigenvalues are:
+
+    [2. 3.]
+
+The columns of the returned eigenvector matrix
+correspond to the eigenvalues in the same order.
+
+For this diagonal matrix, the eigenvectors are aligned
+with the coordinate axes.
+
+------------------------------------------------------------
+5.23.4 CONNECTION TO PCA
+------------------------------------------------------------
+
+Principal Component Analysis (PCA) is a technique
+used to reduce the number of dimensions in data.
+
+In a common PCA formulation, eigenvectors of a data
+covariance matrix describe principal directions.
+
+Their corresponding eigenvalues describe the amount
+of variance associated with those directions.
+
+PCA can help:
+- Reduce dimensionality.
+- Compress information.
+- Visualize high-dimensional data.
+- Remove redundant directions.
+
+PCA involves additional concepts, including centering
+data and covariance matrices. These will be studied
+in more detail in a later chapter.
+
+============================================================
+5.24 NUMPY FOR LINEAR ALGEBRA
+============================================================
+
+NumPy is a Python library for numerical computing.
+
+Install it with:
+
+    pip install numpy
+
+Import it:
+
+    import numpy as np
+
+------------------------------------------------------------
+5.24.1 CREATE A VECTOR
+------------------------------------------------------------
+
+    import numpy as np
+
+    v = np.array([1, 2, 3])
+
+    print(v)
+
+Output:
+
+    [1 2 3]
+
+------------------------------------------------------------
+5.24.2 CREATE A MATRIX
+------------------------------------------------------------
+
+    A = np.array([
+        [1, 2],
+        [3, 4]
+    ])
+
+    print(A)
+
+Output:
+
+    [[1 2]
+     [3 4]]
+
+------------------------------------------------------------
+5.24.3 CHECK SHAPE
+------------------------------------------------------------
+
+    print(A.shape)
+
+Output:
+
+    (2, 2)
+
+------------------------------------------------------------
+5.24.4 ACCESS ELEMENTS
+------------------------------------------------------------
+
+For:
+
+    A = np.array([
+        [10, 20, 30],
+        [40, 50, 60]
+    ])
+
+Access the element in the first row and second column:
+
+    print(A[0, 1])
+
+Output:
+
+    20
+
+IMPORTANT:
+
+Python indexing starts at zero.
+
+Therefore:
+
+    A[0, 0]
+
+accesses the first row and first column.
+
+------------------------------------------------------------
+5.24.5 CALCULATE THE TRANSPOSE
+------------------------------------------------------------
+
+    print(A.T)
+
+------------------------------------------------------------
+5.24.6 CALCULATE A DOT PRODUCT
+------------------------------------------------------------
+
+    x = np.array([1, 2, 3])
+
+    w = np.array([4, 5, 6])
+
+    print(np.dot(x, w))
+
+Output:
+
+    32
+
+------------------------------------------------------------
+5.24.7 CALCULATE A VECTOR NORM
+------------------------------------------------------------
+
+    v = np.array([3, 4])
+
+    print(np.linalg.norm(v))
+
+Output:
+
+    5.0
+
+------------------------------------------------------------
+5.24.8 SOLVE A LINEAR SYSTEM
+------------------------------------------------------------
+
+    A = np.array([
+        [2.0, 1.0],
+        [1.0, 3.0]
+    ])
+
+    b = np.array([5.0, 6.0])
+
+    solution = np.linalg.solve(A, b)
+
+    print(solution)
+
+Output:
+
+    [1.8 1.4]
+
+============================================================
+5.25 PRACTICAL PROJECT
+      STUDENT DATA MATRIX ANALYZER
+============================================================
+
+PROJECT OBJECTIVE
+-----------------
+
+Create a program that:
+
+1. Stores student information in a matrix.
+2. Calculates each student's total marks.
+3. Calculates average marks by subject.
+4. Identifies the highest mark in each subject.
+5. Calculates a weighted prediction for each student.
+
+Suppose three students have marks in three subjects.
+
+    Student A = [80, 70, 90]
+
+    Student B = [60, 85, 75]
+
+    Student C = [90, 95, 85]
+
+Create a matrix:
+
+    X = [
+        [80, 70, 90],
+        [60, 85, 75],
+        [90, 95, 85]
+    ]
+
+Rows represent students.
+
+Columns represent subjects.
+
+------------------------------------------------------------
+5.25.1 COMPLETE PYTHON PROGRAM
+------------------------------------------------------------
+
+    import numpy as np
+
+    # Rows are students.
+    # Columns are subjects.
+
+    X = np.array([
+        [80, 70, 90],
+        [60, 85, 75],
+        [90, 95, 85]
+    ], dtype=float)
+
+    print("Student Marks:")
+    print(X)
+
+    # Matrix shape
+    print("\nMatrix Shape:")
+    print(X.shape)
+
+    # Total marks for each student
+    student_totals = np.sum(X, axis=1)
+
+    print("\nTotal Marks:")
+    print(student_totals)
+
+    # Average marks for each student
+    student_averages = np.mean(X, axis=1)
+
+    print("\nStudent Averages:")
+    print(student_averages)
+
+    # Average marks for each subject
+    subject_averages = np.mean(X, axis=0)
+
+    print("\nSubject Averages:")
+    print(subject_averages)
+
+    # Highest mark in each subject
+    subject_highest = np.max(X, axis=0)
+
+    print("\nHighest Mark in Each Subject:")
+    print(subject_highest)
+
+------------------------------------------------------------
+5.25.2 EXPECTED OUTPUT
+------------------------------------------------------------
+
+    Student Marks:
+    [[80. 70. 90.]
+     [60. 85. 75.]
+     [90. 95. 85.]]
+
+    Matrix Shape:
+    (3, 3)
+
+    Total Marks:
+    [240. 220. 270.]
+
+    Student Averages:
+    [80.         73.33333333 90.        ]
+
+    Subject Averages:
+    [76.66666667 83.33333333 83.33333333]
+
+    Highest Mark in Each Subject:
+    [90. 95. 90.]
+
+------------------------------------------------------------
+5.25.3 UNDERSTANDING AXIS
+------------------------------------------------------------
+
+For a two-dimensional NumPy array:
+
+    axis=0
+
+operates down the rows, producing a result for each
+column.
+
+Example:
+
+    np.mean(X, axis=0)
+
+calculates the average of each subject across students.
+
+For:
+
+    axis=1
+
+the operation works across the columns of each row,
+producing a result for each student.
+
+Example:
+
+    np.mean(X, axis=1)
+
+calculates the average for each student.
+
+------------------------------------------------------------
+5.25.4 ADD A WEIGHTED PREDICTION
+------------------------------------------------------------
+
+Suppose the three subjects have weights:
+
+    Mathematics = 0.4
+
+    Science = 0.35
+
+    English = 0.25
+
+The weights sum to:
+
+    0.4 + 0.35 + 0.25 = 1.0
+
+Represent the weights as a vector:
+
+    weights = [0.4, 0.35, 0.25]
+
+Calculate weighted scores:
+
+    predictions = X @ weights
+
+Complete code:
+
+    weights = np.array([0.4, 0.35, 0.25])
+
+    weighted_scores = X @ weights
+
+    print("Weighted Scores:")
+    print(weighted_scores)
+
+Expected output:
+
+    [80.5 72.5 90.0]
+
+Explanation for Student A:
+
+    Score = 80(0.4) + 70(0.35) + 90(0.25)
+
+          = 32 + 24.5 + 22.5
+
+          = 79.0
+
+CORRECTION OF THE ARITHMETIC:
+
+The actual calculation is:
+
+    32 + 24.5 + 22.5 = 79.0
+
+Therefore, the correct weighted scores are:
+
+    Student A = 79.0
+
+    Student B = 73.0
+
+    Student C = 90.0
+
+The Python expression:
+
+    weighted_scores = X @ weights
+
+automatically calculates the correct values.
+
+============================================================
+5.26 COMMON LINEAR ALGEBRA MISTAKES
+============================================================
+
+MISTAKE 1: Confusing a vector with a scalar
+
+Scalar:
+
+    5
+
+Vector:
+
+    [5, 10, 15]
+
+MISTAKE 2: Ignoring matrix dimensions
+
+A matrix product is valid only when the inner dimensions
+match.
+
+For:
+
+    A shape = (2, 3)
+
+    B shape = (3, 4)
+
+The product shape is:
+
+    (2, 4)
+
+MISTAKE 3: Confusing elementwise multiplication with
+matrix multiplication
+
+NumPy:
+
+    A * B
+
+performs elementwise multiplication for compatible
+arrays.
+
+NumPy:
+
+    A @ B
+
+performs matrix multiplication.
+
+MISTAKE 4: Assuming matrix multiplication is commutative
+
+Generally:
+
+    A @ B != B @ A
+
+MISTAKE 5: Confusing a one-dimensional array with
+a column matrix
+
+A NumPy array created using:
+
+    np.array([1, 2, 3])
+
+has shape:
+
+    (3,)
+
+A column matrix can be created using:
+
+    np.array([[1], [2], [3]])
+
+Its shape is:
+
+    (3, 1)
+
+MISTAKE 6: Trying to invert a singular matrix
+
+If the determinant is zero, an ordinary inverse does
+not exist.
+
+MISTAKE 7: Ignoring feature scales
+
+Distance calculations can be dominated by features
+with large numerical ranges.
+
+MISTAKE 8: Treating all tensors as matrices
+
+A matrix has two dimensions. A tensor can have more
+than two dimensions.
+
+MISTAKE 9: Assuming every matrix operation has a
+direct elementwise interpretation
+
+Matrix multiplication, matrix inversion, and
+determinants have specific mathematical definitions.
+
+MISTAKE 10: Confusing vector normalization with
+standardization
+
+Unit-vector normalization typically divides a vector
+by its norm.
+
+Standardization commonly transforms each feature using
+its mean and standard deviation.
+
+These are different procedures.
+
+============================================================
+5.27 CHAPTER SUMMARY
+============================================================
+
+You learned:
+
+1. Linear algebra studies vectors, matrices, and linear
+   transformations.
+
+2. A scalar is a single numerical value.
+
+3. A vector is an ordered collection of components.
+
+4. A matrix is a rectangular numerical structure.
+
+5. A tensor generalizes arrays to multiple dimensions.
+
+6. Shape describes the dimensions of an array.
+
+7. Vector addition and subtraction operate on
+   corresponding components.
+
+8. Scalar multiplication scales every component.
+
+9. The dot product combines corresponding products
+   into one scalar.
+
+10. Vector magnitude measures length.
+
+11. Vector normalization can produce a unit vector.
+
+12. Euclidean distance measures straight-line distance.
+
+13. Matrix addition and subtraction require compatible
+    dimensions.
+
+14. Matrix multiplication follows specific dimension
+    rules.
+
+15. Matrix multiplication is generally not commutative.
+
+16. Transpose exchanges rows and columns.
+
+17. An identity matrix acts as the multiplicative
+    identity for compatible square matrix operations.
+
+18. A determinant helps identify whether a square matrix
+    is invertible.
+
+19. A nonsingular square matrix has an inverse.
+
+20. Linear systems can be represented as Ax = b.
+
+21. Linear transformations can be represented using
+    matrix multiplication.
+
+22. Eigenvectors and eigenvalues describe special
+    directions and scaling factors of a transformation.
+
+23. NumPy provides efficient numerical operations.
+
+24. Linear algebra is fundamental to machine learning
+    and deep learning.
+
+============================================================
+5.28 SELF-ASSESSMENT QUESTIONS
+============================================================
+
+Choose the correct answer.
+
+------------------------------------------------------------
+SECTION A: FUNDAMENTALS
+------------------------------------------------------------
+
+Q1. Which of the following is a scalar?
+
+A. [1, 2, 3]
+B. [[1, 2], [3, 4]]
+C. 10
+D. [5, 6]
+
+Q2. What is the shape of this matrix?
+
+    [
+        [1, 2, 3],
+        [4, 5, 6]
+    ]
+
+A. (3, 2)
+B. (2, 3)
+C. (2, 2)
+D. (3, 3)
+
+Q3. Calculate:
+
+    [1, 2, 3] + [4, 5, 6]
+
+A. [5, 7, 9]
+B. [4, 10, 18]
+C. [1, 2, 3, 4, 5, 6]
+D. [3, 3, 3]
+
+Q4. What is the dot product of:
+
+    A = [1, 2]
+
+    B = [3, 4]
+
+A. 7
+B. 10
+C. 11
+D. 14
+
+Q5. What is the magnitude of:
+
+    v = [3, 4]
+
+A. 4
+B. 5
+C. 7
+D. 25
+
+------------------------------------------------------------
+SECTION B: MATRIX OPERATIONS
+------------------------------------------------------------
+
+Q6. If A has shape (2, 3) and B has shape (3, 4),
+what is the shape of A @ B?
+
+A. (2, 4)
+B. (3, 3)
+C. (4, 2)
+D. (2, 3)
+
+Q7. What does A.T represent in NumPy?
+
+A. The inverse of A
+B. The transpose of A
+C. The determinant of A
+D. The identity matrix of A
+
+Q8. What is the determinant of:
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+A. 2
+B. -2
+C. 10
+D. 0
+
+Q9. When does a square matrix have an ordinary inverse?
+
+A. When every element is positive
+B. When its determinant is nonzero
+C. When every element is zero
+D. When its number of rows is different from its
+   number of columns
+
+Q10. Which NumPy function is generally appropriate
+for solving Ax = b?
+
+A. np.linalg.solve(A, b)
+B. np.sum(A, b)
+C. np.mean(A, b)
+D. np.sort(A)
+
+------------------------------------------------------------
+SECTION C: MACHINE LEARNING APPLICATIONS
+------------------------------------------------------------
+
+Q11. In the expression:
+
+    y_hat = w*x + b
+
+what is w commonly called?
+
+A. Weight
+B. Dataset
+C. Matrix shape
+D. Row count
+
+Q12. Which operation is used to calculate a dot product
+between two one-dimensional NumPy arrays?
+
+A. np.dot(a, b)
+B. np.mean(a, b)
+C. np.sort(a, b)
+D. np.shape(a, b)
+
+Q13. What is the magnitude of the vector [6, 8]?
+
+A. 10
+B. 12
+C. 14
+D. 100
+
+Q14. What is a common application of eigenvectors and
+eigenvalues in Data Science?
+
+A. Printing strings
+B. Principal Component Analysis
+C. Reading a text file
+D. Sorting a list alphabetically
+
+Q15. What is the result of multiplying this matrix by
+the scalar 2?
+
+    A = [
+        [1, 2],
+        [3, 4]
+    ]
+
+A. [[1, 2], [3, 4]]
+B. [[2, 4], [6, 8]]
+C. [[2, 2], [3, 4]]
+D. [[2, 3], [4, 5]]
+
+------------------------------------------------------------
+ANSWER KEY
+------------------------------------------------------------
+
+Q1. C — 10
+
+Q2. B — (2, 3)
+
+Q3. A — [5, 7, 9]
+
+Q4. C — 11
+
+    1*3 + 2*4 = 3 + 8 = 11
+
+Q5. B — 5
+
+    sqrt(3^2 + 4^2) = 5
+
+Q6. A — (2, 4)
+
+Q7. B — Transpose
+
+Q8. B — -2
+
+    (1*4) - (2*3) = -2
+
+Q9. B — When its determinant is nonzero
+
+Q10. A — np.linalg.solve(A, b)
+
+Q11. A — Weight
+
+Q12. A — np.dot(a, b)
+
+Q13. A — 10
+
+    sqrt(6^2 + 8^2)
+    = sqrt(36 + 64)
+    = sqrt(100)
+    = 10
+
+Q14. B — Principal Component Analysis
+
+Q15. B — [[2, 4], [6, 8]]
+
+============================================================
+CHAPTER 5 — LINEAR ALGEBRA COMPLETE
+============================================================
+
+NEXT CHAPTER:
+CHAPTER 6 — PROBABILITY
+
+PLANNED TOPICS
+--------------
+
+1. Introduction to Probability
+2. Random Experiments
+3. Sample Spaces
+4. Events
+5. Basic Probability Rules
+6. Complementary Events
+7. Union and Intersection of Events
+8. Conditional Probability
+9. Independent and Dependent Events
+10. Bayes' Theorem
+11. Random Variables
+12. Probability Distributions
+13. Expected Value
+14. Variance of a Random Variable
+15. Applications of Probability in Machine Learning
+16. Practical Probability Using Python
+============================================================

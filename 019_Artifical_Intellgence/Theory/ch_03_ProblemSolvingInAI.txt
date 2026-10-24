@@ -1,0 +1,3359 @@
+============================================================
+CHAPTER 3 — AI PROBLEM-SOLVING
+============================================================
+
+SUBJECT: ARTIFICIAL INTELLIGENCE
+LEVEL: BEGINNER TO ADVANCED
+GOAL: Understand how AI represents problems, searches for
+solutions, makes decisions, and solves complex tasks.
+============================================================
+
+
+CHAPTER OVERVIEW
+------------------------------------------------------------
+
+Artificial Intelligence is not only about machine learning,
+neural networks, and chatbots.
+
+One of the fundamental areas of AI is PROBLEM-SOLVING.
+
+An AI system often needs to:
+1. Understand the problem.
+2. Represent the problem in a structured form.
+3. Identify possible actions.
+4. Explore possible solutions.
+5. Select an appropriate solution.
+6. Execute the solution.
+7. Evaluate whether the goal was achieved.
+
+For example:
+
+Suppose an AI agent must find the shortest route from City A
+to City G.
+
+It needs to:
+- Know the starting city.
+- Know the destination.
+- Know the available roads.
+- Know the distance of each road.
+- Explore possible routes.
+- Compare their costs.
+- Choose an appropriate route.
+
+This is an AI problem-solving task.
+
+In this chapter, we will study:
+
+3.1  Introduction to AI Problem-Solving
+3.2  Problem Formulation
+3.3  State Space Representation
+3.4  Components of an AI Problem
+3.5  Problem-Solving Agents
+3.6  Search Algorithms
+3.7  Uninformed Search
+3.8  Informed Search
+3.9  Heuristic Functions
+3.10 Local Search Algorithms
+3.11 Optimization Problems
+3.12 Constraint Satisfaction Problems
+3.13 Adversarial Search
+3.14 Game-Playing AI
+3.15 Real-World Applications
+3.16 Challenges in AI Problem-Solving
+3.17 Chapter Summary
+
+
+============================================================
+3.1 INTRODUCTION TO AI PROBLEM-SOLVING
+============================================================
+
+DEFINITION
+----------
+
+AI problem-solving is the process by which an intelligent
+system determines a sequence of actions that transforms an
+initial situation into a desired goal situation.
+
+In simple words:
+
+AI PROBLEM-SOLVING = FINDING A WAY TO REACH A GOAL.
+
+Example 1: Maze Solver
+----------------------
+
+Imagine a robot inside a maze.
+
+Starting position: S
+Goal position: G
+
+The robot must find a path from S to G without crossing walls.
+
+The robot can:
+- Move up.
+- Move down.
+- Move left.
+- Move right.
+
+The AI explores available movements and finds a valid path.
+
+Example 2: Route Planning
+------------------------
+
+A navigation system must find a route from Khandwa to Indore.
+
+It considers:
+- Available roads.
+- Road distances.
+- Traffic conditions.
+- Travel time.
+- Road restrictions.
+
+The objective might be to minimize travel time rather than
+simply minimizing distance.
+
+Example 3: Chess
+----------------
+
+A chess-playing AI must select its next move.
+
+It considers:
+- Its current board position.
+- Legal moves.
+- Possible opponent responses.
+- Future board positions.
+- The likelihood of winning.
+
+The AI evaluates possible moves and selects one according
+to its strategy.
+
+Example 4: Medical Diagnosis
+----------------------------
+
+An AI system receives information about a patient.
+
+It considers:
+- Symptoms.
+- Medical history.
+- Test results.
+- Possible diseases.
+
+It evaluates possible explanations and may suggest likely
+diagnoses for a qualified healthcare professional to review.
+
+Important:
+Real medical systems require careful validation, appropriate
+clinical oversight, and consideration of uncertainty.
+
+------------------------------------------------------------
+WHY IS PROBLEM-SOLVING IMPORTANT IN AI?
+------------------------------------------------------------
+
+Problem-solving enables AI systems to:
+
+1. Plan actions.
+2. Navigate environments.
+3. Solve puzzles.
+4. Make decisions.
+5. Schedule tasks.
+6. Optimize resources.
+7. Play strategic games.
+8. Find routes.
+9. Allocate limited resources.
+10. Solve mathematical and logical problems.
+
+Problem-solving is a foundation for areas such as robotics,
+planning, game-playing, scheduling, and automated reasoning.
+
+------------------------------------------------------------
+PROBLEM-SOLVING VS MACHINE LEARNING
+------------------------------------------------------------
+
+These concepts are related but different.
+
+AI PROBLEM-SOLVING:
+- Focuses on finding a solution to a defined problem.
+- May use search, logic, planning, or optimization.
+- Can work without training on a dataset.
+
+MACHINE LEARNING:
+- Focuses on learning patterns from data.
+- Uses experience or examples to improve predictions
+  or decisions.
+- Often requires training data.
+
+Example:
+
+A traditional search algorithm can find a route through a
+known map without learning from previous journeys.
+
+A machine-learning model might predict traffic congestion
+from historical traffic data.
+
+A navigation system can combine both:
+- Machine learning predicts traffic.
+- A search algorithm finds a suitable route.
+
+
+============================================================
+3.2 PROBLEM FORMULATION
+============================================================
+
+Problem formulation means defining a problem precisely so
+that an AI system can attempt to solve it.
+
+Before solving a problem, the system needs to know:
+
+1. What is the current situation?
+2. What is the desired situation?
+3. What actions are possible?
+4. What happens after each action?
+5. What makes a solution acceptable?
+6. What is the cost of a solution?
+
+Example: Finding a Route
+------------------------
+
+Suppose we have four cities:
+
+A, B, C, D
+
+Road connections:
+
+A ----1---- B
+|           |
+4           2
+|           |
+C ----1---- D
+
+Assume the roads are bidirectional.
+
+The AI must travel from A to D.
+
+Possible routes:
+
+Route 1:
+A -> B -> D
+
+Cost = 1 + 2 = 3
+
+Route 2:
+A -> C -> D
+
+Cost = 4 + 1 = 5
+
+The shortest route is:
+
+A -> B -> D
+
+Total cost = 3
+
+The problem must be formulated before an algorithm can
+search for a solution.
+
+------------------------------------------------------------
+IMPORTANT ELEMENTS OF PROBLEM FORMULATION
+------------------------------------------------------------
+
+A. INITIAL STATE
+----------------
+
+The initial state describes where the agent starts.
+
+Example:
+Initial state = A
+
+B. ACTIONS
+----------
+
+Actions are the operations available to the agent.
+
+Example:
+From city A, the agent can:
+- Move to B.
+- Move to C.
+
+C. TRANSITION MODEL
+-------------------
+
+The transition model describes what state results from
+performing an action.
+
+Example:
+
+Current state = A
+Action = Move to B
+
+Resulting state = B
+
+Mathematically:
+
+RESULT = TRANSITION(CURRENT_STATE, ACTION)
+
+D. GOAL TEST
+------------
+
+The goal test determines whether the desired state has
+been reached.
+
+Example:
+
+Goal state = D
+
+If current state = D:
+    Goal reached.
+
+Otherwise:
+    Continue searching.
+
+E. PATH COST
+------------
+
+Path cost measures the total cost of a sequence of actions.
+
+It might represent:
+- Distance.
+- Time.
+- Money.
+- Energy.
+- Risk.
+- Number of actions.
+
+For a path containing actions a1, a2, ..., an:
+
+TOTAL PATH COST =
+    COST(a1) + COST(a2) + ... + COST(an)
+
+More generally, if action costs depend on the current state:
+
+g(path) = SUM OF THE STEP COSTS ALONG THE PATH
+
+The best solution depends on the objective.
+
+For example:
+- The shortest route minimizes distance.
+- The fastest route minimizes time.
+- The cheapest route minimizes money.
+
+These routes may be different.
+
+------------------------------------------------------------
+FORMAL PROBLEM DEFINITION
+------------------------------------------------------------
+
+A classical search problem can be represented as:
+
+P = (S, A, T, s0, G, c)
+
+Where:
+
+S  = Set of possible states
+A  = Set of possible actions
+T  = Transition model
+s0 = Initial state
+G  = Goal condition or set of goal states
+c  = Step-cost function
+
+A solution is a sequence of actions that leads from the
+initial state to a state satisfying the goal condition.
+
+An optimal solution is a solution with the lowest total
+path cost, provided the problem defines such a cost.
+
+IMPORTANT:
+Not every valid solution is optimal.
+
+For example:
+A route may reach the destination but be longer than another
+available route.
+
+
+============================================================
+3.3 STATE SPACE REPRESENTATION
+============================================================
+
+DEFINITION
+----------
+
+A state space is the collection of states that may be
+reached while solving a problem, according to its transition
+rules.
+
+It describes the possible situations an AI system may
+encounter.
+
+Example: Robot Navigation
+-------------------------
+
+Suppose a robot can occupy five positions:
+
+A, B, C, D, E
+
+Its state space is:
+
+S = {A, B, C, D, E}
+
+Possible transitions:
+
+A -> B
+A -> C
+B -> D
+C -> D
+D -> E
+
+If the robot starts at A and wants to reach E, it can explore
+the state space to find a route.
+
+Possible solution paths:
+
+A -> B -> D -> E
+
+A -> C -> D -> E
+
+If every action has equal cost, both paths contain three
+moves and have equal cost.
+
+------------------------------------------------------------
+STATE SPACE GRAPH
+------------------------------------------------------------
+
+A state space is often represented as a graph.
+
+A graph contains:
+
+1. Nodes.
+2. Edges.
+
+NODES:
+Represent states.
+
+EDGES:
+Represent actions or transitions between states.
+
+Example:
+
+       A
+      / \
+     B   C
+      \ /
+       D
+       |
+       E
+
+Here:
+- A is the initial state.
+- E is the goal state.
+- B, C, and D are intermediate states.
+
+A search algorithm explores this graph to find a path
+from A to E.
+
+------------------------------------------------------------
+STATE VS NODE
+------------------------------------------------------------
+
+These terms are related but not always identical.
+
+STATE:
+The actual configuration of the problem.
+
+NODE:
+A search structure representing a state, often together
+with information such as:
+- Parent node.
+- Action used to reach it.
+- Path cost.
+- Depth.
+
+The same state can sometimes appear in multiple search
+nodes when it is reached through different paths.
+
+A search algorithm may use visited-state tracking to avoid
+repeated exploration.
+
+------------------------------------------------------------
+STATE SPACE EXPLOSION
+------------------------------------------------------------
+
+A major difficulty in AI is that the number of possible
+states can grow extremely quickly.
+
+Consider a problem where each state has b possible actions.
+
+If the search explores to depth d, the number of nodes in
+a full search tree may be approximately:
+
+1 + b + b^2 + b^3 + ... + b^d
+
+For b != 1:
+
+TOTAL NODES = (b^(d+1) - 1) / (b - 1)
+
+Here:
+
+b = Branching factor
+d = Search depth
+
+Example:
+
+If each state has 3 possible actions and we search to depth 4:
+
+Level 0: 1 node
+Level 1: 3 nodes
+Level 2: 9 nodes
+Level 3: 27 nodes
+Level 4: 81 nodes
+
+Total = 1 + 3 + 9 + 27 + 81
+      = 121 nodes
+
+This illustrates why large search spaces can be difficult.
+
+Real problems may contain cycles, repeated states, and
+different numbers of actions per state, so actual search
+sizes can differ.
+
+------------------------------------------------------------
+STATE SPACE VS SEARCH TREE
+------------------------------------------------------------
+
+STATE SPACE:
+The underlying set of states and transitions in a problem.
+
+SEARCH TREE:
+The tree generated by a search algorithm while exploring
+possible paths.
+
+A graph may contain cycles:
+
+A -> B -> C -> A
+
+A search tree can represent repeated visits to the same
+underlying state unless the algorithm prevents them.
+
+Therefore, graph-search algorithms often maintain an
+explored set or visited set.
+
+
+============================================================
+3.4 COMPONENTS OF AN AI PROBLEM
+============================================================
+
+The major components are:
+
+1. Initial state.
+2. Available actions.
+3. Transition model.
+4. Goal test.
+5. Path cost.
+
+Let's understand them through a puzzle.
+
+Example: Water Jug Problem
+--------------------------
+
+You have two jugs:
+
+Jug A capacity = 4 litres
+Jug B capacity = 3 litres
+
+Initially, both jugs are empty.
+
+Goal:
+Measure exactly 2 litres of water.
+
+Represent the state as:
+
+(A, B)
+
+Where:
+A = Water in the 4-litre jug
+B = Water in the 3-litre jug
+
+Initial state:
+
+(0, 0)
+
+Goal condition:
+
+A = 2 OR B = 2
+
+Possible actions:
+
+1. Fill Jug A.
+2. Fill Jug B.
+3. Empty Jug A.
+4. Empty Jug B.
+5. Pour A into B.
+6. Pour B into A.
+
+Example transition:
+
+State = (0, 0)
+
+Action = Fill Jug A
+
+New state = (4, 0)
+
+Another transition:
+
+State = (4, 0)
+
+Action = Pour A into B
+
+Since Jug B can hold 3 litres:
+
+New state = (1, 3)
+
+Continue applying valid actions until the goal is reached.
+
+One possible sequence is:
+
+(0, 0)
+   |
+Fill A
+   v
+(4, 0)
+   |
+Pour A into B
+   v
+(1, 3)
+   |
+Empty B
+   v
+(1, 0)
+   |
+Pour A into B
+   v
+(0, 1)
+   |
+Fill A
+   v
+(4, 1)
+   |
+Pour A into B
+   v
+(2, 3)
+
+Goal reached because Jug A contains 2 litres.
+
+This example demonstrates how a real-world problem can be
+converted into a state-space search problem.
+
+
+============================================================
+3.5 PROBLEM-SOLVING AGENTS
+============================================================
+
+DEFINITION
+----------
+
+A problem-solving agent is an AI agent that chooses actions
+by searching for a sequence of actions leading from its
+current state to a goal.
+
+A classical problem-solving agent commonly follows these
+steps:
+
+1. Goal formulation.
+2. Problem formulation.
+3. Search for a solution.
+4. Execute the solution.
+
+------------------------------------------------------------
+STEP 1: GOAL FORMULATION
+------------------------------------------------------------
+
+The agent determines what it wants to achieve.
+
+Example:
+Reach city D from city A.
+
+------------------------------------------------------------
+STEP 2: PROBLEM FORMULATION
+------------------------------------------------------------
+
+The agent identifies:
+- Current city.
+- Available roads.
+- Destination.
+- Road costs.
+- Allowed movements.
+
+------------------------------------------------------------
+STEP 3: SEARCH
+------------------------------------------------------------
+
+The agent searches possible paths.
+
+For example:
+
+A -> B -> D
+
+A -> C -> D
+
+It compares the available alternatives according to the
+selected search strategy and cost definition.
+
+------------------------------------------------------------
+STEP 4: EXECUTION
+------------------------------------------------------------
+
+The agent performs the selected actions.
+
+For example:
+
+Move from A to B.
+Then move from B to D.
+
+In a real environment, the agent may need to observe again
+because roads, obstacles, or other conditions can change.
+
+------------------------------------------------------------
+SIMPLE AGENT PSEUDOCODE
+------------------------------------------------------------
+
+function PROBLEM_SOLVING_AGENT(current_state):
+
+    if goal_not_defined:
+        goal = FORMULATE_GOAL(current_state)
+
+    problem = FORMULATE_PROBLEM(current_state, goal)
+
+    solution = SEARCH(problem)
+
+    if solution does not exist:
+        return FAILURE
+
+    for each action in solution:
+        EXECUTE(action)
+
+    return SUCCESS
+
+This is a conceptual description, not a complete production
+implementation.
+
+------------------------------------------------------------
+LIMITATIONS OF CLASSICAL PROBLEM-SOLVING AGENTS
+------------------------------------------------------------
+
+A classical search-based agent may assume:
+- The environment is sufficiently known.
+- Actions have predictable results.
+- The problem can be represented using discrete states.
+- The goal and available actions can be specified.
+- A solution can be searched for within available resources.
+
+Real-world environments may violate these assumptions.
+
+For example:
+A robot may encounter an unexpected obstacle.
+
+The robot may then need to:
+- Observe the new situation.
+- Update its state estimate.
+- Reformulate or replan.
+- Choose a different action.
+
+This is one reason practical intelligent agents often combine
+planning, perception, learning, and feedback.
+
+
+============================================================
+3.6 SEARCH ALGORITHMS
+============================================================
+
+DEFINITION
+----------
+
+A search algorithm systematically explores possible states
+or paths to find a solution.
+
+Search is one of the central techniques in classical AI.
+
+Suppose the search tree is:
+
+          A
+        /   \
+       B     C
+      / \   / \
+     D   E F   G
+
+Initial state = A
+Goal state = G
+
+A search algorithm decides which node to explore next.
+
+Different algorithms may explore nodes in different orders.
+
+------------------------------------------------------------
+IMPORTANT SEARCH TERMINOLOGY
+------------------------------------------------------------
+
+1. NODE
+
+A representation of a state in the search process.
+
+2. ROOT NODE
+
+The starting node of the search tree.
+
+3. GOAL NODE
+
+A node satisfying the goal condition.
+
+4. DEPTH
+
+The number of edges from the root to a node.
+
+5. BRANCHING FACTOR
+
+The number of successor choices available from a node.
+In complexity analysis, b often represents a maximum or
+typical branching factor.
+
+6. FRONTIER
+
+The collection of generated nodes waiting to be explored.
+
+It is also called the open list in many implementations.
+
+7. EXPLORED SET
+
+The collection of states that have already been explored.
+
+8. PATH COST, g(n)
+
+The total cost of the path from the initial state to node n.
+
+9. HEURISTIC, h(n)
+
+An estimate of the remaining cost from node n to a goal.
+
+10. EVALUATION FUNCTION, f(n)
+
+A function used to prioritize nodes for exploration.
+
+For example, A* search uses:
+
+f(n) = g(n) + h(n)
+
+------------------------------------------------------------
+TWO BROAD CATEGORIES OF SEARCH
+------------------------------------------------------------
+
+A. UNINFORMED SEARCH
+
+The algorithm does not use a heuristic estimate of how
+close a state is to the goal.
+
+Examples:
+- Breadth-First Search.
+- Depth-First Search.
+- Uniform-Cost Search.
+- Depth-Limited Search.
+- Iterative Deepening Search.
+- Bidirectional Search.
+
+B. INFORMED SEARCH
+
+The algorithm uses additional information, often a
+heuristic, to guide exploration.
+
+Examples:
+- Greedy Best-First Search.
+- A* Search.
+- Beam Search.
+
+The effectiveness of an algorithm depends on the problem,
+cost structure, and assumptions.
+
+
+============================================================
+3.7 UNINFORMED SEARCH
+============================================================
+
+Uninformed search is also called blind search.
+
+The algorithm uses the problem definition but does not
+have a heuristic estimate of the remaining distance or cost
+to the goal.
+
+------------------------------------------------------------
+3.7.1 BREADTH-FIRST SEARCH (BFS)
+------------------------------------------------------------
+
+DEFINITION
+----------
+
+Breadth-First Search explores nodes level by level.
+
+It explores all nodes at depth 0, then depth 1, then depth 2,
+and continues in increasing depth order.
+
+BFS commonly uses a QUEUE.
+
+A queue follows:
+
+FIFO = FIRST IN, FIRST OUT
+
+Example:
+
+          A
+        /   \
+       B     C
+      / \   / \
+     D   E F   G
+
+BFS exploration order:
+
+A, B, C, D, E, F, G
+
+If G is the goal, BFS eventually reaches G.
+
+------------------------------------------------------------
+BFS ALGORITHM
+------------------------------------------------------------
+
+function BFS(start, goal):
+
+    create an empty queue
+    create an empty visited set
+
+    add start to queue
+    mark start as visited
+
+    while queue is not empty:
+
+        current = remove_front(queue)
+
+        if current satisfies goal:
+            return path_to(current)
+
+        for each neighbor of current:
+
+            if neighbor is not visited:
+
+                mark neighbor as visited
+                record parent of neighbor
+                add neighbor to queue
+
+    return FAILURE
+
+The parent information allows the algorithm to reconstruct
+the solution path.
+
+------------------------------------------------------------
+BFS CHARACTERISTICS
+------------------------------------------------------------
+
+Data structure:
+Queue
+
+Exploration:
+Level by level
+
+Completeness:
+Complete for finite branching when a solution exists at
+a finite depth and the usual graph-search assumptions hold.
+
+Optimality:
+Finds a minimum-number-of-edges solution when all actions
+have equal cost.
+
+Important:
+BFS does not generally find the minimum-cost solution when
+different actions have different costs.
+
+Time complexity:
+O(b^d) in a common tree-search analysis.
+
+Space complexity:
+O(b^d) in a common tree-search analysis.
+
+Where:
+b = Branching factor
+d = Depth of the shallowest goal
+
+Exact bounds depend on the implementation and how depth
+is counted.
+
+Advantages:
+- Finds shallow solutions.
+- Simple to implement.
+- Optimal for equal-cost actions.
+
+Disadvantages:
+- Can consume a large amount of memory.
+- Becomes expensive when the branching factor is large.
+
+Applications:
+- Shortest path in an unweighted graph.
+- Network exploration.
+- Social network distance.
+- Basic puzzle solving.
+
+------------------------------------------------------------
+3.7.2 DEPTH-FIRST SEARCH (DFS)
+------------------------------------------------------------
+
+DEFINITION
+----------
+
+Depth-First Search explores one branch as deeply as possible
+before backtracking to another branch.
+
+DFS commonly uses:
+- A stack.
+- Recursion.
+
+A stack follows:
+
+LIFO = LAST IN, FIRST OUT
+
+Example:
+
+          A
+        /   \
+       B     C
+      / \   / \
+     D   E F   G
+
+If the leftmost child is explored first, DFS may visit:
+
+A, B, D, E, C, F, G
+
+The exact order depends on successor ordering and
+implementation.
+
+------------------------------------------------------------
+DFS ALGORITHM
+------------------------------------------------------------
+
+function DFS(start, goal):
+
+    create an empty stack
+    create an empty visited set
+
+    push start onto stack
+
+    while stack is not empty:
+
+        current = pop(stack)
+
+        if current satisfies goal:
+            return path_to(current)
+
+        if current is not visited:
+
+            mark current as visited
+
+            for each neighbor in reverse desired order:
+                if neighbor is not visited:
+                    record parent if appropriate
+                    push neighbor onto stack
+
+    return FAILURE
+
+Care is needed when recording parents and handling
+repeated states in a graph-search implementation.
+
+------------------------------------------------------------
+DFS CHARACTERISTICS
+------------------------------------------------------------
+
+Data structure:
+Stack or recursion
+
+Exploration:
+Deep before broad
+
+Completeness:
+Not complete in arbitrary infinite-depth search spaces.
+Graph-search DFS with cycle detection is complete on a
+finite graph.
+
+Optimality:
+Not generally optimal.
+
+Time complexity:
+O(b^m) in a common tree-search analysis.
+
+Space complexity:
+O(bm) for a standard depth-first tree-search analysis.
+
+Where:
+b = Branching factor
+m = Maximum search depth
+
+Advantages:
+- Often uses less memory than BFS.
+- Can find deep solutions without storing an entire level.
+- Useful when solutions are expected deep in the search tree.
+
+Disadvantages:
+- May follow an unproductive branch for a long time.
+- Does not generally find the shortest path.
+- Can fail to terminate in infinite-depth spaces without
+  appropriate safeguards.
+
+Applications:
+- Maze exploration.
+- Backtracking problems.
+- Cycle detection.
+- Exploring graph structures.
+
+------------------------------------------------------------
+3.7.3 BREADTH-FIRST SEARCH VS DEPTH-FIRST SEARCH
+------------------------------------------------------------
+
+BFS:
+- Uses a queue.
+- Explores level by level.
+- Finds a shallowest solution.
+- Is optimal for equal-cost actions.
+- Usually requires substantial memory.
+
+DFS:
+- Uses a stack or recursion.
+- Explores deeply before backtracking.
+- Does not guarantee a shortest solution.
+- Can use less memory.
+- Needs care in cyclic or infinite spaces.
+
+Example:
+
+Suppose the goal is close to the root but another branch
+extends very deeply.
+
+BFS is often a good choice for finding the shallow goal.
+
+DFS might spend considerable time exploring the deep branch,
+depending on the successor order.
+
+------------------------------------------------------------
+3.7.4 UNIFORM-COST SEARCH (UCS)
+------------------------------------------------------------
+
+DEFINITION
+----------
+
+Uniform-Cost Search expands the frontier node with the
+lowest accumulated path cost.
+
+It is useful when actions have different costs.
+
+UCS commonly uses a priority queue.
+
+Priority:
+
+g(n) = Cost from the start state to node n
+
+The algorithm selects the node with the smallest g(n).
+
+------------------------------------------------------------
+EXAMPLE
+------------------------------------------------------------
+
+Consider:
+
+A --1--> B
+A --5--> C
+B --2--> D
+C --1--> D
+
+Possible routes from A to D:
+
+Route 1:
+A -> B -> D
+
+Cost = 1 + 2 = 3
+
+Route 2:
+A -> C -> D
+
+Cost = 5 + 1 = 6
+
+Uniform-Cost Search finds the route with total cost 3,
+assuming the search is implemented correctly.
+
+------------------------------------------------------------
+UCS ALGORITHM
+------------------------------------------------------------
+
+function UNIFORM_COST_SEARCH(start, goal):
+
+    create a priority queue
+    insert start with cost 0
+
+    best_cost[start] = 0
+
+    while priority queue is not empty:
+
+        current = remove node with lowest path cost
+
+        if current cost is not best_cost[current]:
+            continue
+
+        if current satisfies goal:
+            return path_to(current)
+
+        for each successor of current:
+
+            new_cost =
+                cost(current) + step_cost(current, successor)
+
+            if successor has no known cost
+               OR new_cost < best_cost[successor]:
+
+                best_cost[successor] = new_cost
+                record parent of successor
+                insert successor with priority new_cost
+
+    return FAILURE
+
+In practical implementations, priority-queue entries may
+become outdated after a cheaper path is discovered.
+Those outdated entries should be ignored.
+
+------------------------------------------------------------
+UCS CHARACTERISTICS
+------------------------------------------------------------
+
+Completeness:
+Complete when each step cost is bounded below by some
+positive constant and the branching factor is finite.
+
+Optimality:
+Optimal under the usual nonnegative-cost assumptions
+when the goal is accepted when removed from the priority
+queue with its best cost.
+
+Important:
+UCS does not simply choose the next edge with the lowest
+individual cost.
+
+It chooses the frontier path with the lowest accumulated
+cost.
+
+Applications:
+- Cheapest-route planning.
+- Cost-sensitive pathfinding.
+- Network routing.
+- Resource allocation.
+
+------------------------------------------------------------
+3.7.5 DEPTH-LIMITED SEARCH (DLS)
+------------------------------------------------------------
+
+Depth-Limited Search is a variation of DFS.
+
+It sets a maximum depth L.
+
+The search does not expand nodes beyond that depth.
+
+Example:
+
+Maximum depth = 3
+
+The algorithm explores nodes only up to depth 3.
+
+Advantages:
+- Avoids exploring indefinitely deep branches.
+- Can control memory usage.
+
+Disadvantages:
+- May miss a goal deeper than the limit.
+- Choosing a good limit can be difficult.
+
+A depth-limit cutoff is not necessarily the same as proving
+that no solution exists.
+
+------------------------------------------------------------
+3.7.6 ITERATIVE DEEPENING SEARCH (IDS)
+------------------------------------------------------------
+
+Iterative Deepening Search repeatedly runs depth-limited
+search with increasing depth limits.
+
+For example:
+
+Iteration 1:
+Depth limit = 0
+
+Iteration 2:
+Depth limit = 1
+
+Iteration 3:
+Depth limit = 2
+
+Iteration 4:
+Depth limit = 3
+
+The process continues until a goal is found.
+
+Advantages:
+- Uses relatively little memory.
+- Finds a shallowest solution when all actions have equal cost.
+- Combines useful properties of BFS and DFS.
+
+For finite branching factor b and shallowest goal depth d,
+a common time bound is O(b^d), with linear-depth space
+requirements in the standard tree-search setting.
+
+Disadvantage:
+Some nodes are revisited during successive iterations.
+
+Despite repeated work, iterative deepening can be efficient
+because the deepest level usually contains most nodes.
+
+------------------------------------------------------------
+UNINFORMED SEARCH COMPARISON
+------------------------------------------------------------
+
+Algorithm: BFS
+Data structure: Queue
+Main priority: Shallowest depth
+Optimal for: Equal-cost actions
+Memory: Often high
+
+Algorithm: DFS
+Data structure: Stack
+Main priority: Deepest available branch
+Optimal: No, in general
+Memory: Often low
+
+Algorithm: UCS
+Data structure: Priority queue
+Main priority: Lowest accumulated cost
+Optimal for: Nonnegative path costs under standard assumptions
+Memory: Can be high
+
+Algorithm: DLS
+Data structure: Stack or recursion
+Main priority: DFS up to a limit
+Optimal: No, in general
+Memory: Usually low
+
+Algorithm: IDS
+Data structure: Repeated depth-limited search
+Main priority: Increasing depth limits
+Optimal for: Equal-cost actions under standard assumptions
+Memory: Usually low
+
+
+============================================================
+3.8 INFORMED SEARCH
+============================================================
+
+Informed search uses additional knowledge to guide the search.
+
+This knowledge often takes the form of a heuristic function.
+
+The goal is to explore promising states before less promising
+ones.
+
+Examples:
+- A map distance estimate.
+- An estimated remaining travel time.
+- A lower bound on the cost of completing a puzzle.
+
+Two important informed search algorithms are:
+
+1. Greedy Best-First Search.
+2. A* Search.
+
+------------------------------------------------------------
+3.8.1 GREEDY BEST-FIRST SEARCH
+------------------------------------------------------------
+
+DEFINITION
+----------
+
+Greedy Best-First Search expands the node that appears
+closest to the goal according to a heuristic.
+
+Evaluation function:
+
+f(n) = h(n)
+
+Where:
+
+h(n) = Estimated cost from node n to the goal.
+
+The algorithm chooses the frontier node with the smallest
+heuristic value.
+
+------------------------------------------------------------
+EXAMPLE
+------------------------------------------------------------
+
+Suppose the AI wants to travel from city A to city G.
+
+At the current city, it has two choices:
+
+City B:
+Estimated remaining distance = 4 km
+
+City C:
+Estimated remaining distance = 2 km
+
+Greedy Best-First Search prefers City C because:
+
+h(C) < h(B)
+
+However, this does not guarantee that the route through C
+has the lowest total cost.
+
+Why?
+
+Because the heuristic estimates only the remaining cost.
+It does not include the cost already paid to reach the node.
+
+------------------------------------------------------------
+GREEDY SEARCH CHARACTERISTICS
+------------------------------------------------------------
+
+Evaluation:
+f(n) = h(n)
+
+Advantages:
+- Can reach a goal quickly with a useful heuristic.
+- May explore fewer nodes than uninformed search.
+
+Disadvantages:
+- Not generally optimal.
+- Can be misled by an inaccurate heuristic.
+- May perform poorly on some problems.
+- Completeness depends on the search space and implementation.
+
+Applications:
+- Fast route exploration.
+- Game-tree exploration.
+- Problems where a good approximate solution is acceptable.
+
+------------------------------------------------------------
+3.8.2 A* SEARCH
+------------------------------------------------------------
+
+DEFINITION
+----------
+
+A* Search combines the cost already paid with an estimate
+of the remaining cost.
+
+Its evaluation function is:
+
+f(n) = g(n) + h(n)
+
+Where:
+
+g(n) = Actual path cost from the start to node n.
+
+h(n) = Estimated remaining cost from node n to a goal.
+
+f(n) = Estimated total solution cost through node n.
+
+A* selects the frontier node with the smallest f(n).
+
+------------------------------------------------------------
+EXAMPLE
+------------------------------------------------------------
+
+Suppose the frontier contains two nodes.
+
+Node B:
+g(B) = 5
+h(B) = 4
+
+Therefore:
+
+f(B) = 5 + 4 = 9
+
+Node C:
+g(C) = 2
+h(C) = 3
+
+Therefore:
+
+f(C) = 2 + 3 = 5
+
+A* prefers C because:
+
+f(C) < f(B)
+
+This does not mean C is guaranteed to lead to the best
+solution by itself. A* continues searching while comparing
+the total estimated costs of frontier paths.
+
+Under appropriate assumptions, it can guarantee an optimal
+solution.
+
+------------------------------------------------------------
+A* ALGORITHM
+------------------------------------------------------------
+
+function A_STAR(start, goal):
+
+    create a priority queue
+    insert start with priority h(start)
+
+    g_score[start] = 0
+
+    while priority queue is not empty:
+
+        current = remove node with lowest f_score
+
+        if current satisfies goal:
+            return path_to(current)
+
+        for each successor of current:
+
+            tentative_g =
+                g_score[current]
+                + step_cost(current, successor)
+
+            if successor is new
+               OR tentative_g < g_score[successor]:
+
+                record parent of successor
+                g_score[successor] = tentative_g
+
+                f_score[successor] =
+                    tentative_g + h(successor)
+
+                insert or update successor in priority queue
+
+    return FAILURE
+
+This is conceptual pseudocode. A production implementation
+must handle priority-queue updates, outdated entries, and
+reopening states when required by its assumptions.
+
+------------------------------------------------------------
+WHEN IS A* OPTIMAL?
+------------------------------------------------------------
+
+A* can guarantee an optimal solution under suitable
+conditions.
+
+For standard graph search, a commonly used sufficient
+condition is that the heuristic is consistent and path costs
+are nonnegative.
+
+A heuristic is consistent when:
+
+h(n) <= c(n, n') + h(n')
+
+for every transition from n to successor n'.
+
+Here:
+
+c(n, n') = Cost of moving from n to n'.
+
+The heuristic should also estimate zero at a goal:
+
+h(goal) = 0
+
+A heuristic is admissible when it never overestimates the
+true minimum remaining cost:
+
+h(n) <= h*(n)
+
+Where:
+
+h*(n) = Actual optimal remaining cost from n to a goal.
+
+For tree-search A*, admissibility is a standard condition
+for optimality under the usual assumptions.
+
+For graph-search A*, consistency is a common sufficient
+condition when states are not reopened after expansion.
+With an admissible but inconsistent heuristic, implementations
+may need to reopen states to preserve optimality.
+
+------------------------------------------------------------
+A* EXAMPLE: GRID NAVIGATION
+------------------------------------------------------------
+
+Imagine a robot moving through a grid.
+
+Each move costs 1.
+
+The robot can move horizontally and vertically.
+
+A simple heuristic is Manhattan distance:
+
+h(n) = |x_goal - x_current|
+     + |y_goal - y_current|
+
+Example:
+
+Current position = (2, 3)
+Goal position = (5, 7)
+
+h(n) = |5 - 2| + |7 - 3|
+
+h(n) = 3 + 4
+
+h(n) = 7
+
+This heuristic is a lower bound on the number of moves
+when movement is restricted to horizontal and vertical
+steps of unit cost and there are no additional movement
+costs that invalidate the assumption.
+
+If obstacles exist, the actual path may be longer, but
+the Manhattan estimate remains a lower bound under these
+movement rules.
+
+------------------------------------------------------------
+GREEDY BEST-FIRST VS A*
+------------------------------------------------------------
+
+Greedy Best-First:
+
+f(n) = h(n)
+
+Considers:
+Estimated remaining cost.
+
+A*:
+
+f(n) = g(n) + h(n)
+
+Considers:
+Actual cost so far + estimated remaining cost.
+
+Greedy:
+Often prioritizes nodes that appear close to the goal.
+
+A*:
+Balances progress already made with estimated remaining cost.
+
+Optimality:
+Greedy is not generally optimal.
+A* is optimal under appropriate assumptions.
+
+------------------------------------------------------------
+3.8.3 BEAM SEARCH
+------------------------------------------------------------
+
+Beam Search limits the number of candidates retained at
+each search level.
+
+Suppose the beam width is k = 2.
+
+At each level, the algorithm retains only the two most
+promising candidates according to its scoring rule.
+
+Advantages:
+- Can greatly reduce memory use.
+- Useful when the search space is very large.
+- Often used for approximate search and sequence generation.
+
+Disadvantages:
+- May discard the path that would lead to the best solution.
+- Does not generally guarantee completeness or optimality.
+
+Beam Search is useful when resource limits matter more than
+guaranteeing the globally optimal solution.
+
+
+============================================================
+3.9 HEURISTIC FUNCTIONS
+============================================================
+
+DEFINITION
+----------
+
+A heuristic is a rule, estimate, or function that helps an
+algorithm judge how promising a state is.
+
+In search algorithms, a heuristic commonly estimates the
+remaining cost from a state to a goal.
+
+Notation:
+
+h(n) = Estimated remaining cost from n to a goal.
+
+A heuristic is not necessarily an exact answer.
+
+It is useful because it provides guidance.
+
+------------------------------------------------------------
+EXAMPLE 1: ROUTE FINDING
+------------------------------------------------------------
+
+Suppose a car must travel from City A to City B.
+
+The straight-line distance is 50 km.
+
+A heuristic may be:
+
+h(A) = 50 km
+
+The actual road distance might be 65 km.
+
+If straight-line distance cannot exceed the shortest
+road distance, then it is an admissible heuristic for
+minimizing road distance.
+
+------------------------------------------------------------
+EXAMPLE 2: EIGHT-PUZZLE
+------------------------------------------------------------
+
+The eight-puzzle contains eight numbered tiles and one
+empty space.
+
+The objective is to arrange the tiles in a target order.
+
+Two common heuristics are:
+
+A. MISPLACED TILES
+
+Count the tiles that are not in their goal positions,
+excluding the blank space.
+
+Example:
+
+If three numbered tiles are misplaced:
+
+h(n) = 3
+
+This estimates the number of moves remaining.
+
+B. MANHATTAN DISTANCE
+
+For each numbered tile, calculate the horizontal and
+vertical distance between its current position and its
+goal position.
+
+Then add the distances:
+
+h(n) = SUM OF ALL TILE MANHATTAN DISTANCES
+
+For a tile i:
+
+distance(i) =
+    |current_row(i) - goal_row(i)|
+    +
+    |current_column(i) - goal_column(i)|
+
+Then:
+
+h(n) = SUM distance(i)
+
+The Manhattan-distance heuristic is generally more
+informative than misplaced-tile count for the standard
+eight-puzzle because it accounts for how far each tile
+must move.
+
+Both are admissible for the standard puzzle when each move
+slides one numbered tile into the blank and costs 1.
+
+------------------------------------------------------------
+ADMISSIBLE HEURISTIC
+------------------------------------------------------------
+
+A heuristic is admissible if it never overestimates the
+optimal remaining cost.
+
+Mathematically:
+
+h(n) <= h*(n)
+
+Where:
+h*(n) = True optimal remaining cost.
+
+Example:
+
+Actual optimal remaining cost = 10
+
+Heuristic estimate = 7
+
+This does not overestimate the cost.
+
+Therefore, it is compatible with admissibility at this node.
+
+If the heuristic estimate is 12:
+
+12 > 10
+
+The heuristic overestimates the optimal cost at this node
+and is not admissible there.
+
+An individual example is not enough to establish that a
+heuristic is admissible for every state; the property must
+hold throughout the relevant search space.
+
+------------------------------------------------------------
+CONSISTENT HEURISTIC
+------------------------------------------------------------
+
+A heuristic is consistent if:
+
+h(n) <= c(n, n') + h(n')
+
+for every successor n' of n.
+
+This resembles the triangle inequality.
+
+Intuitively:
+The estimated remaining cost from the current state should
+not exceed the cost of taking one step plus the estimated
+remaining cost from the next state.
+
+Consistency implies admissibility under the standard
+conditions for a finite goal-reaching problem with
+nonnegative costs and h(goal) = 0.
+
+------------------------------------------------------------
+WHY ARE HEURISTICS IMPORTANT?
+------------------------------------------------------------
+
+Without a useful heuristic:
+An algorithm may explore many irrelevant states.
+
+With a useful heuristic:
+The algorithm can prioritize states that appear more
+promising.
+
+A good heuristic may:
+- Reduce search effort.
+- Reduce execution time.
+- Make larger problems manageable.
+- Improve practical performance.
+
+However:
+A heuristic does not automatically make an algorithm
+optimal or complete.
+
+Those guarantees depend on the algorithm and its assumptions.
+
+
+============================================================
+3.10 LOCAL SEARCH ALGORITHMS
+============================================================
+
+Local search algorithms are useful when the objective is
+to find a good state or configuration rather than
+necessarily reconstruct a complete path through every
+intermediate state.
+
+They often:
+- Start with a candidate solution.
+- Evaluate its quality.
+- Examine neighboring candidates.
+- Move toward a better candidate.
+- Stop when a condition is met.
+
+Local search is especially useful in optimization problems.
+
+------------------------------------------------------------
+3.10.1 HILL CLIMBING
+------------------------------------------------------------
+
+DEFINITION
+----------
+
+Hill climbing repeatedly moves from the current state to
+a neighboring state with a better evaluation value.
+
+Imagine climbing a hill while trying to reach a high point.
+
+At every step:
+1. Examine neighboring states.
+2. Select a better neighbor.
+3. Move to that neighbor.
+4. Stop when no allowed neighbor improves the value.
+
+For minimization problems, the direction is reversed:
+Move toward lower cost.
+
+------------------------------------------------------------
+HILL CLIMBING PSEUDOCODE
+------------------------------------------------------------
+
+function HILL_CLIMBING(initial_state):
+
+    current = initial_state
+
+    while true:
+
+        neighbor = BEST_NEIGHBOR(current)
+
+        if neighbor is not better than current:
+            return current
+
+        current = neighbor
+
+The meaning of "better" depends on the objective.
+
+------------------------------------------------------------
+EXAMPLE
+------------------------------------------------------------
+
+Suppose a system wants to maximize a score.
+
+Current score = 10
+
+Neighbor A score = 12
+Neighbor B score = 8
+Neighbor C score = 15
+
+The algorithm chooses Neighbor C because it has the
+highest score among the examined neighbors.
+
+It then repeats the process from that state.
+
+------------------------------------------------------------
+PROBLEMS WITH HILL CLIMBING
+------------------------------------------------------------
+
+A. LOCAL MAXIMUM
+
+A state better than its neighbors but worse than the
+global maximum.
+
+B. PLATEAU
+
+A flat region where neighboring states have the same score.
+
+C. RIDGE
+
+A narrow region where progress may require a sequence
+of moves that the local decision rule cannot easily follow.
+
+------------------------------------------------------------
+ADVANTAGES
+------------------------------------------------------------
+
+- Often uses little memory.
+- Can be simple and fast.
+- Works well for some optimization tasks.
+
+DISADVANTAGES
+-------------
+
+- Can become trapped at a local optimum.
+- Does not generally guarantee a global optimum.
+- Performance depends on the initial state and evaluation
+  function.
+
+------------------------------------------------------------
+3.10.2 STOCHASTIC HILL CLIMBING
+------------------------------------------------------------
+
+Instead of always selecting the best neighbor, stochastic
+hill climbing selects among improving neighbors according
+to a probability rule.
+
+This introduces variation into the search.
+
+Potential benefit:
+It may explore different routes through the state space.
+
+Limitation:
+It can still become trapped in local optima.
+
+------------------------------------------------------------
+3.10.3 RANDOM-RESTART HILL CLIMBING
+------------------------------------------------------------
+
+Random-restart hill climbing runs hill climbing multiple
+times from different initial states.
+
+Procedure:
+
+1. Select an initial state.
+2. Run hill climbing.
+3. Save the result.
+4. Start from a different initial state.
+5. Repeat.
+6. Return the best result found.
+
+This can improve the probability of finding a better
+solution, but it does not guarantee a global optimum unless
+additional conditions provide that guarantee.
+
+------------------------------------------------------------
+3.10.4 SIMULATED ANNEALING
+------------------------------------------------------------
+
+Simulated Annealing is a probabilistic optimization
+algorithm inspired by the physical process of annealing.
+
+It sometimes accepts a worse move to escape local optima.
+
+For a minimization problem, let:
+
+delta = Cost(new_state) - Cost(current_state)
+
+If delta <= 0:
+The new state is no worse, so accept it.
+
+If delta > 0:
+The new state is worse, but it may still be accepted
+with probability:
+
+P = exp(-delta / T)
+
+Where:
+delta = Increase in cost
+T = Temperature parameter
+
+Higher temperature:
+Worse moves are more likely to be accepted.
+
+Lower temperature:
+Worse moves are less likely to be accepted.
+
+As the temperature decreases, the search gradually
+becomes less willing to accept worse moves.
+
+------------------------------------------------------------
+EXAMPLE
+------------------------------------------------------------
+
+Current cost = 20
+
+New cost = 23
+
+delta = 23 - 20 = 3
+
+Suppose:
+
+T = 10
+
+Then:
+
+P = exp(-3 / 10)
+
+P is approximately 0.741.
+
+Thus, under this acceptance rule, the worse move has
+approximately a 74.1% probability of being accepted.
+
+If the temperature decreases, the probability decreases.
+
+This calculation illustrates the acceptance rule; it does
+not guarantee that simulated annealing will find the global
+optimum in a finite amount of time.
+
+------------------------------------------------------------
+3.10.5 GENETIC ALGORITHMS
+------------------------------------------------------------
+
+A Genetic Algorithm is an optimization method inspired
+by biological evolution.
+
+It maintains a population of candidate solutions.
+
+Each candidate is called an individual or chromosome.
+
+A simplified genetic algorithm follows these steps:
+
+1. Initialize a population.
+2. Evaluate fitness.
+3. Select parents.
+4. Apply crossover.
+5. Apply mutation.
+6. Evaluate the new population.
+7. Repeat until a stopping condition is met.
+
+IMPORTANT TERMS
+---------------
+
+Population:
+A collection of candidate solutions.
+
+Chromosome:
+An encoded candidate solution.
+
+Fitness function:
+Measures the quality of a candidate.
+
+Selection:
+Chooses candidates to reproduce.
+
+Crossover:
+Combines information from parent candidates.
+
+Mutation:
+Introduces random changes.
+
+Generation:
+One iteration of the population-update process.
+
+------------------------------------------------------------
+EXAMPLE: SCHEDULING
+------------------------------------------------------------
+
+Suppose a university wants to schedule 20 examinations.
+
+A candidate chromosome might represent the assigned time
+slot for every examination.
+
+The fitness function may penalize:
+- Students having two examinations at the same time.
+- Rooms being over capacity.
+- Unavailable time slots.
+- Undesirable scheduling patterns.
+
+The algorithm evolves candidate schedules over multiple
+generations.
+
+Genetic algorithms can search complex spaces, but they
+do not automatically guarantee the optimal solution.
+
+
+============================================================
+3.11 OPTIMIZATION PROBLEMS
+============================================================
+
+DEFINITION
+----------
+
+An optimization problem asks us to find the best solution
+according to a specified objective and constraints.
+
+The objective may be to:
+
+MINIMIZE:
+- Cost.
+- Distance.
+- Time.
+- Energy consumption.
+- Error.
+
+MAXIMIZE:
+- Profit.
+- Accuracy.
+- Performance.
+- Resource utilization.
+- Expected reward.
+
+------------------------------------------------------------
+MATHEMATICAL FORM
+------------------------------------------------------------
+
+A general optimization problem can be written as:
+
+Minimize or maximize:
+
+f(x)
+
+Subject to:
+
+g_i(x) <= 0
+
+h_j(x) = 0
+
+Where:
+
+x = Decision variables
+f(x) = Objective function
+g_i(x) = Inequality constraints
+h_j(x) = Equality constraints
+
+The goal is to find a feasible value of x that optimizes
+the objective function.
+
+------------------------------------------------------------
+EXAMPLE: DELIVERY ROUTE
+------------------------------------------------------------
+
+A delivery company must serve several customers.
+
+Objective:
+Minimize total driving distance.
+
+Constraints:
+- Every required customer must be visited.
+- The vehicle has a limited capacity.
+- Delivery deadlines must be respected.
+- The vehicle must obey road restrictions.
+
+The problem combines optimization with constraints.
+
+------------------------------------------------------------
+EXAMPLE: RESOURCE ALLOCATION
+------------------------------------------------------------
+
+Suppose a company has a limited budget.
+
+It must choose projects that provide the greatest expected
+benefit.
+
+Each project has:
+- A cost.
+- An expected benefit.
+- A resource requirement.
+
+The system must select a feasible collection of projects
+while maximizing total benefit.
+
+------------------------------------------------------------
+IMPORTANT DISTINCTION
+------------------------------------------------------------
+
+Finding a feasible solution:
+Find any solution that satisfies all constraints.
+
+Finding an optimal solution:
+Find the best feasible solution according to the objective.
+
+An optimization algorithm may find a good solution without
+proving that it is globally optimal.
+
+This distinction is important when evaluating AI systems.
+
+
+============================================================
+3.12 CONSTRAINT SATISFACTION PROBLEMS (CSPs)
+============================================================
+
+DEFINITION
+----------
+
+A Constraint Satisfaction Problem is a problem in which
+values must be assigned to variables while satisfying
+specified constraints.
+
+A CSP is commonly represented using:
+
+CSP = (X, D, C)
+
+Where:
+
+X = Set of variables
+D = Domains of possible values
+C = Set of constraints
+
+------------------------------------------------------------
+EXAMPLE: MAP COLORING
+------------------------------------------------------------
+
+Suppose several neighboring regions must be colored.
+
+Available colors:
+
+{Red, Green, Blue}
+
+Variables:
+A, B, C
+
+Domains:
+
+D(A) = {Red, Green, Blue}
+D(B) = {Red, Green, Blue}
+D(C) = {Red, Green, Blue}
+
+Constraints:
+
+A != B
+B != C
+A != C
+
+This means every pair of regions must have different
+colors.
+
+One valid assignment is:
+
+A = Red
+B = Green
+C = Blue
+
+The assignment satisfies all three constraints.
+
+------------------------------------------------------------
+EXAMPLE: SUDOKU
+------------------------------------------------------------
+
+Sudoku can be modeled as a CSP.
+
+Variables:
+The cells of the puzzle.
+
+Domains:
+Possible digits for each empty cell.
+
+Constraints:
+- Each row must contain the required digits without
+  repetition.
+- Each column must contain the required digits without
+  repetition.
+- Each 3-by-3 box must contain the required digits without
+  repetition.
+
+A solver assigns values while ensuring that the constraints
+remain satisfied.
+
+------------------------------------------------------------
+EXAMPLE: EXAM TIMETABLING
+------------------------------------------------------------
+
+Variables:
+Examinations.
+
+Domains:
+Available time slots.
+
+Constraints:
+- A student cannot have two examinations simultaneously.
+- A room cannot host multiple incompatible examinations.
+- Room capacity must be sufficient.
+- Some examinations may require particular resources.
+
+The AI must assign a time slot and possibly a room to each
+examination while respecting the constraints.
+
+------------------------------------------------------------
+COMMON CSP TECHNIQUES
+------------------------------------------------------------
+
+1. BACKTRACKING SEARCH
+
+Assign a value to a variable.
+
+If a conflict occurs:
+Return to an earlier variable and try another value.
+
+2. MINIMUM REMAINING VALUES (MRV)
+
+Choose the unassigned variable with the fewest legal values
+remaining.
+
+This can reveal difficult decisions early.
+
+3. DEGREE HEURISTIC
+
+Choose the variable involved in the largest number of
+constraints with other unassigned variables.
+
+4. LEAST CONSTRAINING VALUE (LCV)
+
+Prefer the value that rules out the fewest choices for
+neighboring variables.
+
+5. FORWARD CHECKING
+
+After assigning a variable, remove inconsistent values
+from the domains of connected unassigned variables.
+
+If a domain becomes empty, backtrack.
+
+6. CONSTRAINT PROPAGATION
+
+Use constraints to infer further restrictions on possible
+values.
+
+------------------------------------------------------------
+WHY ARE CSPs IMPORTANT?
+------------------------------------------------------------
+
+CSPs are useful for:
+- Scheduling.
+- Timetabling.
+- Map coloring.
+- Sudoku.
+- Configuration systems.
+- Resource allocation.
+- Planning with restrictions.
+
+They are particularly useful when the problem is naturally
+expressed as variables, domains, and constraints.
+
+
+============================================================
+3.13 ADVERSARIAL SEARCH
+============================================================
+
+DEFINITION
+----------
+
+Adversarial search is used when an agent operates in an
+environment where another agent has conflicting objectives.
+
+A common example is a competitive game.
+
+Examples:
+- Chess.
+- Checkers.
+- Tic-tac-toe.
+- Connect Four.
+
+Unlike ordinary pathfinding, an agent must account for
+another player choosing actions that may reduce its chance
+of success.
+
+------------------------------------------------------------
+GAME TREE
+------------------------------------------------------------
+
+A game tree represents possible sequences of moves.
+
+Each node represents a game state.
+
+Each edge represents a legal move.
+
+For example:
+
+              Current State
+               /        \
+            Move A      Move B
+            /   \       /   \
+          A1     A2    B1     B2
+
+A game-playing agent evaluates possible outcomes and
+selects a move according to its objective.
+
+------------------------------------------------------------
+3.13.1 MINIMAX ALGORITHM
+------------------------------------------------------------
+
+DEFINITION
+----------
+
+Minimax is a decision-making algorithm for two-player,
+zero-sum games under a specified model of play.
+
+It assumes:
+
+- One player tries to maximize the evaluation score.
+- The opponent tries to minimize that score.
+
+The players are commonly called:
+
+MAX:
+Attempts to maximize utility.
+
+MIN:
+Attempts to minimize utility.
+
+------------------------------------------------------------
+MINIMAX RULE
+------------------------------------------------------------
+
+At a MAX node:
+
+Value(node) = maximum value of its children.
+
+At a MIN node:
+
+Value(node) = minimum value of its children.
+
+Mathematically:
+
+V(s) = max V(result(s, a))
+
+for a MAX state, and
+
+V(s) = min V(result(s, a))
+
+for a MIN state.
+
+The value of a state is determined recursively from
+terminal states or cutoff evaluations.
+
+------------------------------------------------------------
+EXAMPLE
+------------------------------------------------------------
+
+Suppose MAX has two possible moves.
+
+Move A leads to terminal scores:
+
+[3, 5]
+
+MIN will choose the lower score:
+
+Value(A) = min(3, 5) = 3
+
+Move B leads to terminal scores:
+
+[2, 9]
+
+MIN will choose:
+
+Value(B) = min(2, 9) = 2
+
+MAX compares the move values:
+
+Move A = 3
+Move B = 2
+
+MAX selects Move A.
+
+This assumes the terminal scores are from MAX's perspective
+and both players make optimal choices.
+
+------------------------------------------------------------
+MINIMAX PSEUDOCODE
+------------------------------------------------------------
+
+function MINIMAX(state, maximizing_player):
+
+    if state is terminal:
+        return EVALUATE(state)
+
+    if maximizing_player:
+
+        best_value = negative_infinity
+
+        for each legal action:
+            value = MINIMAX(result(state, action), false)
+            best_value = max(best_value, value)
+
+        return best_value
+
+    else:
+
+        best_value = positive_infinity
+
+        for each legal action:
+            value = MINIMAX(result(state, action), true)
+            best_value = min(best_value, value)
+
+        return best_value
+
+A practical implementation also needs to track the best
+action, not only return the value.
+
+------------------------------------------------------------
+MINIMAX COMPLEXITY
+------------------------------------------------------------
+
+If:
+b = Number of legal moves per state
+m = Search depth
+
+A full game-tree search may require:
+
+Time: O(b^m)
+
+Space: O(bm) for a depth-first implementation.
+
+The time cost can become extremely large in complex games.
+
+------------------------------------------------------------
+3.13.2 ALPHA-BETA PRUNING
+------------------------------------------------------------
+
+DEFINITION
+----------
+
+Alpha-beta pruning improves minimax search by eliminating
+branches that cannot affect the final decision.
+
+It produces the same minimax result as a complete minimax
+search when applied correctly.
+
+It maintains two values:
+
+ALPHA:
+The best value MAX can guarantee along the current path.
+
+BETA:
+The best value MIN can guarantee along the current path.
+
+Pruning condition:
+
+ALPHA >= BETA
+
+When this condition holds, further exploration of that
+branch is unnecessary for the current decision.
+
+------------------------------------------------------------
+WHY IS PRUNING USEFUL?
+------------------------------------------------------------
+
+Suppose a branch cannot possibly improve the decision
+already available to a player.
+
+Exploring it further will not change the selected move.
+
+Alpha-beta pruning avoids that unnecessary work.
+
+With ideal move ordering, the effective time complexity
+can improve substantially; in the best case, it is often
+described as approximately:
+
+O(b^(m/2))
+
+This best-case bound depends on effective move ordering.
+
+In the worst case, alpha-beta pruning still has
+O(b^m) time complexity.
+
+Applications:
+- Chess engines.
+- Checkers programs.
+- Other adversarial game-playing systems.
+
+
+============================================================
+3.14 GAME-PLAYING AI
+============================================================
+
+Game-playing AI combines problem representation, search,
+evaluation, and decision-making.
+
+A game-playing system commonly needs:
+
+1. A representation of the board or game state.
+2. A list of legal moves.
+3. A transition model for applying moves.
+4. A terminal-state test.
+5. A utility or evaluation function.
+6. A strategy for searching possible moves.
+
+------------------------------------------------------------
+EXAMPLE: CHESS AI
+------------------------------------------------------------
+
+A chess-playing AI examines:
+
+- Current board position.
+- Legal moves.
+- Potential captures.
+- King safety.
+- Material balance.
+- Piece activity.
+- Pawn structure.
+- Future tactical possibilities.
+
+A basic engine might use minimax with alpha-beta pruning.
+
+More advanced engines may combine:
+- Specialized evaluation functions.
+- Search optimizations.
+- Position databases.
+- Learned evaluation models.
+- Monte Carlo or other search techniques.
+
+Different chess engines use different architectures.
+
+------------------------------------------------------------
+EVALUATION FUNCTION
+------------------------------------------------------------
+
+When it is impossible to search to the end of a game,
+the system may estimate the value of a nonterminal state.
+
+For example:
+
+Evaluation(state) =
+    Material score
+    + Position score
+    + King safety score
+    + Mobility score
+
+This is only a conceptual formula.
+
+Actual systems use more sophisticated calculations.
+
+The evaluation score estimates how favorable a position
+is for a player.
+
+------------------------------------------------------------
+MONTE CARLO TREE SEARCH (MCTS)
+------------------------------------------------------------
+
+Monte Carlo Tree Search is a search technique that uses
+repeated sampling or simulations to help evaluate actions.
+
+A common MCTS implementation follows four broad stages:
+
+1. Selection.
+2. Expansion.
+3. Simulation or rollout.
+4. Backpropagation.
+
+SELECTION:
+Follow a tree policy to select a promising node.
+
+EXPANSION:
+Add one or more new nodes.
+
+SIMULATION:
+Estimate an outcome using a rollout policy or another
+evaluation procedure.
+
+BACKPROPAGATION:
+Update statistics along the path.
+
+MCTS is useful when the game tree is too large for a
+straightforward exhaustive search.
+
+It has been used in game-playing systems, including
+systems for Go.
+
+Modern systems may combine MCTS with learned policies
+and value functions.
+
+
+============================================================
+3.15 REAL-WORLD APPLICATIONS OF AI PROBLEM-SOLVING
+============================================================
+
+AI problem-solving techniques are used across many domains.
+
+------------------------------------------------------------
+1. ROBOTICS
+------------------------------------------------------------
+
+Problem:
+A robot must navigate a room without colliding with objects.
+
+AI techniques:
+- Pathfinding.
+- Motion planning.
+- Search.
+- Optimization.
+- State estimation.
+
+Objective:
+Find a safe and feasible path.
+
+------------------------------------------------------------
+2. NAVIGATION
+------------------------------------------------------------
+
+Problem:
+Find a route between two locations.
+
+AI techniques:
+- Graph search.
+- Dijkstra's algorithm.
+- A* search.
+- Traffic prediction.
+- Route optimization.
+
+Objective:
+Minimize distance, time, cost, or another specified
+measure.
+
+------------------------------------------------------------
+3. HEALTHCARE
+------------------------------------------------------------
+
+Problem:
+Support a clinician in evaluating possible diagnoses
+or selecting a treatment plan.
+
+AI techniques may include:
+- Search.
+- Constraint reasoning.
+- Probabilistic reasoning.
+- Machine learning.
+- Optimization.
+
+Important:
+Healthcare systems must be validated and used with
+appropriate clinical oversight.
+
+------------------------------------------------------------
+4. LOGISTICS
+------------------------------------------------------------
+
+Problem:
+Deliver goods efficiently to multiple destinations.
+
+AI techniques:
+- Route optimization.
+- Scheduling.
+- Constraint satisfaction.
+- Heuristic search.
+- Operations research.
+
+Objective:
+Reduce cost, travel time, or resource usage.
+
+------------------------------------------------------------
+5. MANUFACTURING
+------------------------------------------------------------
+
+Problem:
+Schedule jobs across machines while satisfying
+production constraints.
+
+AI techniques:
+- Constraint satisfaction.
+- Scheduling algorithms.
+- Optimization.
+- Search.
+
+Objective:
+Increase efficiency and reduce delays.
+
+------------------------------------------------------------
+6. NATURAL LANGUAGE PROCESSING
+------------------------------------------------------------
+
+Some language-processing tasks can be represented as
+search or structured prediction problems.
+
+Examples:
+- Searching candidate interpretations.
+- Finding a sequence of output tokens.
+- Planning steps in a language-based tool workflow.
+
+Modern language models also rely heavily on learned
+statistical patterns and neural-network computation.
+
+Not every language task is best understood as classical
+state-space search.
+
+------------------------------------------------------------
+7. GAME DEVELOPMENT
+------------------------------------------------------------
+
+Problem:
+Create an agent that selects effective moves.
+
+AI techniques:
+- Minimax.
+- Alpha-beta pruning.
+- Heuristic evaluation.
+- Monte Carlo Tree Search.
+- Reinforcement learning.
+
+------------------------------------------------------------
+8. CYBERSECURITY
+------------------------------------------------------------
+
+Problem:
+Choose defensive actions under resource constraints.
+
+Possible techniques:
+- Graph analysis.
+- Search.
+- Constraint solving.
+- Optimization.
+- Anomaly detection.
+
+Any deployment must account for security risks, false
+positives, and operational constraints.
+
+------------------------------------------------------------
+9. RESOURCE ALLOCATION
+------------------------------------------------------------
+
+Problem:
+Assign limited resources to competing tasks.
+
+Examples:
+- Assigning workers to projects.
+- Allocating computing resources.
+- Scheduling cloud workloads.
+- Planning energy use.
+
+AI techniques:
+- Linear programming.
+- Integer programming.
+- Constraint satisfaction.
+- Heuristic optimization.
+
+------------------------------------------------------------
+10. AUTONOMOUS VEHICLES
+------------------------------------------------------------
+
+An autonomous vehicle may need to:
+
+- Estimate its current position.
+- Identify obstacles.
+- Predict the motion of other road users.
+- Plan a safe trajectory.
+- Select an appropriate action.
+- Replan when conditions change.
+
+This requires more than search alone.
+
+It combines perception, prediction, planning, control,
+and safety mechanisms.
+
+
+============================================================
+3.16 CHALLENGES IN AI PROBLEM-SOLVING
+============================================================
+
+Although search and optimization are powerful, many
+problems are difficult.
+
+------------------------------------------------------------
+1. LARGE SEARCH SPACE
+------------------------------------------------------------
+
+The number of states may grow exponentially with depth.
+
+Consequence:
+Searching every possible state may be impractical.
+
+Possible responses:
+- Heuristics.
+- Pruning.
+- Abstraction.
+- State-space reduction.
+- Approximate search.
+
+------------------------------------------------------------
+2. TIME COMPLEXITY
+------------------------------------------------------------
+
+Some algorithms require an enormous number of operations
+as problem size increases.
+
+Possible responses:
+- Better algorithms.
+- Improved data structures.
+- Search limits.
+- Parallel computation.
+- Problem-specific optimizations.
+
+------------------------------------------------------------
+3. MEMORY LIMITATIONS
+------------------------------------------------------------
+
+Algorithms such as BFS and A* may retain many frontier
+nodes.
+
+Possible responses:
+- Iterative deepening.
+- Memory-bounded search.
+- Beam search.
+- State compression.
+- External-memory techniques.
+
+Each approach involves trade-offs.
+
+------------------------------------------------------------
+4. INACCURATE HEURISTICS
+------------------------------------------------------------
+
+A heuristic may incorrectly estimate which state is best.
+
+Consequences:
+- Wasted exploration.
+- Poor solutions.
+- Loss of optimality guarantees if assumptions are violated.
+
+Possible responses:
+- Design stronger heuristics.
+- Combine valid lower bounds.
+- Evaluate heuristic quality.
+- Learn estimates from data when appropriate.
+
+------------------------------------------------------------
+5. DYNAMIC ENVIRONMENTS
+------------------------------------------------------------
+
+The environment may change after a plan is created.
+
+Example:
+A road becomes blocked.
+
+The AI may need to:
+- Update its model.
+- Replan.
+- Respond to new observations.
+
+------------------------------------------------------------
+6. UNCERTAINTY
+------------------------------------------------------------
+
+Actions may not always produce predictable outcomes.
+
+Example:
+A robot's movement may be affected by slippery flooring.
+
+Possible responses:
+- Probabilistic models.
+- Belief states.
+- Robust planning.
+- Feedback control.
+- Decision-making under uncertainty.
+
+------------------------------------------------------------
+7. CONFLICTING OBJECTIVES
+------------------------------------------------------------
+
+A system may need to balance several goals.
+
+Example:
+A delivery service wants to minimize:
+- Cost.
+- Time.
+- Fuel consumption.
+
+At the same time, it must maximize:
+- Reliability.
+- Customer satisfaction.
+
+Possible responses:
+- Weighted objectives.
+- Multi-objective optimization.
+- Explicit constraints.
+- Human-defined priorities.
+
+------------------------------------------------------------
+8. INCOMPLETE INFORMATION
+------------------------------------------------------------
+
+The system may not know every relevant state or condition.
+
+Possible responses:
+- Information gathering.
+- State estimation.
+- Probabilistic reasoning.
+- Active sensing.
+- Human assistance.
+
+------------------------------------------------------------
+9. SAFETY AND RELIABILITY
+------------------------------------------------------------
+
+A solution that is mathematically valid may still be unsafe
+or inappropriate in a real environment.
+
+Practical systems may require:
+- Safety constraints.
+- Verification.
+- Testing.
+- Monitoring.
+- Human oversight.
+- Fail-safe behavior.
+
+------------------------------------------------------------
+10. NO GUARANTEE OF GLOBAL OPTIMALITY
+------------------------------------------------------------
+
+Many heuristic and local search algorithms find good
+solutions without proving that no better solution exists.
+
+Examples:
+- Hill climbing.
+- Genetic algorithms.
+- Beam search.
+- Many approximate optimization methods.
+
+A system must distinguish between:
+- A feasible solution.
+- A good solution.
+- A proven optimal solution.
+
+
+============================================================
+3.17 CHAPTER SUMMARY
+============================================================
+
+AI PROBLEM-SOLVING
+------------------
+
+The process of finding actions that transform an initial
+state into a desired goal state.
+
+PROBLEM FORMULATION
+-------------------
+
+Defines the initial state, actions, transition model,
+goal test, and path cost.
+
+STATE SPACE
+-----------
+
+The collection of possible states and transitions.
+
+SEARCH ALGORITHM
+----------------
+
+A procedure that explores possible states or paths.
+
+UNINFORMED SEARCH
+-----------------
+
+Search without heuristic guidance.
+
+Examples:
+- BFS.
+- DFS.
+- UCS.
+- Depth-Limited Search.
+- Iterative Deepening Search.
+
+INFORMED SEARCH
+---------------
+
+Search guided by additional information, often a heuristic.
+
+Examples:
+- Greedy Best-First Search.
+- A* Search.
+- Beam Search.
+
+HEURISTIC
+---------
+
+An estimate that helps prioritize promising states.
+
+A* EVALUATION
+-------------
+
+f(n) = g(n) + h(n)
+
+Where:
+g(n) = Cost so far
+h(n) = Estimated remaining cost
+
+LOCAL SEARCH
+------------
+
+Search that repeatedly improves a candidate state.
+
+Examples:
+- Hill Climbing.
+- Simulated Annealing.
+- Genetic Algorithms.
+
+OPTIMIZATION
+------------
+
+Finding the best feasible solution according to an objective.
+
+CONSTRAINT SATISFACTION
+-----------------------
+
+Assigning values to variables while satisfying constraints.
+
+Examples:
+- Sudoku.
+- Timetabling.
+- Map coloring.
+
+ADVERSARIAL SEARCH
+------------------
+
+Decision-making when another agent has conflicting goals.
+
+Examples:
+- Minimax.
+- Alpha-beta pruning.
+
+GAME-PLAYING AI
+---------------
+
+Uses search, evaluation, and strategy to choose moves.
+
+------------------------------------------------------------
+IMPORTANT FORMULAS
+------------------------------------------------------------
+
+1. GENERAL PATH COST
+
+g(n) = Sum of step costs from the start to n
+
+2. GREEDY BEST-FIRST SEARCH
+
+f(n) = h(n)
+
+3. A* SEARCH
+
+f(n) = g(n) + h(n)
+
+4. ADMISSIBLE HEURISTIC
+
+h(n) <= h*(n)
+
+5. CONSISTENT HEURISTIC
+
+h(n) <= c(n, n') + h(n')
+
+6. BFS TREE-SEARCH COMPLEXITY
+
+Time:  O(b^d)
+Space: O(b^d)
+
+7. DFS TREE-SEARCH COMPLEXITY
+
+Time:  O(b^m)
+Space: O(bm)
+
+8. MINIMAX TREE-SEARCH COMPLEXITY
+
+Time: O(b^m)
+
+9. SIMULATED ANNEALING ACCEPTANCE PROBABILITY
+   FOR A WORSE MOVE IN A MINIMIZATION PROBLEM
+
+P = exp(-delta / T)
+
+Where:
+delta > 0
+T > 0
+
+
+============================================================
+QUICK REVISION: WHICH ALGORITHM SHOULD YOU USE?
+============================================================
+
+PROBLEM:
+Find a path with the fewest edges in an unweighted graph.
+
+PREFERRED ALGORITHM:
+Breadth-First Search.
+
+PROBLEM:
+Find the lowest-cost path when action costs vary.
+
+PREFERRED ALGORITHM:
+Uniform-Cost Search, or another suitable shortest-path
+algorithm.
+
+PROBLEM:
+Find a shortest path using a useful admissible heuristic.
+
+PREFERRED ALGORITHM:
+A* Search, under the appropriate assumptions.
+
+PROBLEM:
+Explore deeply while using relatively little memory.
+
+PREFERRED ALGORITHM:
+Depth-First Search, if its completeness and solution-quality
+limitations are acceptable.
+
+PROBLEM:
+Search to increasing depths while using relatively little
+memory.
+
+PREFERRED ALGORITHM:
+Iterative Deepening Search.
+
+PROBLEM:
+Improve a candidate solution using local changes.
+
+POSSIBLE ALGORITHMS:
+Hill Climbing, Simulated Annealing, Genetic Algorithms.
+
+PROBLEM:
+Assign values while respecting constraints.
+
+PREFERRED APPROACH:
+Constraint Satisfaction techniques.
+
+PROBLEM:
+Choose a move in a two-player, zero-sum game.
+
+POSSIBLE ALGORITHMS:
+Minimax and Alpha-Beta Pruning.
+
+PROBLEM:
+Search a very large game tree using sampling and statistics.
+
+POSSIBLE ALGORITHM:
+Monte Carlo Tree Search.
+
+
+============================================================
+SELF-ASSESSMENT QUESTIONS
+============================================================
+
+Try answering these questions before looking up the answers.
+
+Q1. What is AI problem-solving?
+
+Q2. What are the five major components of a classical
+    search problem?
+
+Q3. What is the difference between a state space and
+    a search tree?
+
+Q4. Which data structure is commonly used by BFS?
+
+    A. Stack
+    B. Queue
+    C. Priority queue only
+    D. Hash table only
+
+Q5. Which algorithm expands the frontier node with the
+    lowest accumulated path cost?
+
+    A. DFS
+    B. BFS
+    C. Uniform-Cost Search
+    D. Hill Climbing
+
+Q6. What is the evaluation function used by A*?
+
+    A. f(n) = h(n)
+    B. f(n) = g(n)
+    C. f(n) = g(n) + h(n)
+    D. f(n) = g(n) - h(n)
+
+Q7. What is an admissible heuristic?
+
+Q8. Why does ordinary hill climbing sometimes fail to
+    find a global optimum?
+
+Q9. What is the difference between a feasible solution
+    and an optimal solution?
+
+Q10. What are the three basic components of a CSP?
+
+Q11. What is the purpose of alpha-beta pruning?
+
+Q12. Why might an AI system need to replan after beginning
+     to execute a solution?
+
+------------------------------------------------------------
+ANSWER KEY
+------------------------------------------------------------
+
+A1. Finding a sequence of actions that reaches a desired
+    goal from an initial state.
+
+A2. Initial state, actions, transition model, goal test,
+    and path cost.
+
+A3. A state space represents the underlying states and
+    transitions. A search tree represents the paths or
+    nodes explored by a search procedure.
+
+A4. B. Queue.
+
+A5. C. Uniform-Cost Search.
+
+A6. C. f(n) = g(n) + h(n).
+
+A7. A heuristic that never overestimates the true optimal
+    remaining cost.
+
+A8. It can become trapped at a local optimum, plateau,
+    or other region where its local decision rule cannot
+    make further progress.
+
+A9. A feasible solution satisfies the constraints.
+    An optimal solution is the best feasible solution
+    according to the objective.
+
+A10. Variables, domains, and constraints.
+
+A11. To avoid exploring branches that cannot affect the
+     minimax decision.
+
+A12. Because the environment may change, observations
+     may reveal new information, or the original plan
+     may no longer be feasible.
+
+
+============================================================
+END OF CHAPTER 3 — AI PROBLEM-SOLVING
+============================================================
+
+NEXT CHAPTER:
+CHAPTER 4 — SEARCH ALGORITHMS IN DEPTH
+
+In the next chapter, we can study search algorithms with
+step-by-step execution traces, worked examples, diagrams,
+pseudocode, and complexity comparisons.
+============================================================

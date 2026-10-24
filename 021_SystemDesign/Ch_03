@@ -1,0 +1,2988 @@
+======================================================================
+SYSTEM DESIGN MASTER SYLLABUS
+CHAPTER 3 — APIs & COMMUNICATION
+======================================================================
+
+CHAPTER OBJECTIVES
+------------------
+After completing this chapter, you will understand:
+
+1. What an API is and why APIs are important.
+2. How applications communicate with each other.
+3. API types: REST, SOAP, GraphQL, gRPC, and WebSocket.
+4. Synchronous vs asynchronous communication.
+5. HTTP request and response structures.
+6. REST API design principles.
+7. API endpoints, resources, methods, and status codes.
+8. JSON, XML, Protocol Buffers, and serialization.
+9. API authentication and authorization.
+10. API versioning.
+11. Pagination, filtering, sorting, and searching.
+12. Idempotency and retry mechanisms.
+13. Timeouts, rate limiting, and circuit breakers.
+14. Webhooks and event-driven communication.
+15. API Gateway and service-to-service communication.
+16. API security best practices.
+17. Real-world system design examples.
+18. Important interview questions.
+
+======================================================================
+1. WHAT IS AN API?
+======================================================================
+
+API stands for Application Programming Interface.
+
+An API is a defined interface through which one software
+component can interact with another software component.
+
+It specifies things such as:
+- Available operations
+- Required inputs
+- Expected outputs
+- Data formats
+- Communication rules
+- Error behavior
+- Authentication requirements
+
+Example:
+
+Suppose you are developing a food delivery application.
+
+The application needs to:
+- Display restaurants.
+- Retrieve menus.
+- Place orders.
+- Process payments.
+- Track deliveries.
+
+Your mobile application does not necessarily implement
+payment processing or restaurant management itself.
+
+Instead, it communicates with backend services through APIs.
+
+Example API:
+
+    GET /restaurants
+
+Possible response:
+
+    [
+        {
+            "id": 101,
+            "name": "Food Palace"
+        },
+        {
+            "id": 102,
+            "name": "Pizza House"
+        }
+    ]
+
+The client knows how to request restaurant data and how
+to interpret the response.
+
+It does not need to know the internal database queries
+or the backend's programming language.
+
+----------------------------------------------------------------------
+1.1 WHY DO WE NEED APIs?
+----------------------------------------------------------------------
+
+Without APIs, independently developed software components
+would need tightly coupled implementation details.
+
+APIs provide a defined contract between components.
+
+Important benefits:
+
+1. REUSABILITY
+   Multiple clients can use the same backend functionality.
+
+2. ABSTRACTION
+   Clients do not need to understand internal implementation.
+
+3. MODULARITY
+   Different teams can develop different components.
+
+4. INTEROPERABILITY
+   Components written in different programming languages
+   can communicate through shared protocols and formats.
+
+5. SCALABILITY
+   Backend services can be scaled independently when the
+   architecture and workload permit it.
+
+6. MAINTAINABILITY
+   Internal implementations can change without necessarily
+   breaking clients, provided the API contract remains stable.
+
+7. INTEGRATION
+   External services can be connected through well-defined
+   interfaces.
+
+Example:
+
+    Android Application
+            |
+            v
+         REST API
+            |
+            v
+      Backend Service
+            |
+            v
+         Database
+
+The Android application does not directly need to understand
+the database schema or SQL implementation.
+
+======================================================================
+2. API VS LIBRARY VS SDK
+======================================================================
+
+These concepts are related but different.
+
+----------------------------------------------------------------------
+2.1 API
+----------------------------------------------------------------------
+
+An API defines an interface or contract.
+
+Example:
+
+    GET /users/101
+
+The API contract specifies how a client requests user
+information and what response it may receive.
+
+----------------------------------------------------------------------
+2.2 LIBRARY
+----------------------------------------------------------------------
+
+A library is reusable code that an application can call.
+
+Example:
+
+    import math
+
+    result = math.sqrt(25)
+
+The math library provides functionality through its
+programming interface.
+
+A library API does not necessarily involve network
+communication.
+
+----------------------------------------------------------------------
+2.3 SDK
+----------------------------------------------------------------------
+
+SDK stands for Software Development Kit.
+
+An SDK is a collection of tools and code that helps
+developers build software for a platform or service.
+
+An SDK may contain:
+- Libraries
+- API client code
+- Documentation
+- Code examples
+- Debugging tools
+- Testing utilities
+- Command-line tools
+
+Example:
+
+A payment provider may offer an SDK that helps developers
+call its payment APIs.
+
+----------------------------------------------------------------------
+COMPARISON
+----------------------------------------------------------------------
+
+API:
+    A defined interface or contract.
+
+Library:
+    Reusable implementation code.
+
+SDK:
+    A toolkit for developing against a platform or service.
+
+======================================================================
+3. HOW API COMMUNICATION WORKS
+======================================================================
+
+Consider a mobile application retrieving a user's profile.
+
+The communication flow is:
+
+    +-----------------------+
+    | Mobile Application    |
+    +-----------------------+
+               |
+               | HTTP Request
+               v
+    +-----------------------+
+    | API Server            |
+    +-----------------------+
+               |
+               | Business Logic
+               v
+    +-----------------------+
+    | Database              |
+    +-----------------------+
+               |
+               | Query Result
+               v
+    +-----------------------+
+    | API Server            |
+    +-----------------------+
+               |
+               | HTTP Response
+               v
+    +-----------------------+
+    | Mobile Application    |
+    +-----------------------+
+
+Example request:
+
+    GET /api/users/101
+
+Example response:
+
+    HTTP/1.1 200 OK
+    Content-Type: application/json
+
+    {
+        "id": 101,
+        "name": "Aman",
+        "email": "aman@example.com"
+    }
+
+The process involves several steps.
+
+STEP 1:
+The client constructs the request.
+
+STEP 2:
+The client sends the request using the chosen protocol.
+
+STEP 3:
+The server receives and validates the request.
+
+STEP 4:
+The server authenticates the caller if necessary.
+
+STEP 5:
+The server checks authorization.
+
+STEP 6:
+The server executes business logic.
+
+STEP 7:
+The server retrieves or modifies data.
+
+STEP 8:
+The server constructs the response.
+
+STEP 9:
+The client processes the response.
+
+IMPORTANT:
+An API server should not automatically trust input merely
+because it came through a defined API endpoint.
+
+Validation, authentication, authorization, and error
+handling remain essential.
+
+======================================================================
+4. API TYPES
+======================================================================
+
+Common API communication styles include:
+
+1. REST
+2. SOAP
+3. GraphQL
+4. gRPC
+5. WebSocket
+6. Webhooks
+
+These are not all equivalent categories.
+
+REST is an architectural style.
+SOAP is a messaging protocol.
+GraphQL is a query language and execution model for APIs.
+gRPC is an RPC framework.
+WebSocket is a communication protocol.
+A webhook is an event-notification pattern commonly
+implemented using HTTP.
+
+======================================================================
+5. REST API
+======================================================================
+
+REST stands for Representational State Transfer.
+
+REST is an architectural style for distributed systems.
+
+REST APIs commonly use HTTP and expose resources through
+URIs.
+
+Examples of resources:
+
+    Users
+    Products
+    Orders
+    Payments
+    Comments
+
+Example endpoints:
+
+    GET    /users
+    GET    /users/101
+    POST   /users
+    PUT    /users/101
+    PATCH  /users/101
+    DELETE /users/101
+
+The endpoint represents a resource, while the HTTP method
+indicates the intended operation.
+
+----------------------------------------------------------------------
+5.1 REST ARCHITECTURAL CONSTRAINTS
+----------------------------------------------------------------------
+
+Important REST constraints include:
+
+1. CLIENT-SERVER
+2. STATELESS
+3. CACHEABLE
+4. UNIFORM INTERFACE
+5. LAYERED SYSTEM
+6. CODE-ON-DEMAND (OPTIONAL)
+
+CLIENT-SERVER:
+Client responsibilities are separated from server
+responsibilities.
+
+STATELESS:
+Each request must contain the information necessary for
+the server to understand that request.
+
+The server does not rely on remembering application
+conversation state from a previous request.
+
+This does not mean the application cannot store persistent
+business data or use sessions for other purposes.
+
+CACHEABLE:
+Responses should indicate whether they can be cached.
+
+UNIFORM INTERFACE:
+Resources are accessed through a consistent interface.
+
+LAYERED SYSTEM:
+A client may communicate through intermediaries such as
+proxies, gateways, or load balancers.
+
+CODE-ON-DEMAND:
+A server may optionally provide executable code to a client.
+
+----------------------------------------------------------------------
+5.2 REST RESOURCE DESIGN
+----------------------------------------------------------------------
+
+Prefer resource-oriented names.
+
+Good examples:
+
+    GET /products
+    GET /products/101
+    GET /orders/501
+    GET /users/101/orders
+
+Less desirable resource naming:
+
+    GET /getAllProducts
+    GET /fetchUser
+    POST /deleteProduct/101
+
+Why?
+
+HTTP methods already express the intended operation.
+
+A cleaner API separates resource identity from the action
+being performed.
+
+However, certain domain operations do not fit naturally
+into simple CRUD operations. Explicit action endpoints
+may be appropriate when designed consistently.
+
+For example:
+
+    POST /orders/501/cancel
+
+The key is to define clear and predictable semantics.
+
+----------------------------------------------------------------------
+5.3 CRUD OPERATIONS
+----------------------------------------------------------------------
+
+CRUD means:
+
+C = Create
+R = Read
+U = Update
+D = Delete
+
+Common REST-style mapping:
+
+CREATE:
+    POST /products
+
+READ:
+    GET /products/101
+
+UPDATE:
+    PUT /products/101
+
+PARTIAL UPDATE:
+    PATCH /products/101
+
+DELETE:
+    DELETE /products/101
+
+Example product creation request:
+
+    POST /products
+    Content-Type: application/json
+
+    {
+        "name": "Keyboard",
+        "price": 1500
+    }
+
+Possible response:
+
+    HTTP/1.1 201 Created
+    Content-Type: application/json
+
+    {
+        "id": 101,
+        "name": "Keyboard",
+        "price": 1500
+    }
+
+The server generates the identifier in this example.
+
+----------------------------------------------------------------------
+5.4 SAFE AND IDEMPOTENT METHODS
+----------------------------------------------------------------------
+
+SAFE METHOD:
+A safe method is intended not to change server state.
+
+GET and HEAD are safe methods.
+
+IDEMPOTENT METHOD:
+Repeating an operation has the same intended effect on
+server state as performing it once.
+
+GET:
+    Safe and idempotent.
+
+PUT:
+    Idempotent.
+
+DELETE:
+    Idempotent.
+
+POST:
+    Not inherently idempotent.
+
+PATCH:
+    Not guaranteed to be idempotent.
+
+Example:
+
+    PUT /users/101
+
+    {
+        "name": "Aman"
+    }
+
+Repeating the same request should leave the resource
+in the same intended state.
+
+Contrast this with:
+
+    POST /payments
+
+Repeated submissions might create multiple payments
+unless duplicate protection is implemented.
+
+INTERVIEW POINT:
+Idempotency concerns the intended effect on server state.
+It does not require every repeated request to return
+the same status code or response body.
+
+======================================================================
+6. HTTP REQUEST AND RESPONSE
+======================================================================
+
+HTTP is one of the most common protocols used by APIs.
+
+A request typically contains:
+- Method
+- Target URI or request target
+- Headers
+- Optional body
+
+Example:
+
+    POST /api/users HTTP/1.1
+    Host: api.example.com
+    Content-Type: application/json
+    Accept: application/json
+
+    {
+        "name": "Aman",
+        "email": "aman@example.com"
+    }
+
+The exact wire format differs between HTTP versions.
+The example illustrates HTTP/1.1 syntax.
+
+----------------------------------------------------------------------
+6.1 IMPORTANT REQUEST HEADERS
+----------------------------------------------------------------------
+
+Content-Type:
+    Describes the media type of the request body.
+
+Accept:
+    Indicates acceptable response media types.
+
+Authorization:
+    Carries authentication credentials or tokens.
+
+Cache-Control:
+    Specifies caching directives.
+
+If-None-Match:
+    Supports conditional requests using an entity tag.
+
+Idempotency-Key:
+    Commonly used by APIs to identify repeated attempts
+    at processing the same logical operation.
+
+Example:
+
+    Authorization: Bearer <access-token>
+
+IMPORTANT:
+The actual token must be protected. Do not place sensitive
+credentials in URLs because URLs can appear in logs,
+browser history, and monitoring systems.
+
+----------------------------------------------------------------------
+6.2 IMPORTANT RESPONSE HEADERS
+----------------------------------------------------------------------
+
+Content-Type:
+    Describes the response body format.
+
+Cache-Control:
+    Specifies response caching directives.
+
+ETag:
+    Provides a validator for a representation.
+
+Location:
+    Identifies a resource location, commonly after creation
+    or during redirection.
+
+Retry-After:
+    Indicates when a client should retry in supported
+    situations, including some rate-limit responses.
+
+Access-Control-Allow-Origin:
+    Participates in CORS behavior.
+
+Set-Cookie:
+    Instructs the browser to process a cookie.
+
+----------------------------------------------------------------------
+6.3 COMMON STATUS CODES
+----------------------------------------------------------------------
+
+200 OK:
+    Request succeeded.
+
+201 Created:
+    A resource was created.
+
+202 Accepted:
+    Request accepted for processing, which may finish later.
+
+204 No Content:
+    Request succeeded without response content.
+
+301 Moved Permanently:
+    Permanent redirection.
+
+304 Not Modified:
+    A cached representation may be reused.
+
+400 Bad Request:
+    Invalid request.
+
+401 Unauthorized:
+    Authentication challenge or failure.
+
+403 Forbidden:
+    Access refused.
+
+404 Not Found:
+    Resource not found, or its existence is concealed.
+
+409 Conflict:
+    Conflict with the current resource state.
+
+422 Unprocessable Content:
+    Request content cannot be processed according to
+    the applicable semantics.
+
+429 Too Many Requests:
+    Rate limit exceeded.
+
+500 Internal Server Error:
+    Unexpected server-side failure.
+
+502 Bad Gateway:
+    Invalid response from an upstream server.
+
+503 Service Unavailable:
+    Service temporarily unavailable.
+
+504 Gateway Timeout:
+    Gateway did not receive a timely upstream response.
+
+======================================================================
+7. JSON, XML, AND PROTOCOL BUFFERS
+======================================================================
+
+Applications need a format for representing structured data.
+
+Three important formats are:
+
+1. JSON
+2. XML
+3. Protocol Buffers
+
+----------------------------------------------------------------------
+7.1 JSON
+----------------------------------------------------------------------
+
+JSON stands for JavaScript Object Notation.
+
+It is a text-based data-interchange format.
+
+Example:
+
+    {
+        "id": 101,
+        "name": "Aman",
+        "active": true,
+        "skills": ["C", "Java", "Python"]
+    }
+
+JSON supports:
+- Objects
+- Arrays
+- Strings
+- Numbers
+- Booleans
+- Null
+
+Advantages:
+- Human-readable.
+- Supported by most programming languages.
+- Widely used in web APIs.
+- Relatively straightforward to inspect and debug.
+
+Trade-offs:
+- Text parsing requires processing.
+- Repeated field names add overhead.
+- Schema rules require separate conventions or specifications.
+
+----------------------------------------------------------------------
+7.2 XML
+----------------------------------------------------------------------
+
+XML stands for Extensible Markup Language.
+
+Example:
+
+    <user>
+        <id>101</id>
+        <name>Aman</name>
+        <active>true</active>
+    </user>
+
+XML is a structured markup format.
+
+It is used in:
+- SOAP web services
+- Configuration files
+- Document formats
+- Enterprise integrations
+
+Advantages:
+- Supports namespaces.
+- Supports schema validation through standards such as XSD.
+- Supports mixed text and structured markup.
+
+Trade-offs:
+- Often more verbose than JSON.
+- Parsing and document handling can be more complex.
+
+Security warning:
+XML parsers must be configured safely. In particular,
+unsafe external entity processing can introduce XXE
+vulnerabilities.
+
+----------------------------------------------------------------------
+7.3 PROTOCOL BUFFERS
+----------------------------------------------------------------------
+
+Protocol Buffers, or Protobuf, is a structured data
+serialization system developed by Google.
+
+It uses a schema to define messages and fields.
+
+Example schema:
+
+    syntax = "proto3";
+
+    message User {
+        int32 id = 1;
+        string name = 2;
+        bool active = 3;
+    }
+
+A serialized Protobuf message is generally a compact
+binary representation.
+
+Advantages:
+- Compact data representation.
+- Efficient serialization and deserialization.
+- Explicit schema.
+- Supports generated code for multiple languages.
+
+Trade-offs:
+- Binary payloads are not directly human-readable.
+- Schema evolution must be handled carefully.
+- Tooling and generated code add development steps.
+
+----------------------------------------------------------------------
+7.4 SERIALIZATION VS DESERIALIZATION
+----------------------------------------------------------------------
+
+Serialization:
+Converting an in-memory data structure into a transferable
+or storable representation.
+
+Deserialization:
+Reconstructing a data structure from that representation.
+
+Example:
+
+    In-memory object
+          |
+          v
+      Serialization
+          |
+          v
+       JSON bytes
+          |
+          v
+        Network
+          |
+          v
+      JSON bytes
+          |
+          v
+     Deserialization
+          |
+          v
+    In-memory object
+
+Serialization is not encryption.
+
+If sensitive data is serialized into JSON, it remains
+sensitive data and must be protected appropriately.
+
+----------------------------------------------------------------------
+7.5 FORMAT COMPARISON
+----------------------------------------------------------------------
+
+JSON:
+    Text-based
+    Human-readable
+    Common in REST APIs
+
+XML:
+    Text-based markup
+    Supports namespaces and schema-based validation
+    Common in SOAP and enterprise systems
+
+Protobuf:
+    Binary serialization
+    Schema-driven
+    Common in gRPC and internal services
+
+IMPORTANT:
+A binary format is not automatically faster in every
+workload. Actual performance depends on payload size,
+serialization implementation, compression, and processing
+requirements.
+
+======================================================================
+8. SOAP API
+======================================================================
+
+SOAP stands for Simple Object Access Protocol.
+
+SOAP is a messaging protocol with XML-based message
+envelopes and a formal processing model.
+
+It is commonly associated with enterprise integrations.
+
+A SOAP message generally contains:
+
+    Envelope
+        Header (optional)
+        Body
+
+Example:
+
+    <soap:Envelope
+        xmlns:soap="http://www.w3.org/2003/05/soap-envelope">
+
+        <soap:Body>
+            <GetUser>
+                <UserId>101</UserId>
+            </GetUser>
+        </soap:Body>
+
+    </soap:Envelope>
+
+SOAP services can use different underlying transport
+bindings. HTTP is common, but SOAP is not synonymous
+with HTTP.
+
+----------------------------------------------------------------------
+8.1 WSDL
+----------------------------------------------------------------------
+
+WSDL stands for Web Services Description Language.
+
+It describes a web service's interface, operations,
+messages, and related binding information.
+
+A client can use a WSDL description to generate code
+for interacting with the service.
+
+----------------------------------------------------------------------
+8.2 WHEN IS SOAP USEFUL?
+----------------------------------------------------------------------
+
+SOAP may be useful when an integration requires:
+- Formal service contracts.
+- Existing SOAP-based infrastructure.
+- Enterprise messaging standards.
+- WS-Security or related WS-* standards.
+- Compatibility with established enterprise systems.
+
+SOAP is often more structured and verbose than a typical
+JSON-based REST API.
+
+However, neither SOAP nor REST is universally superior.
+The appropriate choice depends on requirements and the
+existing ecosystem.
+
+======================================================================
+9. GRAPHQL
+======================================================================
+
+GraphQL is a query language and execution model for APIs.
+
+It allows clients to request specific fields from a
+defined data graph.
+
+Consider a REST API:
+
+    GET /users/101
+
+Response:
+
+    {
+        "id": 101,
+        "name": "Aman",
+        "email": "aman@example.com",
+        "age": 22,
+        "address": "Example Street"
+    }
+
+The client may need only the user's name.
+
+With GraphQL, the client can request:
+
+    query {
+        user(id: 101) {
+            name
+        }
+    }
+
+Possible response:
+
+    {
+        "data": {
+            "user": {
+                "name": "Aman"
+            }
+        }
+    }
+
+----------------------------------------------------------------------
+9.1 WHY GRAPHQL?
+----------------------------------------------------------------------
+
+GraphQL can help when clients need different combinations
+of fields from related data.
+
+Potential benefits:
+- Clients request the fields they need.
+- Related data can be retrieved through one graph query.
+- A typed schema describes available operations.
+- The API can evolve while preserving compatible fields.
+
+----------------------------------------------------------------------
+9.2 GRAPHQL OPERATIONS
+----------------------------------------------------------------------
+
+QUERY:
+    Reads data.
+
+MUTATION:
+    Requests a state-changing operation.
+
+SUBSCRIPTION:
+    Represents an ongoing operation for receiving updates.
+    Its transport depends on the implementation and setup.
+
+----------------------------------------------------------------------
+9.3 GRAPHQL CHALLENGES
+----------------------------------------------------------------------
+
+GraphQL also introduces challenges:
+
+1. Query complexity.
+2. Deeply nested queries.
+3. Potentially expensive database access.
+4. Authorization at field and object levels.
+5. Caching complexity.
+6. Monitoring individual operations.
+7. N+1 query problems.
+
+Example:
+
+A client requests thousands of nested relationships.
+
+Without query limits or cost controls, a single request
+may consume excessive resources.
+
+Possible protections:
+- Query depth limits.
+- Complexity limits.
+- Timeouts.
+- Rate limiting.
+- Persisted queries.
+- Batching and data-loader patterns.
+- Field-level authorization.
+
+======================================================================
+10. gRPC
+======================================================================
+
+gRPC is a remote procedure call framework.
+
+RPC stands for Remote Procedure Call.
+
+It allows a program to invoke an operation exposed by
+another process or service through a defined interface.
+
+Example:
+
+    UserService.GetUser(userId)
+
+The client invokes a remote operation, and gRPC handles
+the underlying communication.
+
+gRPC commonly uses:
+- HTTP/2
+- Protocol Buffers
+- Generated client and server code
+- Strongly defined service contracts
+
+----------------------------------------------------------------------
+10.1 DEFINING A gRPC SERVICE
+----------------------------------------------------------------------
+
+Example:
+
+    syntax = "proto3";
+
+    service UserService {
+        rpc GetUser (GetUserRequest)
+            returns (GetUserResponse);
+    }
+
+    message GetUserRequest {
+        int32 user_id = 1;
+    }
+
+    message GetUserResponse {
+        int32 user_id = 1;
+        string name = 2;
+        string email = 3;
+    }
+
+Generated client code can call the remote operation
+using the defined request and response messages.
+
+----------------------------------------------------------------------
+10.2 gRPC COMMUNICATION TYPES
+----------------------------------------------------------------------
+
+1. UNARY RPC
+
+   One request and one response.
+
+       Request -> Response
+
+2. SERVER STREAMING
+
+   One request and multiple responses.
+
+       Request -> Response 1 -> Response 2 -> ...
+
+3. CLIENT STREAMING
+
+   Multiple requests and one response.
+
+       Request 1 -> Request 2 -> Request 3 -> Response
+
+4. BIDIRECTIONAL STREAMING
+
+   Both sides can send multiple messages over a stream.
+
+       Client <---- Messages ----> Server
+
+----------------------------------------------------------------------
+10.3 WHY USE gRPC?
+----------------------------------------------------------------------
+
+Potential advantages:
+- Efficient binary serialization.
+- Generated client and server interfaces.
+- Strongly defined contracts.
+- Streaming support.
+- Suitable for many service-to-service workloads.
+
+Potential challenges:
+- Browser clients may require gRPC-Web or a gateway.
+- Binary payloads are less convenient to inspect manually.
+- HTTP/2 support and operational tooling are important.
+- Public API consumers may prefer simpler HTTP/JSON interfaces.
+
+gRPC is not automatically the best choice for every
+microservice.
+
+======================================================================
+11. WEBSOCKET
+======================================================================
+
+WebSocket supports persistent, bidirectional communication
+between a client and a server over a single connection.
+
+Traditional HTTP interactions are usually request-response
+exchanges.
+
+WebSocket allows either side to send messages after
+the connection has been established.
+
+Example:
+
+    Browser <====== WebSocket ======> Server
+
+Common use cases:
+- Chat applications.
+- Multiplayer games.
+- Live dashboards.
+- Collaborative editing.
+- Real-time notifications.
+- Live operational monitoring.
+
+----------------------------------------------------------------------
+11.1 HOW WEBSOCKET WORKS
+----------------------------------------------------------------------
+
+A typical WebSocket connection begins with an HTTP
+opening handshake.
+
+For HTTP/1.1, this usually involves an Upgrade request.
+
+After a successful handshake, communication proceeds
+using the WebSocket protocol.
+
+The connection can remain open while both sides exchange
+messages.
+
+----------------------------------------------------------------------
+11.2 WHY NOT USE REST FOR EVERYTHING?
+----------------------------------------------------------------------
+
+REST-style request-response APIs are excellent for many
+operations, including:
+- Retrieving products.
+- Creating users.
+- Updating account details.
+- Submitting orders.
+
+However, a chat client may need to receive messages
+immediately without repeatedly polling the server.
+
+With ordinary polling:
+
+    Client -> Request
+    Server -> Response
+
+    Wait
+
+    Client -> Request
+    Server -> Response
+
+With WebSocket:
+
+    Client <---- Message ----> Server
+    Client <---- Message ----> Server
+
+WebSocket avoids the need to initiate a new application
+request for every message.
+
+----------------------------------------------------------------------
+11.3 WEBSOCKET CHALLENGES
+----------------------------------------------------------------------
+
+Long-lived connections introduce operational concerns:
+
+- Connection tracking.
+- Authentication.
+- Authorization for individual messages.
+- Heartbeats and dead-connection detection.
+- Reconnection after network failures.
+- Horizontal scaling.
+- Backpressure.
+- Message ordering requirements.
+- Connection limits.
+- Load balancer timeout configuration.
+
+A distributed WebSocket system may use a shared messaging
+system or pub/sub infrastructure to deliver events to the
+server holding a user's connection.
+
+IMPORTANT:
+WebSocket itself does not automatically provide durable
+message storage or guaranteed delivery across disconnections.
+
+======================================================================
+12. REST VS GRAPHQL VS gRPC VS SOAP VS WEBSOCKET
+======================================================================
+
+REST:
+    Category:
+        Architectural style
+
+    Common transport:
+        HTTP
+
+    Common data format:
+        JSON
+
+    Good for:
+        Public APIs, web applications, CRUD operations
+
+GraphQL:
+    Category:
+        Query language and execution model
+
+    Common transport:
+        HTTP
+
+    Common data format:
+        JSON
+
+    Good for:
+        Clients that need flexible selection of related data
+
+gRPC:
+    Category:
+        RPC framework
+
+    Common transport:
+        HTTP/2
+
+    Common serialization:
+        Protocol Buffers
+
+    Good for:
+        Typed service-to-service communication and streaming
+
+SOAP:
+    Category:
+        Messaging protocol
+
+    Common data format:
+        XML
+
+    Good for:
+        Contract-driven enterprise integrations
+
+WebSocket:
+    Category:
+        Bidirectional communication protocol
+
+    Communication:
+        Persistent connection
+
+    Good for:
+        Chat, live updates, and interactive real-time systems
+
+IMPORTANT:
+These technologies can coexist in one architecture.
+
+Example:
+
+    Mobile App
+        |
+        | REST/JSON
+        v
+    API Gateway
+        |
+        +---------- REST ----------> External Integration
+        |
+        +---------- gRPC ----------> Internal Services
+        |
+        +---------- WebSocket -----> Real-Time Service
+
+The architecture should use the communication mechanism
+that best matches each interaction.
+
+======================================================================
+13. SYNCHRONOUS VS ASYNCHRONOUS COMMUNICATION
+======================================================================
+
+This is one of the most important system design concepts.
+
+----------------------------------------------------------------------
+13.1 SYNCHRONOUS COMMUNICATION
+----------------------------------------------------------------------
+
+In synchronous request-response communication, the caller
+waits for the response before continuing that interaction.
+
+Example:
+
+    Client
+       |
+       | Request
+       v
+    Payment Service
+       |
+       | Response
+       v
+    Client
+
+Example API:
+
+    POST /payments
+
+The client may wait for the payment service to return
+a result.
+
+Advantages:
+- Simple interaction model.
+- Immediate result or error response.
+- Straightforward for many CRUD operations.
+
+Disadvantages:
+- Caller latency depends on downstream processing.
+- Slow dependencies can occupy resources.
+- Downstream failures may affect the caller.
+- Long chains of synchronous calls can amplify latency.
+
+----------------------------------------------------------------------
+13.2 ASYNCHRONOUS COMMUNICATION
+----------------------------------------------------------------------
+
+In asynchronous communication, the caller can initiate
+work without waiting for all processing to finish.
+
+Example:
+
+    Client
+       |
+       v
+    Order API
+       |
+       v
+    Message Queue
+       |
+       v
+    Order Worker
+       |
+       v
+    Database / Other Services
+
+The API may respond:
+
+    HTTP/1.1 202 Accepted
+    Content-Type: application/json
+
+    {
+        "job_id": "job-101",
+        "status": "accepted"
+    }
+
+The client can later check the job status.
+
+Example:
+
+    GET /jobs/job-101
+
+Possible response:
+
+    {
+        "job_id": "job-101",
+        "status": "completed"
+    }
+
+Advantages:
+- Caller need not wait for the entire workflow.
+- Work can be buffered during temporary traffic spikes.
+- Workers can process tasks independently.
+- Components can be decoupled.
+
+Disadvantages:
+- More infrastructure.
+- More complicated error handling.
+- Eventual consistency may occur.
+- Duplicate messages must be considered.
+- Monitoring and debugging can be harder.
+
+----------------------------------------------------------------------
+13.3 IMPORTANT DISTINCTION
+----------------------------------------------------------------------
+
+Synchronous vs asynchronous describes how the interaction
+and completion are coordinated.
+
+HTTP vs gRPC describes communication technologies.
+
+REST vs GraphQL describes API design and interaction models.
+
+These categories are not interchangeable.
+
+For example:
+- REST requests are often synchronous.
+- REST endpoints can submit asynchronous jobs.
+- gRPC supports unary and streaming calls.
+- WebSocket can carry asynchronous events.
+- Message queues commonly support asynchronous workflows.
+
+======================================================================
+14. MESSAGE QUEUES AND EVENT-DRIVEN COMMUNICATION
+======================================================================
+
+A message queue allows one component to send work or
+messages to another component without requiring both
+components to process the message at the same moment.
+
+Example: online order processing.
+
+    Client
+       |
+       v
+    Order Service
+       |
+       +------> Order Database
+       |
+       +------> Message Broker
+                       |
+             +---------+---------+
+             |                   |
+             v                   v
+      Notification Worker   Inventory Worker
+
+When an order is accepted, the order service may publish
+events or commands for downstream processing.
+
+The notification worker sends an email or push notification.
+
+The inventory worker updates inventory-related state.
+
+----------------------------------------------------------------------
+14.1 QUEUE VS DIRECT API CALL
+----------------------------------------------------------------------
+
+DIRECT CALL:
+
+    Service A ---> Service B
+
+Service A usually waits for Service B's response when
+using synchronous request-response communication.
+
+QUEUE:
+
+    Service A ---> Message Broker ---> Service B
+
+Service A can often continue after the broker accepts
+the message, without waiting for Service B to finish.
+
+----------------------------------------------------------------------
+14.2 COMMON MESSAGE BROKERS
+----------------------------------------------------------------------
+
+Examples include:
+- RabbitMQ
+- Apache Kafka
+- Amazon SQS
+- Google Cloud Pub/Sub
+- Azure Service Bus
+
+These systems have different delivery, ordering, retention,
+routing, and scaling characteristics.
+
+They should not be treated as interchangeable in every case.
+
+----------------------------------------------------------------------
+14.3 QUEUE DELIVERY SEMANTICS
+----------------------------------------------------------------------
+
+AT-MOST-ONCE:
+    A message is delivered zero or one time.
+
+AT-LEAST-ONCE:
+    A message may be delivered more than once.
+
+EXACTLY-ONCE:
+    The meaning depends on the system and scope.
+
+IMPORTANT:
+Exactly-once processing across an entire distributed
+business workflow is difficult.
+
+A broker may provide specific exactly-once guarantees
+within a defined scope, but that does not automatically
+make every external side effect execute exactly once.
+
+For example, a worker might send an email and crash
+before recording that the email was sent.
+
+The message could be processed again.
+
+Applications often use idempotent consumers and durable
+deduplication records to handle such cases.
+
+======================================================================
+15. WEBHOOKS VS POLLING
+======================================================================
+
+Suppose a payment provider must notify a merchant when
+a payment succeeds.
+
+There are two common approaches.
+
+----------------------------------------------------------------------
+15.1 POLLING
+----------------------------------------------------------------------
+
+The merchant repeatedly asks:
+
+    GET /payments/501/status
+
+Possible sequence:
+
+    Merchant -> Payment Provider
+    Merchant <- Status: pending
+
+    Wait
+
+    Merchant -> Payment Provider
+    Merchant <- Status: pending
+
+    Wait
+
+    Merchant -> Payment Provider
+    Merchant <- Status: succeeded
+
+Advantages:
+- Straightforward to implement.
+- The client controls the polling interval.
+- Useful when updates are needed periodically.
+
+Disadvantages:
+- Repeated requests may be unnecessary.
+- Updates can be delayed until the next poll.
+- High polling volume can increase server load.
+
+----------------------------------------------------------------------
+15.2 WEBHOOK
+----------------------------------------------------------------------
+
+The merchant provides a callback endpoint.
+
+When the payment status changes:
+
+    Payment Provider
+           |
+           | POST /webhooks/payments
+           v
+    Merchant Application
+
+Advantages:
+- Updates can be delivered without continuous polling.
+- Can reduce repeated status requests.
+- Useful for event-driven integration.
+
+Disadvantages:
+- Merchant endpoint must be reachable.
+- Delivery can be delayed or repeated.
+- Webhook verification is necessary.
+- Retry and deduplication logic are important.
+
+BEST PRACTICE:
+Use webhooks for event notification when appropriate, and
+retain a way to query the authoritative payment status.
+
+Do not assume a webhook will always arrive exactly once
+or arrive immediately.
+
+======================================================================
+16. API AUTHENTICATION AND AUTHORIZATION
+======================================================================
+
+These concepts are different.
+
+AUTHENTICATION:
+    Who or what is making the request?
+
+AUTHORIZATION:
+    What is the authenticated identity allowed to do?
+
+Example:
+
+A user signs in successfully.
+
+Authentication succeeds.
+
+However, the user tries to access:
+
+    GET /admin/users
+
+The system must check whether the user has permission
+to access administrative data.
+
+The user being authenticated does not automatically mean
+the user is authorized.
+
+----------------------------------------------------------------------
+16.1 API KEYS
+----------------------------------------------------------------------
+
+An API key is a credential used to identify an application,
+client, or integration.
+
+Example:
+
+    X-API-Key: <secret-api-key>
+
+Common uses:
+- Server-to-server integrations.
+- Usage identification.
+- API access control.
+- Rate limiting.
+
+API keys should not be treated as sufficient protection
+for every sensitive user-level operation.
+
+A public API key embedded in browser or mobile code should
+not be assumed secret.
+
+----------------------------------------------------------------------
+16.2 BASIC AUTHENTICATION
+----------------------------------------------------------------------
+
+HTTP Basic authentication transmits a username and password
+encoded using Base64 in the Authorization header.
+
+Example:
+
+    Authorization: Basic <base64-credentials>
+
+Base64 is encoding, not encryption.
+
+Basic authentication should only be used over properly
+secured HTTPS connections, with careful credential handling.
+
+----------------------------------------------------------------------
+16.3 BEARER TOKENS
+----------------------------------------------------------------------
+
+A bearer token is a credential that grants access to whoever
+possesses it, subject to the token's scope and validity.
+
+Example:
+
+    Authorization: Bearer <access-token>
+
+Security considerations:
+- Protect tokens in storage and transit.
+- Use short-lived access tokens when appropriate.
+- Validate token signature or introspection results.
+- Validate issuer, audience, and expiration where applicable.
+- Use appropriate scopes and authorization checks.
+- Avoid logging secrets.
+
+----------------------------------------------------------------------
+16.4 OAUTH 2.0
+----------------------------------------------------------------------
+
+OAuth 2.0 is an authorization framework.
+
+It allows a client to obtain limited access to protected
+resources according to an authorization grant and policy.
+
+Example:
+
+A user authorizes an application to access certain files
+without sharing the user's password directly with that
+application.
+
+Important OAuth concepts include:
+- Resource owner
+- Client
+- Authorization server
+- Resource server
+- Access token
+- Scope
+
+OpenID Connect builds an identity layer on top of OAuth 2.0
+and is commonly used for user authentication.
+
+IMPORTANT:
+OAuth 2.0 by itself is not an authentication protocol.
+
+----------------------------------------------------------------------
+16.5 JWT
+----------------------------------------------------------------------
+
+JWT stands for JSON Web Token.
+
+A JWT can carry claims in a structured token format.
+
+A common signed JWT has three encoded sections:
+
+    Header.Payload.Signature
+
+Example conceptual claims:
+
+    {
+        "sub": "user-101",
+        "iss": "https://auth.example.com",
+        "aud": "orders-api",
+        "exp": 1900000000
+    }
+
+A receiving service should validate the token according
+to its security policy.
+
+Relevant checks can include:
+- Signature verification.
+- Accepted algorithms.
+- Issuer.
+- Audience.
+- Expiration.
+- Not-before time.
+- Required scopes or claims.
+
+A JWT is not automatically encrypted.
+
+Do not trust a token merely because its payload can be
+decoded successfully.
+
+======================================================================
+17. API VERSIONING
+======================================================================
+
+APIs evolve over time.
+
+Suppose version 1 returns:
+
+    {
+        "id": 101,
+        "name": "Aman"
+    }
+
+Later, version 2 changes the response:
+
+    {
+        "id": 101,
+        "first_name": "Aman",
+        "last_name": "Singh"
+    }
+
+Existing clients may break if they expect the old fields.
+
+Versioning provides a strategy for managing incompatible
+API changes.
+
+----------------------------------------------------------------------
+17.1 URL VERSIONING
+----------------------------------------------------------------------
+
+Example:
+
+    /api/v1/users
+    /api/v2/users
+
+Advantages:
+- Easy to understand.
+- Visible in logs.
+- Straightforward to route.
+
+Disadvantages:
+- Version appears in the URI.
+- Multiple versions may require operational support.
+
+----------------------------------------------------------------------
+17.2 HEADER VERSIONING
+----------------------------------------------------------------------
+
+Example:
+
+    Accept: application/vnd.example.v2+json
+
+The server chooses the response representation based
+on the requested media type or version convention.
+
+----------------------------------------------------------------------
+17.3 QUERY PARAMETER VERSIONING
+----------------------------------------------------------------------
+
+Example:
+
+    GET /users?version=2
+
+This is possible but may complicate API conventions.
+
+----------------------------------------------------------------------
+17.4 COMPATIBLE VS BREAKING CHANGES
+----------------------------------------------------------------------
+
+Often-compatible changes:
+- Adding an optional response field.
+- Adding a new endpoint.
+- Adding a new optional query parameter.
+
+Potentially breaking changes:
+- Removing a field.
+- Changing a field's type.
+- Changing required request fields.
+- Changing an endpoint's semantics.
+- Changing authentication requirements incompatibly.
+
+Even adding a field can break poorly designed clients
+that reject unknown fields.
+
+A robust API evolution strategy includes:
+- Clear compatibility rules.
+- Deprecation notices.
+- Migration documentation.
+- Usage monitoring.
+- A reasonable retirement policy.
+
+======================================================================
+18. PAGINATION, FILTERING, AND SORTING
+======================================================================
+
+Suppose a database contains ten million products.
+
+Returning every product in one response is usually
+inefficient and can overwhelm the client or server.
+
+Pagination returns a manageable portion of the results.
+
+----------------------------------------------------------------------
+18.1 OFFSET PAGINATION
+----------------------------------------------------------------------
+
+Example:
+
+    GET /products?limit=20&offset=40
+
+Meaning:
+- Skip 40 records.
+- Return up to 20 records.
+
+SQL-style example:
+
+    SELECT *
+    FROM products
+    ORDER BY id
+    LIMIT 20 OFFSET 40;
+
+Advantages:
+- Simple to implement.
+- Easy to understand.
+- Supports jumping to a page when ordering is stable.
+
+Disadvantages:
+- Large offsets may be expensive.
+- Concurrent inserts or deletes can shift results.
+- Stable ordering is important.
+
+Always define a deterministic ordering when pagination
+requires consistent results.
+
+----------------------------------------------------------------------
+18.2 CURSOR PAGINATION
+----------------------------------------------------------------------
+
+Example:
+
+    GET /products?limit=20&after=eyJpZCI6MTAwMH0
+
+The cursor represents a position in the ordered result set.
+
+The server decodes or resolves the cursor and retrieves
+the next page.
+
+Conceptual SQL:
+
+    SELECT *
+    FROM products
+    WHERE id > 1000
+    ORDER BY id
+    LIMIT 20;
+
+This simplified example assumes an appropriate ordering
+and a unique increasing identifier.
+
+Advantages:
+- Often efficient for large datasets.
+- More stable for continuously changing result sets.
+- Avoids scanning a large offset in many implementations.
+
+Disadvantages:
+- Arbitrary page-number jumps are harder.
+- Cursor design is more complex.
+- Cursor validity and ordering rules must be defined.
+
+----------------------------------------------------------------------
+18.3 FILTERING
+----------------------------------------------------------------------
+
+Example:
+
+    GET /products?category=electronics
+
+Multiple filters:
+
+    GET /products?category=electronics&min_price=1000
+
+The server should validate filter names, types, and
+permitted values.
+
+----------------------------------------------------------------------
+18.4 SORTING
+----------------------------------------------------------------------
+
+Example:
+
+    GET /products?sort=price&order=asc
+
+A more explicit convention might use:
+
+    GET /products?sort=price,-created_at
+
+Here, the API defines a convention in which the minus
+sign indicates descending order.
+
+The convention must be documented.
+
+Do not interpolate untrusted sort expressions directly
+into SQL.
+
+Map permitted API fields to safe database expressions.
+
+======================================================================
+19. TIMEOUTS, RETRIES, AND CIRCUIT BREAKERS
+======================================================================
+
+Distributed systems experience temporary failures.
+
+Examples:
+- Network packet loss.
+- Slow database queries.
+- Overloaded services.
+- Failed deployments.
+- DNS resolution problems.
+- Downstream outages.
+
+Clients and services need explicit failure-handling policies.
+
+----------------------------------------------------------------------
+19.1 TIMEOUT
+----------------------------------------------------------------------
+
+A timeout limits how long an operation may wait.
+
+Example:
+
+    API request timeout = 3 seconds
+
+If the operation does not finish within the permitted
+time, the caller stops waiting and handles the failure.
+
+Different timeout types include:
+- Connection timeout.
+- TLS handshake timeout.
+- Request timeout.
+- Read timeout.
+- Overall deadline.
+
+The correct values depend on the service and workload.
+
+IMPORTANT:
+A client timing out does not necessarily mean the server
+stopped processing the operation.
+
+For example, a payment might still complete after the
+client's connection times out.
+
+This is why retries must be designed carefully.
+
+----------------------------------------------------------------------
+19.2 RETRIES
+----------------------------------------------------------------------
+
+A retry repeats an operation after a failure.
+
+Retries can help recover from transient errors.
+
+However, retries can also increase load and make an
+overloaded system worse.
+
+A sensible retry policy should consider:
+- Which errors are retryable.
+- Whether the operation is idempotent.
+- Maximum attempts.
+- Overall deadline.
+- Backoff.
+- Jitter.
+- Retry budget.
+
+----------------------------------------------------------------------
+19.3 EXPONENTIAL BACKOFF
+----------------------------------------------------------------------
+
+A common policy increases the delay after each failure.
+
+Example:
+
+    Attempt 1: immediate
+    Attempt 2: wait approximately 200 ms
+    Attempt 3: wait approximately 400 ms
+    Attempt 4: wait approximately 800 ms
+
+The exact schedule depends on the configured policy.
+
+JITTER adds randomness to the delay.
+
+Without jitter, many clients may retry at the same time,
+creating a synchronized traffic spike.
+
+A common full-jitter strategy is:
+
+    delay = random(0, min(maxDelay, baseDelay * 2^attempt))
+
+Implementations may define attempt numbering differently.
+
+----------------------------------------------------------------------
+19.4 IDEMPOTENCY KEYS
+----------------------------------------------------------------------
+
+Consider a payment API:
+
+    POST /payments
+
+The client sends a payment request.
+
+The server processes the payment, but the response is
+lost because of a network failure.
+
+The client cannot tell whether the payment succeeded.
+
+Blindly retrying may charge the user twice.
+
+An idempotency key helps identify repeated attempts at
+the same logical operation.
+
+Example:
+
+    POST /payments
+    Idempotency-Key: payment-order-501-attempt-group-1
+
+The server can store the key and the result of the operation.
+
+When a valid duplicate request arrives, the server can
+return the previously recorded result rather than repeating
+the business operation.
+
+A robust design must define:
+- Key scope.
+- Key expiration.
+- Request-payload matching.
+- Concurrent duplicate handling.
+- Result persistence.
+- Behavior after partial failure.
+
+The exact guarantees depend on the implementation.
+
+IMPORTANT:
+An idempotency key is not simply a unique request header.
+The server must implement durable, concurrency-safe
+deduplication semantics.
+
+----------------------------------------------------------------------
+19.5 CIRCUIT BREAKER
+----------------------------------------------------------------------
+
+A circuit breaker prevents repeated calls to a dependency
+that is failing or responding too slowly.
+
+It commonly has three states.
+
+CLOSED:
+Requests flow normally.
+Failures are monitored.
+
+OPEN:
+Requests fail quickly or use a fallback instead of
+calling the unhealthy dependency.
+
+HALF-OPEN:
+A limited number of test requests are allowed to check
+whether the dependency has recovered.
+
+Conceptual flow:
+
+    CLOSED
+       |
+       | Failure threshold reached
+       v
+     OPEN
+       |
+       | Wait interval expires
+       v
+   HALF-OPEN
+       |
+       +---- Success ----> CLOSED
+       |
+       +---- Failure ----> OPEN
+
+Circuit breakers can help prevent resource exhaustion
+and cascading failures.
+
+They do not replace timeouts, retries, monitoring, or
+capacity management.
+
+======================================================================
+20. API GATEWAY
+======================================================================
+
+An API Gateway is an entry point that can manage traffic
+to backend APIs.
+
+Example:
+
+    Mobile App       Web App       Partner App
+         \              |              /
+          \             |             /
+           +------------+------------+
+                        |
+                        v
+                  API Gateway
+                        |
+          +-------------+-------------+
+          |             |             |
+          v             v             v
+      User Service  Order Service  Payment Service
+
+Common responsibilities:
+
+1. Request routing.
+2. Authentication integration.
+3. Rate limiting.
+4. Request validation.
+5. TLS termination.
+6. Logging and metrics.
+7. API version routing.
+8. Request and response transformation.
+9. Usage tracking.
+10. Some caching functions.
+
+----------------------------------------------------------------------
+20.1 API GATEWAY VS LOAD BALANCER
+----------------------------------------------------------------------
+
+LOAD BALANCER:
+Primarily distributes connections or requests among
+backend instances.
+
+API GATEWAY:
+Provides API-oriented routing and cross-cutting controls.
+
+A load balancer may distribute traffic among several
+API gateway instances.
+
+An API gateway may also rely on load balancers to
+distribute traffic among backend instances.
+
+The exact capabilities depend on the product.
+
+----------------------------------------------------------------------
+20.2 API GATEWAY VS REVERSE PROXY
+----------------------------------------------------------------------
+
+A reverse proxy forwards requests to backend systems.
+
+An API gateway is commonly a specialized gateway for APIs,
+often adding authentication integration, rate limiting,
+API policies, analytics, and request transformation.
+
+The categories overlap: many API gateways are implemented
+using reverse-proxy capabilities.
+
+======================================================================
+21. API SECURITY BEST PRACTICES
+======================================================================
+
+API security must be considered at multiple layers.
+
+----------------------------------------------------------------------
+21.1 USE HTTPS
+----------------------------------------------------------------------
+
+Protect sensitive data in transit using correctly
+configured TLS.
+
+----------------------------------------------------------------------
+21.2 VALIDATE INPUT
+----------------------------------------------------------------------
+
+Validate:
+- Types.
+- Lengths.
+- Ranges.
+- Formats.
+- Required fields.
+- Allowed values.
+- Payload sizes.
+
+Do not trust client-side validation alone.
+
+----------------------------------------------------------------------
+21.3 AUTHENTICATE AND AUTHORIZE
+----------------------------------------------------------------------
+
+Verify the caller's identity when required.
+
+Then check whether that identity is permitted to access
+the requested resource and perform the requested action.
+
+For example:
+
+    GET /users/101
+
+The server must not assume every authenticated user
+can retrieve every user's private information.
+
+----------------------------------------------------------------------
+21.4 PREVENT INJECTION
+----------------------------------------------------------------------
+
+Use parameterized database queries and safe data-access
+patterns.
+
+Avoid constructing SQL by directly concatenating
+untrusted input.
+
+----------------------------------------------------------------------
+21.5 APPLY RATE LIMITING
+----------------------------------------------------------------------
+
+Limit excessive traffic according to user, API key,
+IP address, tenant, or other appropriate identity.
+
+Be careful when clients share IP addresses behind NAT.
+
+----------------------------------------------------------------------
+21.6 PROTECT SECRETS
+----------------------------------------------------------------------
+
+Do not expose:
+- Passwords.
+- Private keys.
+- Access tokens.
+- Database credentials.
+- Secret API keys.
+
+Avoid writing sensitive credentials into logs.
+
+----------------------------------------------------------------------
+21.7 LIMIT REQUEST SIZE
+----------------------------------------------------------------------
+
+Set sensible limits for:
+- JSON body size.
+- File uploads.
+- Number of requested records.
+- GraphQL query complexity.
+- Batch operation size.
+
+----------------------------------------------------------------------
+21.8 PREVENT REPLAY AND DUPLICATE OPERATIONS
+----------------------------------------------------------------------
+
+For sensitive operations:
+- Use idempotency mechanisms where appropriate.
+- Validate timestamps or nonces when required by the
+  protocol and threat model.
+- Apply authorization checks.
+- Record operation status durably.
+
+----------------------------------------------------------------------
+21.9 RETURN SAFE ERROR MESSAGES
+----------------------------------------------------------------------
+
+Avoid exposing:
+- Stack traces.
+- Internal database details.
+- Secret configuration.
+- Internal service credentials.
+
+Return useful client errors while preserving detailed
+diagnostic information in protected server-side logs.
+
+----------------------------------------------------------------------
+21.10 HANDLE CORS CORRECTLY
+----------------------------------------------------------------------
+
+Allow only the origins and methods required by the
+application's browser access policy.
+
+CORS is not a replacement for authentication or
+authorization.
+
+======================================================================
+22. API OBSERVABILITY
+======================================================================
+
+Observability helps engineers understand how APIs behave
+in production.
+
+Three common pillars are:
+
+1. Logs
+2. Metrics
+3. Traces
+
+----------------------------------------------------------------------
+22.1 LOGS
+----------------------------------------------------------------------
+
+Logs record events and contextual information.
+
+Useful fields may include:
+- Timestamp.
+- Request ID.
+- Trace ID.
+- Endpoint.
+- Status code.
+- Latency.
+- Error category.
+- Service name.
+
+Avoid logging passwords, access tokens, and unnecessary
+personal data.
+
+----------------------------------------------------------------------
+22.2 METRICS
+----------------------------------------------------------------------
+
+Metrics measure behavior over time.
+
+Important API metrics:
+
+REQUEST RATE:
+    Requests per second.
+
+ERROR RATE:
+    Percentage of failed requests.
+
+LATENCY:
+    Time taken to process requests.
+
+RESOURCE UTILIZATION:
+    CPU, memory, network, and other resource usage.
+
+SATURATION:
+    How close a system is to exhausting its capacity.
+
+Latency should often be examined using percentiles.
+
+Example:
+
+    p50 = 100 ms
+    p95 = 350 ms
+    p99 = 900 ms
+
+Interpretation:
+
+    50% of measured requests completed within 100 ms.
+    95% completed within 350 ms.
+    99% completed within 900 ms.
+
+The measurement population and time window must be
+specified when interpreting these values.
+
+----------------------------------------------------------------------
+22.3 DISTRIBUTED TRACING
+----------------------------------------------------------------------
+
+A single API request may pass through multiple services.
+
+Example:
+
+    API Gateway
+         |
+         v
+    Order Service
+         |
+         v
+    Inventory Service
+         |
+         v
+    Database
+
+Distributed tracing follows the request across components.
+
+It can help identify:
+- Slow dependencies.
+- Excessive service calls.
+- Database bottlenecks.
+- Queueing delays.
+- Timeout locations.
+
+A trace commonly contains spans representing work performed
+by individual components.
+
+======================================================================
+23. REAL-WORLD SYSTEM DESIGN EXAMPLE
+======================================================================
+
+PROBLEM:
+Design the API communication layer for an online shopping
+application.
+
+REQUIREMENTS:
+- Browse products.
+- Search products.
+- Create orders.
+- Process payments.
+- Track order status.
+- Notify users about order updates.
+
+----------------------------------------------------------------------
+23.1 API DESIGN
+----------------------------------------------------------------------
+
+PRODUCT APIs:
+
+    GET /api/v1/products
+    GET /api/v1/products/{productId}
+    GET /api/v1/products?category=electronics
+    GET /api/v1/products?limit=20&cursor={cursor}
+
+ORDER APIs:
+
+    POST /api/v1/orders
+    GET /api/v1/orders/{orderId}
+    GET /api/v1/users/{userId}/orders
+    POST /api/v1/orders/{orderId}/cancel
+
+PAYMENT APIs:
+
+    POST /api/v1/payments
+    GET /api/v1/payments/{paymentId}
+
+NOTIFICATION APIs:
+
+    GET /api/v1/notifications
+    POST /api/v1/notifications/{notificationId}/read
+
+The actual API contract must define request bodies,
+response bodies, authorization rules, and error semantics.
+
+----------------------------------------------------------------------
+23.2 ARCHITECTURE
+----------------------------------------------------------------------
+
+    +-----------------------+
+    | Mobile / Web Clients  |
+    +-----------------------+
+                |
+                v
+    +-----------------------+
+    | API Gateway           |
+    +-----------------------+
+                |
+       +--------+--------+
+       |        |        |
+       v        v        v
+    Product   Order   Payment
+    Service  Service  Service
+       |        |        |
+       v        v        v
+    Product   Order   Payment
+    Database  Database Database
+                |
+                v
+          Message Broker
+                |
+         +------+------+
+         |             |
+         v             v
+    Notification   Inventory
+      Worker        Worker
+
+This is a simplified logical architecture. Actual
+deployments may combine services or use different storage
+and messaging designs.
+
+----------------------------------------------------------------------
+23.3 ORDER CREATION FLOW
+----------------------------------------------------------------------
+
+STEP 1:
+Client submits:
+
+    POST /api/v1/orders
+
+STEP 2:
+API gateway applies appropriate routing and policies.
+
+STEP 3:
+Order service validates the request and verifies the
+user's authorization.
+
+STEP 4:
+Order service checks product and pricing information.
+
+STEP 5:
+The application reserves or otherwise coordinates
+inventory according to the business design.
+
+STEP 6:
+The order workflow initiates payment processing.
+
+STEP 7:
+The system records state changes durably.
+
+STEP 8:
+Events may be published for notifications and other
+downstream processing.
+
+STEP 9:
+Client receives an appropriate response.
+
+For example, if the order workflow is asynchronous:
+
+    HTTP/1.1 202 Accepted
+
+    {
+        "order_id": "order-501",
+        "status": "processing"
+    }
+
+Alternatively, a synchronous API may return a completed
+order representation if the required work has finished.
+
+The correct response depends on the defined contract.
+
+----------------------------------------------------------------------
+23.4 IMPORTANT FAILURE CASES
+----------------------------------------------------------------------
+
+CASE 1:
+Payment provider times out.
+
+Possible issue:
+The payment may have succeeded even though the response
+was not received.
+
+Solution:
+Use idempotency controls, durable payment state, and
+reconciliation.
+
+CASE 2:
+Notification service fails.
+
+Possible issue:
+The order succeeds but the notification is delayed.
+
+Solution:
+Use durable asynchronous messaging and retry handling
+when appropriate.
+
+CASE 3:
+Client submits the order twice.
+
+Possible issue:
+Duplicate orders are created.
+
+Solution:
+Use a suitable idempotency strategy for order creation.
+
+CASE 4:
+Database becomes slow.
+
+Possible issue:
+API latency increases and requests begin timing out.
+
+Solution:
+Use query optimization, capacity monitoring, timeouts,
+and carefully designed overload protection.
+
+CASE 5:
+Traffic suddenly increases.
+
+Possible issue:
+Backend resources become saturated.
+
+Solution:
+Apply suitable rate limits, scaling policies, caching,
+queueing, and load balancing.
+
+CASE 6:
+Client disconnects during order creation.
+
+Possible issue:
+The client does not know whether the order was created.
+
+Solution:
+Provide a reliable idempotency mechanism and a way
+to query the resulting order state.
+
+======================================================================
+24. COMMON API DESIGN MISTAKES
+======================================================================
+
+MISTAKE 1:
+Returning every database record in one response.
+
+PROBLEM:
+Large payloads increase latency and resource consumption.
+
+BETTER:
+Use pagination and explicit response limits.
+
+------------------------------------------------------------
+
+MISTAKE 2:
+Returning HTTP 200 for every error.
+
+PROBLEM:
+Clients and monitoring systems cannot reliably interpret
+the result using standard HTTP semantics.
+
+BETTER:
+Use appropriate status codes and a consistent error body.
+
+------------------------------------------------------------
+
+MISTAKE 3:
+Retrying every failed POST request.
+
+PROBLEM:
+Duplicate operations may occur.
+
+BETTER:
+Classify errors and implement idempotency where needed.
+
+------------------------------------------------------------
+
+MISTAKE 4:
+Exposing internal database models directly.
+
+PROBLEM:
+Database schema changes can unintentionally break APIs,
+and internal fields may leak.
+
+BETTER:
+Use explicit API request and response models.
+
+------------------------------------------------------------
+
+MISTAKE 5:
+Putting secrets in URL query parameters.
+
+PROBLEM:
+URLs may be stored in logs, browser history, or monitoring.
+
+BETTER:
+Use appropriate authorization headers and secure
+credential-handling practices.
+
+------------------------------------------------------------
+
+MISTAKE 6:
+Using synchronous calls for every workflow.
+
+PROBLEM:
+Long-running operations create unnecessary waiting
+and increase coupling.
+
+BETTER:
+Use asynchronous processing for appropriate long-running
+or decoupled tasks.
+
+------------------------------------------------------------
+
+MISTAKE 7:
+Assuming a timeout means the operation failed.
+
+PROBLEM:
+The server may have completed the operation even though
+the client never received the response.
+
+BETTER:
+Use idempotency and queryable operation state.
+
+------------------------------------------------------------
+
+MISTAKE 8:
+Assuming an authenticated user can access every resource.
+
+PROBLEM:
+This can create broken object-level authorization,
+including insecure direct object reference vulnerabilities.
+
+BETTER:
+Check authorization for each relevant resource and action.
+
+======================================================================
+25. INTERVIEW QUESTIONS AND ANSWERS
+======================================================================
+
+Q1. What is an API?
+
+ANSWER:
+An API is a defined interface that allows software
+components to interact through agreed operations,
+inputs, outputs, and rules.
+
+----------------------------------------------------------------------
+Q2. What is the difference between REST and GraphQL?
+
+ANSWER:
+REST commonly exposes resources through HTTP endpoints.
+GraphQL allows clients to request specific fields through
+a schema-driven query model.
+
+----------------------------------------------------------------------
+Q3. What is the difference between REST and gRPC?
+
+ANSWER:
+REST is an architectural style commonly implemented with
+HTTP and JSON. gRPC is an RPC framework commonly using
+HTTP/2 and Protocol Buffers.
+
+----------------------------------------------------------------------
+Q4. What is the difference between SOAP and REST?
+
+ANSWER:
+SOAP is a messaging protocol commonly using XML envelopes.
+REST is an architectural style and is often implemented
+with HTTP and JSON.
+
+----------------------------------------------------------------------
+Q5. What is synchronous communication?
+
+ANSWER:
+The caller waits for the operation's response before
+continuing that interaction.
+
+----------------------------------------------------------------------
+Q6. What is asynchronous communication?
+
+ANSWER:
+The caller can initiate work without waiting for all
+downstream processing to finish.
+
+----------------------------------------------------------------------
+Q7. What is API idempotency?
+
+ANSWER:
+Repeating an operation has the same intended effect on
+server state as performing it once.
+
+----------------------------------------------------------------------
+Q8. Why are idempotency keys important in payment APIs?
+
+ANSWER:
+They allow the server to recognize repeated attempts
+at the same logical operation and avoid processing
+the same payment request more than once.
+
+----------------------------------------------------------------------
+Q9. What is an API gateway?
+
+ANSWER:
+An API gateway is an entry point for API traffic that
+can perform routing and cross-cutting tasks such as
+authentication integration, rate limiting, and monitoring.
+
+----------------------------------------------------------------------
+Q10. What is the difference between authentication and
+authorization?
+
+ANSWER:
+Authentication verifies identity. Authorization checks
+what that identity is permitted to do.
+
+----------------------------------------------------------------------
+Q11. What is the difference between polling and webhooks?
+
+ANSWER:
+Polling repeatedly asks a server for updates. A webhook
+allows a system to send an HTTP event notification when
+something happens.
+
+----------------------------------------------------------------------
+Q12. What is cursor pagination?
+
+ANSWER:
+Cursor pagination uses a continuation token or position
+to retrieve the next section of an ordered result set.
+
+----------------------------------------------------------------------
+Q13. Why are retries dangerous?
+
+ANSWER:
+Retries can repeat non-idempotent operations and increase
+load on an already failing system.
+
+----------------------------------------------------------------------
+Q14. What is a circuit breaker?
+
+ANSWER:
+A resilience mechanism that temporarily stops calls to
+an unhealthy dependency, allowing the system to avoid
+repeatedly waiting on failing operations.
+
+----------------------------------------------------------------------
+Q15. Why use Protobuf?
+
+ANSWER:
+Protobuf provides schema-driven binary serialization and
+generated code, which can be useful for efficient typed
+communication between services.
+
+----------------------------------------------------------------------
+Q16. Is a JWT encrypted?
+
+ANSWER:
+Not necessarily. A signed JWT can provide integrity and
+authenticity while its payload remains readable.
+
+----------------------------------------------------------------------
+Q17. What is API versioning?
+
+ANSWER:
+A strategy for evolving API contracts while managing
+compatibility with existing clients.
+
+----------------------------------------------------------------------
+Q18. What is the difference between a timeout and a retry?
+
+ANSWER:
+A timeout limits how long an operation may wait. A retry
+attempts the operation again after a failure.
+
+----------------------------------------------------------------------
+Q19. Why use a message queue?
+
+ANSWER:
+A message queue can decouple components, buffer work,
+and enable asynchronous processing.
+
+----------------------------------------------------------------------
+Q20. What is the N+1 query problem?
+
+ANSWER:
+It occurs when retrieving a collection triggers additional
+queries for individual items, producing many unnecessary
+database operations. It can occur in REST backends,
+GraphQL resolvers, and other data-access layers.
+
+======================================================================
+26. CHAPTER 3 — FINAL REVISION
+======================================================================
+
+API:
+    Defined interface for software interaction.
+
+REST:
+    Resource-oriented architectural style.
+
+SOAP:
+    XML-based messaging protocol.
+
+GraphQL:
+    Schema-driven query language and execution model.
+
+gRPC:
+    Remote procedure call framework.
+
+WebSocket:
+    Persistent bidirectional communication protocol.
+
+Webhook:
+    Event notification delivered to a callback endpoint.
+
+JSON:
+    Text-based data-interchange format.
+
+XML:
+    Structured markup format.
+
+Protobuf:
+    Schema-driven binary serialization system.
+
+Serialization:
+    Converts data into a transferable representation.
+
+Deserialization:
+    Reconstructs data from a representation.
+
+CRUD:
+    Create, Read, Update, Delete.
+
+IDEMPOTENCY:
+    Repeated execution has the same intended effect
+    on server state.
+
+SYNCHRONOUS:
+    Caller waits for the response.
+
+ASYNCHRONOUS:
+    Caller can continue before all processing finishes.
+
+MESSAGE QUEUE:
+    Enables message-based communication and decoupling.
+
+API GATEWAY:
+    API entry point with routing and policy capabilities.
+
+AUTHENTICATION:
+    Verifies identity.
+
+AUTHORIZATION:
+    Determines permitted actions.
+
+OAUTH 2.0:
+    Authorization framework.
+
+OPENID CONNECT:
+    Identity layer built on OAuth 2.0.
+
+JWT:
+    Structured token format that may be signed or encrypted.
+
+API VERSIONING:
+    Manages API evolution and compatibility.
+
+OFFSET PAGINATION:
+    Retrieves records using a limit and an offset.
+
+CURSOR PAGINATION:
+    Retrieves records using a continuation position.
+
+TIMEOUT:
+    Limits the time spent waiting for an operation.
+
+RETRY:
+    Attempts an operation again after a failure.
+
+EXPONENTIAL BACKOFF:
+    Increases the delay between repeated attempts.
+
+CIRCUIT BREAKER:
+    Stops repeated calls to an unhealthy dependency.
+
+RATE LIMITING:
+    Restricts request frequency.
+
+OBSERVABILITY:
+    Uses logs, metrics, and traces to understand system
+    behavior.
+
+======================================================================
+CHAPTER 3 COMPLETE
+======================================================================
+
+NEXT CHAPTER:
+CHAPTER 4 — DATABASE FUNDAMENTALS FOR SYSTEM DESIGN
+
+UPCOMING TOPICS:
+1. Relational vs non-relational databases.
+2. SQL vs NoSQL.
+3. Tables, rows, columns, and schemas.
+4. Primary keys and foreign keys.
+5. Indexes and query performance.
+6. Transactions and ACID properties.
+7. Database normalization and denormalization.
+8. Replication and read replicas.
+9. Partitioning and sharding.
+10. Connection pooling.
+11. Database consistency.
+12. Choosing the right database for a system.
+13. Real-world database architecture.
+14. System design interview questions.
+======================================================================
