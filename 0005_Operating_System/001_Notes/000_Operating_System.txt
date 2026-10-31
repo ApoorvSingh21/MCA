@@ -1,0 +1,954 @@
+============================================================
+       OPERATING SYSTEMS — PhD MASTER SYLLABUS
+       PhD First Year | Advanced Research Track
+============================================================
+
+COURSE OBJECTIVES
+------------------------------------------------------------
+
+Beginner
+   ↓
+Strong OS Fundamentals
+   ↓
+Advanced Operating Systems
+   ↓
+OS Architecture and Design
+   ↓
+Advanced Kernel Internals
+   ↓
+Distributed and Parallel OS
+   ↓
+Research-Level Operating Systems
+   ↓
+Research Paper Implementation
+   ↓
+Independent Research Capability
+
+
+============================================================
+PART I — OPERATING SYSTEM FOUNDATIONS
+============================================================
+
+CHAPTER 01 — OPERATING SYSTEM FUNDAMENTALS
+
+1.1 Introduction to Operating Systems
+1.2 Evolution of Operating Systems
+1.3 Goals and Functions of OS
+1.4 OS as Resource Manager
+1.5 OS as Control Program
+1.6 OS as Extended Machine
+1.7 Computer System Architecture
+1.8 Hardware-Software Interface
+1.9 Types of Operating Systems
+1.10 Batch Systems
+1.11 Multiprogramming Systems
+1.12 Time-Sharing Systems
+1.13 Multiprocessing Systems
+1.14 Distributed Operating Systems
+1.15 Real-Time Operating Systems
+1.16 Embedded Operating Systems
+1.17 OS Design Principles
+1.18 OS Abstractions
+1.19 OS Mechanisms and Policies
+1.20 Evolution of Modern Operating Systems
+
+
+CHAPTER 02 — OPERATING SYSTEM ARCHITECTURE
+
+2.1 Kernel Architecture
+2.2 Monolithic Kernel
+2.3 Microkernel Architecture
+2.4 Hybrid Kernel
+2.5 Modular Kernel
+2.6 Layered Architecture
+2.7 Exokernel Architecture
+2.8 Unikernel Architecture
+2.9 Library Operating Systems
+2.10 Separation of Mechanism and Policy
+2.11 Kernel Space and User Space
+2.12 Protection Boundaries
+2.13 System Architecture Comparison
+2.14 Design Trade-offs
+2.15 Case Studies: Linux, Windows and MINIX
+
+
+CHAPTER 03 — SYSTEM CALLS AND INTERRUPT ARCHITECTURE
+
+3.1 System Call Fundamentals
+3.2 System Call Interface
+3.3 System Call Execution
+3.4 Trap Mechanism
+3.5 Software Interrupts
+3.6 Hardware Interrupts
+3.7 Interrupt Handling
+3.8 Interrupt Descriptor Tables
+3.9 Interrupt Vectoring
+3.10 Privilege-Level Transitions
+3.11 Exception Handling
+3.12 Synchronous and Asynchronous Exceptions
+3.13 System Call Implementation
+3.14 Linux System Call Architecture
+3.15 System Call Performance Analysis
+
+
+============================================================
+PART II — PROCESS AND CONCURRENCY THEORY
+============================================================
+
+CHAPTER 04 — PROCESS MANAGEMENT
+
+4.1 Process Fundamentals
+4.2 Process Life Cycle
+4.3 Process State Transitions
+4.4 Process Control Block
+4.5 Context Switching
+4.6 Process Creation
+4.7 Process Termination
+4.8 Parent-Child Relationships
+4.9 Zombie and Orphan Processes
+4.10 Process Scheduling
+4.11 Process Hierarchies
+4.12 Process Isolation
+4.13 Process Address Space
+4.14 Process Resource Management
+4.15 Process Models in Modern OS
+
+
+CHAPTER 05 — THREADS AND MULTITHREADING
+
+5.1 Thread Fundamentals
+5.2 Process vs Thread
+5.3 User-Level Threads
+5.4 Kernel-Level Threads
+5.5 Thread Mapping Models
+5.6 Many-to-One
+5.7 One-to-One
+5.8 Many-to-Many
+5.9 Thread Libraries
+5.10 POSIX Threads
+5.11 Thread Pools
+5.12 Thread Cancellation
+5.13 Thread Local Storage
+5.14 Multicore Threading
+5.15 Thread Scheduling
+5.16 Thread Synchronization
+
+
+CHAPTER 06 — CPU SCHEDULING THEORY
+
+6.1 Scheduling Fundamentals
+6.2 Scheduling Criteria
+6.3 Preemptive Scheduling
+6.4 Non-Preemptive Scheduling
+6.5 FCFS
+6.6 SJF
+6.7 SRTF
+6.8 Priority Scheduling
+6.9 Round Robin
+6.10 Multilevel Queue
+6.11 Multilevel Feedback Queue
+6.12 Real-Time Scheduling
+6.13 Rate Monotonic Scheduling
+6.14 Earliest Deadline First
+6.15 Proportional Share Scheduling
+6.16 Fair-Share Scheduling
+6.17 Linux CFS
+6.18 Linux EEVDF
+6.19 Scheduling on Multicore Systems
+6.20 Load Balancing
+6.21 Processor Affinity
+6.22 Scheduling Overhead
+6.23 Scheduling Algorithm Analysis
+
+
+CHAPTER 07 — CONCURRENCY THEORY
+
+7.1 Introduction to Concurrency
+7.2 Concurrency vs Parallelism
+7.3 Interleaving of Operations
+7.4 Race Conditions
+7.5 Critical Section Problem
+7.6 Mutual Exclusion
+7.7 Progress
+7.8 Bounded Waiting
+7.9 Atomic Operations
+7.10 Test-and-Set
+7.11 Compare-and-Swap
+7.12 Fetch-and-Add
+7.13 Memory Barriers
+7.14 Instruction Reordering
+7.15 Sequential Consistency
+7.16 Weak Memory Models
+7.17 Happens-Before Relationship
+7.18 Linearizability
+7.19 Lock-Free Algorithms
+7.20 Wait-Free Algorithms
+7.21 Obstruction-Free Algorithms
+
+
+CHAPTER 08 — PROCESS SYNCHRONIZATION
+
+8.1 Synchronization Fundamentals
+8.2 Mutex Locks
+8.3 Semaphores
+8.4 Binary Semaphores
+8.5 Counting Semaphores
+8.6 Monitors
+8.7 Condition Variables
+8.8 Spinlocks
+8.9 Read-Write Locks
+8.10 Barriers
+8.11 Futex Mechanism
+8.12 Classical Synchronization Problems
+8.13 Producer-Consumer
+8.14 Readers-Writers
+8.15 Dining Philosophers
+8.16 Sleeping Barber
+8.17 Priority Inversion
+8.18 Priority Inheritance
+8.19 Synchronization in Multicore Systems
+8.20 Advanced Locking Algorithms
+
+
+CHAPTER 09 — DEADLOCK AND RESOURCE MANAGEMENT
+
+9.1 Deadlock Fundamentals
+9.2 Necessary Conditions
+9.3 Resource Allocation Graph
+9.4 Deadlock Prevention
+9.5 Deadlock Avoidance
+9.6 Banker's Algorithm
+9.7 Deadlock Detection
+9.8 Deadlock Recovery
+9.9 Safe and Unsafe States
+9.10 Distributed Deadlocks
+9.11 Deadlock Detection in Distributed Systems
+9.12 Starvation
+9.13 Livelock
+9.14 Resource Allocation Theory
+9.15 Advanced Deadlock Analysis
+
+
+============================================================
+PART III — MEMORY SYSTEMS
+============================================================
+
+CHAPTER 10 — MEMORY MANAGEMENT
+
+10.1 Memory Hierarchy
+10.2 Address Binding
+10.3 Logical and Physical Addresses
+10.4 Memory Management Unit
+10.5 Contiguous Memory Allocation
+10.6 Fixed Partitioning
+10.7 Dynamic Partitioning
+10.8 First Fit
+10.9 Best Fit
+10.10 Worst Fit
+10.11 Fragmentation
+10.12 Compaction
+10.13 Swapping
+10.14 Memory Protection
+10.15 Segmentation
+10.16 Segmentation with Paging
+
+
+CHAPTER 11 — PAGING AND VIRTUAL MEMORY
+
+11.1 Paging Fundamentals
+11.2 Pages and Frames
+11.3 Page Tables
+11.4 Address Translation
+11.5 Multi-Level Paging
+11.6 Hierarchical Page Tables
+11.7 Inverted Page Tables
+11.8 Hashed Page Tables
+11.9 Translation Lookaside Buffer
+11.10 TLB Management
+11.11 Effective Access Time
+11.12 Demand Paging
+11.13 Page Fault Handling
+11.14 Copy-on-Write
+11.15 Memory-Mapped Files
+11.16 Shared Memory
+11.17 Page Replacement Algorithms
+11.18 FIFO
+11.19 Optimal
+11.20 LRU
+11.21 Clock Algorithm
+11.22 Belady's Anomaly
+11.23 Thrashing
+11.24 Working Set Model
+11.25 Page-Fault Frequency
+
+
+CHAPTER 12 — ADVANCED MEMORY ARCHITECTURE
+
+12.1 Physical Memory Architecture
+12.2 Virtual Address Space
+12.3 Kernel Memory Management
+12.4 Buddy Allocator
+12.5 Slab Allocator
+12.6 SLUB Allocator
+12.7 Huge Pages
+12.8 Transparent Huge Pages
+12.9 NUMA Architecture
+12.10 NUMA-Aware Memory Allocation
+12.11 Memory Locality
+12.12 Cache Coherence
+12.13 Cache Consistency
+12.14 False Sharing
+12.15 Memory Overcommitment
+12.16 Memory Compression
+12.17 Memory Reclamation
+12.18 Memory Compaction
+
+
+CHAPTER 13 — ADVANCED MEMORY SYSTEMS AND PERSISTENT MEMORY
+
+13.1 Persistent Memory Fundamentals
+13.2 Non-Volatile Memory
+13.3 Memory-Mapped Persistent Storage
+13.4 Persistence Models
+13.5 Cache Flush Instructions
+13.6 Crash Consistency
+13.7 Persistent Memory Programming
+13.8 Memory Tiering
+13.9 Heterogeneous Memory
+13.10 GPU Memory Management
+13.11 Unified Memory
+13.12 Memory Disaggregation
+13.13 Research Challenges in Memory Systems
+
+
+============================================================
+PART IV — STORAGE AND FILE SYSTEMS
+============================================================
+
+CHAPTER 14 — FILE SYSTEM ARCHITECTURE
+
+14.1 File System Fundamentals
+14.2 File Attributes
+14.3 File Operations
+14.4 Directory Structures
+14.5 File Access Methods
+14.6 Contiguous Allocation
+14.7 Linked Allocation
+14.8 Indexed Allocation
+14.9 Free Space Management
+14.10 Inodes
+14.11 File Descriptors
+14.12 Virtual File System
+14.13 File-System Mounting
+14.14 File-System Protection
+14.15 Journaling
+14.16 Metadata Management
+
+
+CHAPTER 15 — ADVANCED FILE SYSTEM DESIGN
+
+15.1 File-System Architecture
+15.2 On-Disk Data Structures
+15.3 In-Memory Data Structures
+15.4 Metadata Consistency
+15.5 Crash Consistency
+15.6 Journaling File Systems
+15.7 Log-Structured File Systems
+15.8 Copy-on-Write File Systems
+15.9 Ext4 Architecture
+15.10 XFS Architecture
+15.11 Btrfs Architecture
+15.12 ZFS Architecture
+15.13 Snapshot Mechanisms
+15.14 Deduplication
+15.15 Compression
+15.16 File-System Recovery
+15.17 Distributed File Systems
+15.18 Research Problems in File Systems
+
+
+CHAPTER 16 — STORAGE AND I/O ARCHITECTURE
+
+16.1 I/O System Architecture
+16.2 Device Controllers
+16.3 Device Drivers
+16.4 Programmed I/O
+16.5 Interrupt-Driven I/O
+16.6 Direct Memory Access
+16.7 Buffering
+16.8 Caching
+16.9 Spooling
+16.10 Blocking I/O
+16.11 Non-Blocking I/O
+16.12 Synchronous I/O
+16.13 Asynchronous I/O
+16.14 Disk Scheduling
+16.15 SSD Architecture
+16.16 Flash Translation Layer
+16.17 NVMe Architecture
+16.18 I/O Multipathing
+16.19 I/O Performance Optimization
+16.20 io_uring Architecture
+
+
+============================================================
+PART V — DISTRIBUTED AND PARALLEL SYSTEMS
+============================================================
+
+CHAPTER 17 — DISTRIBUTED OPERATING SYSTEMS
+
+17.1 Distributed Systems Fundamentals
+17.2 Distributed OS Architecture
+17.3 Distributed Processes
+17.4 Remote Procedure Calls
+17.5 Remote Method Invocation
+17.6 Distributed Communication
+17.7 Message Passing
+17.8 Distributed Synchronization
+17.9 Clock Synchronization
+17.10 Logical Clocks
+17.11 Vector Clocks
+17.12 Distributed Deadlocks
+17.13 Distributed File Systems
+17.14 Replication
+17.15 Consistency Models
+17.16 Fault Tolerance
+17.17 Distributed Resource Management
+
+
+CHAPTER 18 — DISTRIBUTED COORDINATION AND CONSENSUS
+
+18.1 Distributed Coordination
+18.2 Leader Election
+18.3 Mutual Exclusion in Distributed Systems
+18.4 Distributed Locking
+18.5 Consensus Fundamentals
+18.6 Byzantine Fault Tolerance
+18.7 Paxos
+18.8 Raft
+18.9 Quorum Systems
+18.10 Failure Detection
+18.11 Network Partitions
+18.12 Consistency and Availability
+18.13 Distributed Transactions
+18.14 Research Challenges
+
+
+CHAPTER 19 — MULTIPROCESSOR AND MULTICORE SYSTEMS
+
+19.1 Multiprocessor Architecture
+19.2 Shared-Memory Multiprocessors
+19.3 Distributed-Memory Multiprocessors
+19.4 Symmetric Multiprocessing
+19.5 Asymmetric Multiprocessing
+19.6 Multicore Architecture
+19.7 Hardware Threading
+19.8 Cache Coherence Protocols
+19.9 MESI Protocol
+19.10 Memory Consistency
+19.11 NUMA Systems
+19.12 Processor Affinity
+19.13 Load Balancing
+19.14 Parallel Scheduling
+19.15 Scalability
+19.16 Synchronization Scalability
+19.17 Amdahl's Law
+19.18 Gustafson's Law
+
+
+============================================================
+PART VI — VIRTUALIZATION AND CLOUD SYSTEMS
+============================================================
+
+CHAPTER 20 — VIRTUALIZATION ARCHITECTURE
+
+20.1 Virtualization Fundamentals
+20.2 Virtual Machines
+20.3 Hypervisor Architecture
+20.4 Type-1 Hypervisors
+20.5 Type-2 Hypervisors
+20.6 Full Virtualization
+20.7 Para-Virtualization
+20.8 Hardware-Assisted Virtualization
+20.9 CPU Virtualization
+20.10 Memory Virtualization
+20.11 Nested Paging
+20.12 I/O Virtualization
+20.13 Device Passthrough
+20.14 Live Migration
+20.15 VM Isolation
+20.16 Virtualization Performance
+
+
+CHAPTER 21 — CONTAINERIZATION AND CLOUD OPERATING SYSTEMS
+
+21.1 Container Architecture
+21.2 Linux Namespaces
+21.3 Control Groups
+21.4 Container Isolation
+21.5 Container Networking
+21.6 Container Storage
+21.7 Docker Architecture
+21.8 Kubernetes Architecture
+21.9 Container Scheduling
+21.10 Resource Limits
+21.11 Container Security
+21.12 Serverless Computing
+21.13 Cloud Resource Management
+21.14 Cloud Operating System Concepts
+21.15 Research Challenges in Cloud OS
+
+
+============================================================
+PART VII — SECURITY AND PROTECTION
+============================================================
+
+CHAPTER 22 — OPERATING SYSTEM SECURITY
+
+22.1 Security Fundamentals
+22.2 Protection Domains
+22.3 Access Control Matrix
+22.4 Access Control Lists
+22.5 Capability-Based Security
+22.6 Authentication
+22.7 Authorization
+22.8 Privilege Separation
+22.9 Least Privilege Principle
+22.10 Process Isolation
+22.11 Memory Protection
+22.12 Secure Boot
+22.13 Trusted Computing
+22.14 Trusted Platform Module
+22.15 Kernel Security
+22.16 Rootkits
+22.17 Privilege Escalation
+22.18 Buffer Overflow
+22.19 Address Space Layout Randomization
+22.20 Control-Flow Integrity
+22.21 Sandboxing
+22.22 Mandatory Access Control
+
+
+CHAPTER 23 — FORMAL SECURITY MODELS
+
+23.1 Security Models
+23.2 Bell-LaPadula Model
+23.3 Biba Integrity Model
+23.4 Clark-Wilson Model
+23.5 Chinese Wall Model
+23.6 Information Flow Security
+23.7 Non-Interference
+23.8 Security Policy Verification
+23.9 Capability Systems
+23.10 Formal Security Analysis
+23.11 Side-Channel Attacks
+23.12 Speculative Execution Attacks
+23.13 Meltdown
+23.14 Spectre
+23.15 Mitigation Techniques
+
+
+============================================================
+PART VIII — ADVANCED OPERATING SYSTEMS
+============================================================
+
+CHAPTER 24 — REAL-TIME OPERATING SYSTEMS
+
+24.1 Real-Time System Fundamentals
+24.2 Hard Real-Time Systems
+24.3 Soft Real-Time Systems
+24.4 Firm Real-Time Systems
+24.5 Deterministic Execution
+24.6 Interrupt Latency
+24.7 Response-Time Analysis
+24.8 Rate Monotonic Scheduling
+24.9 Earliest Deadline First
+24.10 Priority Inversion
+24.11 Priority Inheritance
+24.12 Real-Time Synchronization
+24.13 Real-Time Memory Management
+24.14 Safety-Critical Systems
+24.15 RTOS Architecture
+
+
+CHAPTER 25 — ENERGY-AWARE OPERATING SYSTEMS
+
+25.1 Energy Management Fundamentals
+25.2 Power Management
+25.3 Dynamic Voltage and Frequency Scaling
+25.4 Dynamic Power Management
+25.5 CPU Power States
+25.6 Sleep States
+25.7 Energy-Aware Scheduling
+25.8 Thermal Management
+25.9 Battery-Aware Scheduling
+25.10 Mobile OS Power Management
+25.11 Energy-Efficient Memory Management
+25.12 Green Computing
+
+
+CHAPTER 26 — HETEROGENEOUS COMPUTING SYSTEMS
+
+26.1 Heterogeneous Architecture
+26.2 CPU-GPU Architecture
+26.3 GPU Scheduling
+26.4 GPU Memory Management
+26.5 Accelerators
+26.6 FPGA-Based Computing
+26.7 Heterogeneous Memory
+26.8 Resource Scheduling
+26.9 Workload Distribution
+26.10 Parallel Runtime Systems
+26.11 OS Support for AI Accelerators
+26.12 Research Challenges
+
+
+CHAPTER 27 — MICROKERNELS AND ADVANCED KERNEL DESIGN
+
+27.1 Microkernel Fundamentals
+27.2 Microkernel Architecture
+27.3 IPC in Microkernels
+27.4 Address Space Isolation
+27.5 Kernel Services
+27.6 User-Space Drivers
+27.7 Message Passing Overhead
+27.8 Microkernel Performance
+27.9 Capability-Based Architecture
+27.10 L4 Microkernel
+27.11 seL4 Architecture
+27.12 Formal Verification
+27.13 Monolithic vs Microkernel Comparison
+27.14 Research Directions
+
+
+============================================================
+PART IX — LINUX KERNEL AND SYSTEM PROGRAMMING
+============================================================
+
+CHAPTER 28 — LINUX KERNEL INTERNALS
+
+28.1 Linux Kernel Architecture
+28.2 Kernel Source Code Structure
+28.3 Kernel Compilation
+28.4 Kernel Modules
+28.5 Loadable Kernel Modules
+28.6 Kernel Threads
+28.7 Process Descriptor
+28.8 Linux Process Scheduler
+28.9 Linux Memory Management
+28.10 Virtual File System
+28.11 Linux Interrupt Handling
+28.12 Softirqs
+28.13 Tasklets
+28.14 Workqueues
+28.15 Kernel Synchronization
+28.16 Spinlocks
+28.17 Mutexes
+28.18 Read-Copy-Update
+28.19 Kernel Memory Allocators
+28.20 Kernel Debugging
+
+
+CHAPTER 29 — UNIX AND LINUX SYSTEM PROGRAMMING
+
+29.1 POSIX Architecture
+29.2 System Calls
+29.3 fork()
+29.4 exec()
+29.5 wait()
+29.6 Process Groups
+29.7 Signals
+29.8 File Descriptors
+29.9 File I/O
+29.10 Pipes
+29.11 Named Pipes
+29.12 Shared Memory
+29.13 Message Queues
+29.14 Sockets
+29.15 POSIX Threads
+29.16 Mutexes
+29.17 Semaphores
+29.18 Condition Variables
+29.19 Memory-Mapped I/O
+29.20 Advanced Linux APIs
+
+
+CHAPTER 30 — KERNEL DEVELOPMENT AND DEBUGGING
+
+30.1 Linux Kernel Development Environment
+30.2 Kernel Configuration
+30.3 Kernel Compilation
+30.4 Kernel Module Development
+30.5 Device Driver Fundamentals
+30.6 Character Device Drivers
+30.7 Block Device Drivers
+30.8 Kernel Debugging
+30.9 GDB
+30.10 KGDB
+30.11 Kernel Logs
+30.12 ftrace
+30.13 perf
+30.14 eBPF
+30.15 System Call Tracing
+30.16 Kernel Performance Analysis
+30.17 Kernel Crash Analysis
+
+
+============================================================
+PART X — FORMAL METHODS AND OS VERIFICATION
+============================================================
+
+CHAPTER 31 — FORMAL METHODS FOR OPERATING SYSTEMS
+
+31.1 Mathematical Foundations
+31.2 Set Theory
+31.3 Relations and Functions
+31.4 State Transition Systems
+31.5 Finite State Machines
+31.6 Labeled Transition Systems
+31.7 Temporal Logic
+31.8 Linear Temporal Logic
+31.9 Computation Tree Logic
+31.10 Safety Properties
+31.11 Liveness Properties
+31.12 Invariants
+31.13 Model Checking
+31.14 Theorem Proving
+31.15 Formal Specification
+31.16 Program Verification
+
+
+CHAPTER 32 — OPERATING SYSTEM VERIFICATION
+
+32.1 OS Correctness
+32.2 Process Correctness
+32.3 Concurrency Verification
+32.4 Deadlock Freedom
+32.5 Memory Safety
+32.6 Type Safety
+32.7 Separation Logic
+32.8 Hoare Logic
+32.9 Refinement
+32.10 Kernel Verification
+32.11 seL4 Verification Case Study
+32.12 Verification of Synchronization
+32.13 Verification Tools
+32.14 Research Challenges
+
+
+============================================================
+PART XI — PERFORMANCE AND SYSTEM ANALYSIS
+============================================================
+
+CHAPTER 33 — OPERATING SYSTEM PERFORMANCE
+
+33.1 Performance Metrics
+33.2 Throughput
+33.3 Latency
+33.4 Response Time
+33.5 CPU Utilization
+33.6 Memory Utilization
+33.7 I/O Performance
+33.8 Queueing Theory
+33.9 Little's Law
+33.10 Bottleneck Analysis
+33.11 Performance Profiling
+33.12 Benchmarking
+33.13 Scalability Analysis
+33.14 Workload Characterization
+33.15 Performance Optimization
+
+
+CHAPTER 34 — ADVANCED SYSTEM OBSERVABILITY
+
+34.1 System Monitoring
+34.2 Linux Performance Tools
+34.3 perf
+34.4 ftrace
+34.5 eBPF
+34.6 BCC Tools
+34.7 bpftrace
+34.8 SystemTap
+34.9 strace
+34.10 ltrace
+34.11 vmstat
+34.12 iostat
+34.13 Memory Profiling
+34.14 CPU Profiling
+34.15 I/O Profiling
+34.16 Kernel Tracing
+34.17 Performance Diagnosis
+
+
+============================================================
+PART XII — OPERATING SYSTEM RESEARCH
+============================================================
+
+CHAPTER 35 — OPERATING SYSTEM RESEARCH METHODOLOGY
+
+35.1 Introduction to Systems Research
+35.2 Identifying Research Problems
+35.3 Literature Review
+35.4 Research Gap Identification
+35.5 Hypothesis Formulation
+35.6 Research Questions
+35.7 Experimental Design
+35.8 Baseline Selection
+35.9 Experimental Reproducibility
+35.10 Benchmark Selection
+35.11 Performance Evaluation
+35.12 Statistical Analysis
+35.13 Result Interpretation
+35.14 Threats to Validity
+35.15 Research Ethics
+35.16 Research Paper Writing
+
+
+CHAPTER 36 — ADVANCED OPERATING SYSTEM RESEARCH TOPICS
+
+36.1 Modern Kernel Architecture
+36.2 Scalable Operating Systems
+36.3 Operating Systems for Cloud Computing
+36.4 Operating Systems for Edge Computing
+36.5 Operating Systems for IoT
+36.6 Operating Systems for AI Workloads
+36.7 Secure Kernel Architecture
+36.8 Memory Disaggregation
+36.9 Persistent Memory Systems
+36.10 Distributed Memory Management
+36.11 Serverless Operating Systems
+36.12 Unikernel Research
+36.13 Energy-Efficient Operating Systems
+36.14 Fault-Tolerant Operating Systems
+36.15 Next-Generation Operating Systems
+
+
+============================================================
+PART XIII — RESEARCH PAPERS AND IMPLEMENTATION
+============================================================
+
+CHAPTER 37 — CLASSIC OPERATING SYSTEM RESEARCH PAPERS
+
+37.1 UNIX Time-Sharing System
+37.2 The Design of the UNIX Operating System
+37.3 The L4 Microkernel
+37.4 Exokernel Architecture
+37.5 seL4 Formal Verification
+37.6 Scheduler Design Research
+37.7 Distributed Operating Systems
+37.8 Log-Structured File Systems
+37.9 Virtual Memory Research
+37.10 MapReduce and Distributed Computing
+37.11 Research Paper Analysis
+
+
+CHAPTER 38 — ADVANCED OS RESEARCH PROJECTS
+
+PROJECT 01 — CPU Scheduler Research
+PROJECT 02 — Advanced Memory Allocator
+PROJECT 03 — Mini Operating System Kernel
+PROJECT 04 — File-System Implementation
+PROJECT 05 — Distributed Lock Manager
+PROJECT 06 — Synchronization Algorithm Evaluation
+PROJECT 07 — Memory Management Optimization
+PROJECT 08 — Linux Kernel Module
+PROJECT 09 — eBPF-Based Monitoring System
+PROJECT 10 — Microkernel Prototype
+PROJECT 11 — Virtualization Performance Analysis
+PROJECT 12 — Container Isolation Analysis
+PROJECT 13 — Persistent Memory Experiment
+PROJECT 14 — OS Security Analysis
+PROJECT 15 — Research Paper Reproduction
+
+
+============================================================
+PART XIV — COMPETITIVE EXAM AND CONCEPTUAL MASTERY
+============================================================
+
+CHAPTER 39 — GATE-LEVEL OPERATING SYSTEMS
+
+39.1 Process Management Numericals
+39.2 CPU Scheduling Numericals
+39.3 Synchronization Problems
+39.4 Deadlock Problems
+39.5 Memory Allocation Problems
+39.6 Paging Numericals
+39.7 TLB Numericals
+39.8 Page Replacement
+39.9 Disk Scheduling
+39.10 File-System Problems
+39.11 Previous-Year Questions
+39.12 Multi-Correct Questions
+39.13 Advanced Conceptual Questions
+
+
+CHAPTER 40 — ADVANCED OS PROBLEM SOLVING
+
+40.1 Architecture-Based Questions
+40.2 Scenario-Based Questions
+40.3 Concurrency Analysis
+40.4 Scheduling Analysis
+40.5 Memory Architecture Analysis
+40.6 Distributed System Problems
+40.7 Security Analysis
+40.8 Kernel-Level Problem Solving
+40.9 Research-Oriented Questions
+40.10 Open-Ended Design Problems
+
+
+============================================================
+FINAL RESEARCH MASTERY CHECKLIST
+============================================================
+
+THEORETICAL MASTERY
+[ ] OS Fundamentals
+[ ] Kernel Architecture
+[ ] Process Management
+[ ] Thread Management
+[ ] CPU Scheduling
+[ ] Concurrency Theory
+[ ] Synchronization
+[ ] Deadlocks
+[ ] Memory Management
+[ ] Virtual Memory
+[ ] Advanced Memory Systems
+[ ] File Systems
+[ ] Storage Architecture
+[ ] Distributed OS
+[ ] Multiprocessor Systems
+[ ] Virtualization
+[ ] OS Security
+[ ] Real-Time OS
+[ ] Microkernel Architecture
+[ ] Formal Methods
+[ ] OS Verification
+
+PRACTICAL MASTERY
+[ ] Linux System Programming
+[ ] Kernel Development
+[ ] Device Drivers
+[ ] Synchronization Implementation
+[ ] Memory Management Implementation
+[ ] File-System Implementation
+[ ] Distributed Programming
+[ ] Virtualization
+[ ] Containerization
+[ ] Kernel Debugging
+[ ] Performance Profiling
+[ ] eBPF
+
+RESEARCH MASTERY
+[ ] Literature Review
+[ ] Research Gap Identification
+[ ] Research Problem Formulation
+[ ] Research Paper Reading
+[ ] Experimental Design
+[ ] Benchmarking
+[ ] Statistical Analysis
+[ ] Research Paper Reproduction
+[ ] Research Paper Writing
+[ ] Independent Research Project
+
+============================================================
+END OF PhD OPERATING SYSTEMS MASTER SYLLABUS
+============================================================
