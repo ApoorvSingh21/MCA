@@ -1,0 +1,601 @@
+============================================================
+       DIGITAL LOGIC DESIGN — PhD MASTER SYLLABUS
+============================================================
+
+LEVEL:
+PhD 1st Year — Computer Science / Electronics / VLSI
+
+LEARNING APPROACH:
+ZERO
+  ↓
+MATHEMATICAL FOUNDATION
+  ↓
+DIGITAL LOGIC FUNDAMENTALS
+  ↓
+ADVANCED DIGITAL DESIGN
+  ↓
+VLSI AND SYSTEM ARCHITECTURE
+  ↓
+FORMAL VERIFICATION
+  ↓
+RESEARCH-LEVEL DIGITAL SYSTEMS
+  ↓
+DOCTORAL RESEARCH PREPARATION
+
+============================================================
+PART I — MATHEMATICAL AND DIGITAL FOUNDATIONS
+============================================================
+
+CHAPTER 1 — NUMBER SYSTEMS AND DIGITAL REPRESENTATION
+
+1.1 Introduction to Digital Systems
+1.2 Analog vs Digital Systems
+1.3 Continuous and Discrete Signals
+1.4 Positional Number Systems
+1.5 Binary, Octal, Decimal and Hexadecimal
+1.6 Number System Conversion
+1.7 Binary Arithmetic
+1.8 Signed Number Representation
+1.9 1's and 2's Complement
+1.10 Fixed-Point Representation
+1.11 Floating-Point Representation
+1.12 IEEE 754 Standard
+1.13 Binary Codes
+1.14 Gray Code
+1.15 BCD and Excess-3
+1.16 Error Detection Codes
+1.17 Parity and Checksum
+1.18 Hamming Distance
+1.19 Error Correction Fundamentals
+
+CHAPTER 2 — MATHEMATICAL FOUNDATIONS FOR DIGITAL LOGIC
+
+2.1 Set Theory
+2.2 Propositional Logic
+2.3 Predicate Logic
+2.4 Relations and Functions
+2.5 Mathematical Induction
+2.6 Recurrence Relations
+2.7 Discrete Mathematics
+2.8 Graph Theory
+2.9 Combinatorics
+2.10 Probability Fundamentals
+2.11 Linear Algebra Fundamentals
+2.12 Mathematical Proof Techniques
+
+CHAPTER 3 — BOOLEAN ALGEBRA AND BOOLEAN FUNCTIONS
+
+3.1 Boolean Variables and Constants
+3.2 Boolean Operators
+3.3 Fundamental Boolean Laws
+3.4 Principle of Duality
+3.5 De Morgan's Theorems
+3.6 Boolean Expression Manipulation
+3.7 Minterms and Maxterms
+3.8 Canonical SOP and POS
+3.9 Boolean Function Representation
+3.10 Functional Completeness
+3.11 Boolean Function Decomposition
+3.12 Boolean Function Classification
+3.13 Algebraic Normal Form
+3.14 Reed-Muller Representation
+3.15 Boolean Derivatives
+3.16 Boolean Function Complexity
+
+CHAPTER 4 — LOGIC GATES AND SWITCHING THEORY
+
+4.1 Basic Logic Gates
+4.2 Universal Logic Gates
+4.3 XOR and XNOR
+4.4 Gate-Level Implementation
+4.5 NAND-NAND Implementation
+4.6 NOR-NOR Implementation
+4.7 Switching Algebra
+4.8 Switching Functions
+4.9 Switching Networks
+4.10 Series and Parallel Switching
+4.11 Multi-Level Logic Networks
+4.12 Functional Completeness
+4.13 Logic Network Complexity
+4.14 Gate Count Optimization
+
+============================================================
+PART II — LOGIC MINIMIZATION AND CIRCUIT DESIGN
+============================================================
+
+CHAPTER 5 — BOOLEAN FUNCTION MINIMIZATION
+
+5.1 Algebraic Simplification
+5.2 Karnaugh Maps
+5.3 Prime Implicants
+5.4 Essential Prime Implicants
+5.5 Don't-Care Conditions
+5.6 SOP Minimization
+5.7 POS Minimization
+5.8 Quine-McCluskey Algorithm
+5.9 Petrick's Method
+5.10 Espresso Logic Minimization
+5.11 Multi-Output Logic Minimization
+5.12 Multi-Level Logic Optimization
+5.13 Technology-Independent Optimization
+5.14 Technology Mapping
+5.15 Complexity of Boolean Minimization
+
+CHAPTER 6 — COMBINATIONAL LOGIC CIRCUITS
+
+6.1 Combinational Circuit Fundamentals
+6.2 Half and Full Adders
+6.3 Half and Full Subtractors
+6.4 Parallel Binary Adders
+6.5 Carry Look-Ahead Adders
+6.6 Carry Select Adders
+6.7 Carry Skip Adders
+6.8 Prefix Adders
+6.9 Wallace Tree Multipliers
+6.10 Dadda Multipliers
+6.11 Binary Multiplication
+6.12 Binary Division
+6.13 Magnitude Comparators
+6.14 Encoders and Decoders
+6.15 Multiplexers and Demultiplexers
+6.16 ALU Design
+6.17 Arithmetic Circuit Optimization
+
+CHAPTER 7 — ADVANCED COMPUTER ARITHMETIC
+
+7.1 Integer Arithmetic
+7.2 Fixed-Point Arithmetic
+7.3 Floating-Point Arithmetic
+7.4 IEEE 754 Arithmetic
+7.5 Floating-Point Addition
+7.6 Floating-Point Multiplication
+7.7 Floating-Point Division
+7.8 Rounding Algorithms
+7.9 Overflow and Underflow
+7.10 Signed Arithmetic
+7.11 Booth Multiplication
+7.12 Modified Booth Encoding
+7.13 CORDIC Algorithms
+7.14 Systolic Arithmetic Architectures
+7.15 High-Performance Arithmetic Units
+
+============================================================
+PART III — SEQUENTIAL DIGITAL SYSTEMS
+============================================================
+
+CHAPTER 8 — LATCHES AND FLIP-FLOPS
+
+8.1 Sequential Logic Fundamentals
+8.2 SR Latch
+8.3 NAND and NOR Latches
+8.4 D Latch
+8.5 SR Flip-Flop
+8.6 JK Flip-Flop
+8.7 D Flip-Flop
+8.8 T Flip-Flop
+8.9 Master-Slave Architecture
+8.10 Edge Triggering
+8.11 Excitation Tables
+8.12 Characteristic Equations
+8.13 Flip-Flop Conversion
+8.14 Race-Around Condition
+8.15 Setup and Hold Time
+8.16 Metastability
+
+CHAPTER 9 — REGISTERS AND COUNTERS
+
+9.1 Register Fundamentals
+9.2 Shift Registers
+9.3 SISO, SIPO, PISO and PIPO
+9.4 Universal Shift Registers
+9.5 Asynchronous Counters
+9.6 Synchronous Counters
+9.7 Up/Down Counters
+9.8 Ring Counters
+9.9 Johnson Counters
+9.10 MOD-N Counters
+9.11 Frequency Dividers
+9.12 Counter Design
+9.13 High-Speed Counter Architectures
+
+CHAPTER 10 — FINITE STATE MACHINES
+
+10.1 State and State Transitions
+10.2 State Tables
+10.3 State Diagrams
+10.4 Moore Machines
+10.5 Mealy Machines
+10.6 Moore vs Mealy
+10.7 State Reduction
+10.8 State Assignment
+10.9 Binary State Encoding
+10.10 Gray State Encoding
+10.11 One-Hot Encoding
+10.12 FSM Optimization
+10.13 Sequence Detectors
+10.14 FSM-Based Controllers
+10.15 Advanced FSM Architectures
+
+CHAPTER 11 — ADVANCED SEQUENTIAL CIRCUIT DESIGN
+
+11.1 Sequential Circuit Synthesis
+11.2 State Minimization Algorithms
+11.3 State Equivalence
+11.4 State Encoding Optimization
+11.5 Pipeline Registers
+11.6 Retiming
+11.7 Clocked Sequential Circuits
+11.8 Clock Gating
+11.9 Clock Domain Crossing
+11.10 Synchronizer Design
+11.11 Metastability Analysis
+11.12 Multi-Clock Systems
+
+============================================================
+PART IV — ADVANCED DIGITAL SYSTEM ARCHITECTURE
+============================================================
+
+CHAPTER 12 — DIGITAL MEMORY SYSTEMS
+
+12.1 Memory Fundamentals
+12.2 Memory Organization
+12.3 RAM and ROM
+12.4 SRAM Architecture
+12.5 DRAM Architecture
+12.6 SDRAM and DDR
+12.7 Cache Memory
+12.8 Associative Memory
+12.9 Content Addressable Memory
+12.10 Memory Hierarchy
+12.11 Memory Timing
+12.12 Memory Controller Design
+12.13 Memory Testing
+12.14 Emerging Memory Technologies
+12.15 Non-Volatile Memory
+
+CHAPTER 13 — PROGRAMMABLE LOGIC AND FPGA
+
+13.1 Programmable Logic Devices
+13.2 PLA and PAL
+13.3 CPLD Architecture
+13.4 FPGA Architecture
+13.5 Look-Up Tables
+13.6 Configurable Logic Blocks
+13.7 Routing Architecture
+13.8 FPGA Interconnect
+13.9 FPGA Design Flow
+13.10 Logic Mapping
+13.11 FPGA Timing Optimization
+13.12 Partial Reconfiguration
+13.13 FPGA-Based Accelerators
+13.14 FPGA vs ASIC
+
+CHAPTER 14 — DIGITAL SYSTEM ARCHITECTURE
+
+14.1 Digital System Organization
+14.2 Datapath and Control Path
+14.3 Arithmetic Logic Unit
+14.4 Register Transfer Language
+14.5 Register Transfer Operations
+14.6 Micro-Operations
+14.7 Bus Architecture
+14.8 Control Unit Design
+14.9 Hardwired Control
+14.10 Microprogrammed Control
+14.11 Pipelined Architecture
+14.12 Instruction-Level Parallelism
+14.13 Basic Processor Datapath
+14.14 Hardware Accelerators
+
+============================================================
+PART V — CMOS AND VLSI DIGITAL DESIGN
+============================================================
+
+CHAPTER 15 — TRANSISTOR-LEVEL DIGITAL DESIGN
+
+15.1 Semiconductor Fundamentals
+15.2 MOSFET Fundamentals
+15.3 NMOS Transistor
+15.4 PMOS Transistor
+15.5 CMOS Technology
+15.6 CMOS Inverter
+15.7 Voltage Transfer Characteristics
+15.8 CMOS NAND and NOR
+15.9 CMOS Complex Gates
+15.10 Pass Transistor Logic
+15.11 Transmission Gates
+15.12 Dynamic Logic
+15.13 Domino Logic
+15.14 Pseudo-NMOS Logic
+15.15 Transistor Sizing
+
+CHAPTER 16 — CMOS VLSI DESIGN
+
+16.1 Introduction to VLSI
+16.2 VLSI Design Methodology
+16.3 Full-Custom Design
+16.4 Semi-Custom Design
+16.5 Standard Cell Design
+16.6 Layout Fundamentals
+16.7 Design Rules
+16.8 Stick Diagrams
+16.9 Lambda-Based Design Rules
+16.10 CMOS Layout
+16.11 Physical Verification
+16.12 Design Rule Checking
+16.13 Layout Versus Schematic
+16.14 Parasitic Extraction
+16.15 ASIC Design Flow
+
+CHAPTER 17 — DIGITAL CIRCUIT PERFORMANCE
+
+17.1 Propagation Delay
+17.2 Rise and Fall Time
+17.3 Fan-In and Fan-Out
+17.4 Noise Margins
+17.5 Power Dissipation
+17.6 Dynamic Power
+17.7 Static Power
+17.8 Short-Circuit Power
+17.9 Power-Delay Product
+17.10 Energy-Delay Product
+17.11 RC Delay Models
+17.12 Logical Effort
+17.13 Interconnect Delay
+17.14 Signal Integrity
+17.15 Performance Optimization
+
+CHAPTER 18 — LOW-POWER DIGITAL DESIGN
+
+18.1 Low-Power Design Principles
+18.2 Dynamic Power Reduction
+18.3 Leakage Power Reduction
+18.4 Clock Gating
+18.5 Power Gating
+18.6 Multi-Voltage Design
+18.7 Dynamic Voltage Scaling
+18.8 Multi-Threshold CMOS
+18.9 Operand Isolation
+18.10 Low-Power Arithmetic Units
+18.11 Energy-Efficient Architecture
+18.12 Power Optimization Techniques
+
+============================================================
+PART VI — TIMING, TESTING AND VERIFICATION
+============================================================
+
+CHAPTER 19 — TIMING ANALYSIS AND SYNCHRONIZATION
+
+19.1 Timing Fundamentals
+19.2 Clock Period
+19.3 Clock Frequency
+19.4 Setup and Hold Constraints
+19.5 Clock Skew
+19.6 Clock Jitter
+19.7 Clock Uncertainty
+19.8 Static Timing Analysis
+19.9 Critical Path Analysis
+19.10 Maximum Clock Frequency
+19.11 Timing Closure
+19.12 Clock Tree Synthesis
+19.13 False Paths
+19.14 Multicycle Paths
+19.15 Timing Optimization
+
+CHAPTER 20 — ASYNCHRONOUS DIGITAL SYSTEMS
+
+20.1 Synchronous vs Asynchronous Systems
+20.2 Asynchronous Circuit Fundamentals
+20.3 Fundamental Mode Circuits
+20.4 Pulse Mode Circuits
+20.5 Hazards and Races
+20.6 Static Hazards
+20.7 Dynamic Hazards
+20.8 Critical Races
+20.9 Hazard-Free Design
+20.10 Asynchronous FSM
+20.11 Handshake Protocols
+20.12 Asynchronous Pipelines
+20.13 Delay-Insensitive Design
+
+CHAPTER 21 — FORMAL VERIFICATION
+
+21.1 Verification Fundamentals
+21.2 Simulation-Based Verification
+21.3 Formal Verification
+21.4 Model Checking
+21.5 Theorem Proving
+21.6 Equivalence Checking
+21.7 Combinational Equivalence
+21.8 Sequential Equivalence
+21.9 Assertions
+21.10 Temporal Logic
+21.11 Linear Temporal Logic
+21.12 Computation Tree Logic
+21.13 Property Specification
+21.14 Formal Verification of FSM
+21.15 Verification of RTL Designs
+
+CHAPTER 22 — DESIGN FOR TESTABILITY
+
+22.1 Testing Fundamentals
+22.2 Fault Models
+22.3 Stuck-at Faults
+22.4 Bridging Faults
+22.5 Transition Faults
+22.6 Path Delay Faults
+22.7 Fault Coverage
+22.8 Controllability
+22.9 Observability
+22.10 Scan Chain Design
+22.11 Full Scan and Partial Scan
+22.12 Built-In Self-Test
+22.13 Memory BIST
+22.14 Automatic Test Pattern Generation
+22.15 Fault Diagnosis
+
+============================================================
+PART VII — ADVANCED AND EMERGING DIGITAL LOGIC
+============================================================
+
+CHAPTER 23 — REVERSIBLE AND QUANTUM LOGIC
+
+23.1 Reversible Computing Fundamentals
+23.2 Irreversible Logic
+23.3 Reversible Gates
+23.4 Feynman Gate
+23.5 Toffoli Gate
+23.6 Fredkin Gate
+23.7 Reversible Circuit Synthesis
+23.8 Garbage Outputs
+23.9 Quantum Computing Fundamentals
+23.10 Quantum Gates
+23.11 Quantum Circuits
+23.12 Quantum Logic Synthesis
+23.13 Quantum-Classical Interfaces
+
+CHAPTER 24 — MULTI-VALUED AND NON-CLASSICAL LOGIC
+
+24.1 Limitations of Binary Logic
+24.2 Three-Valued Logic
+24.3 Four-Valued Logic
+24.4 Multi-Valued Logic
+24.5 Ternary Logic
+24.6 Fuzzy Logic
+24.7 Threshold Logic
+24.8 Probabilistic Logic
+24.9 Multi-Valued Circuit Design
+24.10 Applications in VLSI
+
+CHAPTER 25 — APPROXIMATE AND ENERGY-EFFICIENT COMPUTING
+
+25.1 Approximate Computing Fundamentals
+25.2 Error-Tolerant Applications
+25.3 Approximate Adders
+25.4 Approximate Multipliers
+25.5 Truncated Arithmetic
+25.6 Inexact Computing
+25.7 Error Metrics
+25.8 Accuracy-Energy Trade-offs
+25.9 Approximate Circuit Optimization
+25.10 Machine Learning Hardware
+
+CHAPTER 26 — HARDWARE SECURITY AND TRUST
+
+26.1 Hardware Security Fundamentals
+26.2 Hardware Threat Models
+26.3 Hardware Trojans
+26.4 Side-Channel Attacks
+26.5 Power Analysis
+26.6 Timing Attacks
+26.7 Fault Injection
+26.8 Secure Logic Design
+26.9 Physically Unclonable Functions
+26.10 Secure Boot
+26.11 Logic Locking
+26.12 Hardware Trust Verification
+
+CHAPTER 27 — EMERGING DIGITAL TECHNOLOGIES
+
+27.1 Neuromorphic Computing Fundamentals
+27.2 Memristor-Based Logic
+27.3 Spintronic Logic
+27.4 In-Memory Computing
+27.5 Processing-in-Memory
+27.6 Carbon Nanotube Logic
+27.7 Beyond-CMOS Technologies
+27.8 Emerging Logic Devices
+27.9 Non-Von Neumann Architectures
+27.10 Research Challenges in Emerging Hardware
+
+============================================================
+PART VIII — HDL, AUTOMATION AND RESEARCH
+============================================================
+
+CHAPTER 28 — HARDWARE DESCRIPTION LANGUAGES
+
+28.1 HDL Fundamentals
+28.2 Verilog
+28.3 SystemVerilog
+28.4 VHDL
+28.5 Dataflow Modeling
+28.6 Behavioral Modeling
+28.7 Structural Modeling
+28.8 Combinational RTL
+28.9 Sequential RTL
+28.10 Testbench Development
+28.11 Assertions
+28.12 Parameterized Design
+28.13 Synthesizable RTL
+28.14 RTL Coding Guidelines
+
+CHAPTER 29 — LOGIC SYNTHESIS AND EDA
+
+29.1 Introduction to EDA
+29.2 RTL Synthesis
+29.3 Technology Mapping
+29.4 Logic Optimization
+29.5 Boolean Network Optimization
+29.6 Netlist Generation
+29.7 Placement
+29.8 Clock Tree Synthesis
+29.9 Routing
+29.10 Physical Design
+29.11 Static Timing Analysis
+29.12 Power Analysis
+29.13 Design Rule Checking
+29.14 Hardware Implementation Flow
+
+CHAPTER 30 — DIGITAL DESIGN RESEARCH METHODOLOGY
+
+30.1 Research Problem Identification
+30.2 Literature Review
+30.3 Research Gap Identification
+30.4 Research Hypothesis
+30.5 Experimental Design
+30.6 Benchmark Selection
+30.7 Performance Evaluation
+30.8 Area Analysis
+30.9 Power Analysis
+30.10 Delay Analysis
+30.11 PPA Optimization
+30.12 Comparative Analysis
+30.13 Research Paper Reading
+30.14 Research Paper Writing
+30.15 Reproducible Research
+
+CHAPTER 31 — ADVANCED DIGITAL DESIGN PROJECTS
+
+31.1 Design of High-Speed ALU
+31.2 Design of Pipelined Multiplier
+31.3 Low-Power Counter Architecture
+31.4 Advanced FSM Controller
+31.5 FPGA-Based Processor
+31.6 Cache Controller Design
+31.7 Hardware Accelerator Design
+31.8 Approximate Arithmetic Unit
+31.9 Reversible Arithmetic Circuit
+31.10 Hardware Security Module
+31.11 Formal Verification Project
+31.12 Research-Oriented VLSI Project
+
+============================================================
+PART IX — RESEARCH AND DOCTORAL PREPARATION
+============================================================
+
+CHAPTER 32 — RESEARCH FRONTIERS IN DIGITAL DESIGN
+
+32.1 AI-Assisted Digital Circuit Design
+32.2 Machine Learning for Logic Optimization
+32.3 Automated RTL Generation
+32.4 AI-Based Physical Design
+32.5 Hardware-Software Co-Design
+32.6 Energy-Efficient Computing
+32.7 Advanced Processor Architectures
+32.8 Emerging Semiconductor Technologies
+32.9 Reliability-Aware Design
+32.10 Future Research Directions
+
+============================================================
+END OF PhD MASTER SYLLABUS
+============================================================
