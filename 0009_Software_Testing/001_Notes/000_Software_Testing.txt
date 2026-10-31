@@ -1,0 +1,637 @@
+====================================================================
+       PhD MASTER SYLLABUS
+       SOFTWARE TESTING, VERIFICATION AND QUALITY ENGINEERING
+====================================================================
+
+LEVEL 0 — COMPUTING FOUNDATIONS
+====================================================================
+
+CHAPTER 0 — Computer Science Foundations
+    0.1 Computer Architecture
+    0.2 Operating Systems
+    0.3 Data Structures
+    0.4 Algorithms
+    0.5 Programming Fundamentals
+    0.6 Object-Oriented Programming
+    0.7 Software Architecture
+    0.8 Database Fundamentals
+    0.9 Computer Networks
+    0.10 Distributed Computing Fundamentals
+
+CHAPTER 1 — Mathematical Foundations
+    1.1 Propositional Logic
+    1.2 Predicate Logic
+    1.3 Set Theory
+    1.4 Relations and Functions
+    1.5 Mathematical Induction
+    1.6 Graph Theory
+    1.7 Combinatorics
+    1.8 Probability Theory
+    1.9 Statistics
+    1.10 Discrete Mathematics
+    1.11 Boolean Algebra
+    1.12 Linear Algebra Fundamentals
+
+CHAPTER 2 — Programming and Computational Foundations
+    2.1 Programming Language Concepts
+    2.2 Memory Management
+    2.3 Pointers and References
+    2.4 Recursion
+    2.5 Time Complexity
+    2.6 Space Complexity
+    2.7 Algorithm Analysis
+    2.8 Compiler Fundamentals
+    2.9 Runtime Systems
+    2.10 Concurrent Programming
+
+
+====================================================================
+LEVEL 1 — SOFTWARE ENGINEERING FOUNDATIONS
+====================================================================
+
+CHAPTER 3 — Software Engineering Principles
+    3.1 Software Engineering Fundamentals
+    3.2 Software Development Life Cycle
+    3.3 Software Process Models
+    3.4 Agile Development
+    3.5 Software Requirements Engineering
+    3.6 Software Architecture
+    3.7 Software Design Principles
+    3.8 Design Patterns
+    3.9 Software Maintenance
+    3.10 Technical Debt
+
+CHAPTER 4 — Software Quality Engineering
+    4.1 Software Quality Concepts
+    4.2 Quality Assurance
+    4.3 Quality Control
+    4.4 Software Quality Models
+    4.5 ISO/IEC 25010
+    4.6 Quality Attributes
+    4.7 Reliability
+    4.8 Maintainability
+    4.9 Usability
+    4.10 Performance Efficiency
+    4.11 Security
+    4.12 Software Quality Metrics
+
+CHAPTER 5 — Software Testing Fundamentals
+    5.1 Testing Principles
+    5.2 Verification and Validation
+    5.3 Testing Objectives
+    5.4 Testing Levels
+    5.5 Testing Types
+    5.6 Black Box Testing
+    5.7 White Box Testing
+    5.8 Grey Box Testing
+    5.9 Functional Testing
+    5.10 Non-Functional Testing
+    5.11 Regression Testing
+    5.12 Exploratory Testing
+    5.13 Risk-Based Testing
+    5.14 Test Oracles
+    5.15 Test Coverage
+
+
+====================================================================
+LEVEL 2 — THEORETICAL FOUNDATIONS OF SOFTWARE TESTING
+====================================================================
+
+CHAPTER 6 — Mathematical Theory of Software Testing
+    6.1 Mathematical Models of Programs
+    6.2 Input and Output Domains
+    6.3 Program Behaviour
+    6.4 State-Based Models
+    6.5 Test Selection Problem
+    6.6 Test Adequacy Criteria
+    6.7 Test Coverage Mathematics
+    6.8 Structural Coverage
+    6.9 Control Flow Graphs
+    6.10 Data Flow Graphs
+    6.11 Path Coverage
+    6.12 Test Set Minimization
+    6.13 Testing Complexity
+    6.14 Limits of Exhaustive Testing
+
+CHAPTER 7 — Automata Theory and Model-Based Testing
+    7.1 Finite State Machines
+    7.2 Deterministic Automata
+    7.3 Non-Deterministic Automata
+    7.4 Mealy Machines
+    7.5 Moore Machines
+    7.6 Transition Systems
+    7.7 Labelled Transition Systems
+    7.8 State Transition Coverage
+    7.9 Transition Coverage
+    7.10 Model-Based Test Generation
+    7.11 Model-Based Test Selection
+    7.12 Conformance Testing
+    7.13 Timed Automata
+    7.14 Probabilistic Automata
+
+CHAPTER 8 — Formal Methods and Verification
+    8.1 Formal Specification
+    8.2 Hoare Logic
+    8.3 Preconditions and Postconditions
+    8.4 Weakest Preconditions
+    8.5 Program Correctness
+    8.6 Mathematical Proof of Correctness
+    8.7 Temporal Logic
+    8.8 Linear Temporal Logic
+    8.9 Computation Tree Logic
+    8.10 Model Checking
+    8.11 Theorem Proving
+    8.12 SAT Solving
+    8.13 SMT Solving
+    8.14 Formal Verification Tools
+
+CHAPTER 9 — Program Analysis
+    9.1 Static Program Analysis
+    9.2 Dynamic Program Analysis
+    9.3 Control Flow Analysis
+    9.4 Data Flow Analysis
+    9.5 Reaching Definitions
+    9.6 Live Variable Analysis
+    9.7 Program Slicing
+    9.8 Dependency Analysis
+    9.9 Symbolic Execution
+    9.10 Concolic Testing
+    9.11 Constraint Solving
+    9.12 Abstract Interpretation
+
+
+====================================================================
+LEVEL 3 — ADVANCED SOFTWARE TESTING TECHNIQUES
+====================================================================
+
+CHAPTER 10 — Advanced Test Case Generation
+    10.1 Equivalence Partitioning
+    10.2 Boundary Value Analysis
+    10.3 Decision Table Testing
+    10.4 Cause-Effect Graphing
+    10.5 Pairwise Testing
+    10.6 Combinatorial Interaction Testing
+    10.7 Covering Arrays
+    10.8 Constraint-Based Test Generation
+    10.9 Search-Based Test Generation
+    10.10 Random Testing
+    10.11 Adaptive Random Testing
+    10.12 Property-Based Testing
+    10.13 Metamorphic Testing
+    10.14 Differential Testing
+
+CHAPTER 11 — Structural Testing
+    11.1 Statement Coverage
+    11.2 Branch Coverage
+    11.3 Condition Coverage
+    11.4 Multiple Condition Coverage
+    11.5 Modified Condition/Decision Coverage
+    11.6 Path Coverage
+    11.7 Basis Path Testing
+    11.8 Loop Testing
+    11.9 Data Flow Testing
+    11.10 Def-Use Analysis
+    11.11 Coverage Criteria Comparison
+    11.12 Coverage Limitations
+
+CHAPTER 12 — Mutation Testing
+    12.1 Mutation Testing Fundamentals
+    12.2 Mutation Operators
+    12.3 First-Order Mutants
+    12.4 Higher-Order Mutants
+    12.5 Equivalent Mutants
+    12.6 Mutant Detection
+    12.7 Mutation Score
+    12.8 Mutation Analysis
+    12.9 Mutation Testing Tools
+    12.10 Mutation Testing Research
+
+CHAPTER 13 — Fuzz Testing
+    13.1 Fuzzing Fundamentals
+    13.2 Mutation-Based Fuzzing
+    13.3 Generation-Based Fuzzing
+    13.4 Coverage-Guided Fuzzing
+    13.5 Grammar-Based Fuzzing
+    13.6 Grey Box Fuzzing
+    13.7 Black Box Fuzzing
+    13.8 Structure-Aware Fuzzing
+    13.9 Differential Fuzzing
+    13.10 Fuzzing Campaign Design
+    13.11 Crash Analysis
+    13.12 Fuzzing Research
+
+CHAPTER 14 — Test Oracles and Test Adequacy
+    14.1 Oracle Problem
+    14.2 Oracle Construction
+    14.3 Oracle Automation
+    14.4 Metamorphic Relations
+    14.5 Reference Implementations
+    14.6 N-Version Programming
+    14.7 Test Adequacy Criteria
+    14.8 Coverage-Based Adequacy
+    14.9 Mutation-Based Adequacy
+    14.10 Oracle Effectiveness
+
+
+====================================================================
+LEVEL 4 — SOFTWARE RELIABILITY AND DEPENDABILITY
+====================================================================
+
+CHAPTER 15 — Software Reliability Engineering
+    15.1 Reliability Fundamentals
+    15.2 Failure Models
+    15.3 Faults, Errors and Failures
+    15.4 Reliability Metrics
+    15.5 Mean Time Between Failures
+    15.6 Mean Time To Failure
+    15.7 Software Reliability Growth
+    15.8 Reliability Prediction
+    15.9 Reliability Modelling
+    15.10 Markov Models
+    15.11 Failure Rate Analysis
+    15.12 Statistical Reliability Models
+
+CHAPTER 16 — Fault Tolerance and Dependability
+    16.1 Dependability Concepts
+    16.2 Fault Tolerance
+    16.3 Fault Prevention
+    16.4 Fault Detection
+    16.5 Fault Recovery
+    16.6 Redundancy
+    16.7 Checkpointing
+    16.8 Recovery Mechanisms
+    16.9 Resilience Engineering
+    16.10 Chaos Engineering
+    16.11 Fault Injection
+    16.12 Resilience Testing
+
+
+====================================================================
+LEVEL 5 — ADVANCED SYSTEM TESTING
+====================================================================
+
+CHAPTER 17 — Distributed Systems Testing
+    17.1 Distributed System Fundamentals
+    17.2 Distributed State
+    17.3 Distributed Transactions
+    17.4 Consistency Models
+    17.5 Eventual Consistency
+    17.6 CAP Theorem
+    17.7 Consensus Algorithms
+    17.8 Distributed Failure Models
+    17.9 Network Partition Testing
+    17.10 Distributed Race Conditions
+    17.11 Distributed Tracing
+    17.12 Distributed System Verification
+
+CHAPTER 18 — Microservices and Cloud Testing
+    18.1 Microservices Architecture
+    18.2 Service Integration Testing
+    18.3 Contract Testing
+    18.4 Consumer-Driven Contracts
+    18.5 API Gateway Testing
+    18.6 Service Virtualization
+    18.7 Container Testing
+    18.8 Kubernetes Testing
+    18.9 Cloud-Native Testing
+    18.10 Serverless Testing
+    18.11 Infrastructure Testing
+    18.12 Cloud Reliability Testing
+
+CHAPTER 19 — Database and Transaction Testing
+    19.1 Database Theory
+    19.2 Relational Database Testing
+    19.3 Transaction Correctness
+    19.4 ACID Properties
+    19.5 Isolation Levels
+    19.6 Serializability
+    19.7 Concurrency Testing
+    19.8 Deadlock Testing
+    19.9 Database Recovery
+    19.10 Distributed Database Testing
+    19.11 Data Migration Testing
+    19.12 Data Integrity Verification
+
+CHAPTER 20 — Performance and Scalability Testing
+    20.1 Performance Engineering
+    20.2 Load Testing
+    20.3 Stress Testing
+    20.4 Spike Testing
+    20.5 Endurance Testing
+    20.6 Scalability Testing
+    20.7 Capacity Planning
+    20.8 Throughput Analysis
+    20.9 Latency Analysis
+    20.10 Queueing Theory
+    20.11 Performance Modelling
+    20.12 Bottleneck Analysis
+
+
+====================================================================
+LEVEL 6 — SECURITY AND PRIVACY TESTING
+====================================================================
+
+CHAPTER 21 — Software Security Testing
+    21.1 Security Fundamentals
+    21.2 Threat Modelling
+    21.3 Attack Surface Analysis
+    21.4 Vulnerability Assessment
+    21.5 Penetration Testing Fundamentals
+    21.6 Static Application Security Testing
+    21.7 Dynamic Application Security Testing
+    21.8 Interactive Application Security Testing
+    21.9 Dependency Analysis
+    21.10 SQL Injection
+    21.11 Cross-Site Scripting
+    21.12 Authentication Testing
+    21.13 Authorization Testing
+
+CHAPTER 22 — Privacy and Secure Software Engineering
+    22.1 Privacy Engineering
+    22.2 Data Protection
+    22.3 Privacy Requirements
+    22.4 Data Anonymization
+    22.5 Differential Privacy Fundamentals
+    22.6 Secure Development Lifecycle
+    22.7 Security Verification
+    22.8 Security Regression Testing
+    22.9 Supply Chain Security
+    22.10 Security Testing Standards
+
+
+====================================================================
+LEVEL 7 — ARTIFICIAL INTELLIGENCE IN SOFTWARE TESTING
+====================================================================
+
+CHAPTER 23 — Machine Learning Foundations
+    23.1 Artificial Intelligence Fundamentals
+    23.2 Machine Learning Fundamentals
+    23.3 Supervised Learning
+    23.4 Unsupervised Learning
+    23.5 Reinforcement Learning
+    23.6 Neural Networks
+    23.7 Deep Learning
+    23.8 Feature Engineering
+    23.9 Model Evaluation
+    23.10 Overfitting and Underfitting
+    23.11 Explainable AI
+    23.12 ML Model Reliability
+
+CHAPTER 24 — AI-Based Software Testing
+    24.1 AI-Based Test Generation
+    24.2 ML-Based Test Prioritization
+    24.3 Defect Prediction
+    24.4 Failure Prediction
+    24.5 Test Maintenance Automation
+    24.6 Intelligent Test Selection
+    24.7 Reinforcement Learning for Testing
+    24.8 Neural Test Generation
+    24.9 AI-Based Test Oracles
+    24.10 AI-Based Bug Detection
+    24.11 Self-Healing Automation
+    24.12 AI-Based Testing Frameworks
+
+CHAPTER 25 — Testing AI and Machine Learning Systems
+    25.1 ML Testing Challenges
+    25.2 Data Validation
+    25.3 Training Data Testing
+    25.4 Model Testing
+    25.5 Model Robustness
+    25.6 Adversarial Testing
+    25.7 Bias and Fairness Testing
+    25.8 Explainability Testing
+    25.9 Model Drift
+    25.10 Data Drift
+    25.11 ML Pipeline Testing
+    25.12 Responsible AI Testing
+
+CHAPTER 26 — Large Language Model Testing
+    26.1 LLM Architecture Fundamentals
+    26.2 Transformer Architecture
+    26.3 Tokenization
+    26.4 Embeddings
+    26.5 Prompt Engineering
+    26.6 LLM Evaluation
+    26.7 Hallucination Detection
+    26.8 Prompt Injection Testing
+    26.9 Retrieval-Augmented Generation Testing
+    26.10 LLM Security Testing
+    26.11 Agentic AI Testing
+    26.12 AI Evaluation Benchmarks
+    26.13 Reliability of Generative AI
+    26.14 Testing AI-Generated Code
+
+
+====================================================================
+LEVEL 8 — AUTOMATION AND TEST ARCHITECTURE
+====================================================================
+
+CHAPTER 27 — Advanced Test Automation
+    27.1 Automation Architecture
+    27.2 Selenium
+    27.3 Playwright
+    27.4 Cypress
+    27.5 API Automation
+    27.6 Database Automation
+    27.7 Mobile Automation
+    27.8 Parallel Execution
+    27.9 Distributed Execution
+    27.10 Flaky Test Detection
+    27.11 Test Isolation
+    27.12 Test Environment Management
+
+CHAPTER 28 — Test Framework Architecture
+    28.1 Test Architecture Principles
+    28.2 Test Design Patterns
+    28.3 Page Object Model
+    28.4 Dependency Injection
+    28.5 Test Data Architecture
+    28.6 Reusable Components
+    28.7 Test Orchestration
+    28.8 Continuous Testing
+    28.9 CI/CD Integration
+    28.10 Test Observability
+    28.11 Test Infrastructure
+    28.12 Scalable Test Frameworks
+
+CHAPTER 29 — Regression and Test Optimization
+    29.1 Regression Test Selection
+    29.2 Test Case Prioritization
+    29.3 Test Suite Minimization
+    29.4 Test Suite Reduction
+    29.5 Change-Based Testing
+    29.6 Impact Analysis
+    29.7 Risk-Based Prioritization
+    29.8 Test Execution Optimization
+    29.9 Search-Based Optimization
+    29.10 Multi-Objective Test Optimization
+
+
+====================================================================
+LEVEL 9 — RESEARCH METHODOLOGY
+====================================================================
+
+CHAPTER 30 — Research Methodology in Software Engineering
+    30.1 Scientific Research Fundamentals
+    30.2 Research Paradigms
+    30.3 Research Questions
+    30.4 Hypothesis Development
+    30.5 Literature Review
+    30.6 Systematic Literature Review
+    30.7 Systematic Mapping Study
+    30.8 Research Gap Identification
+    30.9 Research Framework Development
+    30.10 Research Ethics
+
+CHAPTER 31 — Experimental Software Engineering
+    31.1 Experimental Design
+    31.2 Controlled Experiments
+    31.3 Case Studies
+    31.4 Surveys
+    31.5 Empirical Software Engineering
+    31.6 Independent Variables
+    31.7 Dependent Variables
+    31.8 Control Variables
+    31.9 Sampling Techniques
+    31.10 Internal Validity
+    31.11 External Validity
+    31.12 Construct Validity
+    31.13 Conclusion Validity
+
+CHAPTER 32 — Statistical Analysis for Software Testing Research
+    32.1 Descriptive Statistics
+    32.2 Probability Distributions
+    32.3 Sampling Distributions
+    32.4 Hypothesis Testing
+    32.5 Null and Alternative Hypotheses
+    32.6 P-Values
+    32.7 Confidence Intervals
+    32.8 Effect Sizes
+    32.9 Statistical Power
+    32.10 Correlation
+    32.11 Regression Analysis
+    32.12 ANOVA
+    32.13 Non-Parametric Tests
+    32.14 Multiple Comparison Problems
+    32.15 Bayesian Statistics
+
+CHAPTER 33 — Research Tools and Reproducibility
+    33.1 Python for Research
+    33.2 R for Statistical Analysis
+    33.3 Jupyter Notebooks
+    33.4 Git and Version Control
+    33.5 Experimental Automation
+    33.6 Dataset Collection
+    33.7 Benchmark Selection
+    33.8 Reproducible Experiments
+    33.9 Research Artifact Evaluation
+    33.10 Open Science
+    33.11 Research Data Management
+    33.12 Research Reporting
+
+
+====================================================================
+LEVEL 10 — ADVANCED RESEARCH AND THESIS DEVELOPMENT
+====================================================================
+
+CHAPTER 34 — Software Testing Research Trends
+    34.1 Automated Program Repair
+    34.2 Search-Based Software Engineering
+    34.3 Self-Adaptive Software Testing
+    34.4 Autonomous Testing Agents
+    34.5 Digital Twin-Based Testing
+    34.6 Quantum Software Testing
+    34.7 Green Software Testing
+    34.8 Continuous Verification
+    34.9 AI-Assisted Software Engineering
+    34.10 Emerging Testing Paradigms
+
+CHAPTER 35 — Research Paper Analysis
+    35.1 Understanding Research Papers
+    35.2 Abstract Analysis
+    35.3 Introduction Analysis
+    35.4 Literature Analysis
+    35.5 Methodology Evaluation
+    35.6 Experimental Evaluation
+    35.7 Result Interpretation
+    35.8 Threats to Validity
+    35.9 Research Limitations
+    35.10 Identifying Future Research
+
+CHAPTER 36 — Research Proposal Development
+    36.1 Selecting Research Domains
+    36.2 Identifying Research Problems
+    36.3 Research Gap Analysis
+    36.4 Research Objectives
+    36.5 Research Questions
+    36.6 Research Hypotheses
+    36.7 Proposed Methodology
+    36.8 Proposed Architecture
+    36.9 Experimental Framework
+    36.10 Expected Contributions
+
+CHAPTER 37 — PhD Research Implementation
+    37.1 Problem Formulation
+    37.2 Baseline Implementation
+    37.3 Proposed Algorithm
+    37.4 Prototype Development
+    37.5 Dataset Preparation
+    37.6 Experimental Execution
+    37.7 Comparative Evaluation
+    37.8 Ablation Studies
+    37.9 Statistical Validation
+    37.10 Research Reproducibility
+
+CHAPTER 38 — Academic Writing and Publication
+    38.1 Academic Writing
+    38.2 Technical Writing
+    38.3 IEEE Research Paper Format
+    38.4 ACM Research Paper Format
+    38.5 Literature Citation
+    38.6 Reference Management
+    38.7 Research Plagiarism
+    38.8 Research Publication Ethics
+    38.9 Peer Review
+    38.10 Conference Publications
+    38.11 Journal Publications
+    38.12 Research Presentation
+
+
+====================================================================
+LEVEL 11 — PRACTICAL RESEARCH PROJECTS
+====================================================================
+
+CHAPTER 39 — Software Testing Implementation Project
+    39.1 Build a Testing Framework
+    39.2 Implement Test Generation
+    39.3 Implement Coverage Analysis
+    39.4 Perform Mutation Testing
+    39.5 Implement Automated Testing
+    39.6 Evaluate Testing Effectiveness
+
+CHAPTER 40 — AI-Based Testing Research Project
+    40.1 Identify an AI Testing Problem
+    40.2 Collect Research Dataset
+    40.3 Develop Baseline Model
+    40.4 Implement Proposed Approach
+    40.5 Evaluate Model Performance
+    40.6 Compare Existing Methods
+    40.7 Statistical Evaluation
+    40.8 Research Publication
+
+CHAPTER 41 — PhD Research Proposal
+    41.1 Research Domain Selection
+    41.2 Literature Review
+    41.3 Research Gap
+    41.4 Problem Statement
+    41.5 Research Objectives
+    41.6 Proposed Methodology
+    41.7 Expected Contribution
+    41.8 Research Timeline
+    41.9 Proposal Presentation
+    41.10 Research Defense
+
+
+====================================================================
+END OF PhD MASTER SYLLABUS
+====================================================================

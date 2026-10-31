@@ -1,0 +1,175 @@
+===========================================================
+       C PROGRAMMING — PhD MASTER SYLLABUS
+===========================================================
+
+PART I — PROGRAMMING FOUNDATIONS
+
+Chapter 01 — Introduction to Programming and C
+Chapter 02 — C Language Syntax and Building Blocks
+Chapter 03 — Variables, Constants and Data Types
+Chapter 04 — Input and Output
+Chapter 05 — Operators and Expressions
+Chapter 06 — Type Conversion and Type Casting
+Chapter 07 — Conditional Statements
+Chapter 08 — Loops and Iteration
+Chapter 09 — Functions
+Chapter 10 — Arrays
+Chapter 11 — Strings
+
+PART II — CORE C PROGRAMMING
+
+Chapter 12 — Pointers
+Chapter 13 — Dynamic Memory Allocation
+Chapter 14 — Storage Classes
+Chapter 15 — Structures
+Chapter 16 — Union and Enumeration
+Chapter 17 — Preprocessor
+Chapter 18 — File Handling
+Chapter 19 — Command-Line Arguments
+
+PART III — ADVANCED C PROGRAMMING
+
+Chapter 20 — C Memory Model
+Chapter 21 — Advanced Pointers
+Chapter 22 — Bit Manipulation
+Chapter 23 — Data Structures Using C
+Chapter 24 — Searching and Sorting
+Chapter 25 — Error Handling and Debugging
+Chapter 26 — Undefined Behavior and C Pitfalls
+Chapter 27 — Modular and Professional C Programming
+Chapter 28 — C Standard Library
+
+PART IV — SYSTEMS PROGRAMMING
+
+Chapter 29 — System-Level C Programming
+Chapter 30 — C and Operating System Internals
+Chapter 31 — Process Management and Interprocess
+             Communication
+Chapter 32 — Multithreading and Concurrency
+Chapter 33 — Synchronization and Race Conditions
+Chapter 34 — Advanced Memory Management
+Chapter 35 — Linux System Programming
+Chapter 36 — Embedded C Programming
+
+PART V — COMPILER AND LANGUAGE INTERNALS
+
+Chapter 37 — Compilation Internals
+Chapter 38 — C Language Standards and Evolution
+Chapter 39 — C Language Semantics
+Chapter 40 — Type Systems and Type Qualifiers
+Chapter 41 — Linkers, Loaders and ABI
+Chapter 42 — Calling Conventions and Stack Frames
+Chapter 43 — Compiler Optimization
+Chapter 44 — Static and Dynamic Program Analysis
+
+PART VI — COMPUTER ARCHITECTURE INTEGRATION
+
+Chapter 45 — CPU Architecture for C Programmers
+Chapter 46 — Registers and Instruction Execution
+Chapter 47 — Cache Memory and Memory Hierarchy
+Chapter 48 — Memory Alignment and Data Representation
+Chapter 49 — Endianness and Binary Representation
+Chapter 50 — Assembly Language Integration
+Chapter 51 — C and Hardware Interaction
+
+PART VII — ADVANCED MEMORY AND POINTER RESEARCH
+
+Chapter 52 — Pointer Provenance
+Chapter 53 — Strict Aliasing Rules
+Chapter 54 — Effective Type and Object Representation
+Chapter 55 — Lifetime and Object Storage Duration
+Chapter 56 — Memory Safety
+Chapter 57 — Buffer Overflow Analysis
+Chapter 58 — Heap Exploitation Fundamentals
+Chapter 59 — Memory Allocator Internals
+Chapter 60 — Garbage Collection Concepts
+
+PART VIII — SOFTWARE SECURITY
+
+Chapter 61 — Secure C Programming
+Chapter 62 — Integer Overflow and Underflow
+Chapter 63 — Format String Vulnerabilities
+Chapter 64 — Stack Smashing
+Chapter 65 — Use-After-Free Vulnerabilities
+Chapter 66 — Double-Free Vulnerabilities
+Chapter 67 — Secure Memory Management
+Chapter 68 — Defensive Programming
+Chapter 69 — Static Security Analysis
+
+PART IX — CONCURRENCY AND PARALLEL PROGRAMMING
+
+Chapter 70 — C11 Memory Model
+Chapter 71 — Atomic Operations
+Chapter 72 — Memory Ordering
+Chapter 73 — Mutexes and Semaphores
+Chapter 74 — Lock-Free Programming
+Chapter 75 — Wait-Free Algorithms
+Chapter 76 — Deadlocks and Livelocks
+Chapter 77 — Thread Safety
+Chapter 78 — Parallel Programming Models
+
+PART X — FORMAL METHODS AND PROGRAM VERIFICATION
+
+Chapter 79 — Formal Semantics of C
+Chapter 80 — Operational Semantics
+Chapter 81 — Denotational Semantics
+Chapter 82 — Hoare Logic
+Chapter 83 — Preconditions and Postconditions
+Chapter 84 — Loop Invariants
+Chapter 85 — Program Correctness
+Chapter 86 — Model Checking
+Chapter 87 — Formal Verification of C Programs
+Chapter 88 — Static Program Verification
+
+PART XI — ADVANCED COMPILER AND ANALYSIS TECHNIQUES
+
+Chapter 89 — Abstract Interpretation
+Chapter 90 — Data Flow Analysis
+Chapter 91 — Control Flow Graphs
+Chapter 92 — Symbolic Execution
+Chapter 93 — Constraint-Based Program Analysis
+Chapter 94 — Compiler Intermediate Representations
+Chapter 95 — Optimization Correctness
+Chapter 96 — LLVM Intermediate Representation
+Chapter 97 — Sanitizers and Instrumentation
+Chapter 98 — Fuzz Testing
+
+PART XII — PERFORMANCE ENGINEERING
+
+Chapter 99 — Performance Measurement
+Chapter 100 — CPU Profiling
+Chapter 101 — Memory Profiling
+Chapter 102 — Cache Optimization
+Chapter 103 — Branch Prediction
+Chapter 104 — SIMD Programming
+Chapter 105 — Vectorization
+Chapter 106 — Low-Level Optimization
+Chapter 107 — Benchmarking Methodology
+
+PART XIII — RESEARCH-LEVEL PROGRAMMING
+
+Chapter 108 — Research Methodology in Systems Programming
+Chapter 109 — Reading C Language Research Papers
+Chapter 110 — Experimental Design
+Chapter 111 — Reproducible Experiments
+Chapter 112 — Comparative Performance Analysis
+Chapter 113 — Research Problem Identification
+Chapter 114 — Research Paper Implementation
+Chapter 115 — Critical Evaluation of Existing Systems
+
+PART XIV — RESEARCH PROJECTS
+
+Chapter 116 — Custom Memory Allocator
+Chapter 117 — Mini C Compiler
+Chapter 118 — Static Code Analyzer
+Chapter 119 — Memory Debugging Tool
+Chapter 120 — Custom Data Structure Library
+Chapter 121 — Multithreaded Application
+Chapter 122 — Mini Operating System Component
+Chapter 123 — Secure C Application
+Chapter 124 — Compiler Optimization Experiment
+Chapter 125 — Research-Based C Programming Project
+
+===========================================================
+                  END OF SYLLABUS
+===========================================================

@@ -1,0 +1,952 @@
+============================================================
+          COMPUTER NETWORKING — PhD MASTER SYLLABUS
+          PhD 1st Year | Advanced Theory + Research
+============================================================
+
+MODULE 1 — MATHEMATICAL FOUNDATIONS
+============================================================
+
+CHAPTER 01 — Mathematical Foundations for Networking
+
+1.1 Discrete Mathematics
+1.2 Set Theory
+1.3 Relations and Functions
+1.4 Boolean Algebra
+1.5 Mathematical Induction
+1.6 Combinatorics
+1.7 Permutations and Combinations
+1.8 Recurrence Relations
+1.9 Asymptotic Notations
+1.10 Complexity Analysis
+
+CHAPTER 02 — Graph Theory for Computer Networks
+
+2.1 Graph Fundamentals
+2.2 Directed and Undirected Graphs
+2.3 Weighted Graphs
+2.4 Connected Graphs
+2.5 Trees and Spanning Trees
+2.6 Shortest Path Problems
+2.7 Dijkstra Algorithm
+2.8 Bellman-Ford Algorithm
+2.9 Floyd-Warshall Algorithm
+2.10 Minimum Spanning Tree
+2.11 Network Flow Problems
+2.12 Max-Flow Min-Cut Theorem
+2.13 Graph Coloring
+2.14 Graph Connectivity
+2.15 Applications in Network Routing
+
+CHAPTER 03 — Probability and Stochastic Processes
+
+3.1 Probability Theory
+3.2 Conditional Probability
+3.3 Bayes Theorem
+3.4 Random Variables
+3.5 Probability Distributions
+3.6 Bernoulli Distribution
+3.7 Binomial Distribution
+3.8 Poisson Distribution
+3.9 Exponential Distribution
+3.10 Normal Distribution
+3.11 Markov Chains
+3.12 Continuous-Time Markov Chains
+3.13 Birth-Death Processes
+3.14 Stochastic Modelling of Networks
+
+CHAPTER 04 — Information Theory
+
+4.1 Information and Uncertainty
+4.2 Self Information
+4.3 Entropy
+4.4 Joint Entropy
+4.5 Conditional Entropy
+4.6 Mutual Information
+4.7 Information Rate
+4.8 Channel Capacity
+4.9 Shannon-Hartley Theorem
+4.10 Shannon Channel Coding Theorem
+4.11 Source Coding
+4.12 Huffman Coding
+4.13 Lossless Compression
+4.14 Lossy Compression
+4.15 Information-Theoretic Limits of Communication
+
+CHAPTER 05 — Queueing Theory
+
+5.1 Queueing System Fundamentals
+5.2 Arrival Processes
+5.3 Service Processes
+5.4 Queueing Disciplines
+5.5 Kendall Notation
+5.6 M/M/1 Queue
+5.7 M/M/c Queue
+5.8 M/G/1 Queue
+5.9 Little's Law
+5.10 Waiting Time Analysis
+5.11 Queue Stability
+5.12 Packet Queueing
+5.13 Network of Queues
+5.14 Queueing Models for Routers
+5.15 Congestion Modelling
+
+
+MODULE 2 — NETWORKING FUNDAMENTALS
+============================================================
+
+CHAPTER 06 — Introduction to Computer Networking
+
+6.1 Network Fundamentals
+6.2 Network Architecture
+6.3 Network Classification
+6.4 Network Topologies
+6.5 Client-Server Architecture
+6.6 Peer-to-Peer Architecture
+6.7 Distributed Networking
+6.8 Network Performance
+6.9 Reliability and Scalability
+6.10 Network Design Principles
+
+CHAPTER 07 — Data Communication Fundamentals
+
+7.1 Data Communication
+7.2 Analog and Digital Signals
+7.3 Signal Representation
+7.4 Frequency and Amplitude
+7.5 Bandwidth
+7.6 Bit Rate and Baud Rate
+7.7 Transmission Media
+7.8 Transmission Delay
+7.9 Propagation Delay
+7.10 Queuing Delay
+7.11 Processing Delay
+7.12 Bandwidth-Delay Product
+7.13 Throughput and Goodput
+7.14 Jitter and Packet Loss
+
+CHAPTER 08 — Network Models and Protocol Architecture
+
+8.1 Layered Architecture
+8.2 OSI Reference Model
+8.3 TCP/IP Architecture
+8.4 Protocol Hierarchy
+8.5 Encapsulation
+8.6 Decapsulation
+8.7 Protocol Data Units
+8.8 Multiplexing
+8.9 Demultiplexing
+8.10 End-to-End Principle
+8.11 Cross-Layer Design
+8.12 Protocol Standardization
+
+CHAPTER 09 — Physical Layer
+
+9.1 Physical Layer Architecture
+9.2 Guided Transmission Media
+9.3 Unguided Transmission Media
+9.4 Fiber Optic Communication
+9.5 Signal Encoding
+9.6 Line Coding
+9.7 Digital Modulation
+9.8 Analog Modulation
+9.9 Multiplexing
+9.10 FDM, TDM and WDM
+9.11 Circuit Switching
+9.12 Packet Switching
+9.13 Message Switching
+9.14 Physical Layer Performance
+
+CHAPTER 10 — Data Link Layer
+
+10.1 Framing
+10.2 Error Detection
+10.3 Error Correction
+10.4 Parity
+10.5 Checksum
+10.6 CRC
+10.7 Hamming Distance
+10.8 Hamming Code
+10.9 Flow Control
+10.10 Sliding Window Protocol
+10.11 Stop-and-Wait ARQ
+10.12 Go-Back-N ARQ
+10.13 Selective Repeat ARQ
+10.14 Multiple Access Protocols
+10.15 Ethernet
+10.16 MAC Addressing
+10.17 VLAN
+10.18 Switching
+
+
+MODULE 3 — INTERNET PROTOCOLS AND ROUTING
+============================================================
+
+CHAPTER 11 — MAC Addressing and Address Resolution
+
+11.1 MAC Address Architecture
+11.2 Unicast and Multicast
+11.3 Broadcast Addressing
+11.4 ARP
+11.5 ARP Cache
+11.6 Gratuitous ARP
+11.7 Proxy ARP
+11.8 ARP Spoofing
+11.9 Neighbor Discovery
+
+CHAPTER 12 — IPv4 and IP Addressing
+
+12.1 Internet Protocol
+12.2 IPv4 Architecture
+12.3 IPv4 Header
+12.4 IPv4 Address Classes
+12.5 Public and Private Addressing
+12.6 Special IP Addresses
+12.7 IP Fragmentation
+12.8 IP Reassembly
+12.9 TTL
+12.10 IP Forwarding
+
+CHAPTER 13 — Subnetting and CIDR
+
+13.1 Subnetting Fundamentals
+13.2 Subnet Masks
+13.3 CIDR
+13.4 VLSM
+13.5 FLSM
+13.6 Supernetting
+13.7 Route Aggregation
+13.8 Address Allocation
+13.9 Subnetting Algorithms
+13.10 Advanced Numerical Problems
+
+CHAPTER 14 — IPv6 Architecture
+
+14.1 IPv6 Fundamentals
+14.2 IPv6 Address Structure
+14.3 IPv6 Address Types
+14.4 IPv6 Header
+14.5 Extension Headers
+14.6 Neighbor Discovery Protocol
+14.7 SLAAC
+14.8 DHCPv6
+14.9 IPv6 Routing
+14.10 IPv4 to IPv6 Transition
+14.11 Dual Stack
+14.12 Tunneling and Translation
+
+CHAPTER 15 — ICMP and Network Diagnostics
+
+15.1 ICMP Architecture
+15.2 ICMP Message Types
+15.3 Ping
+15.4 Traceroute
+15.5 TTL Mechanism
+15.6 Path MTU Discovery
+15.7 Network Diagnostics
+15.8 Packet Loss Analysis
+
+CHAPTER 16 — DHCP and DNS
+
+16.1 DHCP Architecture
+16.2 DHCP DORA
+16.3 DHCP Relay
+16.4 DHCP Lease Management
+16.5 DNS Architecture
+16.6 DNS Hierarchy
+16.7 Recursive Resolution
+16.8 Iterative Resolution
+16.9 DNS Records
+16.10 DNS Caching
+16.11 DNSSEC
+16.12 Secure DNS
+
+CHAPTER 17 — Transport Layer
+
+17.1 Transport Layer Architecture
+17.2 Process-to-Process Communication
+17.3 Port Addressing
+17.4 Socket Architecture
+17.5 TCP
+17.6 UDP
+17.7 TCP Header
+17.8 UDP Header
+17.9 TCP Connection Establishment
+17.10 TCP Connection Termination
+17.11 TCP State Machine
+17.12 Sequence Numbers
+17.13 Acknowledgements
+17.14 Retransmission
+17.15 Flow Control
+
+CHAPTER 18 — Advanced TCP and Congestion Control
+
+18.1 Congestion Fundamentals
+18.2 Congestion Window
+18.3 Slow Start
+18.4 Congestion Avoidance
+18.5 Fast Retransmit
+18.6 Fast Recovery
+18.7 AIMD
+18.8 TCP Reno
+18.9 TCP New Reno
+18.10 TCP Cubic
+18.11 TCP BBR
+18.12 Explicit Congestion Notification
+18.13 Active Queue Management
+18.14 RED
+18.15 CoDel
+18.16 TCP Performance Analysis
+
+CHAPTER 19 — Routing Fundamentals
+
+19.1 Routing Architecture
+19.2 Routing vs Forwarding
+19.3 Routing Tables
+19.4 Static Routing
+19.5 Dynamic Routing
+19.6 Default Routing
+19.7 Longest Prefix Matching
+19.8 Routing Metrics
+19.9 Administrative Distance
+19.10 Routing Loops
+19.11 Route Aggregation
+19.12 Scalable Routing
+
+CHAPTER 20 — Advanced Routing Protocols
+
+20.1 Distance Vector Routing
+20.2 Bellman-Ford Algorithm
+20.3 Link State Routing
+20.4 Dijkstra Algorithm
+20.5 RIP
+20.6 OSPF
+20.7 IS-IS
+20.8 Path Vector Routing
+20.9 BGP
+20.10 Autonomous Systems
+20.11 BGP Route Selection
+20.12 BGP Security
+20.13 Interdomain Routing
+20.14 Internet Routing Scalability
+
+CHAPTER 21 — Switching and Bridging
+
+21.1 Layer 2 Switching
+21.2 MAC Learning
+21.3 Frame Forwarding
+21.4 VLAN
+21.5 Trunking
+21.6 Inter-VLAN Routing
+21.7 Spanning Tree Protocol
+21.8 Rapid Spanning Tree
+21.9 Link Aggregation
+21.10 LACP
+21.11 Switching Performance
+
+CHAPTER 22 — Application Layer Protocols
+
+22.1 HTTP
+22.2 HTTPS
+22.3 FTP
+22.4 SFTP
+22.5 SSH
+22.6 SMTP
+22.7 POP3
+22.8 IMAP
+22.9 SNMP
+22.10 NTP
+22.11 LDAP
+22.12 WebSocket
+22.13 REST APIs
+22.14 QUIC
+22.15 HTTP/2 and HTTP/3
+
+
+MODULE 4 — ADVANCED NETWORK ARCHITECTURES
+============================================================
+
+CHAPTER 23 — Network Performance and Optimization
+
+23.1 Network Performance Metrics
+23.2 Throughput Analysis
+23.3 Latency Analysis
+23.4 Bandwidth-Delay Product
+23.5 Queueing Behaviour
+23.6 Network Congestion
+23.7 Quality of Service
+23.8 Traffic Classification
+23.9 Traffic Shaping
+23.10 Token Bucket
+23.11 Leaky Bucket
+23.12 Load Balancing
+23.13 CDN Architecture
+23.14 Performance Optimization
+
+CHAPTER 24 — Multicast and Anycast Networking
+
+24.1 Unicast
+24.2 Broadcast
+24.3 Multicast
+24.4 Anycast
+24.5 Multicast Addressing
+24.6 IGMP
+24.7 Multicast Routing
+24.8 PIM
+24.9 Multicast Applications
+
+CHAPTER 25 — Wireless Communication Fundamentals
+
+25.1 Wireless Communication
+25.2 Electromagnetic Spectrum
+25.3 Frequency Bands
+25.4 Radio Propagation
+25.5 Path Loss
+25.6 Shadowing
+25.7 Multipath Fading
+25.8 Signal-to-Noise Ratio
+25.9 Wireless Channel Models
+25.10 Wireless Capacity
+25.11 Interference
+25.12 Wireless Network Performance
+
+CHAPTER 26 — Advanced Wireless Networks
+
+26.1 IEEE 802.11 Architecture
+26.2 Wi-Fi Protocols
+26.3 CSMA/CA
+26.4 OFDM
+26.5 OFDMA
+26.6 MIMO
+26.7 Massive MIMO
+26.8 Beamforming
+26.9 Spatial Multiplexing
+26.10 Channel Estimation
+26.11 Wireless Resource Allocation
+26.12 Wireless Security
+
+CHAPTER 27 — Mobile and Cellular Networks
+
+27.1 Cellular Architecture
+27.2 Frequency Reuse
+27.3 Handover
+27.4 Mobility Management
+27.5 GSM
+27.6 UMTS
+27.7 LTE Architecture
+27.8 LTE Protocol Stack
+27.9 5G Architecture
+27.10 5G NR
+27.11 Network Slicing
+27.12 6G Research Concepts
+27.13 Mobile Edge Computing
+
+CHAPTER 28 — Network Coding
+
+28.1 Network Coding Fundamentals
+28.2 Traditional Routing vs Network Coding
+28.3 Linear Network Coding
+28.4 Random Linear Network Coding
+28.5 Algebraic Foundations
+28.6 Coding over Finite Fields
+28.7 Multicast Network Coding
+28.8 Distributed Network Coding
+28.9 Error Correction
+28.10 Applications of Network Coding
+
+CHAPTER 29 — Distributed Systems and Networking
+
+29.1 Distributed System Architecture
+29.2 Communication Models
+29.3 Message Passing
+29.4 Remote Procedure Calls
+29.5 Distributed Naming
+29.6 Distributed Synchronization
+29.7 Clock Synchronization
+29.8 Logical Clocks
+29.9 Distributed Consensus
+29.10 Fault Tolerance
+29.11 Distributed Replication
+29.12 Network Partitions
+29.13 CAP Theorem
+29.14 Distributed Networking Challenges
+
+CHAPTER 30 — Network Virtualization
+
+30.1 Virtual Networking
+30.2 Virtual NIC
+30.3 Virtual Switch
+30.4 Network Namespaces
+30.5 Overlay Networks
+30.6 VXLAN
+30.7 Network Tunneling
+30.8 GRE
+30.9 Virtual Network Functions
+30.10 Network Virtualization Performance
+
+CHAPTER 31 — Software Defined Networking
+
+31.1 Traditional Networking
+31.2 SDN Architecture
+31.3 Control Plane
+31.4 Data Plane
+31.5 Management Plane
+31.6 SDN Controller
+31.7 OpenFlow
+31.8 Flow Tables
+31.9 Network Programmability
+31.10 SDN Security
+31.11 Distributed SDN Controllers
+31.12 SDN Research Challenges
+
+CHAPTER 32 — Network Function Virtualization
+
+32.1 NFV Fundamentals
+32.2 NFV Architecture
+32.3 Virtual Network Functions
+32.4 NFV Infrastructure
+32.5 Service Function Chaining
+32.6 VNF Placement
+32.7 Resource Allocation
+32.8 NFV Orchestration
+32.9 NFV Performance
+32.10 NFV Research Challenges
+
+CHAPTER 33 — Cloud and Data Center Networking
+
+33.1 Cloud Networking
+33.2 Virtual Private Cloud
+33.3 Cloud Routing
+33.4 Cloud Load Balancing
+33.5 Cloud Security
+33.6 Data Center Architecture
+33.7 Spine-Leaf Architecture
+33.8 East-West Traffic
+33.9 North-South Traffic
+33.10 Data Center Congestion
+33.11 VXLAN/EVPN
+33.12 Data Center Network Optimization
+
+CHAPTER 34 — Container and Kubernetes Networking
+
+34.1 Container Networking
+34.2 Docker Networking
+34.3 Container Network Interfaces
+34.4 Kubernetes Networking
+34.5 Pod Networking
+34.6 Cluster Networking
+34.7 Service Discovery
+34.8 Network Policies
+34.9 Ingress and Egress
+34.10 Service Mesh
+34.11 eBPF Networking
+34.12 Container Network Security
+
+CHAPTER 35 — Internet Architecture and Evolution
+
+35.1 Internet Architecture
+35.2 Internet Backbone
+35.3 Internet Exchange Points
+35.4 Autonomous Systems
+35.5 BGP Interdomain Routing
+35.6 Internet Routing Policies
+35.7 Content Delivery Networks
+35.8 Anycast Deployment
+35.9 Internet Scalability
+35.10 Internet Governance
+35.11 Future Internet Architecture
+35.12 Information-Centric Networking
+
+
+MODULE 5 — NETWORK SECURITY
+============================================================
+
+CHAPTER 36 — Cryptography for Network Security
+
+36.1 Cryptographic Fundamentals
+36.2 Symmetric Encryption
+36.3 AES
+36.4 Asymmetric Cryptography
+36.5 RSA
+36.6 Elliptic Curve Cryptography
+36.7 Cryptographic Hash Functions
+36.8 SHA-256
+36.9 Digital Signatures
+36.10 Digital Certificates
+36.11 Public Key Infrastructure
+36.12 Key Exchange
+36.13 Diffie-Hellman
+36.14 Cryptographic Protocols
+
+CHAPTER 37 — Network Security Architecture
+
+37.1 CIA Triad
+37.2 Authentication
+37.3 Authorization
+37.4 Access Control
+37.5 Firewall Architecture
+37.6 Stateful Inspection
+37.7 IDS and IPS
+37.8 Web Application Firewall
+37.9 VPN Architecture
+37.10 IPsec
+37.11 TLS
+37.12 Zero Trust Architecture
+37.13 Microsegmentation
+
+CHAPTER 38 — Advanced Network Attacks
+
+38.1 Network Threat Modelling
+38.2 ARP Poisoning
+38.3 DNS Poisoning
+38.4 IP Spoofing
+38.5 MAC Spoofing
+38.6 Man-in-the-Middle Attacks
+38.7 Session Hijacking
+38.8 Replay Attacks
+38.9 DoS and DDoS
+38.10 BGP Hijacking
+38.11 Routing Attacks
+38.12 Wireless Attacks
+38.13 Advanced Persistent Threats
+38.14 Network Intrusion Detection
+
+CHAPTER 39 — Formal Security and Network Verification
+
+39.1 Security Properties
+39.2 Formal Methods
+39.3 Formal Verification
+39.4 Model Checking
+39.5 Protocol Verification
+39.6 Security Protocol Analysis
+39.7 Authentication Protocol Verification
+39.8 Network Policy Verification
+39.9 Firewall Rule Verification
+39.10 Secure Network Design
+
+
+MODULE 6 — NETWORK RESEARCH AND EXPERIMENTATION
+============================================================
+
+CHAPTER 40 — Network Modelling and Simulation
+
+40.1 Network Modelling
+40.2 Analytical Models
+40.3 Simulation Models
+40.4 Discrete Event Simulation
+40.5 Monte Carlo Simulation
+40.6 Traffic Modelling
+40.7 Network Performance Modelling
+40.8 Simulation Validation
+40.9 Simulation Limitations
+40.10 Research-Based Simulation
+
+CHAPTER 41 — Network Simulation Tools
+
+41.1 NS-3
+41.2 OMNeT++
+41.3 Mininet
+41.4 GNS3
+41.5 EVE-NG
+41.6 Cisco Packet Tracer
+41.7 Simulation Architecture
+41.8 Custom Protocol Implementation
+41.9 Experimental Configuration
+41.10 Simulation Result Analysis
+
+CHAPTER 42 — Network Measurement and Monitoring
+
+42.1 Network Measurement Fundamentals
+42.2 Active Measurement
+42.3 Passive Measurement
+42.4 Packet Capturing
+42.5 Traffic Analysis
+42.6 Flow Measurement
+42.7 NetFlow
+42.8 IPFIX
+42.9 SNMP
+42.10 Network Telemetry
+42.11 Wireshark
+42.12 TCPDump
+42.13 Measurement Accuracy
+42.14 Measurement Bias
+
+CHAPTER 43 — Advanced Network Programming
+
+43.1 Socket Programming
+43.2 TCP Socket Programming
+43.3 UDP Socket Programming
+43.4 Concurrent Servers
+43.5 Multithreaded Networking
+43.6 Asynchronous Networking
+43.7 Event-Driven Networking
+43.8 Python Networking
+43.9 Network APIs
+43.10 Network Automation
+43.11 eBPF Programming
+43.12 Programmable Data Planes
+43.13 P4 Language Fundamentals
+
+CHAPTER 44 — Network Traffic Analysis
+
+44.1 Traffic Characteristics
+44.2 Traffic Classification
+44.3 Packet-Level Analysis
+44.4 Flow-Level Analysis
+44.5 Statistical Traffic Analysis
+44.6 Self-Similar Traffic
+44.7 Heavy-Tailed Distributions
+44.8 Long-Range Dependence
+44.9 Traffic Prediction
+44.10 Anomaly Detection
+44.11 Traffic Pattern Discovery
+
+CHAPTER 45 — Machine Learning for Computer Networks
+
+45.1 Introduction to ML
+45.2 Supervised Learning
+45.3 Unsupervised Learning
+45.4 Reinforcement Learning
+45.5 Deep Learning
+45.6 Neural Networks
+45.7 CNN
+45.8 RNN and LSTM
+45.9 Graph Neural Networks
+45.10 Network Traffic Classification
+45.11 Congestion Prediction
+45.12 Intelligent Routing
+45.13 Anomaly Detection
+45.14 Intrusion Detection
+45.15 AI-Driven Network Optimization
+
+CHAPTER 46 — Network Optimization Algorithms
+
+46.1 Optimization Fundamentals
+46.2 Linear Programming
+46.3 Integer Programming
+46.4 Nonlinear Optimization
+46.5 Convex Optimization
+46.6 Combinatorial Optimization
+46.7 Genetic Algorithms
+46.8 Particle Swarm Optimization
+46.9 Game Theory
+46.10 Distributed Optimization
+46.11 Resource Allocation
+46.12 Routing Optimization
+46.13 Energy-Efficient Networking
+
+CHAPTER 47 — Advanced Network Reliability
+
+47.1 Network Reliability Theory
+47.2 Fault Models
+47.3 Failure Probability
+47.4 Reliability Modelling
+47.5 Redundancy
+47.6 High Availability
+47.7 Fault Detection
+47.8 Fault Recovery
+47.9 Self-Healing Networks
+47.10 Resilient Network Architecture
+
+
+MODULE 7 — EMERGING RESEARCH AREAS
+============================================================
+
+CHAPTER 48 — Internet of Things Networking
+
+48.1 IoT Architecture
+48.2 IoT Communication Models
+48.3 MQTT
+48.4 CoAP
+48.5 6LoWPAN
+48.6 Zigbee
+48.7 LoRaWAN
+48.8 NB-IoT
+48.9 IoT Security
+48.10 IoT Routing
+48.11 Industrial IoT
+48.12 Massive IoT
+
+CHAPTER 49 — Edge and Fog Computing Networks
+
+49.1 Edge Computing
+49.2 Fog Computing
+49.3 Cloud-Edge Architecture
+49.4 Edge Resource Allocation
+49.5 Task Offloading
+49.6 Edge Caching
+49.7 Edge Security
+49.8 Distributed Edge Systems
+49.9 Edge Network Optimization
+
+CHAPTER 50 — 5G Advanced and 6G Networks
+
+50.1 5G Architecture
+50.2 5G Core Network
+50.3 Network Slicing
+50.4 Ultra-Reliable Low-Latency Communication
+50.5 Massive Machine-Type Communication
+50.6 mmWave Communication
+50.7 Reconfigurable Intelligent Surfaces
+50.8 Integrated Sensing and Communication
+50.9 Terahertz Communication
+50.10 AI-Native Networking
+50.11 6G Architecture
+50.12 6G Research Challenges
+
+CHAPTER 51 — Quantum Networking
+
+51.1 Quantum Computing Fundamentals
+51.2 Quantum Information
+51.3 Qubits
+51.4 Quantum Entanglement
+51.5 Quantum Communication
+51.6 Quantum Key Distribution
+51.7 Quantum Repeaters
+51.8 Quantum Internet
+51.9 Quantum Network Architecture
+51.10 Quantum Networking Challenges
+
+CHAPTER 52 — Blockchain and Decentralized Networking
+
+52.1 Blockchain Fundamentals
+52.2 Distributed Ledger
+52.3 Peer-to-Peer Networks
+52.4 Consensus Mechanisms
+52.5 Distributed Networking
+52.6 Decentralized Identifiers
+52.7 Blockchain Network Security
+52.8 Decentralized Communication
+52.9 Research Challenges
+
+
+MODULE 8 — RESEARCH METHODOLOGY
+============================================================
+
+CHAPTER 53 — Research Methodology in Computer Networking
+
+53.1 Introduction to Scientific Research
+53.2 Research Problem Identification
+53.3 Research Questions
+53.4 Hypothesis Formulation
+53.5 Literature Review
+53.6 Systematic Literature Review
+53.7 Identifying Research Gaps
+53.8 Research Objectives
+53.9 Research Method Selection
+53.10 Experimental Design
+53.11 Quantitative Research
+53.12 Qualitative Research
+53.13 Reproducible Research
+53.14 Research Ethics
+
+CHAPTER 54 — Scientific Paper Reading and Writing
+
+54.1 Research Paper Structure
+54.2 Abstract Analysis
+54.3 Introduction Analysis
+54.4 Related Work
+54.5 Methodology
+54.6 Experimental Results
+54.7 Discussion
+54.8 Conclusion
+54.9 Critical Paper Reading
+54.10 Research Paper Writing
+54.11 Citation Management
+54.12 IEEE Formatting
+54.13 Plagiarism and Academic Integrity
+
+CHAPTER 55 — Advanced Experimental Research
+
+55.1 Research Experiment Design
+55.2 Baseline Selection
+55.3 Dataset Selection
+55.4 Performance Metrics
+55.5 Statistical Significance
+55.6 Confidence Intervals
+55.7 Hypothesis Testing
+55.8 Comparative Evaluation
+55.9 Ablation Studies
+55.10 Reproducibility
+55.11 Result Interpretation
+55.12 Research Limitations
+
+CHAPTER 56 — Literature Review of Advanced Networking
+
+56.1 IEEE Xplore
+56.2 ACM Digital Library
+56.3 SpringerLink
+56.4 ScienceDirect
+56.5 Google Scholar
+56.6 Survey Papers
+56.7 Conference Papers
+56.8 Journal Papers
+56.9 Citation Analysis
+56.10 Research Trend Analysis
+56.11 Research Gap Identification
+
+
+MODULE 9 — RESEARCH IMPLEMENTATION
+============================================================
+
+CHAPTER 57 — Advanced Research Projects
+
+57.1 Design a New Routing Algorithm
+57.2 Congestion Control Algorithm
+57.3 Intelligent Network Monitoring
+57.4 Network Traffic Prediction
+57.5 SDN-Based Network Optimization
+57.6 AI-Based Intrusion Detection
+57.7 Wireless Network Optimization
+57.8 Network Reliability Analysis
+57.9 Network Simulation Research
+57.10 Performance Comparison of Protocols
+
+CHAPTER 58 — Research Proposal Development
+
+58.1 Selecting Research Domain
+58.2 Problem Identification
+58.3 Research Motivation
+58.4 Research Objectives
+58.5 Research Questions
+58.6 Literature Review
+58.7 Research Gap
+58.8 Proposed Methodology
+58.9 Expected Contributions
+58.10 Timeline and Research Planning
+
+CHAPTER 59 — PhD Research Paper Development
+
+59.1 Research Contribution
+59.2 Novelty Identification
+59.3 Algorithm Development
+59.4 Mathematical Formulation
+59.5 Experimental Validation
+59.6 Performance Comparison
+59.7 Result Analysis
+59.8 Journal Selection
+59.9 Conference Submission
+59.10 Reviewer Response
+59.11 Research Revisions
+59.12 Publication Ethics
+
+CHAPTER 60 — PhD Research Capstone
+
+60.1 Select a Networking Research Problem
+60.2 Conduct Systematic Literature Review
+60.3 Identify Research Gap
+60.4 Formulate Research Hypothesis
+60.5 Develop Proposed Solution
+60.6 Mathematical Modelling
+60.7 Algorithm Design
+60.8 Implement Proposed Approach
+60.9 Conduct Network Simulation
+60.10 Experimental Evaluation
+60.11 Compare Existing Approaches
+60.12 Analyze Results
+60.13 Document Research Contribution
+60.14 Prepare Research Paper
+60.15 Prepare Research Presentation
+
+============================================================
+                  END OF PhD MASTER SYLLABUS
+============================================================
