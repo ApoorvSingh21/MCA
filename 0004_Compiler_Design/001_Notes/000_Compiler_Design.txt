@@ -1,0 +1,308 @@
+============================================================
+       COMPILER DESIGN — PhD MASTER SYLLABUS
+============================================================
+
+PHASE 0 — MATHEMATICAL AND PROGRAMMING FOUNDATIONS
+
+Chapter 0.1 — Programming Fundamentals
+Chapter 0.2 — Discrete Mathematics
+Chapter 0.3 — Data Structures and Algorithms
+Chapter 0.4 — Theory of Computation
+Chapter 0.5 — Mathematical Logic
+Chapter 0.6 — Graph Theory
+Chapter 0.7 — Set Theory and Relations
+Chapter 0.8 — Linear Algebra Fundamentals
+Chapter 0.9 — Probability and Statistics
+Chapter 0.10 — Computer Architecture Fundamentals
+
+
+PHASE 1 — COMPILER FUNDAMENTALS
+
+Chapter 1 — Introduction to Compilers
+Chapter 2 — Structure of a Compiler
+Chapter 3 — Language Processing System
+Chapter 4 — Compiler vs Interpreter
+Chapter 5 — Single-Pass and Multi-Pass Compilers
+Chapter 6 — Cross Compilers and Bootstrapping
+Chapter 7 — Compiler Design Trade-offs
+
+
+PHASE 2 — LEXICAL ANALYSIS
+
+Chapter 8 — Lexical Analyzer Fundamentals
+Chapter 9 — Regular Expressions
+Chapter 10 — Finite Automata
+Chapter 11 — DFA and NFA
+Chapter 12 — Regular Expression to Automata
+Chapter 13 — Automata Minimization
+Chapter 14 — Lexical Analyzer Construction
+Chapter 15 — Lexical Analyzer Generators
+Chapter 16 — Advanced Lexical Analysis
+
+
+PHASE 3 — ADVANCED FORMAL LANGUAGE THEORY
+
+Chapter 17 — Formal Language Hierarchy
+Chapter 18 — Regular Languages
+Chapter 19 — Context-Free Languages
+Chapter 20 — Context-Sensitive Languages
+Chapter 21 — Chomsky Hierarchy
+Chapter 22 — Pumping Lemmas
+Chapter 23 — Closure Properties
+Chapter 24 — Decidability and Undecidability
+Chapter 25 — Advanced Grammar Theory
+
+
+PHASE 4 — SYNTAX ANALYSIS AND PARSING
+
+Chapter 26 — Context-Free Grammars
+Chapter 27 — Grammar Transformations
+Chapter 28 — Top-Down Parsing
+Chapter 29 — Bottom-Up Parsing
+Chapter 30 — LL(1) Parsing
+Chapter 31 — LR(0), SLR and LALR
+Chapter 32 — Canonical LR(1)
+Chapter 33 — Parser Generators
+Chapter 34 — Ambiguous Grammars
+Chapter 35 — Error Recovery
+
+
+PHASE 5 — ADVANCED PARSING TECHNIQUES
+
+Chapter 36 — Generalized LR Parsing
+Chapter 37 — Earley Parsing
+Chapter 38 — CYK Algorithm
+Chapter 39 — PEG and Packrat Parsing
+Chapter 40 — GLR Parsing
+Chapter 41 — Scannerless Parsing
+Chapter 42 — Incremental Parsing
+Chapter 43 — Parsing Expression Grammars
+Chapter 44 — Ambiguity Resolution
+Chapter 45 — Parsing Performance Analysis
+
+
+PHASE 6 — SEMANTIC ANALYSIS
+
+Chapter 46 — Semantic Analysis Fundamentals
+Chapter 47 — Symbol Tables
+Chapter 48 — Type Systems
+Chapter 49 — Type Checking
+Chapter 50 — Type Inference
+Chapter 51 — Attribute Grammars
+Chapter 52 — Syntax-Directed Translation
+Chapter 53 — Static and Dynamic Semantics
+Chapter 54 — Scope and Binding
+Chapter 55 — Advanced Type Systems
+
+
+PHASE 7 — INTERMEDIATE REPRESENTATION
+
+Chapter 56 — Intermediate Code Fundamentals
+Chapter 57 — Three-Address Code
+Chapter 58 — Syntax Trees and Abstract Syntax Trees
+Chapter 59 — Control Flow Representation
+Chapter 60 — Static Single Assignment Form
+Chapter 61 — SSA Construction
+Chapter 62 — SSA Destruction
+Chapter 63 — Memory SSA
+Chapter 64 — Intermediate Representation Design
+Chapter 65 — LLVM IR
+Chapter 66 — MLIR Fundamentals
+
+
+PHASE 8 — RUNTIME ENVIRONMENT
+
+Chapter 67 — Runtime Storage
+Chapter 68 — Activation Records
+Chapter 69 — Procedure Calls
+Chapter 70 — Recursion and Scope
+Chapter 71 — Parameter Passing Mechanisms
+Chapter 72 — Memory Management
+Chapter 73 — Garbage Collection Algorithms
+Chapter 74 — Stack and Heap Management
+Chapter 75 — Dynamic Linking and Loading
+Chapter 76 — Runtime System Architecture
+
+
+PHASE 9 — CODE GENERATION
+
+Chapter 77 — Code Generation Fundamentals
+Chapter 78 — Basic Blocks
+Chapter 79 — Control Flow Graphs
+Chapter 80 — Instruction Selection
+Chapter 81 — Instruction Scheduling
+Chapter 82 — Register Allocation
+Chapter 83 — Graph Coloring
+Chapter 84 — Register Spilling
+Chapter 85 — Calling Conventions
+Chapter 86 — Target Architecture Optimization
+
+
+PHASE 10 — CLASSICAL CODE OPTIMIZATION
+
+Chapter 87 — Optimization Fundamentals
+Chapter 88 — Constant Folding
+Chapter 89 — Constant Propagation
+Chapter 90 — Common Subexpression Elimination
+Chapter 91 — Dead Code Elimination
+Chapter 92 — Copy Propagation
+Chapter 93 — Loop Optimization
+Chapter 94 — Loop Unrolling
+Chapter 95 — Strength Reduction
+Chapter 96 — Code Motion
+Chapter 97 — Peephole Optimization
+
+
+PHASE 11 — ADVANCED PROGRAM ANALYSIS
+
+Chapter 98 — Data-Flow Analysis
+Chapter 99 — Reaching Definitions
+Chapter 100 — Live Variable Analysis
+Chapter 101 — Available Expressions
+Chapter 102 — Dominator Analysis
+Chapter 103 — Post-Dominator Analysis
+Chapter 104 — Control Dependence
+Chapter 105 — Data Dependence
+Chapter 106 — Pointer Analysis
+Chapter 107 — Alias Analysis
+Chapter 108 — Escape Analysis
+Chapter 109 — Interprocedural Analysis
+Chapter 110 — Context-Sensitive Analysis
+Chapter 111 — Abstract Interpretation
+
+
+PHASE 12 — ADVANCED OPTIMIZATION THEORY
+
+Chapter 112 — Optimization Correctness
+Chapter 113 — Program Equivalence
+Chapter 114 — Loop Dependence Analysis
+Chapter 115 — Polyhedral Compilation
+Chapter 116 — Automatic Parallelization
+Chapter 117 — Profile-Guided Optimization
+Chapter 118 — Whole-Program Optimization
+Chapter 119 — Link-Time Optimization
+Chapter 120 — Speculative Optimization
+Chapter 121 — Deoptimization
+
+
+PHASE 13 — MODERN COMPILER ARCHITECTURE
+
+Chapter 122 — GCC Architecture
+Chapter 123 — LLVM Architecture
+Chapter 124 — LLVM Pass Framework
+Chapter 125 — MLIR Architecture
+Chapter 126 — Compiler Backend Design
+Chapter 127 — Intermediate Representation Frameworks
+Chapter 128 — Domain-Specific Compilers
+Chapter 129 — Just-In-Time Compilation
+Chapter 130 — Dynamic Compilation
+Chapter 131 — Tiered Compilation
+Chapter 132 — Virtual Machine Architecture
+
+
+PHASE 14 — PARALLEL AND HETEROGENEOUS COMPILATION
+
+Chapter 133 — Parallel Compiler Fundamentals
+Chapter 134 — Multicore Compilation
+Chapter 135 — GPU Compiler Architecture
+Chapter 136 — CUDA Compilation
+Chapter 137 — OpenCL Compilation
+Chapter 138 — SIMD Optimization
+Chapter 139 — Vectorization
+Chapter 140 — Automatic Parallelization
+Chapter 141 — Distributed Compilation
+Chapter 142 — Heterogeneous Computing
+
+
+PHASE 15 — ADVANCED LANGUAGE FEATURES
+
+Chapter 143 — Object-Oriented Language Compilation
+Chapter 144 — Functional Language Compilation
+Chapter 145 — Lambda Calculus
+Chapter 146 — Closures and Environments
+Chapter 147 — Generics and Templates
+Chapter 148 — Polymorphism
+Chapter 149 — Exception Handling
+Chapter 150 — Concurrency and Compilation
+Chapter 151 — Memory Models
+Chapter 152 — Garbage Collection Integration
+
+
+PHASE 16 — COMPILER SECURITY AND VERIFICATION
+
+Chapter 153 — Compiler Correctness
+Chapter 154 — Formal Verification of Compilers
+Chapter 155 — Translation Validation
+Chapter 156 — SMT Solvers in Compiler Verification
+Chapter 157 — Software Verification
+Chapter 158 — Compiler Security
+Chapter 159 — Undefined Behavior
+Chapter 160 — Side-Channel-Aware Compilation
+Chapter 161 — Secure Compilation
+Chapter 162 — Verified Compiler Architectures
+
+
+PHASE 17 — MACHINE LEARNING FOR COMPILERS
+
+Chapter 163 — Introduction to ML-Based Compilation
+Chapter 164 — Machine Learning for Optimization
+Chapter 165 — Learned Instruction Scheduling
+Chapter 166 — Learned Register Allocation
+Chapter 167 — Reinforcement Learning for Compilers
+Chapter 168 — Cost Models
+Chapter 169 — Compiler Autotuning
+Chapter 170 — Neural Program Optimization
+
+
+PHASE 18 — COMPILER TESTING AND DEBUGGING
+
+Chapter 171 — Compiler Testing Fundamentals
+Chapter 172 — Differential Testing
+Chapter 173 — Randomized Testing
+Chapter 174 — Compiler Fuzzing
+Chapter 175 — Translation Validation
+Chapter 176 — Miscompilation Detection
+Chapter 177 — Compiler Debugging
+Chapter 178 — Reproducible Compiler Experiments
+
+
+PHASE 19 — PRACTICAL COMPILER CONSTRUCTION
+
+Chapter 179 — Build a Lexical Analyzer
+Chapter 180 — Build a Parser
+Chapter 181 — Build a Semantic Analyzer
+Chapter 182 — Build an Intermediate Representation
+Chapter 183 — Implement SSA
+Chapter 184 — Implement Data-Flow Analysis
+Chapter 185 — Implement Optimization Passes
+Chapter 186 — Build a Code Generator
+Chapter 187 — Build a Mini Compiler
+Chapter 188 — LLVM-Based Compiler Project
+
+
+PHASE 20 — RESEARCH-LEVEL COMPILER DESIGN
+
+Chapter 189 — Compiler Research Fundamentals
+Chapter 190 — Research Paper Reading
+Chapter 191 — State-of-the-Art Compiler Techniques
+Chapter 192 — Identifying Research Gaps
+Chapter 193 — Research Problem Formulation
+Chapter 194 — Designing Compiler Experiments
+Chapter 195 — Benchmarking and Performance Evaluation
+Chapter 196 — Reproducing Research Results
+Chapter 197 — Research Paper Implementation
+Chapter 198 — Writing and Publishing Research Papers
+
+
+PHASE 21 — EXAM AND RESEARCH MASTERY
+
+Chapter 199 — GATE Computer Science Preparation
+Chapter 200 — Advanced Problem Solving
+Chapter 201 — University Examination Preparation
+Chapter 202 — Compiler Design Research Seminar
+Chapter 203 — PhD Research Project
+Chapter 204 — Thesis-Level Compiler Research
+
+============================================================
+                  END OF MASTER SYLLABUS
+============================================================
