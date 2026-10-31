@@ -1,0 +1,427 @@
+
+============================================================
+DATA STRUCTURES AND ALGORITHMS USING C/C++
+PhD FIRST-YEAR MASTER SYLLABUS
+============================================================
+
+PHASE 0 — PROGRAMMING AND MATHEMATICAL FOUNDATIONS
+
+CHAPTER 1 — C++ PROGRAMMING FOR ADVANCED DSA
+  1.1 C++17 and C++20 Fundamentals
+  1.2 Memory Model
+  1.3 Pointers and References
+  1.4 Dynamic Memory Allocation
+  1.5 Classes and Templates
+  1.6 Generic Programming
+  1.7 STL and Iterators
+  1.8 Lambda Functions
+  1.9 Memory Management and RAII
+  1.10 Move Semantics
+  1.11 Undefined Behaviour
+  1.12 Performance Profiling
+
+CHAPTER 2 — MATHEMATICAL FOUNDATIONS
+  2.1 Propositional Logic
+  2.2 Predicate Logic
+  2.3 Set Theory
+  2.4 Relations and Functions
+  2.5 Mathematical Induction
+  2.6 Strong Induction
+  2.7 Proof by Contradiction
+  2.8 Proof by Contraposition
+  2.9 Combinatorics
+  2.10 Permutations and Combinations
+  2.11 Recurrence Relations
+  2.12 Discrete Probability
+  2.13 Graph Theory Foundations
+  2.14 Number Theory Foundations
+
+PHASE 1 — ALGORITHM ANALYSIS AND THEORY
+
+CHAPTER 3 — ALGORITHM DESIGN AND ANALYSIS
+  3.1 Algorithm Specifications
+  3.2 Correctness of Algorithms
+  3.3 Loop Invariants
+  3.4 Preconditions and Postconditions
+  3.5 Partial and Total Correctness
+  3.6 Time Complexity
+  3.7 Space Complexity
+  3.8 Asymptotic Notations
+  3.9 Best, Average and Worst Cases
+  3.10 Amortized Analysis
+  3.11 Aggregate Method
+  3.12 Accounting Method
+  3.13 Potential Method
+  3.14 Recurrence Analysis
+  3.15 Master Theorem
+  3.16 Substitution Method
+  3.17 Recursion Tree Method
+
+CHAPTER 4 — COMPUTATIONAL COMPLEXITY THEORY
+  4.1 Computational Models
+  4.2 RAM Model
+  4.3 Decision Problems
+  4.4 Complexity Classes
+  4.5 P and NP
+  4.6 NP-Hardness
+  4.7 NP-Completeness
+  4.8 Polynomial-Time Reductions
+  4.9 Cook-Levin Theorem
+  4.10 Lower-Bound Techniques
+  4.11 Decision Tree Model
+  4.12 Adversary Arguments
+  4.13 Time-Space Trade-offs
+  4.14 Hierarchy Theorems
+  4.15 Open Problems in Complexity Theory
+
+PHASE 2 — FUNDAMENTAL DATA STRUCTURES
+
+CHAPTER 5 — ARRAYS AND MEMORY ORGANIZATION
+  5.1 Array Representation
+  5.2 Address Calculation
+  5.3 Multidimensional Arrays
+  5.4 Dynamic Arrays
+  5.5 Memory Alignment
+  5.6 Cache Locality
+  5.7 Cache-Aware Algorithms
+  5.8 Cache-Oblivious Algorithms
+  5.9 Matrix Representation
+  5.10 Sparse Matrices
+  5.11 Memory Hierarchy
+
+CHAPTER 6 — LINKED LISTS, STACKS AND QUEUES
+  6.1 Singly Linked Lists
+  6.2 Doubly Linked Lists
+  6.3 Circular Linked Lists
+  6.4 Stack ADT
+  6.5 Queue ADT
+  6.6 Deques
+  6.7 Priority Queues
+  6.8 Monotonic Structures
+  6.9 Intrusive Data Structures
+  6.10 Memory Allocation Strategies
+  6.11 Applications and Complexity Analysis
+
+CHAPTER 7 — HASHING AND DICTIONARY STRUCTURES
+  7.1 Hash Functions
+  7.2 Collision Resolution
+  7.3 Open Addressing
+  7.4 Separate Chaining
+  7.5 Universal Hashing
+  7.6 Perfect Hashing
+  7.7 Cuckoo Hashing
+  7.8 Robin Hood Hashing
+  7.9 Dynamic Hashing
+  7.10 Hash Tables and Expected Complexity
+  7.11 Probabilistic Analysis
+  7.12 Bloom Filters
+  7.13 Count-Min Sketch
+
+CHAPTER 8 — TREES AND ADVANCED TREE STRUCTURES
+  8.1 Tree Theory
+  8.2 Binary Trees
+  8.3 Binary Search Trees
+  8.4 AVL Trees
+  8.5 Red-Black Trees
+  8.6 Splay Trees
+  8.7 Treaps
+  8.8 B-Trees
+  8.9 B+ Trees
+  8.10 Weight-Balanced Trees
+  8.11 Order Statistics Trees
+  8.12 Interval Trees
+  8.13 Range Trees
+  8.14 Van Emde Boas Trees
+  8.15 Analysis of Balanced Trees
+
+CHAPTER 9 — HEAPS AND PRIORITY QUEUES
+  9.1 Binary Heaps
+  9.2 Binomial Heaps
+  9.3 Fibonacci Heaps
+  9.4 Pairing Heaps
+  9.5 Leftist Heaps
+  9.6 Skew Heaps
+  9.7 Double-Ended Priority Queues
+  9.8 Amortized Heap Analysis
+  9.9 Applications
+
+PHASE 3 — SEARCHING AND SORTING THEORY
+
+CHAPTER 10 — ADVANCED SEARCHING
+  10.1 Linear Search
+  10.2 Binary Search
+  10.3 Interpolation Search
+  10.4 Exponential Search
+  10.5 Ternary Search
+  10.6 Search Trees
+  10.7 Fractional Cascading
+  10.8 Search in External Memory
+  10.9 Optimal Search Strategies
+  10.10 Search Lower Bounds
+
+CHAPTER 11 — SORTING ALGORITHMS AND THEORY
+  11.1 Comparison Sorting
+  11.2 Insertion Sort
+  11.3 Merge Sort
+  11.4 Quick Sort
+  11.5 Heap Sort
+  11.6 Counting Sort
+  11.7 Radix Sort
+  11.8 Bucket Sort
+  11.9 Stable Sorting
+  11.10 In-Place Sorting
+  11.11 Sorting Lower Bounds
+  11.12 Adaptive Sorting
+  11.13 External Sorting
+  11.14 Parallel Sorting
+  11.15 Randomized Sorting
+  11.16 Integer Sorting
+
+PHASE 4 — ADVANCED STRING ALGORITHMS
+
+CHAPTER 12 — STRING PROCESSING AND PATTERN MATCHING
+  12.1 String Fundamentals
+  12.2 Naive Pattern Matching
+  12.3 KMP Algorithm
+  12.4 Rabin-Karp Algorithm
+  12.5 Z Algorithm
+  12.6 Boyer-Moore Algorithm
+  12.7 Aho-Corasick Algorithm
+  12.8 Trie Structures
+  12.9 Suffix Arrays
+  12.10 Suffix Trees
+  12.11 LCP Arrays
+  12.12 Burrows-Wheeler Transform
+  12.13 String Compression
+  12.14 Text Indexing
+
+PHASE 5 — GRAPH ALGORITHMS
+
+CHAPTER 13 — GRAPH THEORY AND REPRESENTATION
+  13.1 Graph Terminology
+  13.2 Directed and Undirected Graphs
+  13.3 Weighted Graphs
+  13.4 Graph Connectivity
+  13.5 Graph Isomorphism
+  13.6 Adjacency Matrix
+  13.7 Adjacency List
+  13.8 Graph Traversal
+  13.9 Graph Properties
+  13.10 Graph Coloring
+
+CHAPTER 14 — ADVANCED GRAPH ALGORITHMS
+  14.1 BFS and DFS
+  14.2 Topological Sorting
+  14.3 Strongly Connected Components
+  14.4 Bridges and Articulation Points
+  14.5 Dijkstra Algorithm
+  14.6 Bellman-Ford Algorithm
+  14.7 Floyd-Warshall Algorithm
+  14.8 Johnson's Algorithm
+  14.9 Minimum Spanning Trees
+  14.10 Prim and Kruskal
+  14.11 Network Flow
+  14.12 Ford-Fulkerson
+  14.13 Edmonds-Karp
+  14.14 Dinic's Algorithm
+  14.15 Matching Algorithms
+  14.16 Hopcroft-Karp
+  14.17 Planar Graph Algorithms
+  14.18 Advanced Connectivity
+
+CHAPTER 15 — GRAPH THEORY RESEARCH TOPICS
+  15.1 Random Graphs
+  15.2 Spectral Graph Theory
+  15.3 Graph Laplacians
+  15.4 Expander Graphs
+  15.5 Dynamic Graph Algorithms
+  15.6 Online Graph Algorithms
+  15.7 Graph Sparsification
+  15.8 Approximate Graph Algorithms
+  15.9 Sublinear Graph Algorithms
+
+PHASE 6 — RANGE QUERY AND ADVANCED STRUCTURES
+
+CHAPTER 16 — RANGE QUERY DATA STRUCTURES
+  16.1 Segment Trees
+  16.2 Lazy Propagation
+  16.3 Fenwick Trees
+  16.4 Sparse Tables
+  16.5 Persistent Segment Trees
+  16.6 Merge Sort Trees
+  16.7 Wavelet Trees
+  16.8 Heavy-Light Decomposition
+  16.9 Centroid Decomposition
+  16.10 Offline Query Processing
+  16.11 Mo's Algorithm
+  16.12 Range Query Complexity
+
+CHAPTER 17 — DISJOINT SETS AND CONNECTIVITY
+  17.1 Disjoint Set ADT
+  17.2 Union-Find
+  17.3 Path Compression
+  17.4 Union by Rank
+  17.5 Union by Size
+  17.6 Inverse Ackermann Analysis
+  17.7 Rollback DSU
+  17.8 Persistent DSU
+  17.9 Dynamic Connectivity
+  17.10 Applications
+
+CHAPTER 18 — ADVANCED AND SPECIALIZED DATA STRUCTURES
+  18.1 Skip Lists
+  18.2 Persistent Data Structures
+  18.3 Functional Data Structures
+  18.4 Immutable Data Structures
+  18.5 Succinct Data Structures
+  18.6 Compressed Data Structures
+  18.7 Wavelet Trees
+  18.8 R-Trees
+  18.9 KD-Trees
+  18.10 Quadtrees
+  18.11 Octrees
+  18.12 Range Trees
+  18.13 Spatial Data Structures
+
+PHASE 7 — ALGORITHM DESIGN PARADIGMS
+
+CHAPTER 19 — DIVIDE AND CONQUER
+  19.1 General Paradigm
+  19.2 Recurrence Relations
+  19.3 Master Theorem
+  19.4 Advanced Recurrence Analysis
+  19.5 Strassen Matrix Multiplication
+  19.6 Closest Pair of Points
+  19.7 Divide and Conquer DP
+  19.8 Complexity Analysis
+
+CHAPTER 20 — GREEDY AND MATROID THEORY
+  20.1 Greedy Algorithms
+  20.2 Greedy Choice Property
+  20.3 Exchange Arguments
+  20.4 Optimal Substructure
+  20.5 Matroids
+  20.6 Greedy Algorithms on Matroids
+  20.7 Huffman Coding
+  20.8 Scheduling
+  20.9 Approximation Guarantees
+
+CHAPTER 21 — DYNAMIC PROGRAMMING
+  21.1 DP Fundamentals
+  21.2 Memoization
+  21.3 Tabulation
+  21.4 State Design
+  21.5 Optimal Substructure
+  21.6 Knapsack Problems
+  21.7 Longest Common Subsequence
+  21.8 Edit Distance
+  21.9 Matrix Chain Multiplication
+  21.10 Bitmask DP
+  21.11 Tree DP
+  21.12 Digit DP
+  21.13 Interval DP
+  21.14 DP Optimization
+  21.15 Convex Hull Trick
+  21.16 Divide and Conquer Optimization
+  21.17 Knuth Optimization
+
+CHAPTER 22 — BACKTRACKING AND SEARCH
+  22.1 State Space Trees
+  22.2 Backtracking
+  22.3 Branch and Bound
+  22.4 Constraint Satisfaction Problems
+  22.5 N-Queens
+  22.6 Sudoku
+  22.7 Hamiltonian Problems
+  22.8 Search Space Reduction
+  22.9 Pruning Techniques
+
+PHASE 8 — ADVANCED ALGORITHM THEORY
+
+CHAPTER 23 — RANDOMIZED ALGORITHMS
+  23.1 Probability Foundations
+  23.2 Randomized Algorithms
+  23.3 Las Vegas Algorithms
+  23.4 Monte Carlo Algorithms
+  23.5 Randomized Quick Sort
+  23.6 Randomized Selection
+  23.7 Randomized Hashing
+  23.8 Random Walks
+  23.9 Chernoff Bounds
+  23.10 Expected Running Time
+  23.11 Probabilistic Analysis
+
+CHAPTER 24 — APPROXIMATION AND ONLINE ALGORITHMS
+  24.1 Approximation Algorithms
+  24.2 Approximation Ratios
+  24.3 Vertex Cover
+  24.4 Set Cover
+  24.5 Traveling Salesman Problem
+  24.6 Knapsack Approximation
+  24.7 Online Algorithms
+  24.8 Competitive Analysis
+  24.9 Paging Problem
+  24.10 Streaming Algorithms
+  24.11 Sublinear Algorithms
+
+CHAPTER 25 — PARALLEL AND DISTRIBUTED ALGORITHMS
+  25.1 Parallel Computing Models
+  25.2 PRAM Model
+  25.3 Work and Span
+  25.4 Parallel Prefix Sum
+  25.5 Parallel Sorting
+  25.6 Parallel Graph Algorithms
+  25.7 Distributed Computing Fundamentals
+  25.8 Communication Complexity
+  25.9 Synchronization
+  25.10 Concurrent Data Structures
+  25.11 Lock-Free Algorithms
+  25.12 Wait-Free Algorithms
+
+CHAPTER 26 — EXTERNAL MEMORY AND DATABASE DATA STRUCTURES
+  26.1 External Memory Model
+  26.2 I/O Complexity
+  26.3 B-Trees
+  26.4 Buffer Trees
+  26.5 External Sorting
+  26.6 External Graph Algorithms
+  26.7 Cache-Oblivious Structures
+  26.8 Database Indexing
+  26.9 LSM Trees
+  26.10 Storage Optimization
+
+PHASE 9 — RESEARCH AND DOCTORAL PREPARATION
+
+CHAPTER 27 — ALGORITHM RESEARCH METHODOLOGY
+  27.1 Identifying Research Problems
+  27.2 Literature Review
+  27.3 Research Gap Identification
+  27.4 Reading Research Papers
+  27.5 Mathematical Proof Development
+  27.6 Designing New Algorithms
+  27.7 Proposing New Data Structures
+  27.8 Complexity Proofs
+  27.9 Experimental Evaluation
+  27.10 Benchmark Design
+  27.11 Statistical Analysis
+  27.12 Reproducible Research
+  27.13 Research Writing
+  27.14 Research Presentation
+
+CHAPTER 28 — ADVANCED RESEARCH PROJECTS
+  28.1 Novel Search Data Structures
+  28.2 Dynamic Graph Processing
+  28.3 Advanced Indexing Structures
+  28.4 Memory-Efficient Algorithms
+  28.5 Parallel Data Structures
+  28.6 Streaming Data Structures
+  28.7 Approximation Techniques
+  28.8 Cache-Efficient Algorithms
+  28.9 Algorithm Optimization
+  28.10 Research Paper Implementation
+  28.11 Comparative Experimental Study
+  28.12 Original Research Proposal
+
+============================================================
+END OF PhD-LEVEL SYLLABUS
+============================================================
