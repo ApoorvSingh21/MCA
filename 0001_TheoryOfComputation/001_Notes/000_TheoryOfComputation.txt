@@ -1,0 +1,809 @@
+============================================================
+THEORY OF COMPUTATION
+PhD LEVEL MASTER SYLLABUS
+50 CHAPTERS | 12 PHASES
+============================================================
+
+LEVEL:
+PhD 1st Year → Advanced Research Level
+
+SUBJECT:
+Theory of Computation (TOC)
+
+APPROACH:
+Mathematical Foundations
+Automata Theory
+Formal Language Theory
+Computability Theory
+Computational Complexity
+Advanced Theoretical Computer Science
+Research-Oriented Study
+
+
+============================================================
+PHASE 1 — MATHEMATICAL FOUNDATIONS
+============================================================
+
+CHAPTER 1 — INTRODUCTION TO THEORY OF COMPUTATION
+1.1 Introduction to computation
+1.2 Historical development of computation
+1.3 Computational models
+1.4 Abstract machines
+1.5 Formal systems
+1.6 Automata theory
+1.7 Formal language theory
+1.8 Computability theory
+1.9 Complexity theory
+1.10 Computational paradigms
+1.11 Limits of computation
+1.12 Applications in modern computer science
+
+CHAPTER 2 — DISCRETE MATHEMATICS FOR THEORETICAL COMPUTER SCIENCE
+2.1 Set theory
+2.2 Relations
+2.3 Functions
+2.4 Equivalence relations
+2.5 Partial orders
+2.6 Lattices
+2.7 Mathematical induction
+2.8 Strong induction
+2.9 Structural induction
+2.10 Recursive definitions
+2.11 Infinite sets
+2.12 Countability and uncountability
+2.13 Cantor's diagonalization
+2.14 Cardinality of infinite sets
+
+CHAPTER 3 — MATHEMATICAL LOGIC AND PROOF SYSTEMS
+3.1 Propositional logic
+3.2 Predicate logic
+3.3 First-order logic
+3.4 Quantifiers
+3.5 Logical equivalence
+3.6 Logical inference
+3.7 Soundness and completeness
+3.8 Formal proof systems
+3.9 Resolution principle
+3.10 Normal forms
+3.11 Decidability of logical theories
+3.12 Compactness theorem
+3.13 Gödel's incompleteness theorems
+3.14 Introduction to model theory
+
+CHAPTER 4 — ALGEBRAIC STRUCTURES
+4.1 Binary operations
+4.2 Semigroups
+4.3 Monoids
+4.4 Groups
+4.5 Subgroups
+4.6 Homomorphisms
+4.7 Isomorphisms
+4.8 Congruence relations
+4.9 Quotient structures
+4.10 Free monoids
+4.11 Semigroup theory
+4.12 Algebraic structures in automata theory
+
+
+============================================================
+PHASE 2 — FORMAL LANGUAGES
+============================================================
+
+CHAPTER 5 — FOUNDATIONS OF FORMAL LANGUAGES
+5.1 Alphabets
+5.2 Symbols
+5.3 Strings
+5.4 String operations
+5.5 Formal languages
+5.6 Language operations
+5.7 Kleene closure
+5.8 Positive closure
+5.9 Language equivalence
+5.10 Language inclusion
+5.11 Language algebra
+5.12 Language quotients
+5.13 Homomorphisms
+5.14 Inverse homomorphisms
+
+CHAPTER 6 — FORMAL GRAMMARS
+6.1 Grammar fundamentals
+6.2 Grammar representation
+6.3 Production systems
+6.4 Derivations
+6.5 Leftmost derivation
+6.6 Rightmost derivation
+6.7 Parse trees
+6.8 Ambiguous grammars
+6.9 Inherently ambiguous languages
+6.10 Grammar equivalence
+6.11 Grammar simplification
+6.12 Grammar transformations
+
+
+============================================================
+PHASE 3 — FINITE AUTOMATA THEORY
+============================================================
+
+CHAPTER 7 — DETERMINISTIC FINITE AUTOMATA
+7.1 Mathematical definition
+7.2 Five-tuple representation
+7.3 Transition functions
+7.4 Extended transition functions
+7.5 Language acceptance
+7.6 DFA construction techniques
+7.7 Counting automata
+7.8 Pattern recognition
+7.9 Divisibility automata
+7.10 Product automata
+7.11 State distinguishability
+7.12 DFA equivalence
+
+CHAPTER 8 — NONDETERMINISTIC FINITE AUTOMATA
+8.1 NFA fundamentals
+8.2 Formal definition
+8.3 Nondeterministic computation
+8.4 Multiple transitions
+8.5 Missing transitions
+8.6 Epsilon transitions
+8.7 Epsilon closure
+8.8 Subset construction
+8.9 NFA to DFA conversion
+8.10 State complexity
+8.11 NFA equivalence
+
+CHAPTER 9 — REGULAR EXPRESSIONS
+9.1 Regular expression fundamentals
+9.2 Regular expression algebra
+9.3 Operator precedence
+9.4 Regular expression construction
+9.5 Regular expression equivalence
+9.6 Arden's theorem
+9.7 State elimination
+9.8 Brzozowski derivatives
+9.9 Antimirov partial derivatives
+9.10 Efficient regular expression matching
+
+CHAPTER 10 — EQUIVALENCE OF FINITE AUTOMATA AND REGULAR EXPRESSIONS
+10.1 Kleene's theorem
+10.2 DFA and regular languages
+10.3 NFA and regular languages
+10.4 Thompson construction
+10.5 Subset construction
+10.6 GNFA
+10.7 Automata to regular expressions
+10.8 Regular expressions to automata
+10.9 Formal equivalence proofs
+
+CHAPTER 11 — AUTOMATA MINIMIZATION
+11.1 Equivalent states
+11.2 Distinguishable states
+11.3 Table-filling algorithm
+11.4 Partition refinement
+11.5 Hopcroft's minimization algorithm
+11.6 Myhill-Nerode theorem
+11.7 Right congruence
+11.8 Nerode equivalence classes
+11.9 Minimal DFA uniqueness
+11.10 State complexity
+
+
+============================================================
+PHASE 4 — ADVANCED REGULAR LANGUAGE THEORY
+============================================================
+
+CHAPTER 12 — PUMPING LEMMAS AND REGULAR LANGUAGE PROPERTIES
+12.1 Pumping lemma for regular languages
+12.2 Formal proof techniques
+12.3 Non-regular language proofs
+12.4 Myhill-Nerode applications
+12.5 Closure properties
+12.6 Homomorphism
+12.7 Inverse homomorphism
+12.8 Quotient operations
+12.9 Boolean operations
+12.10 Decidability of regular languages
+
+CHAPTER 13 — ALGEBRAIC AUTOMATA THEORY
+13.1 Algebraic foundations
+13.2 Semigroups and automata
+13.3 Transition monoids
+13.4 Syntactic monoids
+13.5 Syntactic congruence
+13.6 Syntactic semigroups
+13.7 Recognizable languages
+13.8 Star-free languages
+13.9 Aperiodic monoids
+13.10 Schützenberger's theorem
+13.11 Eilenberg's variety theory
+13.12 Algebraic characterization of regular languages
+
+CHAPTER 14 — ADVANCED AUTOMATA MODELS
+14.1 Moore machines
+14.2 Mealy machines
+14.3 Finite transducers
+14.4 Two-way finite automata
+14.5 Counter automata
+14.6 Register automata
+14.7 Weighted automata
+14.8 Probabilistic automata
+14.9 Cellular automata
+14.10 Alternating finite automata
+
+
+============================================================
+PHASE 5 — CONTEXT-FREE LANGUAGES
+============================================================
+
+CHAPTER 15 — CONTEXT-FREE GRAMMARS
+15.1 CFG fundamentals
+15.2 Formal definition
+15.3 Derivations
+15.4 Parse trees
+15.5 Ambiguity
+15.6 Inherently ambiguous languages
+15.7 Grammar equivalence
+15.8 Grammar simplification
+15.9 Useless symbols
+15.10 Nullable productions
+15.11 Unit productions
+15.12 CFG construction techniques
+
+CHAPTER 16 — NORMAL FORMS OF CFG
+16.1 Chomsky Normal Form
+16.2 Greibach Normal Form
+16.3 Conversion algorithms
+16.4 Elimination of epsilon productions
+16.5 Elimination of unit productions
+16.6 Elimination of useless symbols
+16.7 Grammar normalization proofs
+16.8 Applications of normal forms
+
+CHAPTER 17 — PARSING THEORY
+17.1 Parsing fundamentals
+17.2 Top-down parsing
+17.3 Bottom-up parsing
+17.4 Recursive descent parsing
+17.5 CYK algorithm
+17.6 Earley parsing algorithm
+17.7 LL grammars
+17.8 LR grammars
+17.9 SLR parsing
+17.10 LALR parsing
+17.11 Canonical LR parsing
+17.12 Parsing complexity
+
+CHAPTER 18 — PUSH DOWN AUTOMATA
+18.1 PDA fundamentals
+18.2 Formal seven-tuple
+18.3 Stack operations
+18.4 Instantaneous descriptions
+18.5 Acceptance by final state
+18.6 Acceptance by empty stack
+18.7 Deterministic PDA
+18.8 Nondeterministic PDA
+18.9 PDA construction
+18.10 PDA equivalence
+18.11 CFG to PDA
+18.12 PDA to CFG
+
+CHAPTER 19 — PROPERTIES OF CONTEXT-FREE LANGUAGES
+19.1 Closure properties
+19.2 Non-closure properties
+19.3 Pumping lemma for CFL
+19.4 Ogden's lemma
+19.5 Interchange lemma
+19.6 CFL decision problems
+19.7 Membership problem
+19.8 Emptiness problem
+19.9 Finiteness problem
+19.10 Equivalence problem
+19.11 Inherent ambiguity
+
+CHAPTER 20 — DETERMINISTIC CONTEXT-FREE LANGUAGES
+20.1 DCFL fundamentals
+20.2 Deterministic PDA
+20.3 DCFL characterization
+20.4 Relationship between CFL and DCFL
+20.5 Closure properties of DCFL
+20.6 LR languages
+20.7 Deterministic parsing
+20.8 Applications of DCFL
+
+
+============================================================
+PHASE 6 — ADVANCED LANGUAGE THEORY
+============================================================
+
+CHAPTER 21 — CHOMSKY HIERARCHY
+21.1 Type-0 grammars
+21.2 Type-1 grammars
+21.3 Type-2 grammars
+21.4 Type-3 grammars
+21.5 Unrestricted grammars
+21.6 Context-sensitive grammars
+21.7 Context-free grammars
+21.8 Regular grammars
+21.9 Language inclusion hierarchy
+21.10 Computational power comparison
+
+CHAPTER 22 — CONTEXT-SENSITIVE LANGUAGES
+22.1 Context-sensitive grammar
+22.2 Non-contracting grammars
+22.3 Context-sensitive derivations
+22.4 Linear bounded automata
+22.5 LBA construction
+22.6 CSG and LBA equivalence
+22.7 Context-sensitive language properties
+22.8 Decision problems
+
+CHAPTER 23 — TREE AUTOMATA AND TREE LANGUAGES
+23.1 Tree structures
+23.2 Ranked alphabets
+23.3 Finite tree automata
+23.4 Bottom-up tree automata
+23.5 Top-down tree automata
+23.6 Tree grammars
+23.7 Tree language recognition
+23.8 Tree automata minimization
+23.9 Applications in program verification
+
+CHAPTER 24 — OMEGA AUTOMATA AND INFINITE WORDS
+24.1 Infinite words
+24.2 Omega languages
+24.3 Büchi automata
+24.4 Rabin automata
+24.5 Streett automata
+24.6 Muller automata
+24.7 Parity automata
+24.8 Acceptance conditions
+24.9 Automata on infinite trees
+24.10 Applications in verification
+
+
+============================================================
+PHASE 7 — TURING MACHINES
+============================================================
+
+CHAPTER 25 — TURING MACHINE FUNDAMENTALS
+25.1 Turing's computational model
+25.2 Formal definition
+25.3 Seven-tuple representation
+25.4 Infinite tape
+25.5 Read/write head
+25.6 Transition functions
+25.7 Configurations
+25.8 Instantaneous descriptions
+25.9 Acceptance
+25.10 Rejection
+25.11 Halting
+25.12 Infinite computation
+
+CHAPTER 26 — DESIGNING TURING MACHINES
+26.1 Basic TM construction
+26.2 String recognition
+26.3 String comparison
+26.4 String copying
+26.5 Palindrome recognition
+26.6 Unary arithmetic
+26.7 Binary arithmetic
+26.8 Multiple-pass computation
+26.9 Marking techniques
+26.10 Tape organization
+26.11 Complex TM design
+
+CHAPTER 27 — ADVANCED TURING MACHINE MODELS
+27.1 Multitape Turing machines
+27.2 Multitrack Turing machines
+27.3 Multidimensional Turing machines
+27.4 Nondeterministic Turing machines
+27.5 Alternating Turing machines
+27.6 Universal Turing machines
+27.7 Linear bounded automata
+27.8 Oracle Turing machines
+27.9 Simulation techniques
+27.10 Computational equivalence
+
+CHAPTER 28 — CHURCH-TURING THESIS
+28.1 Effective computability
+28.2 Algorithmic computation
+28.3 Church's thesis
+28.4 Turing's thesis
+28.5 Church-Turing thesis
+28.6 Lambda calculus
+28.7 Partial recursive functions
+28.8 Primitive recursive functions
+28.9 Equivalence of computation models
+28.10 Extended Church-Turing thesis
+
+
+============================================================
+PHASE 8 — COMPUTABILITY THEORY
+============================================================
+
+CHAPTER 29 — DECIDABILITY AND UNDECIDABILITY
+29.1 Decidable languages
+29.2 Undecidable languages
+29.3 Recursive languages
+29.4 Recursively enumerable languages
+29.5 Recognizers and deciders
+29.6 Acceptance problem
+29.7 Halting problem
+29.8 Post Correspondence Problem
+29.9 Modified PCP
+29.10 CFG ambiguity problem
+29.11 CFG equivalence problem
+29.12 Decision problem classifications
+
+CHAPTER 30 — HALTING PROBLEM AND DIAGONALIZATION
+30.1 Halting problem
+30.2 Formal definition
+30.3 Diagonalization
+30.4 Self-reference
+30.5 Contradiction proofs
+30.6 Universal computation
+30.7 Undecidability proofs
+30.8 Implications of undecidability
+
+CHAPTER 31 — REDUCTION THEORY
+31.1 Reduction fundamentals
+31.2 Mapping reductions
+31.3 Many-one reductions
+31.4 Turing reductions
+31.5 One-one reductions
+31.6 Reduction direction
+31.7 Undecidability proofs
+31.8 Completeness under reductions
+31.9 Reduction between languages
+31.10 Advanced reduction techniques
+
+CHAPTER 32 — RECURSION THEORY
+32.1 Recursive functions
+32.2 Partial recursive functions
+32.3 Primitive recursive functions
+32.4 General recursive functions
+32.5 μ-recursive functions
+32.6 Recursive enumerability
+32.7 Recursion theorem
+32.8 Kleene's recursion theorem
+32.9 Fixed-point theorem
+32.10 Self-reproducing programs
+32.11 Program equivalence
+
+CHAPTER 33 — ADVANCED COMPUTABILITY
+33.1 Rice's theorem
+33.2 Rice-Shapiro theorem
+33.3 Semantic properties
+33.4 Syntactic properties
+33.5 Arithmetical hierarchy
+33.6 Sigma and Pi classes
+33.7 Turing degrees
+33.8 Many-one completeness
+33.9 Oracle computation
+33.10 Relativization
+33.11 Post's theorem
+33.12 Degree structures
+
+
+============================================================
+PHASE 9 — COMPUTATIONAL COMPLEXITY THEORY
+============================================================
+
+CHAPTER 34 — FOUNDATIONS OF COMPLEXITY THEORY
+34.1 Computational resources
+34.2 Time complexity
+34.3 Space complexity
+34.4 Input-size analysis
+34.5 Asymptotic notation
+34.6 Worst-case complexity
+34.7 Average-case complexity
+34.8 Best-case complexity
+34.9 Computational models
+34.10 Complexity measures
+
+CHAPTER 35 — COMPLEXITY CLASSES
+35.1 P
+35.2 NP
+35.3 co-NP
+35.4 L
+35.5 NL
+35.6 PSPACE
+35.7 NPSPACE
+35.8 EXPTIME
+35.9 NEXPTIME
+35.10 Relationship between classes
+35.11 Complexity class separations
+35.12 Open problems
+
+CHAPTER 36 — NP-COMPLETENESS
+36.1 Polynomial-time reductions
+36.2 NP-hardness
+36.3 NP-completeness
+36.4 SAT
+36.5 3-SAT
+36.6 Cook-Levin theorem
+36.7 Clique
+36.8 Vertex Cover
+36.9 Hamiltonian Cycle
+36.10 Traveling Salesman Problem
+36.11 Subset Sum
+36.12 Advanced NP-completeness proofs
+
+CHAPTER 37 — SPACE COMPLEXITY
+37.1 Deterministic space complexity
+37.2 Nondeterministic space complexity
+37.3 Savitch's theorem
+37.4 Space hierarchy theorem
+37.5 PSPACE-completeness
+37.6 QBF
+37.7 TQBF
+37.8 NL-completeness
+37.9 Configuration graphs
+37.10 Space-efficient algorithms
+
+CHAPTER 38 — TIME COMPLEXITY AND HIERARCHY THEOREMS
+38.1 Time hierarchy theorem
+38.2 Deterministic time hierarchy
+38.3 Nondeterministic time hierarchy
+38.4 Exponential-time computation
+38.5 Sub-exponential complexity
+38.6 Padding arguments
+38.7 Speed-up theorem
+38.8 Complexity gaps
+38.9 Time-space trade-offs
+
+
+============================================================
+PHASE 10 — ADVANCED COMPLEXITY THEORY
+============================================================
+
+CHAPTER 39 — POLYNOMIAL HIERARCHY
+39.1 Polynomial hierarchy
+39.2 Sigma-P classes
+39.3 Pi-P classes
+39.4 Delta-P classes
+39.5 Alternating computation
+39.6 Quantified Boolean formulas
+39.7 PH-completeness
+39.8 Hierarchy collapse
+39.9 Relationship with PSPACE
+
+CHAPTER 40 — CIRCUIT COMPLEXITY
+40.1 Boolean circuits
+40.2 Circuit representations
+40.3 Circuit size
+40.4 Circuit depth
+40.5 Uniform circuits
+40.6 Non-uniform circuits
+40.7 Circuit families
+40.8 AC0
+40.9 NC complexity
+40.10 TC0
+40.11 P/poly
+40.12 Circuit lower bounds
+
+CHAPTER 41 — COMMUNICATION COMPLEXITY
+41.1 Communication complexity fundamentals
+41.2 Deterministic communication
+41.3 Nondeterministic communication
+41.4 Randomized communication
+41.5 Communication protocols
+41.6 Communication matrices
+41.7 Rectangle method
+41.8 Fooling sets
+41.9 Applications to circuit complexity
+41.10 Lower-bound techniques
+
+CHAPTER 42 — RANDOMIZED COMPUTATION
+42.1 Randomized algorithms
+42.2 Randomized Turing machines
+42.3 RP
+42.4 co-RP
+42.5 BPP
+42.6 ZPP
+42.7 PP
+42.8 Amplification
+42.9 Randomized reductions
+42.10 Derandomization
+42.11 Pseudorandom generators
+
+CHAPTER 43 — PARAMETERIZED COMPLEXITY
+43.1 Parameterized problems
+43.2 Fixed-parameter tractability
+43.3 FPT algorithms
+43.4 Kernelization
+43.5 W-hierarchy
+43.6 W[1] and W[2]
+43.7 Parameterized reductions
+43.8 Parameterized hardness
+43.9 Applications
+
+CHAPTER 44 — DESCRIPTIVE COMPLEXITY
+44.1 Logic and complexity
+44.2 First-order logic
+44.3 Second-order logic
+44.4 Finite model theory
+44.5 Descriptive characterization of P
+44.6 Fagin's theorem
+44.7 Immerman-Vardi theorem
+44.8 Logical characterization of complexity classes
+
+
+============================================================
+PHASE 11 — EMERGING COMPUTATIONAL MODELS
+============================================================
+
+CHAPTER 45 — QUANTUM COMPUTATION THEORY
+45.1 Quantum computational model
+45.2 Qubits
+45.3 Quantum gates
+45.4 Quantum circuits
+45.5 Quantum Turing machines
+45.6 BQP
+45.7 Quantum complexity classes
+45.8 Quantum automata
+45.9 Quantum algorithms
+45.10 Classical versus quantum computation
+
+CHAPTER 46 — PROBABILISTIC AND WEIGHTED AUTOMATA
+46.1 Probabilistic finite automata
+46.2 Weighted finite automata
+46.3 Stochastic languages
+46.4 Markov models
+46.5 Semiring-based automata
+46.6 Weighted automata equivalence
+46.7 Applications in language processing
+
+CHAPTER 47 — MODEL CHECKING AND TEMPORAL LOGIC
+47.1 Formal verification
+47.2 Model checking
+47.3 Kripke structures
+47.4 Linear Temporal Logic
+47.5 Computation Tree Logic
+47.6 LTL model checking
+47.7 CTL model checking
+47.8 Automata-based verification
+47.9 Büchi automata applications
+47.10 State-space explosion
+
+
+============================================================
+PHASE 12 — RESEARCH-LEVEL THEORY OF COMPUTATION
+============================================================
+
+CHAPTER 48 — ADVANCED PROOF TECHNIQUES
+48.1 Mathematical proof construction
+48.2 Diagonalization arguments
+48.3 Counting arguments
+48.4 Probabilistic method
+48.5 Adversary arguments
+48.6 Information-theoretic arguments
+48.7 Reduction-based proofs
+48.8 Indistinguishability arguments
+48.9 Lower-bound proofs
+48.10 Separation techniques
+
+CHAPTER 49 — RESEARCH METHODS IN THEORETICAL COMPUTER SCIENCE
+49.1 Reading research papers
+49.2 Mathematical literature review
+49.3 Identifying research gaps
+49.4 Formulating research problems
+49.5 Developing conjectures
+49.6 Constructing mathematical proofs
+49.7 Reproducing theoretical results
+49.8 Research paper analysis
+49.9 Technical writing
+49.10 Research presentations
+
+CHAPTER 50 — OPEN PROBLEMS AND RESEARCH DIRECTIONS
+50.1 P versus NP
+50.2 NP versus co-NP
+50.3 L versus NL
+50.4 P versus PSPACE
+50.5 Complexity class separations
+50.6 Circuit lower bounds
+50.7 Derandomization
+50.8 Automata learning
+50.9 Descriptive complexity
+50.10 Quantum complexity
+50.11 Advanced computability problems
+50.12 Current research developments
+
+
+============================================================
+STUDY AND TEACHING RULES
+============================================================
+
+RULE 1: DEEPEST THEORETICAL EXPLANATION
+
+Every chapter must contain:
+
+1. Introduction and historical background.
+2. Fundamental concepts.
+3. Formal mathematical definitions.
+4. Mathematical notation.
+5. Theorems and lemmas.
+6. Complete theorem proofs.
+7. Step-by-step derivations.
+8. Mathematical examples.
+9. Detailed problem-solving techniques.
+10. Computational examples.
+11. Applications.
+12. Advanced concepts.
+13. Common misconceptions.
+14. Chapter summary.
+
+RULE 2: CHAPTER COMPLETION
+
+Complete the entire chapter before moving to the next chapter.
+
+RULE 3: PRACTICE MODE
+
+After completing each chapter, switch to practice mode.
+
+Practice difficulty:
+GATE CSE LEVEL OR HIGHER.
+
+Question categories:
+- Conceptual questions.
+- Mathematical problems.
+- Numerical problems.
+- Theorem-based questions.
+- Proof-based questions.
+- Application-based questions.
+- Advanced analytical problems.
+
+RULE 4: ONE QUESTION AT A TIME
+
+1. Ask exactly ONE question.
+2. Wait for my answer.
+3. Evaluate my answer.
+4. Explain the complete underlying concept.
+5. Explain why the correct answer is correct.
+6. Explain why other options are incorrect.
+7. Ask the next question.
+
+RULE 5: PROGRESS TRACKING
+
+Maintain the following:
+
+- Completed phases.
+- Completed chapters.
+- Current chapter.
+- Theory completion.
+- Practice completion.
+- Performance.
+- Weak concepts.
+
+
+============================================================
+FINAL SYLLABUS STATISTICS
+============================================================
+
+Total Phases              : 12
+Total Chapters            : 50
+Study Level               : PhD 1st Year
+Foundation Level          : Advanced
+Mathematical Depth        : High
+Problem Difficulty        : GATE or Higher
+Theorem Proofs             : Required
+Research Orientation      : Included
+
+============================================================
+INITIAL PROGRESS TRACKER
+============================================================
+
+Syllabus Review           : COMPLETED
+Syllabus Expansion        : COMPLETED
+Total Chapters            : 50
+
+Current Phase             : PHASE 1
+Current Chapter           : CHAPTER 1
+
+Theory Progress           : 0/50
+Practice Progress         : 0/50
+
+Overall Progress          : 0%
+
+============================================================
+END OF PhD THEORY OF COMPUTATION MASTER SYLLABUS
+============================================================
