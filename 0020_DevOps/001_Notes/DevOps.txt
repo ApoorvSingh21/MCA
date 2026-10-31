@@ -1,0 +1,768 @@
+===============================================================
+                 DEVOPS — MASTER SYLLABUS
+          Beginner → Advanced → Production → Job Ready
+===============================================================
+
+COURSE GOAL
+-----------
+Learn to design, build, deploy, secure, monitor, and troubleshoot
+modern production systems.
+
+SOURCE: A_DevOps.txt
+TOTAL CHAPTERS: 57 (Chapter 0–56)
+TOTAL PHASES: 21 (Phase 0–20)
+PRACTICAL PROJECTS: 12
+TARGET ROLES: DevOps Engineer, Cloud Engineer, SRE, Platform Engineer
+
+===============================================================
+PHASE 0 — DEVOPS ORIENTATION & PREREQUISITES
+===============================================================
+
+Chapter 0  — Introduction to DevOps
+Chapter 1  — Computer & Software Fundamentals
+
+===============================================================
+PHASE 1 — LINUX & SYSTEM ADMINISTRATION
+===============================================================
+
+Chapter 2  — Linux Fundamentals
+Chapter 3  — Linux Users, Permissions & Processes
+Chapter 4  — Linux Networking & System Administration
+
+===============================================================
+PHASE 2 — GIT & SOURCE CODE MANAGEMENT
+===============================================================
+
+Chapter 5  — Git Fundamentals
+Chapter 6  — Git Branching & Collaboration
+
+===============================================================
+PHASE 3 — SHELL SCRIPTING & AUTOMATION
+===============================================================
+
+Chapter 7  — Bash/Shell Scripting
+Chapter 8  — Automation Fundamentals
+
+===============================================================
+PHASE 4 — BUILD SYSTEMS & APPLICATION DEPLOYMENT
+===============================================================
+
+Chapter 9  — Build & Package Management
+Chapter 10 — Application Servers & Reverse Proxies
+
+===============================================================
+PHASE 5 — CI/CD
+===============================================================
+
+Chapter 11 — Continuous Integration
+Chapter 12 — Continuous Delivery & Deployment
+Chapter 13 — Jenkins
+Chapter 14 — Modern CI/CD Platforms
+
+===============================================================
+PHASE 6 — DOCKER & CONTAINERIZATION
+===============================================================
+
+Chapter 15 — Containers Fundamentals
+Chapter 16 — Docker
+Chapter 17 — Dockerfile
+Chapter 18 — Docker Compose
+
+===============================================================
+PHASE 7 — INFRASTRUCTURE AS CODE
+===============================================================
+
+Chapter 19 — Infrastructure as Code
+Chapter 20 — Terraform
+Chapter 21 — Ansible
+
+===============================================================
+PHASE 8 — CLOUD COMPUTING
+===============================================================
+
+Chapter 22 — Cloud Fundamentals
+Chapter 23 — AWS Fundamentals
+Chapter 24 — Cloud Architecture
+
+===============================================================
+PHASE 9 — KUBERNETES
+===============================================================
+
+Chapter 25 — Kubernetes Fundamentals
+Chapter 26 — Kubernetes Core Objects
+Chapter 27 — Kubernetes Networking
+Chapter 28 — Kubernetes Operations
+Chapter 29 — Kubernetes Configuration & Helm
+Chapter 30 — Kubernetes Production
+
+===============================================================
+PHASE 10 — DEVSECOPS
+===============================================================
+
+Chapter 31 — DevSecOps Fundamentals
+Chapter 32 — Application & Dependency Security
+Chapter 33 — Container & Kubernetes Security
+Chapter 34 — Secrets Management
+
+===============================================================
+PHASE 11 — MONITORING & OBSERVABILITY
+===============================================================
+
+Chapter 35 — Monitoring Fundamentals
+Chapter 36 — Logging
+Chapter 37 — Metrics & Prometheus
+Chapter 38 — Grafana
+Chapter 39 — Distributed Tracing & OpenTelemetry
+
+===============================================================
+PHASE 12 — RELIABILITY & PRODUCTION ENGINEERING
+===============================================================
+
+Chapter 40 — SRE Fundamentals
+Chapter 41 — Scalability & High Availability
+Chapter 42 — Disaster Recovery
+
+===============================================================
+PHASE 13 — ADVANCED CI/CD & GITOPS
+===============================================================
+
+Chapter 43 — Advanced CI/CD
+Chapter 44 — GitOps
+
+===============================================================
+PHASE 14 — SERVICE MESH & CLOUD-NATIVE
+===============================================================
+
+Chapter 45 — Cloud-Native Architecture
+Chapter 46 — Service Mesh
+
+===============================================================
+PHASE 15 — DEVOPS DATABASE & MIDDLEWARE OPERATIONS
+===============================================================
+
+Chapter 47 — Database Operations
+Chapter 48 — Caching & Messaging
+
+===============================================================
+PHASE 16 — DEVOPS ARCHITECTURE & SYSTEM DESIGN
+===============================================================
+
+Chapter 49 — Production Architecture
+Chapter 50 — DevOps System Design
+
+===============================================================
+PHASE 17 — TROUBLESHOOTING & INCIDENT MANAGEMENT
+===============================================================
+
+Chapter 51 — DevOps Troubleshooting
+Chapter 52 — Incident Management
+
+===============================================================
+PHASE 18 — DEVOPS PROJECTS
+===============================================================
+
+Project 1  — Linux Production Server
+Project 2  — Git-Based CI Pipeline
+Project 3  — Dockerized Application
+Project 4  — Complete CI/CD Pipeline
+Project 5  — AWS Infrastructure with Terraform
+Project 6  — Configuration Management with Ansible
+Project 7  — Kubernetes Deployment
+Project 8  — Kubernetes CI/CD
+Project 9  — GitOps with Argo CD
+Project 10 — Observability Stack
+Project 11 — DevSecOps Pipeline
+Project 12 — Final Capstone Project
+
+===============================================================
+PHASE 19 — JOB-READY SKILLS
+===============================================================
+
+Chapter 53 — DevOps Engineer Daily Work
+Chapter 54 — DevOps Interview Preparation
+
+===============================================================
+PHASE 20 — RESUME & JOB PREPARATION
+===============================================================
+
+Chapter 55 — Job Portfolio
+Chapter 56 — Resume Preparation
+
+===============================================================
+CORE TOOLKIT TO MASTER
+===============================================================
+
+OPERATING SYSTEMS:
+Linux, Ubuntu, RHEL concepts
+
+VERSION CONTROL:
+Git, GitHub, GitLab
+
+SCRIPTING:
+Bash, Python basics
+
+CI/CD:
+Jenkins, GitHub Actions, GitLab CI/CD
+
+CONTAINERS:
+Docker, Docker Compose
+
+INFRASTRUCTURE AS CODE:
+Terraform
+
+CONFIGURATION MANAGEMENT:
+Ansible
+
+CLOUD:
+AWS, basic Azure/GCP concepts
+
+ORCHESTRATION:
+Kubernetes, Helm
+
+GITOPS:
+Argo CD
+
+SECURITY:
+IAM, RBAC, SAST, SCA, Secret Scanning,
+Container Scanning, SBOM
+
+OBSERVABILITY:
+Prometheus, Grafana, Elastic Stack, OpenTelemetry
+
+NETWORKING:
+TCP/IP, DNS, HTTP/HTTPS, SSH,
+Load Balancing, Reverse Proxy
+
+===============================================================
+JOB-READY LEARNING ORDER
+===============================================================
+
+01. Linux
+02. Networking
+03. Git/GitHub
+04. Bash
+05. DevOps Fundamentals
+06. Build Tools
+07. CI/CD
+08. Jenkins
+09. GitHub Actions
+10. Docker
+11. Docker Compose
+12. Terraform
+13. Ansible
+14. AWS
+15. Kubernetes
+16. Helm
+17. DevSecOps
+18. Prometheus
+19. Grafana
+20. Logging
+21. OpenTelemetry
+22. GitOps
+23. SRE
+24. Troubleshooting
+25. System Design
+26. Production Projects
+27. Interview Preparation
+
+===============================================================
+PROGRESS TRACKER
+===============================================================
+
+PHASE 0  [ ] DevOps Orientation & Prerequisites
+PHASE 1  [ ] Linux & System Administration
+PHASE 2  [ ] Git & Source Code Management
+PHASE 3  [ ] Shell Scripting & Automation
+PHASE 4  [ ] Build Systems & Application Deployment
+PHASE 5  [ ] CI/CD
+PHASE 6  [ ] Docker & Containerization
+PHASE 7  [ ] Infrastructure as Code
+PHASE 8  [ ] Cloud Computing
+PHASE 9  [ ] Kubernetes
+PHASE 10 [ ] DevSecOps
+PHASE 11 [ ] Monitoring & Observability
+PHASE 12 [ ] Reliability & Production Engineering
+PHASE 13 [ ] Advanced CI/CD & GitOps
+PHASE 14 [ ] Service Mesh & Cloud-Native
+PHASE 15 [ ] Database & Middleware Operations
+PHASE 16 [ ] Architecture & System Design
+PHASE 17 [ ] Troubleshooting & Incident Management
+PHASE 18 [ ] DevOps Projects
+PHASE 19 [ ] Job-Ready Skills
+PHASE 20 [ ] Resume & Job Preparation
+
+===============================================================
+CHAPTER PROGRESS
+===============================================================
+
+Total theory chapters: 57 (Chapter 0–56)
+Completed:             0
+Remaining:             57
+
+Projects completed:    0/12
+
+Current chapter:       Not started
+Next chapter:          Chapter 0 — Introduction to DevOps
+
+===============================================================
+QUICK REVISION — ENTIRE COURSE
+===============================================================
+
+DevOps Fundamentals:
+Understand DevOps culture, lifecycle, CI, CD and collaboration.
+
+Linux:
+Master commands, files, permissions, processes, services and SSH.
+
+Networking:
+Learn IP addressing, DNS, TCP/UDP, HTTP/HTTPS, ports and firewalls.
+
+Git:
+Understand commits, branches, merges, rebasing and collaboration.
+
+Bash & Automation:
+Automate repetitive tasks with scripts, conditions, loops and functions.
+
+Build & Deployment:
+Understand build artifacts, dependencies, application servers and proxies.
+
+CI/CD:
+Automate builds, testing, security checks and deployments.
+
+Docker:
+Understand images, containers, Dockerfiles, volumes and networking.
+
+Infrastructure as Code:
+Provision and manage infrastructure using Terraform and Ansible.
+
+Cloud:
+Understand cloud services, AWS, IAM, VPC, EC2, S3 and high availability.
+
+Kubernetes:
+Learn Pods, Deployments, Services, networking, storage and scaling.
+
+DevSecOps:
+Integrate security scanning, secrets management and access control.
+
+Observability:
+Use metrics, logs, traces, Prometheus, Grafana and OpenTelemetry.
+
+Reliability:
+Understand SLI, SLO, SLA, error budgets, disaster recovery and SRE.
+
+GitOps:
+Manage declarative infrastructure and deployments through Git.
+
+Production Engineering:
+Design scalable systems, troubleshoot failures and manage incidents.
+
+Projects & Careers:
+Build production-style projects, prepare a portfolio, and practice
+technical interviews and resume preparation.
+
+===============================================================
+COMMAND SYSTEM
+===============================================================
+
+Command: Chapter
+
+RULE:
+1. If the syllabus has not started, begin Chapter 0.
+2. Otherwise, move to the next chapter.
+3. Follow the uploaded A_DevOps.txt syllabus.
+4. Present the full chapter in one code block.
+5. Include a quick revision of the complete chapter.
+6. Maintain the chapter progress tracker.
+
+PRACTICE MODE:
+1. Questions must be at GATE-level difficulty.
+2. Ask only ONE question at a time.
+3. Wait for my answer.
+4. Explain the answer and related concepts in detail.
+5. Then ask the next question.
+6. After every 10 questions, ask whether I want to continue or take a break.
+7. Switch to practice mode only after the master syllabus is completed,
+   according to the project rules.
+
+===============================================================
+READY TO START
+===============================================================
+
+Type: Chapter
+
+The course will begin with:
+
+CHAPTER 0 — INTRODUCTION TO DEVOPS
+
+===============================================================
+
+===============================================================
+DEVOPS — EXTENDED PhD-LEVEL MASTER SYLLABUS
+ORIGINAL CHAPTERS 0–56 + ADVANCED CHAPTERS 57–76
+===============================================================
+
+PHASE 21 — COMPUTER SYSTEMS & OPERATING SYSTEM INTERNALS
+
+CHAPTER 57 — Advanced Operating System Internals
+57.1 Operating system architecture
+57.2 Kernel architecture and kernel space
+57.3 User space and system calls
+57.4 Process scheduling algorithms
+57.5 Context switching
+57.6 Virtual memory
+57.7 Paging and segmentation
+57.8 Memory allocation
+57.9 Concurrency and synchronization
+57.10 Mutexes, semaphores and monitors
+57.11 Deadlocks and prevention
+57.12 Linux kernel modules
+57.13 Linux namespaces
+57.14 cgroups internals
+57.15 Kernel tracing and debugging
+
+CHAPTER 58 — Advanced Storage & Filesystem Engineering
+58.1 Filesystem architecture
+58.2 Inodes and directory structures
+58.3 Journaling filesystems
+58.4 Copy-on-write filesystems
+58.5 Block storage
+58.6 Distributed storage
+58.7 RAID architectures
+58.8 SSD and NVMe fundamentals
+58.9 I/O scheduling
+58.10 Filesystem performance
+58.11 Storage reliability
+58.12 Backup consistency
+
+===============================================================
+PHASE 22 — ADVANCED NETWORKING & DISTRIBUTED SYSTEMS
+===============================================================
+
+CHAPTER 59 — Advanced Computer Networking
+59.1 OSI and TCP/IP architecture
+59.2 Ethernet and switching
+59.3 IP addressing and subnetting
+59.4 Routing algorithms
+59.5 TCP connection management
+59.6 TCP congestion control
+59.7 UDP and QUIC
+59.8 DNS architecture
+59.9 HTTP/1.1, HTTP/2 and HTTP/3
+59.10 TLS and certificate management
+59.11 Reverse proxy internals
+59.12 Load-balancing algorithms
+59.13 Network namespaces
+59.14 Linux bridges and virtual networking
+59.15 eBPF networking
+59.16 Network performance analysis
+
+CHAPTER 60 — Distributed Systems Foundations
+60.1 Distributed system models
+60.2 Time and clock synchronization
+60.3 Logical clocks
+60.4 Vector clocks
+60.5 Distributed failures
+60.6 Failure detectors
+60.7 Replication
+60.8 Consistency models
+60.9 Strong and eventual consistency
+60.10 CAP theorem
+60.11 PACELC theorem
+60.12 Consensus algorithms
+60.13 Paxos fundamentals
+60.14 Raft consensus
+60.15 Leader election
+60.16 Distributed transactions
+60.17 Two-phase commit
+60.18 Distributed locking
+60.19 Fault tolerance
+60.20 Exactly-once and at-least-once processing
+
+CHAPTER 61 — Distributed Systems Engineering
+61.1 Distributed service architecture
+61.2 Service discovery internals
+61.3 Distributed configuration
+61.4 Distributed caching
+61.5 Message delivery guarantees
+61.6 Event-driven architecture
+61.7 Eventual consistency patterns
+61.8 Idempotent distributed operations
+61.9 Retry and backoff strategies
+61.10 Circuit breakers
+61.11 Bulkheads
+61.12 Backpressure
+61.13 Distributed tracing internals
+61.14 Failure injection
+61.15 Distributed debugging
+
+===============================================================
+PHASE 23 — CLOUD & CONTAINER INTERNALS
+===============================================================
+
+CHAPTER 62 — Advanced Cloud Computing
+62.1 Cloud service models
+62.2 Cloud deployment models
+62.3 Cloud control-plane architecture
+62.4 Multi-tenancy
+62.5 Resource isolation
+62.6 Virtualization internals
+62.7 Hypervisors
+62.8 Cloud storage architecture
+62.9 Cloud networking
+62.10 Serverless architecture
+62.11 Function-as-a-Service
+62.12 Edge computing
+62.13 Hybrid and multi-cloud architecture
+62.14 Cloud economics
+62.15 Cloud governance
+
+CHAPTER 63 — Container Runtime Internals
+63.1 Container architecture
+63.2 OCI specifications
+63.3 Container image specifications
+63.4 Container runtime architecture
+63.5 runc and containerd
+63.6 CRI architecture
+63.7 Linux namespaces internals
+63.8 cgroups v1 and v2
+63.9 Overlay filesystems
+63.10 Container networking internals
+63.11 Container storage internals
+63.12 Rootless containers
+63.13 Container isolation
+63.14 Container escape vulnerabilities
+63.15 Container performance analysis
+
+CHAPTER 64 — Kubernetes Internal Architecture
+64.1 Kubernetes control-plane internals
+64.2 API Server request lifecycle
+64.3 etcd architecture
+64.4 Scheduler internals
+64.5 Scheduling algorithms
+64.6 Controller architecture
+64.7 Reconciliation loops
+64.8 Operator pattern
+64.9 Admission controllers
+64.10 Custom Resource Definitions
+64.11 Kubelet internals
+64.12 Container runtime integration
+64.13 CNI architecture
+64.14 CSI architecture
+64.15 Kubernetes networking internals
+64.16 Cluster scalability
+64.17 Multi-cluster architecture
+64.18 Kubernetes failure analysis
+
+===============================================================
+PHASE 24 — RELIABILITY, PERFORMANCE & MATHEMATICAL MODELLING
+===============================================================
+
+CHAPTER 65 — Mathematical Foundations for SRE
+65.1 Probability fundamentals
+65.2 Random variables
+65.3 Probability distributions
+65.4 Conditional probability
+65.5 Reliability probability
+65.6 Failure-rate modelling
+65.7 Availability calculations
+65.8 Markov chains
+65.9 Reliability block diagrams
+65.10 Fault-tree analysis
+65.11 Mean Time To Failure
+65.12 Mean Time To Repair
+65.13 Mean Time Between Failures
+
+CHAPTER 66 — Queuing Theory & Performance Engineering
+66.1 Performance fundamentals
+66.2 Latency and throughput
+66.3 Little's Law
+66.4 Queueing systems
+66.5 M/M/1 queue
+66.6 M/M/c queue
+66.7 Queue stability
+66.8 Resource utilisation
+66.9 Saturation and bottlenecks
+66.10 Workload modelling
+66.11 Benchmarking
+66.12 Profiling
+66.13 CPU and memory profiling
+66.14 Performance regression
+66.15 Capacity planning
+
+CHAPTER 67 — Advanced Site Reliability Engineering
+67.1 Reliability engineering principles
+67.2 SLI design
+67.3 SLO design
+67.4 Error-budget policies
+67.5 Availability modelling
+67.6 Toil measurement
+67.7 Capacity management
+67.8 Overload management
+67.9 Graceful degradation
+67.10 Chaos engineering
+67.11 Resilience testing
+67.12 Failure-mode analysis
+67.13 Incident learning
+67.14 Reliability automation
+
+===============================================================
+PHASE 25 — ADVANCED SECURITY & SOFTWARE SUPPLY CHAIN
+===============================================================
+
+CHAPTER 68 — Advanced DevSecOps & Cloud Security
+68.1 Security architecture
+68.2 Threat modelling methodologies
+68.3 Security properties and trust boundaries
+68.4 Cryptography foundations
+68.5 Public-key infrastructure
+68.6 TLS architecture
+68.7 Identity and access management
+68.8 Zero-trust architecture
+68.9 Policy as code
+68.10 Runtime security
+68.11 Cloud workload protection
+68.12 Kubernetes security architecture
+68.13 Security monitoring
+68.14 Compliance automation
+68.15 Privacy and data protection
+
+CHAPTER 69 — Software Supply Chain Security
+69.1 Software supply-chain threats
+69.2 Secure build systems
+69.3 Dependency vulnerabilities
+69.4 SAST and DAST
+69.5 Software composition analysis
+69.6 SBOM standards
+69.7 Artifact provenance
+69.8 Software signing
+69.9 Build attestation
+69.10 SLSA framework
+69.11 Reproducible builds
+69.12 Container image verification
+69.13 Supply-chain attack analysis
+69.14 Secure deployment pipelines
+
+===============================================================
+PHASE 26 — ADVANCED AUTOMATION & CLOUD-NATIVE ENGINEERING
+===============================================================
+
+CHAPTER 70 — Advanced Automation & Orchestration
+70.1 Workflow orchestration
+70.2 Event-driven automation
+70.3 Distributed workflow engines
+70.4 State machines
+70.5 Policy-driven automation
+70.6 Infrastructure policy enforcement
+70.7 Configuration drift detection
+70.8 Automated remediation
+70.9 Self-healing systems
+70.10 Formal verification concepts
+70.11 Infrastructure testing
+70.12 Automation reliability
+
+CHAPTER 71 — Advanced Observability & Telemetry
+71.1 Observability theory
+71.2 Telemetry architecture
+71.3 Metrics cardinality
+71.4 Metric aggregation
+71.5 Distributed trace sampling
+71.6 Context propagation
+71.7 OpenTelemetry internals
+71.8 eBPF observability
+71.9 Continuous profiling
+71.10 Anomaly detection
+71.11 Alert fatigue
+71.12 Intelligent alert correlation
+71.13 Root-cause analysis
+71.14 Observability cost optimisation
+
+CHAPTER 72 — FinOps & Sustainable Cloud Engineering
+72.1 Cloud cost models
+72.2 Resource allocation economics
+72.3 Cost attribution
+72.4 Cost monitoring
+72.5 Resource optimisation
+72.6 Autoscaling economics
+72.7 Reserved and spot capacity
+72.8 FinOps practices
+72.9 Carbon-aware computing
+72.10 Energy-efficient infrastructure
+72.11 Sustainable data centres
+
+===============================================================
+PHASE 27 — EMERGING DEVOPS RESEARCH AREAS
+===============================================================
+
+CHAPTER 73 — MLOps & AI Infrastructure
+73.1 MLOps foundations
+73.2 ML lifecycle automation
+73.3 Data and model versioning
+73.4 Model training pipelines
+73.5 Model deployment
+73.6 Model serving architecture
+73.7 Model monitoring
+73.8 Model drift
+73.9 GPU infrastructure
+73.10 Distributed model training
+73.11 LLM deployment infrastructure
+73.12 AI infrastructure observability
+73.13 AI system reliability
+73.14 AI infrastructure security
+
+CHAPTER 74 — Platform Engineering & Developer Experience
+74.1 Platform engineering foundations
+74.2 Internal developer platforms
+74.3 Self-service infrastructure
+74.4 Golden paths
+74.5 Infrastructure abstractions
+74.6 Developer portals
+74.7 Backstage architecture
+74.8 Platform reliability
+74.9 Developer experience metrics
+74.10 Platform governance
+74.11 Platform-as-a-product
+
+===============================================================
+PHASE 28 — PhD RESEARCH METHODOLOGY
+===============================================================
+
+CHAPTER 75 — Research Methods in DevOps
+75.1 Scientific research foundations
+75.2 Research problem identification
+75.3 Literature review
+75.4 Systematic literature review
+75.5 Research gap identification
+75.6 Research questions
+75.7 Hypothesis formulation
+75.8 Research objectives
+75.9 Qualitative research
+75.10 Quantitative research
+75.11 Experimental research design
+75.12 Independent and dependent variables
+75.13 Control variables
+75.14 Benchmark design
+75.15 Statistical analysis
+75.16 Validity and reliability
+75.17 Reproducibility
+75.18 Research ethics
+
+CHAPTER 76 — Advanced DevOps Research & Thesis Development
+76.1 Research in CI/CD optimisation
+76.2 Kubernetes scheduling research
+76.3 Cloud resource optimisation research
+76.4 Distributed systems reliability research
+76.5 DevSecOps automation research
+76.6 AIOps and intelligent operations
+76.7 Observability research
+76.8 Chaos engineering research
+76.9 Sustainable cloud infrastructure research
+76.10 Research prototype development
+76.11 Comparative evaluation
+76.12 Experimental result analysis
+76.13 Research paper writing
+76.14 Conference and journal preparation
+76.15 Thesis proposal development
+
+===============================================================
+END OF EXTENDED DEVOPS MASTER SYLLABUS
+===============================================================

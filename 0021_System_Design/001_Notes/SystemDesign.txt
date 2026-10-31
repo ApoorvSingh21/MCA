@@ -1,0 +1,999 @@
+===============================================================
+       ADVANCED SYSTEM DESIGN — MASTER SYLLABUS
+       PhD 1st Year → Advanced Research → Publication
+===============================================================
+
+GOAL:
+-----
+Develop deep theoretical, mathematical, practical and research
+knowledge of System Design and Distributed Systems.
+
+OBJECTIVES:
+1. Understand advanced system architecture.
+2. Design scalable and fault-tolerant systems.
+3. Master distributed systems theory.
+4. Understand distributed algorithms and consensus.
+5. Master database and storage architecture.
+6. Understand mathematical performance modelling.
+7. Learn formal verification and model checking.
+8. Design cloud-native and distributed applications.
+9. Conduct independent system design research.
+10. Read, reproduce and evaluate research papers.
+11. Develop novel research architectures.
+12. Publish high-quality research work.
+
+
+===============================================================
+PHASE 0 — MATHEMATICAL AND THEORETICAL FOUNDATIONS
+===============================================================
+
+CHAPTER 0 — Mathematical Foundations for System Design
+-------------------------------------------------------
+0.1 Discrete Mathematics
+0.2 Set Theory and Relations
+0.3 Graph Theory
+0.4 Trees and Directed Graphs
+0.5 Probability Theory
+0.6 Conditional Probability
+0.7 Bayes' Theorem
+0.8 Random Variables
+0.9 Probability Distributions
+0.10 Expected Value and Variance
+0.11 Combinatorics
+0.12 Linear Algebra Fundamentals
+0.13 Matrix Operations
+0.14 Mathematical Optimization
+0.15 Asymptotic Analysis
+0.16 Recurrence Relations
+0.17 Information Theory Fundamentals
+0.18 Entropy and Information Content
+
+
+CHAPTER 1 — Algorithmic Foundations of System Design
+-----------------------------------------------------
+1.1 Algorithm Complexity
+1.2 Time and Space Complexity
+1.3 Amortized Analysis
+1.4 Randomized Algorithms
+1.5 Approximation Algorithms
+1.6 Greedy Algorithms
+1.7 Dynamic Programming
+1.8 Graph Algorithms
+1.9 Distributed Algorithm Complexity
+1.10 Communication Complexity
+1.11 Lower Bounds
+1.12 Algorithmic Trade-offs
+
+
+CHAPTER 2 — Operating Systems and Computer Architecture
+---------------------------------------------------------
+2.1 Process and Thread Architecture
+2.2 CPU Scheduling
+2.3 Memory Hierarchy
+2.4 Virtual Memory
+2.5 Cache Coherence
+2.6 Synchronization Primitives
+2.7 Lock-Free Programming
+2.8 NUMA Architecture
+2.9 I/O Architecture
+2.10 Interrupt Handling
+2.11 Kernel Architecture
+2.12 Virtualization
+2.13 Hardware Acceleration
+
+
+===============================================================
+PHASE 1 — SYSTEM DESIGN FUNDAMENTALS
+===============================================================
+
+CHAPTER 3 — Introduction to System Design
+------------------------------------------
+3.1 System Concepts
+3.2 Software Architecture
+3.3 Architectural Styles
+3.4 LLD and HLD
+3.5 Functional Requirements
+3.6 Non-Functional Requirements
+3.7 Architectural Constraints
+3.8 Quality Attributes
+3.9 Architectural Trade-offs
+3.10 Capacity Planning
+3.11 Scalability
+3.12 Reliability
+3.13 Availability
+3.14 Maintainability
+3.15 Observability
+
+
+CHAPTER 4 — Client-Server and Web Architecture
+-----------------------------------------------
+4.1 Client-Server Architecture
+4.2 Two-Tier Architecture
+4.3 Three-Tier Architecture
+4.4 N-Tier Architecture
+4.5 Distributed Web Architecture
+4.6 Browser-Server Communication
+4.7 Mobile-Backend Communication
+4.8 Service-to-Service Communication
+4.9 HTTP and HTTPS
+4.10 TCP and UDP
+4.11 DNS
+4.12 TLS
+4.13 WebSockets
+4.14 HTTP/2 and HTTP/3
+4.15 QUIC
+4.16 CDN and Edge Architecture
+
+
+CHAPTER 5 — API and Communication Architecture
+-----------------------------------------------
+5.1 REST
+5.2 GraphQL
+5.3 gRPC
+5.4 RPC
+5.5 API Gateway
+5.6 API Versioning
+5.7 API Security
+5.8 Idempotency
+5.9 Request-Response Communication
+5.10 Synchronous Communication
+5.11 Asynchronous Communication
+5.12 Streaming Communication
+5.13 Webhooks
+5.14 Service Communication Protocols
+
+
+===============================================================
+PHASE 2 — DATABASE AND STORAGE ARCHITECTURE
+===============================================================
+
+CHAPTER 6 — Advanced Database Systems
+--------------------------------------
+6.1 Relational Database Internals
+6.2 Database Storage Engines
+6.3 B-Tree and B+ Tree
+6.4 Hash Indexing
+6.5 LSM Trees
+6.6 Write-Ahead Logging
+6.7 Buffer Management
+6.8 Query Optimization
+6.9 Transaction Processing
+6.10 ACID
+6.11 Isolation Levels
+6.12 MVCC
+6.13 Locking Mechanisms
+6.14 Deadlock Management
+6.15 Database Recovery
+
+
+CHAPTER 7 — Distributed Database Systems
+-----------------------------------------
+7.1 Distributed Database Architecture
+7.2 Database Replication
+7.3 Leader-Follower Replication
+7.4 Multi-Leader Replication
+7.5 Leaderless Replication
+7.6 Distributed Transactions
+7.7 Quorum Systems
+7.8 Partitioning
+7.9 Sharding
+7.10 Consistent Hashing
+7.11 Replication Consistency
+7.12 Distributed Query Processing
+7.13 Distributed Joins
+7.14 Conflict Resolution
+
+
+CHAPTER 8 — NoSQL and Modern Storage Systems
+---------------------------------------------
+8.1 Key-Value Databases
+8.2 Document Databases
+8.3 Wide-Column Databases
+8.4 Graph Databases
+8.5 Time-Series Databases
+8.6 Vector Databases
+8.7 Object Storage
+8.8 Block Storage
+8.9 Distributed File Systems
+8.10 Columnar Storage
+8.11 Data Lakes
+8.12 Storage Engines
+8.13 Storage Reliability
+8.14 Data Durability
+
+
+CHAPTER 9 — Database Theory and Research
+-----------------------------------------
+9.1 Relational Algebra
+9.2 Relational Calculus
+9.3 Functional Dependencies
+9.4 Normalization Theory
+9.5 Query Complexity
+9.6 Transaction Serializability
+9.7 Conflict Serializability
+9.8 View Serializability
+9.9 Database Consistency Models
+9.10 Distributed Query Optimization
+9.11 Database Benchmarking
+9.12 Emerging Database Research
+
+
+===============================================================
+PHASE 3 — DISTRIBUTED SYSTEMS THEORY
+===============================================================
+
+CHAPTER 10 — Foundations of Distributed Systems
+------------------------------------------------
+10.1 Distributed Computing Models
+10.2 System Models
+10.3 Synchronous Systems
+10.4 Asynchronous Systems
+10.5 Partially Synchronous Systems
+10.6 Network Failure Models
+10.7 Process Failure Models
+10.8 Crash Failures
+10.9 Byzantine Failures
+10.10 Fault Tolerance
+10.11 Partial Failure
+10.12 Distributed State
+10.13 Logical Clocks
+
+
+CHAPTER 11 — Distributed Algorithms
+------------------------------------
+11.1 Lamport Clocks
+11.2 Vector Clocks
+11.3 Matrix Clocks
+11.4 Causal Ordering
+11.5 Total Ordering
+11.6 Distributed Mutual Exclusion
+11.7 Distributed Snapshots
+11.8 Chandy-Lamport Algorithm
+11.9 Leader Election Algorithms
+11.10 Distributed Termination Detection
+11.11 Distributed Spanning Trees
+11.12 Failure Detection Algorithms
+
+
+CHAPTER 12 — Consensus and Coordination
+----------------------------------------
+12.1 Consensus Problem
+12.2 FLP Impossibility Result
+12.3 Paxos
+12.4 Multi-Paxos
+12.5 Raft
+12.6 Byzantine Consensus
+12.7 PBFT
+12.8 Quorum Consensus
+12.9 State Machine Replication
+12.10 Leader Election
+12.11 Distributed Coordination
+12.12 ZooKeeper
+12.13 etcd
+12.14 Consensus Performance Trade-offs
+
+
+CHAPTER 13 — Consistency Models
+-------------------------------
+13.1 Linearizability
+13.2 Sequential Consistency
+13.3 Causal Consistency
+13.4 Eventual Consistency
+13.5 Strong Consistency
+13.6 Weak Consistency
+13.7 Read-Your-Writes Consistency
+13.8 Monotonic Reads
+13.9 Session Guarantees
+13.10 Consistency Versus Availability
+13.11 Consistency Implementation
+13.12 Formal Consistency Verification
+
+
+CHAPTER 14 — CAP, PACELC and Impossibility Results
+--------------------------------------------------
+14.1 CAP Theorem
+14.2 PACELC Theorem
+14.3 Network Partitions
+14.4 Consistency and Availability
+14.5 FLP Impossibility
+14.6 Two Generals Problem
+14.7 Byzantine Generals Problem
+14.8 Distributed Transaction Limitations
+14.9 Impossibility Results in Distributed Computing
+14.10 Practical Implications
+
+
+===============================================================
+PHASE 4 — ADVANCED DISTRIBUTED ARCHITECTURE
+===============================================================
+
+CHAPTER 15 — Microservices and Service Architecture
+-----------------------------------------------------
+15.1 Monolithic Architecture
+15.2 Modular Monolith
+15.3 SOA
+15.4 Microservices
+15.5 Domain-Driven Design
+15.6 Bounded Contexts
+15.7 Service Decomposition
+15.8 Database per Service
+15.9 Service Discovery
+15.10 API Gateway
+15.11 Service Mesh
+15.12 Distributed Configuration
+15.13 Microservice Communication
+15.14 Microservice Testing
+
+
+CHAPTER 16 — Event-Driven and Messaging Systems
+------------------------------------------------
+16.1 Message Queues
+16.2 Publish-Subscribe
+16.3 Event Streaming
+16.4 Kafka Architecture
+16.5 RabbitMQ
+16.6 Message Ordering
+16.7 Delivery Guarantees
+16.8 Exactly-Once Processing Limitations
+16.9 Event Sourcing
+16.10 CQRS
+16.11 Event Replay
+16.12 Event Versioning
+16.13 Transactional Outbox
+16.14 Change Data Capture
+
+
+CHAPTER 17 — Distributed Transactions and Concurrency
+------------------------------------------------------
+17.1 Two-Phase Commit
+17.2 Three-Phase Commit
+17.3 Saga Pattern
+17.4 Choreography
+17.5 Orchestration
+17.6 Compensating Transactions
+17.7 Distributed Locks
+17.8 Fencing Tokens
+17.9 Optimistic Concurrency
+17.10 Pessimistic Concurrency
+17.11 Deadlocks
+17.12 Lock-Free Algorithms
+17.13 Atomic Operations
+17.14 Linearizable Registers
+
+
+CHAPTER 18 — Distributed Resilience Engineering
+------------------------------------------------
+18.1 Fault Tolerance
+18.2 Fault Isolation
+18.3 Circuit Breakers
+18.4 Bulkheads
+18.5 Retries
+18.6 Exponential Backoff
+18.7 Jitter
+18.8 Rate Limiting
+18.9 Load Shedding
+18.10 Backpressure
+18.11 Graceful Degradation
+18.12 Chaos Engineering
+18.13 Failure Injection
+18.14 Disaster Recovery
+
+
+===============================================================
+PHASE 5 — MATHEMATICAL PERFORMANCE ENGINEERING
+===============================================================
+
+CHAPTER 19 — Queueing Theory
+-----------------------------
+19.1 Queueing System Fundamentals
+19.2 Arrival Processes
+19.3 Service Processes
+19.4 Poisson Processes
+19.5 Exponential Distributions
+19.6 M/M/1 Queues
+19.7 M/M/c Queues
+19.8 M/G/1 Queues
+19.9 Little's Law
+19.10 Queue Stability
+19.11 Utilization
+19.12 Waiting Time
+19.13 Queue Length
+19.14 Network of Queues
+19.15 Queueing-Based Capacity Planning
+
+
+CHAPTER 20 — Performance Modelling
+-----------------------------------
+20.1 Latency Modelling
+20.2 Throughput Modelling
+20.3 Tail Latency
+20.4 Percentile Analysis
+20.5 Bottleneck Analysis
+20.6 Resource Utilization
+20.7 CPU Modelling
+20.8 Memory Modelling
+20.9 Network Modelling
+20.10 I/O Performance
+20.11 Load Testing
+20.12 Stress Testing
+20.13 Benchmarking
+20.14 Performance Profiling
+
+
+CHAPTER 21 — Scalability and Optimization
+------------------------------------------
+21.1 Vertical Scaling
+21.2 Horizontal Scaling
+21.3 Scale-Out Architecture
+21.4 Load Balancing
+21.5 Caching Theory
+21.6 Cache Replacement Algorithms
+21.7 Distributed Caching
+21.8 Database Scaling
+21.9 Data Partitioning
+21.10 Amdahl's Law
+21.11 Gustafson's Law
+21.12 Parallel Computing
+21.13 Speedup and Efficiency
+21.14 Scalability Limits
+
+
+===============================================================
+PHASE 6 — ADVANCED CLOUD AND INFRASTRUCTURE
+===============================================================
+
+CHAPTER 22 — Cloud Computing Architecture
+------------------------------------------
+22.1 Cloud Architecture
+22.2 IaaS, PaaS and SaaS
+22.3 Public and Private Clouds
+22.4 Hybrid Cloud
+22.5 Multi-Cloud Architecture
+22.6 Cloud Networking
+22.7 Cloud Storage
+22.8 Cloud Databases
+22.9 Availability Zones
+22.10 Multi-Region Systems
+22.11 Cloud Security
+22.12 Serverless Computing
+22.13 Cloud Cost Optimization
+
+
+CHAPTER 23 — Containerization and Orchestration
+------------------------------------------------
+23.1 Docker Architecture
+23.2 Container Internals
+23.3 Linux Namespaces
+23.4 Control Groups
+23.5 Container Networking
+23.6 Kubernetes Architecture
+23.7 Scheduling
+23.8 Pod Lifecycle
+23.9 Service Discovery
+23.10 Autoscaling
+23.11 Container Security
+23.12 Cluster Management
+23.13 Kubernetes Failure Recovery
+
+
+CHAPTER 24 — Edge and Fog Computing
+------------------------------------
+24.1 Edge Computing
+24.2 Fog Computing
+24.3 Edge-Cloud Collaboration
+24.4 Distributed Edge Architecture
+24.5 Edge Caching
+24.6 Resource Allocation
+24.7 Edge Orchestration
+24.8 Edge Security
+24.9 IoT Integration
+24.10 Edge Latency Optimization
+24.11 Resource-Constrained Computing
+
+
+===============================================================
+PHASE 7 — SECURITY AND DEPENDABILITY
+===============================================================
+
+CHAPTER 25 — Advanced System Security
+--------------------------------------
+25.1 Security Architecture
+25.2 Threat Modelling
+25.3 Attack Surfaces
+25.4 Authentication
+25.5 Authorization
+25.6 OAuth 2.0
+25.7 OpenID Connect
+25.8 Zero Trust
+25.9 Cryptographic Fundamentals
+25.10 Symmetric Encryption
+25.11 Asymmetric Encryption
+25.12 Digital Signatures
+25.13 Hash Functions
+25.14 TLS
+25.15 Key Management
+25.16 Secrets Management
+25.17 Secure Distributed Communication
+
+
+CHAPTER 26 — Dependable Systems
+--------------------------------
+26.1 Reliability Engineering
+26.2 Availability Modelling
+26.3 Fault Trees
+26.4 Failure Mode and Effects Analysis
+26.5 Reliability Block Diagrams
+26.6 Redundancy
+26.7 Byzantine Fault Tolerance
+26.8 Safety Properties
+26.9 Liveness Properties
+26.10 Disaster Recovery
+26.11 RTO and RPO
+26.12 SLA, SLO and SLI
+26.13 Dependability Measurement
+
+
+===============================================================
+PHASE 8 — FORMAL METHODS AND VERIFICATION
+===============================================================
+
+CHAPTER 27 — Formal Methods
+----------------------------
+27.1 Mathematical Specification
+27.2 Formal System Models
+27.3 State Machines
+27.4 Transition Systems
+27.5 Invariants
+27.6 Safety and Liveness
+27.7 Temporal Logic
+27.8 Linear Temporal Logic
+27.9 Computation Tree Logic
+27.10 Hoare Logic
+27.11 Model Checking
+27.12 Theorem Proving
+
+
+CHAPTER 28 — System Verification
+--------------------------------
+28.1 Formal Verification
+28.2 Protocol Verification
+28.3 Distributed Algorithm Verification
+28.4 Model-Based Testing
+28.5 Property-Based Testing
+28.6 TLA+
+28.7 Alloy
+28.8 PlusCal
+28.9 SPIN
+28.10 State-Space Exploration
+28.11 Deadlock Verification
+28.12 Consistency Verification
+
+
+===============================================================
+PHASE 9 — DATA-INTENSIVE AND INTELLIGENT SYSTEMS
+===============================================================
+
+CHAPTER 29 — Large-Scale Data Processing
+-----------------------------------------
+29.1 Batch Processing
+29.2 Stream Processing
+29.3 Apache Spark
+29.4 Apache Flink
+29.5 MapReduce
+29.6 Distributed Data Pipelines
+29.7 ETL and ELT
+29.8 Data Warehouses
+29.9 Data Lakes
+29.10 Data Ingestion
+29.11 Data Partitioning
+29.12 Data Governance
+
+
+CHAPTER 30 — Search and Information Retrieval Systems
+------------------------------------------------------
+30.1 Information Retrieval
+30.2 Inverted Indexes
+30.3 Tokenization
+30.4 Index Construction
+30.5 Ranking Algorithms
+30.6 TF-IDF
+30.7 BM25
+30.8 Distributed Search
+30.9 Elasticsearch
+30.10 Vector Search
+30.11 Approximate Nearest Neighbours
+30.12 Search Scalability
+
+
+CHAPTER 31 — AI and ML System Architecture
+-------------------------------------------
+31.1 Machine Learning Infrastructure
+31.2 Distributed Training
+31.3 Model Serving
+31.4 Feature Stores
+31.5 Model Deployment
+31.6 Model Versioning
+31.7 GPU Resource Allocation
+31.8 Inference Optimization
+31.9 Model Caching
+31.10 MLOps
+31.11 ML Pipeline Architecture
+31.12 LLM Serving Systems
+31.13 RAG Architecture
+31.14 Distributed AI Systems
+
+
+===============================================================
+PHASE 10 — OBSERVABILITY AND PRODUCTION SYSTEMS
+===============================================================
+
+CHAPTER 32 — Advanced Observability
+------------------------------------
+32.1 Logging
+32.2 Metrics
+32.3 Distributed Tracing
+32.4 OpenTelemetry
+32.5 Prometheus
+32.6 Grafana
+32.7 Jaeger
+32.8 Correlation IDs
+32.9 Trace Propagation
+32.10 Root Cause Analysis
+32.11 Anomaly Detection
+32.12 Performance Diagnostics
+
+
+CHAPTER 33 — Production System Engineering
+-------------------------------------------
+33.1 CI/CD
+33.2 Infrastructure as Code
+33.3 Terraform
+33.4 Deployment Strategies
+33.5 Blue-Green Deployment
+33.6 Canary Deployment
+33.7 Rolling Deployment
+33.8 Automated Rollback
+33.9 Feature Flags
+33.10 Configuration Management
+33.11 Production Monitoring
+33.12 Incident Management
+33.13 Site Reliability Engineering
+
+
+===============================================================
+PHASE 11 — ARCHITECTURE RESEARCH AND EVALUATION
+===============================================================
+
+CHAPTER 34 — Software Architecture Research
+--------------------------------------------
+34.1 Architectural Theory
+34.2 Architecture Description Languages
+34.3 Architectural Decision Records
+34.4 Quality Attribute Scenarios
+34.5 Architecture Evaluation
+34.6 ATAM
+34.7 SAAM
+34.8 Architecture Trade-off Analysis
+34.9 Architectural Evolution
+34.10 Technical Debt
+34.11 Architecture Metrics
+
+
+CHAPTER 35 — Experimental System Evaluation
+---------------------------------------------
+35.1 Research Hypothesis
+35.2 Experimental Design
+35.3 Controlled Experiments
+35.4 Benchmark Design
+35.5 Workload Generation
+35.6 Dataset Selection
+35.7 Performance Comparison
+35.8 Statistical Significance
+35.9 Confidence Intervals
+35.10 Reproducibility
+35.11 Experimental Validity
+35.12 Research Result Interpretation
+
+
+CHAPTER 36 — Research Methodology
+----------------------------------
+36.1 Research Problem Identification
+36.2 Literature Review
+36.3 Research Gap Identification
+36.4 Research Questions
+36.5 Hypothesis Formulation
+36.6 Research Objectives
+36.7 Research Methodology
+36.8 Quantitative Research
+36.9 Qualitative Research
+36.10 Experimental Research
+36.11 Systematic Literature Review
+36.12 Research Ethics
+36.13 Academic Writing
+
+
+CHAPTER 37 — Academic Papers and Research Reproduction
+-------------------------------------------------------
+37.1 Reading Research Papers
+37.2 Understanding Research Contributions
+37.3 Analysing Methodology
+37.4 Evaluating Experimental Results
+37.5 Identifying Research Limitations
+37.6 Reproducing Published Experiments
+37.7 Comparing Existing Approaches
+37.8 Research Documentation
+37.9 Citation Management
+37.10 Preparing Research Publications
+
+
+===============================================================
+PHASE 12 — ADVANCED SYSTEM DESIGN CASE STUDIES
+===============================================================
+
+CHAPTER 38 — Industry-Scale Systems
+------------------------------------
+38.1 Google Search
+38.2 YouTube
+38.3 Netflix
+38.4 Amazon
+38.5 Uber
+38.6 WhatsApp
+38.7 Instagram
+38.8 Facebook News Feed
+38.9 LinkedIn
+38.10 Distributed Payment Systems
+38.11 Distributed Booking Systems
+38.12 Global Notification Systems
+
+
+CHAPTER 39 — Research-Oriented System Design
+---------------------------------------------
+39.1 Billion-User Architectures
+39.2 Global Distributed Databases
+39.3 Geo-Distributed Systems
+39.4 Multi-Region Consistency
+39.5 Distributed Storage
+39.6 Fault-Tolerant Cloud Systems
+39.7 High-Performance Architectures
+39.8 Energy-Efficient Distributed Systems
+39.9 Edge-Cloud Systems
+39.10 Privacy-Preserving Architecture
+
+
+===============================================================
+PHASE 13 — PhD RESEARCH AND THESIS DEVELOPMENT
+===============================================================
+
+CHAPTER 40 — Research Problem Formulation
+------------------------------------------
+40.1 Identifying Unsolved Problems
+40.2 Research Gap Analysis
+40.3 Research Novelty
+40.4 Problem Statements
+40.5 Research Objectives
+40.6 Research Questions
+40.7 Research Contributions
+40.8 Feasibility Analysis
+
+
+CHAPTER 41 — Research Proposal Development
+-------------------------------------------
+41.1 Research Title
+41.2 Abstract
+41.3 Introduction
+41.4 Literature Review
+41.5 Research Methodology
+41.6 Proposed Architecture
+41.7 Experimental Plan
+41.8 Expected Contributions
+41.9 Timeline
+41.10 Research Limitations
+
+
+CHAPTER 42 — Research Implementation and Publication
+-----------------------------------------------------
+42.1 Prototype Development
+42.2 Experimental Implementation
+42.3 Benchmarking
+42.4 Result Analysis
+42.5 Comparison with Existing Methods
+42.6 Ablation Studies
+42.7 Reproducibility
+42.8 Conference Paper Preparation
+42.9 Journal Paper Preparation
+42.10 Thesis Documentation
+42.11 Research Presentation
+42.12 Viva Preparation
+
+
+===============================================================
+PHASE 14 — MANDATORY PRACTICAL RESEARCH PROJECTS
+===============================================================
+
+PROJECT 1 — DISTRIBUTED KEY-VALUE STORE
+----------------------------------------
+• Replication
+• Consistency
+• Data partitioning
+• Fault tolerance
+
+PROJECT 2 — DISTRIBUTED DATABASE
+--------------------------------
+• Sharding
+• Transactions
+• Query processing
+• Replication
+
+PROJECT 3 — DISTRIBUTED CACHE
+-----------------------------
+• Cache coherence
+• Cache replacement
+• Distributed caching
+• Performance evaluation
+
+PROJECT 4 — CONSENSUS PROTOCOL
+------------------------------
+• Raft
+• Paxos
+• Leader election
+• Log replication
+
+PROJECT 5 — DISTRIBUTED MESSAGE BROKER
+---------------------------------------
+• Messaging guarantees
+• Event ordering
+• Partitioning
+• Fault recovery
+
+PROJECT 6 — FAULT-TOLERANT MICROSERVICES
+----------------------------------------
+• Resilience
+• Circuit breakers
+• Distributed tracing
+• Failure recovery
+
+PROJECT 7 — MULTI-REGION STORAGE SYSTEM
+---------------------------------------
+• Geo-distribution
+• Replication
+• Consistency
+• Disaster recovery
+
+PROJECT 8 — CLOUD-NATIVE APPLICATION
+-------------------------------------
+• Containers
+• Kubernetes
+• Autoscaling
+• Observability
+
+PROJECT 9 — EDGE COMPUTING PLATFORM
+-----------------------------------
+• Edge-cloud collaboration
+• Resource allocation
+• Latency optimization
+• Edge security
+
+PROJECT 10 — DISTRIBUTED AI SERVING PLATFORM
+---------------------------------------------
+• Distributed inference
+• GPU allocation
+• Model serving
+• Performance optimization
+
+
+===============================================================
+FINAL LEARNING OUTCOME
+===============================================================
+
+After completing this syllabus, the student should be capable of:
+
+1. Designing advanced distributed systems.
+2. Understanding distributed algorithms mathematically.
+3. Analysing consensus protocols.
+4. Understanding database internals.
+5. Designing scalable cloud architectures.
+6. Applying queueing theory to performance engineering.
+7. Verifying distributed protocols using formal methods.
+8. Conducting controlled system experiments.
+9. Reading and reproducing academic research.
+10. Identifying open research problems.
+11. Developing novel system architectures.
+12. Publishing research papers.
+13. Developing a PhD thesis in System Design.
+
+
+===============================================================
+STUDY AND PRACTICE RULES
+===============================================================
+
+CHAPTER LEARNING:
+• Explain every topic in extreme depth.
+• Start from fundamental concepts.
+• Include mathematical derivations.
+• Include algorithms and pseudocode.
+• Include architecture diagrams.
+• Include practical examples.
+• Include research perspectives.
+• Explain advantages and limitations.
+• Explain real-world applications.
+
+CHAPTER COMPLETION:
+• Complete every topic in the chapter.
+• Do not skip topics.
+• Do not move to another chapter prematurely.
+
+PRACTICE MODE:
+• Exactly 10 MCQs after every chapter.
+• Question difficulty: GATE level.
+• Ask only ONE question at a time.
+• Wait for the student's answer.
+• Evaluate the answer.
+• Explain the complete underlying concept.
+• Explain why other options are incorrect.
+• Then ask the next question.
+• Move to the next chapter only after all
+  10 questions are completed.
+
+
+===============================================================
+MASTER LEARNING PROGRESSION
+===============================================================
+
+MATHEMATICAL FOUNDATIONS
+          |
+          v
+ALGORITHMS AND COMPUTER ARCHITECTURE
+          |
+          v
+SYSTEM DESIGN FUNDAMENTALS
+          |
+          v
+DATABASE AND STORAGE SYSTEMS
+          |
+          v
+DISTRIBUTED SYSTEMS THEORY
+          |
+          v
+DISTRIBUTED ALGORITHMS AND CONSENSUS
+          |
+          v
+ADVANCED DISTRIBUTED ARCHITECTURE
+          |
+          v
+PERFORMANCE AND QUEUEING THEORY
+          |
+          v
+CLOUD AND INFRASTRUCTURE
+          |
+          v
+SECURITY AND DEPENDABILITY
+          |
+          v
+FORMAL METHODS AND VERIFICATION
+          |
+          v
+DATA-INTENSIVE AND AI SYSTEMS
+          |
+          v
+OBSERVABILITY AND PRODUCTION ENGINEERING
+          |
+          v
+ARCHITECTURE RESEARCH
+          |
+          v
+EXPERIMENTAL EVALUATION
+          |
+          v
+RESEARCH METHODOLOGY
+          |
+          v
+ADVANCED CASE STUDIES
+          |
+          v
+PhD RESEARCH AND PUBLICATION
+          |
+          v
+RESEARCH CONTRIBUTION
+===============================================================
+                 END OF MASTER SYLLABUS
+===============================================================
