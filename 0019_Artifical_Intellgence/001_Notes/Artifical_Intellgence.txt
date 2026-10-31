@@ -1,0 +1,1020 @@
+ARTIFICIAL INTELLIGENCE
+
+Comprehensive PhD-Level Master Syllabus
+
+Academic Level: PhD – First Year
+Starting Level: Beginner
+Prerequisites: None assumed
+Learning Approach: Fundamentals → Mathematical Foundations → Theory → Algorithms → Research → Advanced AI → Original Research
+
+---
+
+PART I — FOUNDATIONS
+
+Chapter 0 — Computer Science and Programming Foundations
+
+0.1 Computer Architecture
+0.2 CPU, Memory and Storage
+0.3 Operating Systems
+0.4 Algorithms and Data Structures
+0.5 Time and Space Complexity
+0.6 Programming Paradigms
+0.7 Python Programming
+0.8 Object-Oriented Programming
+0.9 Functional Programming
+0.10 NumPy and Pandas
+0.11 Scientific Computing
+0.12 Git and Version Control
+0.13 Linux and Command Line
+0.14 Computational Experiments
+
+Chapter 1 — Introduction to Artificial Intelligence
+
+1.1 Definition of Intelligence
+1.2 Biological and Artificial Intelligence
+1.3 Evolution of AI
+1.4 Turing Test
+1.5 Dartmouth Conference
+1.6 Symbolic AI
+1.7 Connectionist AI
+1.8 Statistical AI
+1.9 Machine Learning
+1.10 Deep Learning
+1.11 Generative AI
+1.12 Artificial General Intelligence
+1.13 Philosophical Foundations of AI
+1.14 Scientific Foundations of Intelligence
+1.15 Current AI Research Challenges
+
+Chapter 2 — Types and Paradigms of AI
+
+2.1 Narrow AI
+2.2 General AI
+2.3 Superintelligence
+2.4 Symbolic AI
+2.5 Statistical AI
+2.6 Connectionist AI
+2.7 Evolutionary AI
+2.8 Probabilistic AI
+2.9 Hybrid AI
+2.10 Neuro-Symbolic AI
+2.11 Autonomous AI
+2.12 Human-Centered AI
+
+---
+
+PART II — MATHEMATICAL FOUNDATIONS
+
+Chapter 3 — Linear Algebra
+
+3.1 Scalars, Vectors and Matrices
+3.2 Vector Spaces
+3.3 Subspaces
+3.4 Linear Independence
+3.5 Basis and Dimension
+3.6 Linear Transformations
+3.7 Matrix Decomposition
+3.8 Eigenvalues and Eigenvectors
+3.9 Diagonalization
+3.10 Singular Value Decomposition
+3.11 Orthogonality
+3.12 Positive Definite Matrices
+3.13 Norms and Inner Products
+3.14 Matrix Calculus
+3.15 Tensor Algebra
+3.16 Applications in Machine Learning
+
+Chapter 4 — Calculus and Multivariable Calculus
+
+4.1 Limits and Continuity
+4.2 Differentiation
+4.3 Partial Derivatives
+4.4 Multivariable Functions
+4.5 Gradient
+4.6 Jacobian Matrix
+4.7 Hessian Matrix
+4.8 Chain Rule
+4.9 Directional Derivatives
+4.10 Taylor Series
+4.11 Constrained Optimization
+4.12 Lagrange Multipliers
+4.13 Implicit Differentiation
+4.14 Applications in Neural Networks
+
+Chapter 5 — Probability Theory
+
+5.1 Probability Spaces
+5.2 Random Variables
+5.3 Probability Distributions
+5.4 Joint Distributions
+5.5 Conditional Probability
+5.6 Bayes' Theorem
+5.7 Independence
+5.8 Expectation
+5.9 Variance and Covariance
+5.10 Conditional Expectation
+5.11 Moment Generating Functions
+5.12 Law of Large Numbers
+5.13 Central Limit Theorem
+5.14 Concentration Inequalities
+5.15 Markov Inequality
+5.16 Chebyshev Inequality
+
+Chapter 6 — Mathematical Statistics
+
+6.1 Population and Sampling
+6.2 Sampling Distributions
+6.3 Point Estimation
+6.4 Maximum Likelihood Estimation
+6.5 Maximum A Posteriori Estimation
+6.6 Method of Moments
+6.7 Bias and Variance of Estimators
+6.8 Confidence Intervals
+6.9 Hypothesis Testing
+6.10 Statistical Significance
+6.11 Bayesian Statistics
+6.12 Bayesian Inference
+6.13 Regression Analysis
+6.14 Statistical Model Selection
+6.15 AIC and BIC
+
+Chapter 7 — Information Theory
+
+7.1 Information and Uncertainty
+7.2 Entropy
+7.3 Conditional Entropy
+7.4 Joint Entropy
+7.5 Cross Entropy
+7.6 Kullback-Leibler Divergence
+7.7 Jensen-Shannon Divergence
+7.8 Mutual Information
+7.9 Information Gain
+7.10 Differential Entropy
+7.11 Maximum Entropy Principle
+7.12 Information Bottleneck
+7.13 Applications in Deep Learning
+
+Chapter 8 — Optimization Theory
+
+8.1 Optimization Fundamentals
+8.2 Convex and Non-Convex Optimization
+8.3 Convex Sets and Functions
+8.4 Gradient Descent
+8.5 Stochastic Gradient Descent
+8.6 Mini-Batch Optimization
+8.7 Momentum Methods
+8.8 Adaptive Optimization
+8.9 Newton's Method
+8.10 Quasi-Newton Methods
+8.11 Coordinate Descent
+8.12 Constrained Optimization
+8.13 Duality Theory
+8.14 Lagrangian Optimization
+8.15 Saddle Points
+8.16 Global and Local Minima
+8.17 Optimization in Deep Learning
+
+---
+
+PART III — THEORETICAL COMPUTER SCIENCE AND CLASSICAL AI
+
+Chapter 9 — Algorithms and Computational Complexity
+
+9.1 Algorithm Analysis
+9.2 Asymptotic Notation
+9.3 Big-O, Big-Theta and Big-Omega
+9.4 Recurrence Relations
+9.5 Divide and Conquer
+9.6 Dynamic Programming
+9.7 Graph Algorithms
+9.8 Randomized Algorithms
+9.9 Approximation Algorithms
+9.10 P and NP
+9.11 NP-Completeness
+9.12 Computational Intractability
+9.13 Complexity of AI Algorithms
+
+Chapter 10 — Intelligent Agents and Environments
+
+10.1 Agent Architecture
+10.2 Rational Agents
+10.3 PEAS Framework
+10.4 Environment Classification
+10.5 Simple Reflex Agents
+10.6 Model-Based Agents
+10.7 Goal-Based Agents
+10.8 Utility-Based Agents
+10.9 Learning Agents
+10.10 Autonomous Agents
+10.11 Multi-Agent Environments
+10.12 Rational Decision Making
+
+Chapter 11 — Uninformed and Informed Search
+
+11.1 State-Space Representation
+11.2 Breadth-First Search
+11.3 Depth-First Search
+11.4 Uniform Cost Search
+11.5 Iterative Deepening
+11.6 Heuristic Search
+11.7 Greedy Best-First Search
+11.8 A* Algorithm
+11.9 Admissibility
+11.10 Consistency
+11.11 IDA*
+11.12 Beam Search
+11.13 Local Search
+11.14 Simulated Annealing
+11.15 Genetic Search
+
+Chapter 12 — Game Theory and Adversarial Search
+
+12.1 Game Theory Fundamentals
+12.2 Strategic Games
+12.3 Nash Equilibrium
+12.4 Zero-Sum Games
+12.5 Non-Zero-Sum Games
+12.6 Minimax Algorithm
+12.7 Alpha-Beta Pruning
+12.8 Monte Carlo Tree Search
+12.9 Imperfect Information Games
+12.10 Multi-Agent Decision Making
+
+Chapter 13 — Constraint Satisfaction and Planning
+
+13.1 Constraint Satisfaction Problems
+13.2 Constraint Graphs
+13.3 Backtracking
+13.4 Forward Checking
+13.5 Arc Consistency
+13.6 Constraint Propagation
+13.7 SAT Solving
+13.8 Boolean Satisfiability
+13.9 Classical Planning
+13.10 STRIPS Representation
+13.11 Partial-Order Planning
+13.12 Hierarchical Task Networks
+
+Chapter 14 — Knowledge Representation and Logic
+
+14.1 Propositional Logic
+14.2 First-Order Logic
+14.3 Predicate Logic
+14.4 Quantifiers
+14.5 Unification
+14.6 Resolution
+14.7 Forward Chaining
+14.8 Backward Chaining
+14.9 Description Logic
+14.10 Ontologies
+14.11 Semantic Networks
+14.12 Knowledge Graphs
+14.13 Non-Monotonic Reasoning
+14.14 Default Logic
+14.15 Knowledge-Based Systems
+
+Chapter 15 — Probabilistic Reasoning and Graphical Models
+
+15.1 Bayesian Networks
+15.2 Conditional Independence
+15.3 Markov Networks
+15.4 Factor Graphs
+15.5 Hidden Markov Models
+15.6 Bayesian Inference
+15.7 Exact Inference
+15.8 Approximate Inference
+15.9 Markov Chain Monte Carlo
+15.10 Gibbs Sampling
+15.11 Variational Inference
+15.12 Expectation-Maximization
+
+---
+
+PART IV — MACHINE LEARNING THEORY
+
+Chapter 16 — Machine Learning Fundamentals
+
+16.1 Learning Problems
+16.2 Training and Generalization
+16.3 Supervised Learning
+16.4 Unsupervised Learning
+16.5 Semi-Supervised Learning
+16.6 Self-Supervised Learning
+16.7 Reinforcement Learning
+16.8 Inductive Bias
+16.9 Empirical Risk Minimization
+16.10 Structural Risk Minimization
+
+Chapter 17 — Statistical Learning Theory
+
+17.1 Learning Theory Foundations
+17.2 Hypothesis Spaces
+17.3 Generalization Bounds
+17.4 PAC Learning
+17.5 VC Dimension
+17.6 Rademacher Complexity
+17.7 Bias-Variance Tradeoff
+17.8 Overfitting and Underfitting
+17.9 Regularization Theory
+17.10 Sample Complexity
+17.11 No-Free-Lunch Theorems
+17.12 Generalization in Deep Learning
+
+Chapter 18 — Supervised Learning Algorithms
+
+18.1 Linear Regression
+18.2 Logistic Regression
+18.3 Polynomial Regression
+18.4 Naive Bayes
+18.5 Decision Trees
+18.6 Random Forests
+18.7 Gradient Boosting
+18.8 XGBoost
+18.9 Support Vector Machines
+18.10 Kernel Methods
+18.11 k-Nearest Neighbors
+18.12 Ensemble Learning
+18.13 Model Selection
+
+Chapter 19 — Unsupervised Learning
+
+19.1 Clustering Theory
+19.2 K-Means
+19.3 Hierarchical Clustering
+19.4 DBSCAN
+19.5 Gaussian Mixture Models
+19.6 Expectation-Maximization
+19.7 Dimensionality Reduction
+19.8 Principal Component Analysis
+19.9 Independent Component Analysis
+19.10 Manifold Learning
+19.11 t-SNE
+19.12 UMAP
+19.13 Anomaly Detection
+
+Chapter 20 — Advanced Machine Learning
+
+20.1 Online Learning
+20.2 Incremental Learning
+20.3 Active Learning
+20.4 Transfer Learning
+20.5 Domain Adaptation
+20.6 Meta-Learning
+20.7 Few-Shot Learning
+20.8 Zero-Shot Learning
+20.9 Multi-Task Learning
+20.10 Multi-Label Learning
+20.11 Continual Learning
+20.12 Concept Drift
+20.13 Federated Learning
+
+---
+
+PART V — DEEP LEARNING THEORY
+
+Chapter 21 — Neural Network Fundamentals
+
+21.1 Biological and Artificial Neurons
+21.2 Perceptron
+21.3 Multilayer Perceptron
+21.4 Activation Functions
+21.5 Forward Propagation
+21.6 Loss Functions
+21.7 Backpropagation
+21.8 Computational Graphs
+21.9 Automatic Differentiation
+21.10 Gradient-Based Learning
+21.11 Weight Initialization
+21.12 Learning Rate
+
+Chapter 22 — Deep Learning Optimization and Regularization
+
+22.1 Vanishing Gradients
+22.2 Exploding Gradients
+22.3 Batch Normalization
+22.4 Layer Normalization
+22.5 Dropout
+22.6 Weight Decay
+22.7 Early Stopping
+22.8 SGD with Momentum
+22.9 RMSProp
+22.10 Adam and AdamW
+22.11 Learning Rate Scheduling
+22.12 Sharpness and Flat Minima
+
+Chapter 23 — Convolutional Neural Networks
+
+23.1 Convolution Mathematics
+23.2 Filters and Kernels
+23.3 Feature Maps
+23.4 Stride and Padding
+23.5 Pooling
+23.6 CNN Architectures
+23.7 LeNet
+23.8 AlexNet
+23.9 VGG
+23.10 ResNet
+23.11 DenseNet
+23.12 EfficientNet
+23.13 Transfer Learning
+23.14 Advanced CNN Research
+
+Chapter 24 — Recurrent Neural Networks
+
+24.1 Sequential Learning
+24.2 RNN Architecture
+24.3 Hidden States
+24.4 Backpropagation Through Time
+24.5 Vanishing Gradient
+24.6 LSTM
+24.7 GRU
+24.8 Bidirectional RNN
+24.9 Sequence-to-Sequence Models
+24.10 Attention-Based RNNs
+
+Chapter 25 — Advanced Neural Architectures
+
+25.1 Residual Networks
+25.2 Highway Networks
+25.3 Graph Neural Networks
+25.4 Graph Convolutional Networks
+25.5 Graph Attention Networks
+25.6 Capsule Networks
+25.7 Neural ODEs
+25.8 Spiking Neural Networks
+25.9 Energy-Based Models
+25.10 Neural Architecture Search
+
+---
+
+PART VI — NATURAL LANGUAGE PROCESSING
+
+Chapter 26 — NLP Foundations
+
+26.1 Linguistic Foundations
+26.2 Morphology
+26.3 Syntax
+26.4 Semantics
+26.5 Pragmatics
+26.6 Tokenization
+26.7 Stemming and Lemmatization
+26.8 N-Gram Language Models
+26.9 Bag of Words
+26.10 TF-IDF
+26.11 Language Modelling
+
+Chapter 27 — Word and Document Representations
+
+27.1 Vector Space Models
+27.2 Word Embeddings
+27.3 Word2Vec
+27.4 CBOW
+27.5 Skip-Gram
+27.6 GloVe
+27.7 FastText
+27.8 Contextual Embeddings
+27.9 Sentence Embeddings
+27.10 Semantic Similarity
+
+Chapter 28 — Transformer Architecture
+
+28.1 Limitations of RNNs
+28.2 Attention Mechanism
+28.3 Self-Attention
+28.4 Query, Key and Value
+28.5 Scaled Dot-Product Attention
+28.6 Multi-Head Attention
+28.7 Positional Encoding
+28.8 Transformer Encoder
+28.9 Transformer Decoder
+28.10 Encoder-Decoder Models
+28.11 Residual Connections
+28.12 Layer Normalization
+28.13 Computational Complexity
+28.14 Efficient Attention
+
+Chapter 29 — Advanced NLP Research
+
+29.1 Named Entity Recognition
+29.2 Relation Extraction
+29.3 Question Answering
+29.4 Text Classification
+29.5 Machine Translation
+29.6 Text Summarization
+29.7 Information Extraction
+29.8 Semantic Parsing
+29.9 Multilingual NLP
+29.10 Low-Resource NLP
+29.11 Retrieval-Based NLP
+29.12 Evaluation of Language Models
+
+---
+
+PART VII — GENERATIVE AI AND FOUNDATION MODELS
+
+Chapter 30 — Generative Modelling Theory
+
+30.1 Generative vs Discriminative Models
+30.2 Probability Density Estimation
+30.3 Latent Variable Models
+30.4 Maximum Likelihood Training
+30.5 Variational Inference
+30.6 Autoencoders
+30.7 Variational Autoencoders
+30.8 Generative Adversarial Networks
+30.9 Normalizing Flows
+30.10 Energy-Based Models
+30.11 Diffusion Models
+30.12 Score Matching
+
+Chapter 31 — Large Language Models
+
+31.1 Language Modelling
+31.2 Next-Token Prediction
+31.3 Tokenization Algorithms
+31.4 Subword Tokenization
+31.5 Embedding Layers
+31.6 Decoder-Only Models
+31.7 Encoder-Only Models
+31.8 Encoder-Decoder Models
+31.9 Pretraining Objectives
+31.10 Scaling Laws
+31.11 Context Windows
+31.12 Model Parameters
+31.13 Emergent Capabilities
+31.14 Inference Optimization
+
+Chapter 32 — LLM Training and Alignment
+
+32.1 Pretraining
+32.2 Data Curation
+32.3 Instruction Tuning
+32.4 Supervised Fine-Tuning
+32.5 Preference Learning
+32.6 Reinforcement Learning from Human Feedback
+32.7 Direct Preference Optimization
+32.8 Constitutional AI
+32.9 Parameter-Efficient Fine-Tuning
+32.10 LoRA
+32.11 QLoRA
+32.12 Quantization
+32.13 Knowledge Distillation
+32.14 Alignment Evaluation
+
+Chapter 33 — Retrieval-Augmented Generation
+
+33.1 RAG Fundamentals
+33.2 RAG Architecture
+33.3 Document Processing
+33.4 Chunking Strategies
+33.5 Embedding Models
+33.6 Vector Search
+33.7 Approximate Nearest Neighbour Search
+33.8 Hybrid Retrieval
+33.9 Reranking
+33.10 Query Expansion
+33.11 Graph-Based RAG
+33.12 Agentic RAG
+33.13 RAG Evaluation
+33.14 Retrieval Optimization
+
+Chapter 34 — Foundation and Multimodal Models
+
+34.1 Foundation Model Theory
+34.2 Vision-Language Models
+34.3 Multimodal Embeddings
+34.4 Image-Text Alignment
+34.5 Contrastive Learning
+34.6 CLIP Architecture
+34.7 Multimodal Transformers
+34.8 Audio-Language Models
+34.9 Video-Language Models
+34.10 Multimodal Reasoning
+34.11 Cross-Modal Attention
+34.12 Multimodal Evaluation
+
+---
+
+PART VIII — REINFORCEMENT LEARNING AND DECISION MAKING
+
+Chapter 35 — Reinforcement Learning Foundations
+
+35.1 Agent and Environment
+35.2 Markov Decision Processes
+35.3 State and Action Spaces
+35.4 Reward Functions
+35.5 Policies
+35.6 Value Functions
+35.7 Bellman Equations
+35.8 Bellman Optimality
+35.9 Dynamic Programming
+35.10 Policy Evaluation
+35.11 Policy Improvement
+
+Chapter 36 — Advanced Reinforcement Learning
+
+36.1 Monte Carlo Methods
+36.2 Temporal Difference Learning
+36.3 SARSA
+36.4 Q-Learning
+36.5 Deep Q-Networks
+36.6 Policy Gradient
+36.7 REINFORCE
+36.8 Actor-Critic
+36.9 PPO
+36.10 Trust Region Policy Optimization
+36.11 Model-Based RL
+36.12 Offline RL
+36.13 Inverse Reinforcement Learning
+36.14 Multi-Agent Reinforcement Learning
+
+Chapter 37 — Advanced Decision Intelligence
+
+37.1 Partially Observable MDPs
+37.2 Bayesian Decision Theory
+37.3 Multi-Armed Bandits
+37.4 Contextual Bandits
+37.5 Exploration and Exploitation
+37.6 Hierarchical Reinforcement Learning
+37.7 Reward Modelling
+37.8 Reward Hacking
+37.9 Safe Reinforcement Learning
+37.10 RL for Language Models
+
+---
+
+PART IX — ADVANCED RESEARCH DOMAINS
+
+Chapter 38 — Causal AI and Causal Inference
+
+38.1 Correlation vs Causation
+38.2 Structural Causal Models
+38.3 Directed Acyclic Graphs
+38.4 Causal Graphs
+38.5 Confounding
+38.6 Interventions
+38.7 Counterfactual Reasoning
+38.8 Do-Calculus
+38.9 Causal Discovery
+38.10 Treatment Effect Estimation
+38.11 Causal Representation Learning
+38.12 Causal Machine Learning
+
+Chapter 39 — Explainable and Interpretable AI
+
+39.1 Interpretability Fundamentals
+39.2 Intrinsic Interpretability
+39.3 Post-Hoc Explainability
+39.4 Feature Importance
+39.5 SHAP
+39.6 LIME
+39.7 Counterfactual Explanations
+39.8 Saliency Maps
+39.9 Attention Analysis
+39.10 Mechanistic Interpretability
+39.11 Neuron and Feature Analysis
+39.12 Model Circuit Analysis
+
+Chapter 40 — Trustworthy and Responsible AI
+
+40.1 AI Ethics
+40.2 Algorithmic Bias
+40.3 Fairness Metrics
+40.4 Fairness-Aware Learning
+40.5 Privacy-Preserving AI
+40.6 Differential Privacy
+40.7 Federated Learning
+40.8 Secure Machine Learning
+40.9 Adversarial Robustness
+40.10 Model Accountability
+40.11 AI Governance
+40.12 Human Oversight
+
+Chapter 41 — Adversarial Machine Learning
+
+41.1 Adversarial Examples
+41.2 Evasion Attacks
+41.3 Data Poisoning
+41.4 Backdoor Attacks
+41.5 Model Extraction
+41.6 Membership Inference
+41.7 Model Inversion
+41.8 Adversarial Training
+41.9 Certified Robustness
+41.10 LLM Security
+41.11 Prompt Injection
+41.12 AI Agent Security
+
+Chapter 42 — Advanced and Emerging AI
+
+42.1 Neuro-Symbolic AI
+42.2 Continual Learning
+42.3 Meta-Learning
+42.4 Self-Supervised Learning
+42.5 World Models
+42.6 Embodied AI
+42.7 Robotics and AI
+42.8 Evolutionary Computation
+42.9 Swarm Intelligence
+42.10 Quantum Machine Learning
+42.11 Neuromorphic Computing
+42.12 Artificial General Intelligence Research
+
+---
+
+PART X — AI AGENTS AND AUTONOMOUS SYSTEMS
+
+Chapter 43 — Intelligent AI Agents
+
+43.1 Agent Architecture
+43.2 Agent Perception
+43.3 Agent Reasoning
+43.4 Planning
+43.5 Memory
+43.6 Tool Calling
+43.7 Function Calling
+43.8 Feedback Loops
+43.9 Autonomous Decision Making
+43.10 Agent Evaluation
+
+Chapter 44 — Multi-Agent Systems
+
+44.1 Multi-Agent Fundamentals
+44.2 Agent Communication
+44.3 Coordination
+44.4 Cooperation
+44.5 Competition
+44.6 Distributed Planning
+44.7 Multi-Agent Reinforcement Learning
+44.8 Swarm Intelligence
+44.9 Negotiation
+44.10 Multi-Agent Safety
+
+Chapter 45 — Advanced Agentic AI
+
+45.1 Agentic Architectures
+45.2 Planning Agents
+45.3 Research Agents
+45.4 Coding Agents
+45.5 Browser Agents
+45.6 Tool-Using LLMs
+45.7 Agent Memory Systems
+45.8 Agentic RAG
+45.9 Long-Horizon Tasks
+45.10 Agent Benchmarking
+45.11 Agent Reliability
+45.12 Autonomous System Safety
+
+---
+
+PART XI — AI ENGINEERING AND INFRASTRUCTURE
+
+Chapter 46 — AI Engineering
+
+46.1 Model Development Lifecycle
+46.2 Data Engineering
+46.3 Model Serialization
+46.4 Model Serving
+46.5 REST APIs
+46.6 Batch Inference
+46.7 Real-Time Inference
+46.8 GPU Computing
+46.9 CUDA Fundamentals
+46.10 Distributed Training
+46.11 Data Parallelism
+46.12 Model Parallelism
+46.13 Quantization
+46.14 Model Compression
+46.15 Inference Optimization
+
+Chapter 47 — MLOps and LLMOps
+
+47.1 MLOps Fundamentals
+47.2 Experiment Tracking
+47.3 Dataset Versioning
+47.4 Model Versioning
+47.5 CI/CD for ML
+47.6 Model Deployment
+47.7 Model Monitoring
+47.8 Data Drift
+47.9 Model Drift
+47.10 LLMOps
+47.11 LLM Evaluation
+47.12 RAG Monitoring
+47.13 Agent Monitoring
+47.14 Reproducibility
+
+Chapter 48 — AI System Design
+
+48.1 AI Architecture Design
+48.2 Scalability
+48.3 Reliability
+48.4 Availability
+48.5 Latency
+48.6 Throughput
+48.7 Distributed AI Systems
+48.8 Recommendation Systems
+48.9 Search Systems
+48.10 RAG Systems
+48.11 LLM Applications
+48.12 Multimodal Applications
+48.13 AI Agent Systems
+48.14 Cost Optimization
+
+---
+
+PART XII — RESEARCH METHODOLOGY
+
+Chapter 49 — Foundations of Scientific Research
+
+49.1 Nature of Scientific Research
+49.2 Research Questions
+49.3 Research Problems
+49.4 Hypothesis Formation
+49.5 Research Objectives
+49.6 Literature Review
+49.7 Research Gap Identification
+49.8 Research Contributions
+49.9 Research Methodology
+49.10 Experimental Design
+49.11 Scientific Reasoning
+49.12 Research Ethics
+
+Chapter 50 — AI Research Paper Analysis
+
+50.1 Structure of Research Papers
+50.2 Abstract Analysis
+50.3 Introduction Analysis
+50.4 Related Work
+50.5 Methodology Analysis
+50.6 Mathematical Derivations
+50.7 Experimental Evaluation
+50.8 Result Interpretation
+50.9 Limitations
+50.10 Reproducibility
+50.11 Critical Paper Review
+50.12 Identifying Research Opportunities
+
+Chapter 51 — Experimental Research in AI
+
+51.1 Dataset Selection
+51.2 Dataset Construction
+51.3 Baseline Models
+51.4 Experimental Variables
+51.5 Controlled Experiments
+51.6 Ablation Studies
+51.7 Hyperparameter Studies
+51.8 Statistical Significance
+51.9 Confidence Intervals
+51.10 Error Analysis
+51.11 Reproducibility
+51.12 Benchmark Evaluation
+
+Chapter 52 — Scientific Writing and Publication
+
+52.1 Academic Writing
+52.2 Research Paper Structure
+52.3 Literature Survey
+52.4 Mathematical Presentation
+52.5 Citation Management
+52.6 Reference Management
+52.7 LaTeX
+52.8 Figures and Tables
+52.9 Conference Publications
+52.10 Journal Publications
+52.11 Peer Review
+52.12 Research Presentation
+52.13 Thesis Writing
+52.14 Research Integrity
+
+---
+
+PART XIII — RESEARCH SPECIALIZATION
+
+Chapter 53 — Advanced Machine Learning Research
+
+53.1 Novel Learning Algorithms
+53.2 Generalization Research
+53.3 Optimization Research
+53.4 Representation Learning
+53.5 Robust Learning
+53.6 Continual Learning
+53.7 Few-Shot Learning
+53.8 Domain Generalization
+53.9 Distribution Shift
+53.10 Novel ML Architectures
+
+Chapter 54 — Advanced Deep Learning Research
+
+54.1 Neural Network Theory
+54.2 Expressivity of Neural Networks
+54.3 Neural Tangent Kernels
+54.4 Double Descent
+54.5 Implicit Regularization
+54.6 Loss Landscape Analysis
+54.7 Optimization Dynamics
+54.8 Neural Scaling Laws
+54.9 Representation Geometry
+54.10 Advanced Architecture Research
+
+Chapter 55 — Advanced Generative AI Research
+
+55.1 Diffusion Model Theory
+55.2 Score-Based Generative Models
+55.3 Flow Matching
+55.4 Autoregressive Generation
+55.5 Generative Model Evaluation
+55.6 Controllable Generation
+55.7 Long-Context Modelling
+55.8 Reasoning Models
+55.9 Efficient LLM Architectures
+55.10 Mixture of Experts
+55.11 Multimodal Generation
+55.12 Generative Model Safety
+
+Chapter 56 — Advanced Research in AI Agents
+
+56.1 Agent Planning Theory
+56.2 Agent Reasoning
+56.3 Memory Architectures
+56.4 Tool-Use Learning
+56.5 Agent Collaboration
+56.6 Long-Horizon Reasoning
+56.7 Autonomous Research Systems
+56.8 Agent Benchmark Design
+56.9 Agent Reliability
+56.10 Agent Alignment
+
+---
+
+PART XIV — RESEARCH PROJECTS AND DOCTORAL DEVELOPMENT
+
+Chapter 57 — Practical AI Research
+
+57.1 Reproducing Published Research
+57.2 Implementing Research Algorithms
+57.3 Benchmarking Existing Models
+57.4 Designing Novel Experiments
+57.5 Dataset Creation
+57.6 Baseline Comparison
+57.7 Ablation Studies
+57.8 Performance Analysis
+57.9 Statistical Validation
+57.10 Research Documentation
+
+Chapter 58 — Advanced Research Projects
+
+58.1 Novel Machine Learning Algorithm
+58.2 Novel Deep Learning Architecture
+58.3 Advanced Transformer Architecture
+58.4 Efficient LLM Training
+58.5 Improved RAG Architecture
+58.6 Advanced AI Agent Architecture
+58.7 Causal Machine Learning
+58.8 Explainable AI Framework
+58.9 Privacy-Preserving AI
+58.10 Robust AI Systems
+
+Chapter 59 — PhD Research Proposal and Thesis
+
+59.1 Research Area Selection
+59.2 Research Problem Identification
+59.3 Research Gap
+59.4 Research Hypothesis
+59.5 Research Objectives
+59.6 Proposed Methodology
+59.7 Theoretical Contributions
+59.8 Experimental Contributions
+59.9 Expected Outcomes
+59.10 Research Proposal Writing
+59.11 Thesis Development
+59.12 Dissertation Defence
+
+---
+
+FINAL LEARNING OBJECTIVES
+
+After completing this syllabus, the student should be capable of:
+
+1. Understanding the theoretical foundations of Artificial Intelligence.
+2. Deriving mathematical formulations of AI algorithms.
+3. Analysing computational complexity.
+4. Understanding statistical learning theory.
+5. Designing and implementing machine learning algorithms.
+6. Developing advanced deep learning architectures.
+7. Understanding transformer and LLM internals.
+8. Designing generative AI systems.
+9. Developing reinforcement learning algorithms.
+10. Researching causal and explainable AI.
+11. Designing autonomous and multi-agent systems.
+12. Evaluating AI models scientifically.
+13. Reading and critically analysing research papers.
+14. Identifying unsolved research problems.
+15. Reproducing published research.
+16. Designing novel algorithms and architectures.
+17. Conducting statistically valid experiments.
+18. Writing research publications.
+19. Developing an original PhD research contribution.
+20. Preparing and defending a doctoral thesis.
+
+END OF PhD-LEVEL ARTIFICIAL INTELLIGENCE SYLLABUS
